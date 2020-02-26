@@ -37,20 +37,6 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/mods/STSLib.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>com.evacipated.cardcrawl</groupId>
-            <artifactId>mts-launcher</artifactId>
-            <version>3.13.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../lib/mts-launcher.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>GifTheSpire</groupId>
-            <artifactId>GifTheSpireLib</artifactId>
-            <version>1.0.5</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../lib/mods/GifTheSpireLib.jar</systemPath>
-        </dependency>
     </dependencies>
 
     <build>

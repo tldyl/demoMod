@@ -18,6 +18,7 @@ import demoMod.interfaces.PostReloadSubscriber;
 import demoMod.monsters.Decoy;
 import demoMod.powers.ChanceBulletsPower;
 import demoMod.powers.GunslingerPower;
+import demoMod.powers.SlingerPower;
 import demoMod.relics.CrisisStone;
 import demoMod.sounds.DemoSoundMaster;
 
@@ -94,12 +95,12 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             }
         } else if (this.capacity == 0 && !redirected) {
             if (!p.hasRelic("DemoMod:HipHolster")
-                    && !p.hasPower(GunslingerPower.POWER_ID)
+                    && !p.hasPower(SlingerPower.POWER_ID)
                     && !this.cardID.equals(DemoMod.makeID("DirectionalPad"))) {
                 this.target = CardTarget.NONE;
             }
         }
-        if (!isReload || p.hasRelic("DemoMod:HipHolster") || p.hasPower(GunslingerPower.POWER_ID)) {
+        if (!isReload || p.hasRelic("DemoMod:HipHolster") || p.hasPower(SlingerPower.POWER_ID)) {
             this.returnToHand = (this.isSemiAutomatic || this.isSemiAutomaticForTurn) && this.costForTurn > 0;
             if (!this.returnToHand) {
                 this.isSemiAutomaticForTurn = false;
@@ -107,7 +108,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             fire(p, m);
             if (isReload && p.hasRelic("DemoMod:HipHolster")) {
                 p.getRelic("DemoMod:HipHolster").flash();
-                if (!p.hasPower(GunslingerPower.POWER_ID)) {
+                if (!p.hasPower(SlingerPower.POWER_ID)) {
                     DemoSoundMaster.playA(this.reloadSoundKey, 0F);
                     isReload = false;
                 }
