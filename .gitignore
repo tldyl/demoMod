@@ -26,4 +26,21 @@ target/
 *.jar
 sendToDevs/
 src/test/
+.idea/
 *.lnk
+.idea/vcs.xml
+AbstractAnimation.java
+AbstractGIFCard.java
+AnimationLoader.java
+AnimationPatch.java
+build.bat
+debug.bat
+GifAnimation.java
+GifCardPatch.java
+GifDecoder.java
+run.bat
+src.rar
+Todo list.txt
+更新日志.txt
+机智大鼠行动规律.txt
+角色卡牌.xls

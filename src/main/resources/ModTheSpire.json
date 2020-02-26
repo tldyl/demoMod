@@ -2,8 +2,8 @@
   "modid": "GungeonMod",
   "name": "GungeonMod",
   "author_list": ["Temple9"],
-  "description": "枪牢尖塔，目前在开发阶段，已有48遗物100张牌2药水，一个新角色（地牢猎人）。 \n 新机制：组合、偷窃。新机制的框架大体上已开发完成，后期会加入新敌人甚至新场景。 \n 如果击败了拟身怪，不要sl，否则会卡关，这个bug应该是没法修复了。",
-  "dependencies": ["basemod"],
+  "description": "枪牢尖塔，目前人物的所有卡牌已制作完毕 \n后续可能还会加入一些新内容(有生之年系列) \nmod项目已经开源： https://github.com/tldyl/demoMod \n这个mod引用了宝箱怪mod中的内容(宝箱怪mod作者：Blank The Evil、The_Evil_Pickle) \n如果击败了宝箱怪，不要sl，否则会卡关，这个bug应该是没法修复了。",
+  "dependencies": ["basemod", "stslib"],
   "version": "1.2.10",
   "sts_version": "01-21-2020",
   "update_json": ""
