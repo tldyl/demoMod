@@ -1,0 +1,444 @@
+{
+  "DemoMod:Strike_Huntress": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "DemoMod:Defend_Huntress": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "DemoMod:Invincible": {
+    "NAME": "坚不可摧",
+    "DESCRIPTION": "你每回合最多只会失去 !M! 点生命。"
+  },
+  "DemoMod:Spice": {
+    "NAME": "香料",
+    "DESCRIPTION": "失去2点最大生命，获得 !M! 点 力量 ，抽1张牌。这张牌每打出一次，就增加这张牌出现在卡牌奖励界面的概率。 NL 消耗 。"
+  },
+  "DemoMod:BlackBlade": {
+    "NAME": "黑刃",
+    "DESCRIPTION": "造成 !D! 点伤害，给予未被格挡伤害点数的 NL 黑刃气 。"
+  },
+  "DemoMod:WhiteBlade": {
+    "NAME": "白刃",
+    "DESCRIPTION": "造成 !D! 点伤害，给予未被格挡伤害点数的 NL 白刃气 。"
+  },
+  "DemoMod:BSG": {
+    "NAME": "大射机枪",
+    "DESCRIPTION": "枪 。 造成 !D! 点伤害。如果这张牌造成的伤害未被敌人完全 格挡 ，则对所有敌人再造成 !D! 点伤害。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:BalloonGun": {
+    "NAME": "气球枪",
+    "DESCRIPTION": "枪 。 造成 !D! 点伤害3次。抽到这张牌时，获得 飞行 。当你在战斗中失去生命时，这张牌会自动 NL 消耗 。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:RustySidearm": {
+    "NAME": "生锈的配枪",
+    "DESCRIPTION": "枪 。 造成 !D! 点伤害。 NL 半自动 。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:ManualReload": {
+    "NAME": "切换",
+    "DESCRIPTION": "从 弃牌堆 中选择一张是 枪 的牌， 填装 它的 弹夹 并放入手牌。",
+    "UPGRADE_DESCRIPTION": "从 抽牌堆 、 弃牌堆 中选择一张是 枪 的牌， 填装 它的 弹夹 并放入手牌。"
+  },
+  "DemoMod:CrossBow": {
+    "NAME": "十字弩",
+    "DESCRIPTION": "枪 。 造成 !D! 点伤害。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:TableSutra": {
+    "NAME": "桌经",
+    "DESCRIPTION": "在每回合的开始，将一张随机 桌技 牌放入手牌。"
+  },
+  "DemoMod:TableTechSight": {
+    "NAME": "桌技:视域",
+    "DESCRIPTION": "获得 !B! 点 格挡 。在这个回合，你打出的下一张 枪 牌将打出两次。 NL 虚无 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。在这个回合，你打出的下两张 枪 牌将打出两次。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechMoney": {
+    "NAME": "桌技:金钱",
+    "DESCRIPTION": "获得 !B! 点 格挡 。获得 !M! 金币 。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechRocket": {
+    "NAME": "桌技:火箭",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechShotgun": {
+    "NAME": "桌技:霰弹枪",
+    "DESCRIPTION": "获得 !B! 点 格挡 。对随机敌人造成 !D! 点伤害 !M! 次。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechHeat": {
+    "NAME": "桌技:灼热",
+    "DESCRIPTION": "获得 !B! 点 格挡 。在你每个回合结束时对所有敌人造成 !M! 点伤害。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechRage": {
+    "NAME": "桌技:愤怒",
+    "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 点 力量 。在你的回合结束时，失去 !M! 点 力量 。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechBlanks": {
+    "NAME": "桌技:空响弹",
+    "DESCRIPTION": "获得 !B! 点 格挡 。房间内每有一名敌人，就额外获得 !M! 点 格挡 。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TableTechStun": {
+    "NAME": "桌技:眩晕",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 击晕 所有非boss敌人一回合。 NL 虚无 。 消耗 。"
+  },
+  "DemoMod:TripleGun": {
+    "NAME": "枪神",
+    "DESCRIPTION": "枪 。 弹夹 为3：造成 !D! 点伤害。 弹夹 为2：造成 !D! 点伤害2次。 弹夹 为1： 对所有敌人造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。",
+    "EXTENDED_DESCRIPTION": [
+      "枪 。 弹夹 为3：造成 ",
+      " 点伤害。 弹夹 为2：造成 ",
+      " 点伤害2次。 弹夹 为1： 对所有敌人造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。"
+    ]
+  },
+  "DemoMod:FinishedGun": {
+    "NAME": "完成之枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 弹夹 为1：造成的伤害增加 !DemoModExtraDamage! ，再造成这名敌人想要对你造成伤害点数的伤害。 半自动 。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:HighKaliber": {
+    "NAME": "至高卡里波尔",
+    "DESCRIPTION": "枪 。给予 !M! 层 灵魂出窍 。造成 !D! 点伤害。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:SAA": {
+    "NAME": "柯尔特单动左轮",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 装填 这张牌时，抽 !M! 张牌。 半自动 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Behold!": {
+    "NAME": "锁定!",
+    "DESCRIPTION": "获得 [E] 。从抽牌堆、弃牌堆中选择任意张是 枪 的牌放入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。从抽牌堆、弃牌堆中选择任意张是 枪 的牌放入手牌。 消耗 。"
+  },
+  "DemoMod:Roll": {
+    "NAME": "翻滚",
+    "DESCRIPTION": "获得 !B! 点 格挡 。从手牌中选择一张牌进行 装填 。"
+  },
+  "DemoMod:Unity": {
+    "NAME": "统一",
+    "DESCRIPTION": "造成 !D! 点伤害。 战斗牌组中每有一张是 枪 的牌，伤害增加 !M! 。"
+  },
+  "DemoMod:FastSwitch": {
+    "NAME": "快速拔枪",
+    "DESCRIPTION": "抽一张牌。查看抽牌堆顶部的一张牌。如果这张牌是 枪 ，可以将它放入手牌。",
+    "UPGRADE_DESCRIPTION": "抽一张牌。从抽牌堆中选择一张是 枪 的牌放入手牌。"
+  },
+  "DemoMod:DoubleSwitch": {
+    "NAME": "双手换弹",
+    "DESCRIPTION": "从手牌中选择至多两张牌进行 装填 。"
+  },
+  "DemoMod:StickyCrossBow": {
+    "NAME": "黏性十字弩",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。给予 !M! 层 爆炸箭镞 。 半自动 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:RadGun": {
+    "NAME": "拉德枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在 弹夹 为满时 填装 ，这张牌的基础伤害翻倍，否则重置基础伤害。 NL 弹夹 !DemoModCapacity! 。",
+    "UPGRADE_DESCRIPTION": "枪 。造成 !D! 点伤害。如果在 弹夹 为满或为2时 填装 ，这张牌的基础伤害翻倍，否则重置基础伤害。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Rummage": {
+    "NAME": "翻找",
+    "DESCRIPTION": "抽4张牌。丢弃抽到的不是 枪 的牌。",
+    "UPGRADE_DESCRIPTION": "抽4张牌。丢弃抽到的不是 枪 的牌。 NL 从弃牌堆中选择一张牌放入手牌。"
+  },
+  "DemoMod:Eureka": {
+    "NAME": "找到了!",
+    "DESCRIPTION": "抽牌 直到抽到 !M! 把 枪 。 消耗 。"
+  },
+  "DemoMod:FightSabre": {
+    "NAME": "军刀",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。这张牌被 装填 时，获得 !B! 点 格挡 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Gungine": {
+    "NAME": "喷气式枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次 NL 。 消耗 手牌中所有的 诅咒 和 状态 牌。这张牌被 装填 时，获得 [E] 。 NL 弹夹 !DemoModCapacity! 。",
+    "UPGRADE_DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次 NL 。 消耗 手牌中所有的 诅咒 和 状态 牌。这张牌被 装填 时，获得 [E] [E] 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:EasyReloadBullets": {
+    "NAME": "易装子弹",
+    "DESCRIPTION": "你每打出一张 技能牌 ，就为手牌中的随机一把 枪 回复一层 弹夹 NL (不会触发 装填 )。",
+    "UPGRADE_DESCRIPTION": "固有 。 你每打出一张 技能牌 ，就为手牌中的随机一把 枪 回复一层 弹夹 (不会触发 装填 )。"
+  },
+  "DemoMod:PotionOfGunFriendShip": {
+    "NAME": "枪之友谊药水",
+    "DESCRIPTION": "在本场战斗 升级 你手牌中的所有 枪 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "在本场战斗 升级 你的所有 枪 。 消耗 。"
+  },
+  "DemoMod:DoubleVision": {
+    "NAME": "复视",
+    "DESCRIPTION": "在这个回合，你的下一把 枪 将打出两次。",
+    "UPGRADE_DESCRIPTION": "在这个回合，你的下 !M! 把 枪 将打出两次。"
+  },
+  "DemoMod:ChanceBullets": {
+    "NAME": "机会子弹",
+    "DESCRIPTION": "你打出的每一把 枪 的攻击效果都有 !M! %的概率替换为你所拥有的随机另一把 枪 的效果。",
+    "UPGRADE_DESCRIPTION": "你打出的每一把 枪 的攻击效果都有 !M! %的概率附加上你所拥有的随机另一把 枪 的效果。"
+  },
+  "DemoMod:SkilledReload": {
+    "NAME": "熟练装填",
+    "DESCRIPTION": "你每进行一次 装填 ，抽一张牌。"
+  },
+  "DemoMod:Slinger": {
+    "NAME": "甩枪术",
+    "DESCRIPTION": "所有的 枪 在 弹夹 为空时打出仍能造成伤害。 所有的 枪 在 弹夹 为空时打出会被 消耗 。"
+  },
+  "DemoMod:SpreadAmmo": {
+    "NAME": "弹药包",
+    "DESCRIPTION": "装填 你的所有 枪 。 消耗 。"
+  },
+  "DemoMod:CursedBullets": {
+    "NAME": "诅咒子弹",
+    "DESCRIPTION": "获得等同于你 诅咒值 点数一半的 力量 。",
+    "UPGRADE_DESCRIPTION": "固有 。获得等同于你 诅咒值 点数一半的 力量 。"
+  },
+  "DemoMod:ShadowBullets": {
+    "NAME": "阴影子弹",
+    "DESCRIPTION": "所有的 枪 有 !M! %的概率打出两次。"
+  },
+  "DemoMod:BattleInHaste": {
+    "NAME": "仓促应战",
+    "DESCRIPTION": "将抽牌堆的随机一把 枪 放入手牌。",
+    "UPGRADE_DESCRIPTION": "将抽牌堆的随机 !M! 把 枪 放入手牌。"
+  },
+  "DemoMod:Casey": {
+    "NAME": "卡西",
+    "DESCRIPTION": "造成 !D! 点伤害。如果这张牌杀死了敌人，对随机另一名敌人造成溢出伤害 !M! 倍的伤害。"
+  },
+  "DemoMod:FullFirepower": {
+    "NAME": "火力全开",
+    "DESCRIPTION": "你的下一把 枪 将重复打出到 弹药 耗尽。 消耗 。",
+    "UPGRADE_DESCRIPTION": "你的下一把 枪 将重复打出到 弹药 耗尽。"
+  },
+  "DemoMod:BlankBullets": {
+    "NAME": "空响弹子弹",
+    "DESCRIPTION": "所有的 枪 有 !M! %的概率 击晕 敌人一回合。"
+  },
+  "DemoMod:HuntsMan": {
+    "NAME": "斧头枪",
+    "DESCRIPTION": "枪 。对随机敌人造成 !D! 点伤害4次。这张牌被 装填 时，获得 !B! 点 格挡 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:TeaPot": {
+    "NAME": "茶壶",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 弹夹 为1：造成的伤害增加 !DemoModExtraDamage! 。这张牌被 装填 时，获得 !M! 层 欧米伽 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Charge": {
+    "NAME": "蓄力",
+    "DESCRIPTION": "以蓄力方式打出此牌。(需要额外花费 [E] )。"
+  },
+  "DemoMod:NonCharge": {
+    "NAME": "不蓄力",
+    "DESCRIPTION": "以常规方式打出此牌。"
+  },
+  "DemoMod:MegaHand": {
+    "NAME": "洛克手炮",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 蓄力 ：造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。",
+    "EXTENDED_DESCRIPTION": [
+      "空中射手",
+      "泡沫铅",
+      "撞击轰炸机",
+      "时间限制器",
+      "原子火焰",
+      "叶子护盾",
+      "金属刀片",
+      "快速回旋镖",
+      "枪 。造成 !D! 点伤害 3 次。 弹夹 !DemoModCapacity! 。",
+      "",
+      "枪 。目标失去 !D! 点生命。在下回合 晕眩 这名敌人并对所有敌人造成 !D! 点伤害。切换回默认形态。 弹夹 !DemoModCapacity! 。",
+      "枪 。对所有敌人造成 !D! 点伤害。跳过所有敌人下回合的行动。切换回默认形态。 弹夹 !DemoModCapacity! 。"
+    ]
+  },
+  "DemoMod:PlatinumBullets": {
+    "NAME": "白金子弹",
+    "DESCRIPTION": "你每打出一张是 枪 的牌，就获得1点 力量 或1点 敏捷 。"
+  },
+  "DemoMod:ChaosBullets": {
+    "NAME": "混沌子弹",
+    "DESCRIPTION": "你每打出一张是 枪 的牌，都有 !M! %的概率给予敌人 1 层随机负面效果。"
+  },
+  "DemoMod:ConditionalReflex": {
+    "NAME": "条件反射",
+    "DESCRIPTION": "抽1张牌。进行 装填 时如果这张牌在弃牌堆，它会回到手牌。"
+  },
+  "DemoMod:JK47": {
+    "NAME": "JK-47",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。这张牌被 装填 时，给予所有敌人 !M! 层 虚弱 。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:SniperShot": {
+    "NAME": "冷枪",
+    "DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。"
+  },
+  "DemoMod:DirectionalPad": {
+    "NAME": "方向键",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在本场战斗打出的上一张牌是攻击牌，获得 !B! 点 格挡 。在 弹夹 为空时打出会在奖励界面增加一项随机奖励并将这张牌从你的卡组中移除。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Unmoved": {
+    "NAME": "不为所动",
+    "DESCRIPTION": "获得 !B! 点 格挡 。将打出的上一张攻击牌放入手牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。将打出的前 !M! 张攻击牌放入手牌。"
+  },
+  "DemoMod:DarkMarker": {
+    "NAME": "黑暗标志",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。 弹夹 !DemoModCapacity! 。",
+    "EXTENDED_DESCRIPTION": [
+      "枪 。对所有敌人造成 !D! X点伤害并击晕它们一回合。 消耗 。 满弹夹时 装填 可切换形态。 弹夹 !DemoModCapacity! 。",
+      "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。给予 红色标记 。 弹夹 !DemoModCapacity! 。",
+      "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。给予 蓝色标记 。 弹夹 !DemoModCapacity! 。"
+    ]
+  },
+  "DemoMod:StrategicReserve": {
+    "NAME": "战略储备",
+    "DESCRIPTION": "从手牌中选择两张牌放到抽牌堆顶。 NL 在下回合，获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "从手牌中选择任意张牌放到抽牌堆顶。 NL 在下回合，获得 [E] [E] 。"
+  },
+  "DemoMod:ProbeStrike": {
+    "NAME": "试探打击",
+    "DESCRIPTION": "造成 !D! 点伤害。如果这名敌人的意图不是攻击，获得 [E] 并抽一张牌，给予 !M! 层 易伤 ，否则获得 !B! 点 格挡 。"
+  },
+  "DemoMod:Evolver": {
+    "NAME": "进化枪",
+    "DESCRIPTION": "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+    "EXTENDED_DESCRIPTION": [
+      "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。"
+    ]
+  },
+  "DemoMod:MozambiqueDrill": {
+    "NAME": "近战枪技",
+    "DESCRIPTION": "你在单个回合内每打出 !M! 张是 枪 的牌，你的下一张牌造成的攻击伤害翻倍。"
+  },
+  "DemoMod:GunstockTap": {
+    "NAME": "枪托敲击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽一张牌。 NL 从手牌中选择 !M! 张是 枪 的牌进行 装填 。"
+  },
+  "DemoMod:AbyssalTentacle": {
+    "NAME": "深渊触手",
+    "DESCRIPTION": "枪 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 缠绕 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:LifeOrb": {
+    "NAME": "生命球",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次。 NL 如果这张牌杀死了敌人，这张牌在本局游戏下次 装填 时对所有敌人造成与杀死的所有敌人最大生命值之和相同点数的伤害。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Replace": {
+    "NAME": "更换",
+    "DESCRIPTION": "丢弃一张牌。 NL 从弃牌堆中选择一张牌放入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "丢弃一张牌。 NL 从弃牌堆中选择一张牌放入手牌。"
+  },
+  "DemoMod:FeignSurrender": {
+    "NAME": "诈降",
+    "DESCRIPTION": "丢弃所有攻击牌。 NL 抽被丢弃的牌的数量张牌。",
+    "UPGRADE_DESCRIPTION": "丢弃所有攻击牌。 NL 抽被丢弃的牌的数量张牌。最少抽2张牌。"
+  },
+  "DemoMod:ThirdPartyController": {
+    "NAME": "第三方手柄",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 如果目标不是boss， 控制 这个敌人。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Flaw": {
+    "NAME": "破绽",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时，获得一层 易伤 。 虚无 。"
+  },
+  "DemoMod:RatTrap": {
+    "NAME": "老鼠的陷阱",
+    "DESCRIPTION": "不能被打出 。回合结束时如果你在本回合打出过攻击牌，受到 !M! 点伤害并将一张 *晕眩 加入抽牌堆，然后 消耗 。"
+  },
+  "DemoMod:AWP": {
+    "NAME": "狙击枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 当这是你手牌中的唯一一把 枪 时，这张牌造成的伤害翻倍。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Purify": {
+    "NAME": "纯化",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，从牌组中选择一张牌和这张牌一起移除。 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，从牌组中选择一张牌和这张牌一起移除。"
+  },
+  "DemoMod:Deposit": {
+    "NAME": "定期储蓄",
+    "DESCRIPTION": "在本场战斗第 !M! 次抽到这张牌时，获得30金币并 消耗 这张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "(已抽到这张牌",
+      "次。)"
+    ]
+  },
+  "DemoMod:PracticeMakesPerfect": {
+    "NAME": "熟能生巧",
+    "DESCRIPTION": "每进行一次 装填 ，这张牌在本场战斗的耗能减少 [E] 。抽 !M! 张牌。"
+  },
+  "DemoMod:BulletBore": {
+    "NAME": "钻头枪",
+    "DESCRIPTION": "枪 。目标失去 !D! 点生命。在下回合 晕眩 这名敌人并对所有敌人造成 !D! 点伤害 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:GunslingerForm": {
+    "NAME": "枪手形态",
+    "DESCRIPTION": "所有 装填 时触发的效果 NL 现在也可以由打出 枪 时触发。 虚无 。",
+    "UPGRADE_DESCRIPTION": "所有 装填 时触发的效果 NL 现在也可以由打出 枪 时触发。"
+  },
+  "DemoMod:Elimentaler": {
+    "NAME": "滋补者",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 给予 !M! 层 凝固 。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:EatIt": {
+    "NAME": "吃掉它！",
+    "DESCRIPTION": "选择秒杀一个非boss敌人或对一个boss敌人造成40点伤害。"
+  },
+  "DemoMod:Ejector": {
+    "NAME": "退弹器",
+    "DESCRIPTION": "从手牌中选择至多一张是 枪 的牌，将其 弹夹 变为0。",
+    "UPGRADE_DESCRIPTION": "从手牌中选择任意张是 枪 的牌，将其 弹夹 变为0。"
+  },
+  "DemoMod:GunShield": {
+    "NAME": "枪盾",
+    "DESCRIPTION": "获得 !B! 点 格挡 。手牌中每有一把 枪 ，获得 !B! 点 格挡 一次。"
+  },
+  "DemoMod:AC15": {
+    "NAME": "AC-15",
+    "DESCRIPTION": "枪。 造成 !D! 点伤害。 NL 失去所有 格挡 。这张牌在本场战斗的伤害增加失去的 格挡 值。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:OldTrick": {
+    "NAME": "故技重施",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将打出的上一张技能牌放入手牌。"
+  },
+  "DemoMod:ZorGun": {
+    "NAME": "佐尔枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 这张牌被 装填 时，打出抽牌堆顶的 !M! 张牌并将此牌的耗能增加 [E] 。 NL 这张牌进入弃牌堆时，耗能减少 [E] 。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Desperate": {
+    "NAME": "孤注一掷",
+    "DESCRIPTION": "抽 !M! 张牌。每抽到一把 枪 ，获得 [E] 。"
+  },
+  "DemoMod:Camera": {
+    "NAME": "照相机",
+    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。 弹夹 为1：击晕所有敌人一回合。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:BlackHoleGun": {
+    "NAME": "黑洞枪",
+    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。所有人失去 !M! 点力量一回合。 清空弃牌堆中所有 枪 的 弹夹 。 NL 将一张 *虚空 放入弃牌堆。 NL 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:Polaris": {
+    "NAME": "北极星",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。每打出两次就在本局游戏内提升一个等级(最高为3级)。你每受到一次伤害就在本局游戏内降低一个等级。 弹夹 !DemoModCapacity! 。",
+    "UPGRADE_DESCRIPTION": "枪 。 半自动 。造成 !D! 点伤害。每打出两次就在本局游戏内提升一个等级(最高为3级)。你每受到一次伤害就在本局游戏内降低一个等级。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:SuppressiveFire": {
+    "NAME": "火力压制",
+    "DESCRIPTION": "在这个回合将手牌中的一把 枪 变为 半自动 。",
+    "UPGRADE_DESCRIPTION": "在这个回合将手牌中的所有 枪 变为 半自动 。"
+  },
+  "DemoMod:FortunesFavor": {
+    "NAME": "财富的青睐",
+    "DESCRIPTION": "获得所有敌人想对你造成伤害点数总和一半的 格挡 。"
+  },
+  "DemoMod:BoxingGlove": {
+    "NAME": "拳击手套",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。 斩杀 时，获得一个标记(最多3个)。 NL 蓄力 ：消耗所有标记，每消耗一个基础伤害翻倍。 弹夹 !DemoModCapacity! 。"
+  },
+  "DemoMod:MachoBrace": {
+    "NAME": "强制锻炼器",
+    "DESCRIPTION": "获得 !B! 点 格挡 。从手牌中选择一张牌进行 装填 。你打出的下一张攻击牌伤害增加 !M! 。"
+  },
+  "DemoMod:CombinedRifle": {
+    "NAME": "组合步枪",
+    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次。 装填 以切换形态。 弹夹 !DemoModCapacity! 。",
+    "EXTENDED_DESCRIPTION": [
+      "枪 。造成 !D! 点伤害。 装填 以切换形态。 弹夹 !DemoModCapacity! 。"
+    ]
+  }
+}

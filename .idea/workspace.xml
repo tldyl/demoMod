@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f716ad67-caec-47a7-8aa2-76ea684a2fab" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DemoMod.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/DemoMod.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1546">
+              <caret line="225" column="44" lean-forward="true" selection-start-line="225" selection-start-column="44" selection-end-line="225" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CombinedRifle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/CombinedRifle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+              <folding>
+                <element signature="e#2103#2104#0" expanded="true" />
+                <element signature="e#2127#2128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="更新日志.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/更新日志.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourcefulRat.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/monsters/ResourcefulRat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3220">
+              <caret line="389" column="60" lean-forward="true" selection-start-line="389" selection-start-column="60" selection-end-line="389" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractPlayerPatch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/patches/AbstractPlayerPatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3189">
+              <caret line="244" column="13" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
+              <folding>
+                <element signature="e#3819#3820#0" expanded="true" />
+                <element signature="e#3861#3862#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Arquillian JUnit Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../overlap2d-0.1.0" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/BlackHoleGun.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/relics/Armor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/ThirdPartyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/effects/BulletSprayEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/ZorGun.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/effects/BulletWaveEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/powers/BulletSprayPower.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/relics/GlassGuonStoneRelic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/dto/PolarisData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/effects/BigBoyBlastEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/RustySidearm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/StickyCrossBow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/actions/SuppressiveFire.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-UIStrings.json" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/powers/SniperWoofPower.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-PowerStrings.json" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/actions/SuppressiveFireAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/powers/SuppressiveFirePower.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Polaris.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/AbstractGunCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/DirectionalPad.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/SAA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/relics/HipHolster.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/patches/AbstractDungeonPatch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/FinishedGun.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/SuppressiveFire.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ModTheSpire.json" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/FortunesFavor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/monsters/Gunsinger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/dto/BoxingGloveData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/actions/BoxingGloveAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/interfaces/ChargeCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/BoxingGlove.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/MegaHand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Evolver.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-RelicStrings.json" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/relics/MeltedRock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/MachoBrace.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/interfaces/MultiAttackCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/DynamicVaribles/MultiAttack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Gungine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/LifeOrb.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/DemoMod.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/actions/PlaySoundAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/sounds/DemoSoundMaster.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-CardStrings.json" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/cards/guns/CombinedRifle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/patches/AbstractPlayerPatch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/demoMod/monsters/ResourcefulRat.java" />
+        <option value="$PROJECT_DIR$/更新日志.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1690" />
+    <option name="height" value="995" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="guns" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="DynamicVaribles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="monsters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="powers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="relics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="sounds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="zhs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="updateCardsOnDamage&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.characters.AbstractPlayer#updateCardsOnDamage&#10;take&#9;PSI&#9;JAVA://demoMod.monsters.Mouser#takeTurn&#10;changeB&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.audio.MusicMaster#changeBGM&#10;getSong&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.audio.TempMusic#getSong&#10;addTop&#9;PSI&#9;JAVA://basemod.BaseMod#addTopPanelItem&#10;loseRelic&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.characters.AbstractPlayer#loseRelic&#10;Tail&#9;FILE&#9;jar://D:/IdeaProjects/STSGuardianMod/lib/desktop-1.0.jar!/com/megacrit/cardcrawl/relics/LizardTail.class&#10;onUseCard&#9;FILE&#9;jar://D:/IdeaProjects/STSGuardianMod/lib/mods/StSLib.jar!/com/evacipated/cardcrawl/mod/stslib/patches/relicInterfaces/OnAfterUseCardPatch.class&#10;commonRelicChance&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.dungeons.AbstractDungeon#commonRelicChance&#10;returnRandomRelic&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.dungeons.AbstractDungeon#returnRandomRelicTier&#10;addRelicToRewards&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.rooms.AbstractRoom#addRelicToRewards&#10;addPotionToRewards&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.rooms.AbstractRoom#addPotionToRewards&#10;randomPotion&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.characters.AbstractPlayer#getRandomPotion&#10;addPotionTo&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.rooms.AbstractRoom#addPotionToRewards&#10;EndTurnAction&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.actions.common.DiscardAtEndOfTurnAction&#10;calculateCard&#9;PSI&#9;JAVA://demoMod.cards.Unity#calculateCardDamage&#10;calcu&#9;PSI&#9;JAVA://basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.CalculateCardDamage&#10;purchase&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.shop.StorePotion#purchasePotion&#10;getAnnotations&#9;PSI&#9;JAVA://com.google.gson.FieldAttributes#getAnnotations&#10;loadPlayer&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.core.CardCrawlGame#loadPlayerSave&#10;getRew&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.dungeons.AbstractDungeon#getRewardCards&#10;getReward&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.dungeons.AbstractDungeon#getRewardCards&#10;cardInUse&#9;PSI&#9;JAVA://com.megacrit.cardcrawl.characters.AbstractPlayer#cardInUse" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../StSModdingToolCardImagesCreator-master" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="demoMod.monsters" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\cards" />
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\mazeScene" />
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\char" />
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\charSelect" />
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\1024" />
+      <recent name="D:\IdeaProjects\STSGuardianMod\demoMod\src\main\resources\DemoImages\512" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="demoMod.powers" />
+      <recent name="demoMod.cards.optionCards" />
+      <recent name="demoMod.actions" />
+      <recent name="demoMod.patches" />
+      <recent name="demoMod.cards" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="demoMod.utils" />
+      <recent name="demoMod.cards" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Batch.build">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="build" type="BatchConfigurationType" factoryName="Batch">
+      <module name="demoMod" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="build.bat" />
+      <option name="PARAMETERS" value="" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="debug" type="BatchConfigurationType" factoryName="Batch">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="debug.bat" />
+      <option name="PARAMETERS" value="" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="run" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="demoMod" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="run.bat" />
+      <option name="PARAMETERS" value="" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="debug" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method>
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="debug" run_configuration_type="BatchConfigurationType" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Batch.debug" />
+      <item itemvalue="Batch.build" />
+      <item itemvalue="Remote.debug" />
+      <item itemvalue="Batch.run" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Batch.run" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f716ad67-caec-47a7-8aa2-76ea684a2fab" name="Default" comment="" />
+      <created>1568196310149</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568196310149</updated>
+      <workItem from="1568196314645" duration="12316000" />
+      <workItem from="1568248691690" duration="29669000" />
+      <workItem from="1568334993148" duration="7416000" />
+      <workItem from="1568349267895" duration="27144000" />
+      <workItem from="1568421151966" duration="35683000" />
+      <workItem from="1568513310186" duration="29036000" />
+      <workItem from="1568613805257" duration="32489000" />
+      <workItem from="1568710970847" duration="14620000" />
+      <workItem from="1568779354471" duration="9053000" />
+      <workItem from="1568963407872" duration="12720000" />
+      <workItem from="1568988706763" duration="4636000" />
+      <workItem from="1569027537323" duration="31206000" />
+      <workItem from="1569122229417" duration="23104000" />
+      <workItem from="1569205492431" duration="33682000" />
+      <workItem from="1569315130488" duration="13681000" />
+      <workItem from="1569388183984" duration="21730000" />
+      <workItem from="1569461531590" duration="10999000" />
+      <workItem from="1569487764040" duration="19860000" />
+      <workItem from="1569557123716" duration="31605000" />
+      <workItem from="1569636029287" duration="31862000" />
+      <workItem from="1569719249661" duration="34491000" />
+      <workItem from="1569815605992" duration="14867000" />
+      <workItem from="1569894184783" duration="6356000" />
+      <workItem from="1569920856741" duration="17721000" />
+      <workItem from="1569973726104" duration="36158000" />
+      <workItem from="1570061427176" duration="6098000" />
+      <workItem from="1570069452983" duration="24834000" />
+      <workItem from="1570147505781" duration="30608000" />
+      <workItem from="1570189985053" duration="6970000" />
+      <workItem from="1570234534251" duration="39671000" />
+      <workItem from="1570320078017" duration="36165000" />
+      <workItem from="1570407658297" duration="12055000" />
+      <workItem from="1570429923611" duration="3969000" />
+      <workItem from="1570444184408" duration="9769000" />
+      <workItem from="1570493994603" duration="14636000" />
+      <workItem from="1570594757996" duration="17912000" />
+      <workItem from="1570670747455" duration="21507000" />
+      <workItem from="1570753040946" duration="1483000" />
+      <workItem from="1570767939675" duration="18914000" />
+      <workItem from="1570843464555" duration="15659000" />
+      <workItem from="1570867452377" duration="16623000" />
+      <workItem from="1570928207700" duration="32735000" />
+      <workItem from="1571021959765" duration="5826000" />
+      <workItem from="1571066093177" duration="872000" />
+      <workItem from="1571066992721" duration="84000" />
+      <workItem from="1571143513961" duration="8934000" />
+      <workItem from="1571200204086" duration="22483000" />
+      <workItem from="1571277001387" duration="9467000" />
+      <workItem from="1571302266138" duration="20184000" />
+      <workItem from="1571371199717" duration="21503000" />
+      <workItem from="1571446196664" duration="28850000" />
+      <workItem from="1571541131138" duration="32237000" />
+      <workItem from="1571621745084" duration="27533000" />
+      <workItem from="1571704279395" duration="17233000" />
+      <workItem from="1571807713153" duration="26539000" />
+      <workItem from="1571880225844" duration="10816000" />
+      <workItem from="1571998700956" duration="4993000" />
+      <workItem from="1572054489122" duration="23718000" />
+      <workItem from="1572143870864" duration="20919000" />
+      <workItem from="1572228932042" duration="22520000" />
+      <workItem from="1572357759309" duration="1702000" />
+      <workItem from="1572410459099" duration="30520000" />
+      <workItem from="1572480632574" duration="14011000" />
+      <workItem from="1572604915280" duration="9822000" />
+      <workItem from="1572655215578" duration="28015000" />
+      <workItem from="1572745432682" duration="13521000" />
+      <workItem from="1572768470661" duration="26960000" />
+      <workItem from="1572827784856" duration="42454000" />
+      <workItem from="1572916292866" duration="15755000" />
+      <workItem from="1573013109509" duration="24838000" />
+      <workItem from="1573095509787" duration="22151000" />
+      <workItem from="1573190776937" duration="4659000" />
+      <workItem from="1573304764433" duration="10132000" />
+      <workItem from="1573353784839" duration="29108000" />
+      <workItem from="1573431814744" duration="4677000" />
+      <workItem from="1573468993322" duration="4236000" />
+      <workItem from="1573521745625" duration="12543000" />
+      <workItem from="1573645636726" duration="1870000" />
+      <workItem from="1573724463877" duration="7915000" />
+      <workItem from="1573982366019" duration="10819000" />
+      <workItem from="1574070685904" duration="3144000" />
+      <workItem from="1574331507045" duration="11084000" />
+      <workItem from="1574490915013" duration="11490000" />
+      <workItem from="1574570639366" duration="12163000" />
+      <workItem from="1574650871546" duration="8411000" />
+      <workItem from="1575966690229" duration="9964000" />
+      <workItem from="1576054860834" duration="14222000" />
+      <workItem from="1576378259586" duration="24972000" />
+      <workItem from="1576468752078" duration="6863000" />
+      <workItem from="1576552958199" duration="21905000" />
+      <workItem from="1576639801868" duration="30732000" />
+      <workItem from="1576720205508" duration="21137000" />
+      <workItem from="1576824968052" duration="10057000" />
+      <workItem from="1576895622462" duration="27552000" />
+      <workItem from="1576991378397" duration="6254000" />
+      <workItem from="1577025052447" duration="5254000" />
+      <workItem from="1577069648229" duration="14579000" />
+      <workItem from="1577156225736" duration="13185000" />
+      <workItem from="1577242993813" duration="9329000" />
+      <workItem from="1577412591591" duration="9378000" />
+      <workItem from="1577510103266" duration="13056000" />
+      <workItem from="1577689937978" duration="12777000" />
+      <workItem from="1577779101159" duration="7769000" />
+      <workItem from="1578032134002" duration="22132000" />
+      <workItem from="1578113860353" duration="745000" />
+      <workItem from="1578792941434" duration="13605000" />
+      <workItem from="1578838168992" duration="853000" />
+      <workItem from="1578890241066" duration="5240000" />
+      <workItem from="1578921913401" duration="1169000" />
+      <workItem from="1579152578085" duration="8500000" />
+      <workItem from="1579179500436" duration="2867000" />
+      <workItem from="1579226464744" duration="19774000" />
+      <workItem from="1579313576566" duration="7855000" />
+      <workItem from="1579341928771" duration="3458000" />
+      <workItem from="1579411603463" duration="5001000" />
+      <workItem from="1579435770765" duration="3803000" />
+      <workItem from="1579488646965" duration="29994000" />
+      <workItem from="1579571126852" duration="29357000" />
+      <workItem from="1579670971442" duration="10533000" />
+      <workItem from="1579769175059" duration="2974000" />
+      <workItem from="1580216335402" duration="1373000" />
+      <workItem from="1580465628325" duration="3459000" />
+      <workItem from="1580787039155" duration="15459000" />
+      <workItem from="1581073919388" duration="2114000" />
+      <workItem from="1581306023482" duration="3878000" />
+      <workItem from="1581334475644" duration="3490000" />
+      <workItem from="1581565877931" duration="9050000" />
+      <workItem from="1581747686425" duration="12000000" />
+      <workItem from="1581908441685" duration="16185000" />
+      <workItem from="1581990792163" duration="25543000" />
+      <workItem from="1582078626895" duration="23118000" />
+      <workItem from="1582178959296" duration="14173000" />
+      <workItem from="1582255021053" duration="14898000" />
+      <workItem from="1582424258537" duration="12254000" />
+      <workItem from="1582450274297" duration="6945000" />
+      <workItem from="1582512224101" duration="13787000" />
+      <workItem from="1582598329745" duration="14974000" />
+      <workItem from="1582685234019" duration="8171000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2146139000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.43815103" side_tool="true" weight="0.29822162" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.56184894" weight="0.29685363" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24088542" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="SciView" order="0" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32968536" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.32968536" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32968536" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32968536" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="70" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>true</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new Texture(&quot;DemoImages/char/corpse.png&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>demoMod.cards.guns.TeaPot</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new Texture(&quot;char/corpse.png&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;DemoMod:Maze&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/FinishedGun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="42" column="66" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/actions/CaseyAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="34" column="93" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/Casey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/core/AbstractCreature.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="173" column="25" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/monsters/Gunsinger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="191" column="8" lean-forward="true" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/monsters/AbstractMonster.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="988" column="19" selection-start-line="988" selection-start-column="19" selection-end-line="988" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="642" column="25" selection-start-line="642" selection-start-column="25" selection-end-line="642" selection-end-column="25" />
+          <folding>
+            <element signature="e#5875#5876#0" expanded="true" />
+            <element signature="e#5956#5957#0" expanded="true" />
+            <element signature="e#17181#17182#0" expanded="true" />
+            <element signature="e#17264#17265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/dto/BoxingGloveData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/dto/GeneralGunCardData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Polaris.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="126" column="45" lean-forward="true" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/cards/DamageInfo.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3674">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/optionCards/ChooseCharge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/vfx/combat/WeightyImpactEffect.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-235">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/cards/purple/Judgement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/cards/blue/MeteorStrike.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/actions/BoxingGloveAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/interfaces/ChargeCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/blights/SpiceCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/dto/EvolverData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/dto/LifeOrbData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/dto/SpiceData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/MegaHand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5342">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/powers/FullFirePower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/powers/AfterImagePower.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/powers/AfterImageMonsterPower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Evolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2692">
+          <caret line="156" column="173" selection-start-line="156" selection-start-column="173" selection-end-line="156" selection-end-column="173" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/combo/Combo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/relics/Orange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-RelicStrings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="228" column="35" lean-forward="true" selection-start-line="228" selection-start-column="35" selection-end-line="228" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/relics/MeltedRock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="62" column="84" lean-forward="true" selection-start-line="62" selection-start-column="84" selection-end-line="62" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/Roll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="46" column="70" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="46" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/MachoBrace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="36" column="8" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="39" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/DynamicVaribles/MultiAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding>
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/LifeOrb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
+          <folding>
+            <element signature="e#4508#4509#0" expanded="true" />
+            <element signature="e#4536#4537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/interfaces/MultiAttackCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/BoxingGlove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/Gungine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="85" column="171" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="171" />
+          <folding>
+            <element signature="e#4854#4855#0" expanded="true" />
+            <element signature="e#4890#4891#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/actions/common/DamageAction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/actions/AbstractGameAction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/actions/PlaySoundAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="e#246#247#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/TodoCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/localization/zhs/Demo-CardStrings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/sounds/DemoSoundMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="83" column="76" lean-forward="true" selection-start-line="83" selection-start-column="76" selection-end-line="83" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/desktop-1.0.jar!/com/megacrit/cardcrawl/cards/AbstractCard.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="1116" column="25" selection-start-line="1116" selection-start-column="25" selection-end-line="1116" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/AbstractGunCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="e#10039#10040#0" expanded="true" />
+            <element signature="e#10109#10110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/DemoMod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1546">
+          <caret line="225" column="44" lean-forward="true" selection-start-line="225" selection-start-column="44" selection-end-line="225" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/cards/guns/CombinedRifle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding>
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2127#2128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/patches/AbstractPlayerPatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3189">
+          <caret line="244" column="13" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
+          <folding>
+            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#3861#3862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/更新日志.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/demoMod/monsters/ResourcefulRat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3220">
+          <caret line="389" column="60" lean-forward="true" selection-start-line="389" selection-start-column="60" selection-end-line="389" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>@types/requirejs</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>demoMod</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.apiguardian:apiguardian-api:1.1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

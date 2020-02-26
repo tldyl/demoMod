@@ -1,0 +1,10 @@
+﻿{
+  "modid": "GungeonMod",
+  "name": "GungeonMod",
+  "author_list": ["Temple9"],
+  "description": "枪牢尖塔，目前在开发阶段，已有48遗物100张牌2药水，一个新角色（地牢猎人）。 \n 新机制：组合、偷窃。新机制的框架大体上已开发完成，后期会加入新敌人甚至新场景。 \n 如果击败了拟身怪，不要sl，否则会卡关，这个bug应该是没法修复了。",
+  "dependencies": ["basemod"],
+  "version": "1.2.10",
+  "sts_version": "01-21-2020",
+  "update_json": ""
+}
