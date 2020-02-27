@@ -8,12 +8,14 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Hitbox;
@@ -462,6 +464,15 @@ public class DemoMod implements EditCardsSubscriber,
             file.delete();
         }
         MonsterHelperPatch.PatchGetEncounterName.changeName();
+        if (AbstractDungeon.id.equals(Maze.ID)) {
+            try {
+                Field field = AbstractPlayer.class.getDeclaredField("corpseImg");
+                field.setAccessible(true);
+                field.set(AbstractDungeon.player, new Texture(DemoMod.getResourcePath("char/corpse2.png")));
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
