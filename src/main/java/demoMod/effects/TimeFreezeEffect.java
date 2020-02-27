@@ -72,7 +72,7 @@ public class TimeFreezeEffect extends AbstractGameEffect {
                         case 3:
                             CardCrawlGame.music.playTempBGM("BOSS_BEYOND");
                             break;
-                        case 4:
+                        default:
                             CardCrawlGame.music.playTempBGM("BOSS_ENDING");
                             break;
                     }
