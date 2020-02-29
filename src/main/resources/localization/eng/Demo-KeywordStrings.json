@@ -1,0 +1,145 @@
+[
+  {
+    "NAMES": [
+      "black blade",
+      "blackblade"
+    ],
+    "PROPER_NAME": "Black Blade",
+    "DESCRIPTION": "Increase damage for White Blade, at the end of your turn, half its amount."
+  },
+  {
+    "NAMES": [
+      "white blade",
+      "whiteblade"
+    ],
+    "PROPER_NAME": "White Blade",
+    "DESCRIPTION": "Increase damage for Black Blade, White Blade can only lasts one turn."
+  },
+  {
+    "NAMES": [
+      "flight"
+    ],
+    "PROPER_NAME": "Flight",
+    "DESCRIPTION": "Flight creatures receive #b50 % less damage."
+  },
+  {
+    "NAMES": [
+      "reload",
+      "refill",
+      "reloaded"
+    ],
+    "PROPER_NAME": "Reload",
+    "DESCRIPTION": "If a gun is filled with ammunition in a certain way, it is considered as a reloading."
+  },
+  {
+    "NAMES": [
+      "gun",
+      "guns"
+    ],
+    "PROPER_NAME": "Gun",
+    "DESCRIPTION": "A sort of #yAttack. Each play requires #b1 ammunition. When the #yCapacity is empty, it needs to be reloaded to continue its function."
+  },
+  {
+    "NAMES": [
+      "capacity",
+      "clip",
+      "ammo"
+    ],
+    "PROPER_NAME": "Capacity",
+    "DESCRIPTION": "Indicates the ammunition capacity of the gun. Reduce the number by 1 for each shot. When the number turn to 0, it will automatically reload, but it will not attack."
+  },
+  {
+    "NAMES": [
+      "out of body",
+      "outofbody"
+    ],
+    "PROPER_NAME": "Out Of Body",
+    "DESCRIPTION": "If the target is attacked by an uncompleted Blocked attack, the target loses the corresponding level of HP and reduces the level of #yOut #yOf #yBody by #b1."
+  },
+  {
+    "NAMES": [
+      "table tech",
+      "tabletech"
+    ],
+    "PROPER_NAME": "Table Tech",
+    "DESCRIPTION": "A series of cards with 0 cost."
+  },
+  {
+    "NAMES": [
+      "explosive arrowheads",
+      "explosivearrow"
+    ],
+    "PROPER_NAME": "Explosive Arrowheads",
+    "DESCRIPTION": "When the #ySticky #yCrossbow is reloading, deals the corresponding level of damage to the enemy, then remove this effect."
+  },
+  {
+    "NAMES": [
+      "curse value",
+      "cursepoints",
+      "curse points"
+    ],
+    "PROPER_NAME": "Curse Points",
+    "DESCRIPTION": "Some cards, relics and events will increase curse points. The higher the curse points is, the higher the chance of appearing cursed enemies(50% chance when 10 points or above). Cursed enemies will drop more gold when defeated. When curse points reaches 10 or above, #yLord #yOf #yThe #yJammed will take part in each combat."
+  },
+  {
+    "NAMES": [
+      "steal",
+      "theft"
+    ],
+    "PROPER_NAME": "Steal",
+    "DESCRIPTION": "Some relics and potions can be used in the shop to make you steal and get the goods in the shop for free(except for card removal service). However, every successful theft will increase the curse points of #r1 and reduce the success rate of the next theft. If you are caught stealing by the merchant, you can't buy anything from the shop in this game."
+  },
+  {
+    "NAMES": [
+      "charge"
+    ],
+    "PROPER_NAME": "Charge",
+    "DESCRIPTION": "Some #yGuns can choose to be fired with #yCharge. Additional cost [E] is required, but will enhance the effect of the card."
+  },
+  {
+    "NAMES": [
+      "red marker",
+      "redmark"
+    ],
+    "PROPER_NAME": "Red Marker",
+    "DESCRIPTION": "After encountering the #yBlue #yMark, remove all marks, deal #b6 damage to the creature and stun it this turn."
+  },
+  {
+    "NAMES": [
+      "blue marker",
+      "bluemark"
+    ],
+    "PROPER_NAME": "Blue Marker",
+    "DESCRIPTION": "After encountering the #yRed #yMark, remove all marks, deal #b6 damage to the creature and stun it this turn."
+  },
+  {
+    "NAMES": [
+      "combo"
+    ],
+    "PROPER_NAME": "Combo",
+    "DESCRIPTION": "When you have certain #ycards / #yrelics / #ypotions at the same time, their combination effect will be triggered."
+  },
+  {
+    "NAMES": [
+      "control"
+    ],
+    "PROPER_NAME": "Control",
+    "DESCRIPTION": "The controlled enemy will take action with the current intention against the same other targets when you play #yAttacks this turn. NL Will lose HP of corresponding amount when it is out of control."
+  },
+  {
+    "NAMES": [
+      "congealed",
+      "congeal"
+    ],
+    "PROPER_NAME": "Congealed",
+    "DESCRIPTION": "Whenever you apply #b10 Congeal to an enemy, this enemy will not be able to move this turn. NL when target dies, the amount of Congeal will be equally distributed to all other enemies."
+  },
+  {
+    "NAMES": [
+      "semi automatic",
+      "semiautomatic"
+    ],
+    "PROPER_NAME": "Semi Automatic",
+    "DESCRIPTION": "After playing this card, if its cost in this turn is not #b0, it will return to your hand instead of entering the discard pile."
+  }
+]

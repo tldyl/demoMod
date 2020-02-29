@@ -1,0 +1,60 @@
+{
+  "DemoMod:LibraryPatch": {
+    "NAME": "Library",
+    "DESCRIPTIONS": ["You put down the book and glanced at the corner. Suddenly, you found that the cover of one of the books in that pile was very #b~familiar...~ NL You approach there and pick up the book. It's actually the #b~Ammonomicon~ that you often carry when you are exploring in the gungeon! NL You didn't bring it when you came to the spire. Who brought it here? NL You don't know what happened, but it's good to find the book. NL You left with the book."],
+    "OPTIONS": [
+      "[Looking around] #gGain a special relic."
+    ]
+  },
+  "DemoMod:FallingPatch": {
+    "NAME": "Falling",
+    "DESCRIPTIONS": [
+      "You suddenly call to mind that you have some equipment that can make you levitate. You quickly take the",
+      " #g~Balloon Gun~ ",
+      " #g~Jet Pack~ ",
+      " #g~Wax Wing~ ",
+      " #g~Rat Boots~ ",
+      "out, flying to a stable platform."
+    ],
+    "OPTIONS": [
+      "[Levitate]",
+      "[Locked] Requires: Items that enable players to flight."
+    ]
+  },
+  "DemoMod:D20Statue": {
+    "NAME": "D20 Statue",
+    "DESCRIPTIONS": [
+      "In front of you is a stone statue of 20 sided dice. The base seems can rotate and there's a line carved on it: Roll For Your Destiny.",
+      " NL What should you do?",
+      "You ignored the statue.",
+      "You forced the statue to rotate half a circle, and suddenly the whole ground began to #r@vibrate violently!@ NL When you thought you had been hit by something, everything was calm again.",
+      " NL You try to calm yourself down and get up to look at the statue. You find another line on the base of the statue:",
+      "Renewed",
+      "Bolstered",
+      "Hasted",
+      "Paid",
+      "Shielded",
+      "Cleansed",
+      "Gift",
+      "Reloaded",
+      "Blanked",
+      "Pained",
+      "Enfeebled",
+      "Robbed",
+      "Disarmed",
+      "Limited",
+      "De-Blanked",
+      "Cursed",
+      "Unsteady",
+      "Priceless",
+      "What's all this about?",
+      "You turned the statue half a circle, and suddenly it #r@exploded!@ NL The blast of the explosion sent you so far away that you were unconscious.",
+      " NL It took a long time for you to wake up and find yourself seriously injured. But strangely, you don't feel much pain.",
+      " NL You think it's lucky to survive such an explosion, so you don't want more, get up and move on."
+    ],
+    "OPTIONS": [
+      "[Roll the stone] #gGain a random positive effect. #rGain a random negative effect.",
+      "[Leave]"
+    ]
+  }
+}

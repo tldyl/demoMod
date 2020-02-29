@@ -1,0 +1,379 @@
+{
+  "DemoMod:SevenLeafClover": {
+    "NAME": "Seven Leaf Clover",
+    "FLAVOR": "It's extremely rare. It's said to bring incredible luck to the people who carry it.",
+    "DESCRIPTIONS": [
+      "Non-Boss-Chest now drops a rare card(One Choice from Three) and a rare #yRelic."
+    ]
+  },
+  "DemoMod:Metronome": {
+    "NAME": "Metronome",
+    "FLAVOR": "\"Better and better.\"",
+    "DESCRIPTIONS": [
+      "Whenever you slain an enemy by #yAttack, gain #b2 #yStrength. If receive unblocked #yattack damage, lose ALL #yStrength you gained from this #yRelic."
+    ]
+  },
+  "DemoMod:MemoryAlloy": {
+    "NAME": "Memory Alloy",
+    "FLAVOR": "The wire will eventually return to its original shape no matter how much it is stretched and twisted.",
+    "DESCRIPTIONS": [
+      "If you take more than #b30 damage in a turn, at the beginning of the next turn, recover the hp lost in the previous turn. Each battle can only take effect once."
+    ]
+  },
+  "DemoMod:VorpalBullet": {
+    "NAME": "Vorpal Bullet",
+    "FLAVOR": "Maybe it doesn't work when you really need it.",
+    "DESCRIPTIONS": [
+      "In a non-boss combat, you have a #b3% chance to do every damage you do to #r9 times the original. Every time the relic is not triggered, the trigger chance is increased by #b1%, and reset the trigger chance after triggered.",
+      "(Current trigger probability: #g",
+      "%)"
+    ]
+  },
+  "DemoMod:HipHolster": {
+    "NAME": "Hip Holster",
+    "FLAVOR": "\"Your gun is not as fast as mine.\"",
+    "DESCRIPTIONS": [
+      "ALL #yGuns can still deal damage when the #yCapacity is empty.If the #yGun is aimed at one target, after manual #yReload, it will attack a random enemy.",
+      " NL #gCombo -Pretty Good: The rewards of potions and relics dropped from defeating enemies become better."
+    ]
+  },
+  "DemoMod:Dog": {
+    "NAME": "Dog",
+    "FLAVOR": "A faithful companion. Finds items on room clear.",
+    "DESCRIPTIONS": [
+      "At the end of combat, #b20% chance to add a random reward to reward screen."
+    ]
+  },
+  "DemoMod:CrisisStone": {
+    "NAME": "Crisis Stone",
+    "FLAVOR": "\"Reload, Reload, Reload...\"",
+    "DESCRIPTIONS": [
+      "Whenever you #yReload a Gun with its Capacity empty, gain #b8 #yBlock."
+    ]
+  },
+  "DemoMod:RingOfEthereal": {
+    "NAME": "Ring Of Ethereal",
+    "FLAVOR": "This mysterious ring briefly allows one to traverse the ethereal planes.",
+    "DESCRIPTIONS": [
+      "Right-click to use after you cleaned #b4 rooms. Gain #b1 #yIntangible. NL Use in shop for #rtheft."
+    ]
+  },
+  "DemoMod:Bottle": {
+    "NAME": "Bottle",
+    "FLAVOR": "\"If there's something you can't put down, you can put it here for a while.\"",
+    "DESCRIPTIONS": [
+      "Upon pickup, gain #b1 potion slot. Right-click to use once in a turn. Deal #b3 damage. If #yFatal, At the start of the next combat, increase the amount of #bRegen by #b3.",
+      "(At the start of the next combat, gain #g",
+      " #yRegen.)",
+      " NL #gCombo -Empty Vessels:Receive unblocked attack damage for the first time in each battle, and deal 30 damage to ALL enemies in the next start of the turn.",
+      " NL #gCombo -Cleaner Guon Stone:All #yStatus cards added to the draw pile will be #yExhaust automatically.",
+      ""
+    ]
+  },
+  "DemoMod:SpiceCounter": {
+    "NAME": "Spice Counter",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Record how much #yStrength you added to the game with #ySpices.",
+      "At the start of each combat, gain #g",
+      " #yStrength."
+    ]
+  },
+  "DemoMod:DecoyRelic": {
+    "NAME": "Decoy",
+    "FLAVOR": "\"Get him!\"",
+    "DESCRIPTIONS": [
+      "Right-click to use after you cleaned #b4 rooms. NL Use in combat:Summon a decoy, the enemy will only attack the decoy until decoy are destroyed. NL Use in shop for #rtheft.",
+      " NL #gCombo -Deadly Distraction: When the decoy is destroyed, apply #b10 Poison to ALL enemies.",
+      " NL #gCombo -Kage Bunshin: When there is decoy in the combat, the effect of #yShadow #yBullets certainly be triggered.",
+      " NL #gCombo -Decoy Octorok: The maximum HP of the decoy is equal to the maximum HP of the first enemy in the room (no more than #b100)."
+    ]
+  },
+  "DemoMod:ChaffGrenade": {
+    "NAME": "Chaff Grenade",
+    "FLAVOR": "This grenade is full of small, shiny particles.",
+    "DESCRIPTIONS": [
+      "Can use #b3 times. Right-click to use, once a room. Use in combat: Stun ALL enemies this turn. NL Use in shop for #rtheft."
+    ]
+  },
+  "DemoMod:Wolf": {
+    "NAME": "Wolf",
+    "FLAVOR": "Kept the Hunter company, long ago. Reunited with his master through the fractured timestream.",
+    "DESCRIPTIONS": [
+      "Replace #rDog. At the end of your turn, Deal #b12 damage to a random enemy.",
+      " NL #gCombo -The Red Hood: Apply #b1 #bWeak.",
+      " NL #gCombo -Sniper Woof: At the start of your turn, The next #yAttack you played will deal #g1.5 times of its damage.",
+      " NL #gCombo -Tea For Two: You will gain double Omega from #yTea #yPot."
+    ]
+  },
+  "DemoMod:GundromedaStrain": {
+    "NAME": "Gundromeda Strain",
+    "FLAVOR": "The virus has spread rapidly in the spire.",
+    "DESCRIPTIONS": [
+      "Decrease ALL enemies max HP by #b",
+      "% ."
+    ]
+  },
+  "DemoMod:AgedBell": {
+    "NAME": "Aged Bell",
+    "FLAVOR": "Some claim that they can hear it before it rings.",
+    "DESCRIPTIONS": [
+      "Right-click to use after you cleaned #b4 rooms. Take an extra turn after this one. NL Use in shop for #rtheft.",
+      " NL #gCombo -Get Equipped With -F-：Megahand now can switch to \"Time Limiter\" mode."
+    ]
+  },
+  "DemoMod:HoleyGrail": {
+    "NAME": "Holey Grail",
+    "FLAVOR": "This artifact of Kaliber was lost to time until the coming of the Mine Flayers and their interdimensional kin.",
+    "DESCRIPTIONS": [
+      "When you receive an unblocked damage, #yReload ALL the #yGuns you have."
+    ]
+  },
+  "DemoMod:WeirdEgg": {
+    "NAME": "Weird Egg",
+    "FLAVOR": "Gestates over time. Use to acquire... something.",
+    "DESCRIPTIONS": [
+      "One-time relic, right-click to use. Gain a random relic. NL The more floors you climb with it, the rarer relic you will gain."
+    ]
+  },
+  "DemoMod:Ammonomicon": {
+    "NAME": "Ammonomicon",
+    "FLAVOR": "It records all kinds of guns, many of which you don't even know.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add a random #yBullet series #yPower into your hand. It costs #b0 this turn."
+    ]
+  },
+  "DemoMod:PoisonVial": {
+    "NAME": "Poison Vial",
+    "FLAVOR": "For external use only, not for internal use.",
+    "DESCRIPTIONS": [
+      "Increase the counter for each room cleaned or entered. Right-click to use. Apply the counter of levels of #yPoison to an enemy."
+    ]
+  },
+  "DemoMod:BigBoy": {
+    "NAME": "Big Boy",
+    "FLAVOR": "Nuclear arms were forbidden by the Third Interstellar Armistice, but as large sections of the Gungeon existed before that accord was signed, it is a bit of a grey area legally.",
+    "DESCRIPTIONS": [
+      "Right-click to use whenever you cleaned #b3 rooms. Deal #b40 damage to ALL enemies and Apply #b10 #yPoison to them."
+    ]
+  },
+  "DemoMod:GlassGuonStoneRelic": {
+    "NAME": "Glass Guon Stone",
+    "FLAVOR": "A gift from the Lady of Pane.",
+    "DESCRIPTIONS": [
+      "Every Glass Guon Stone you have, at the end of your turn, gain #b",
+      " Block each. When you receive an unblocked #yattack damage, lose ALL Glass Guon Stone."
+    ]
+  },
+  "DemoMod:Antibody": {
+    "NAME": "Antibody",
+    "FLAVOR": "an experimental treatment administered by the Gungeon's medical unit.",
+    "DESCRIPTIONS": [
+      "Whenever you heal, #b",
+      "% chance to double the heal amount."
+    ]
+  },
+  "DemoMod:WhiteGuonStone": {
+    "NAME": "White Guon Stone",
+    "FLAVOR": "The White Guon Stone grants its bearer an additional Blank on every floor.",
+    "DESCRIPTIONS": [
+      "Upon pickup, gain a #yBlank. When enter a new act, gain #b1 more #yBlank. NL At the end of your turn, gain #b2 #yBlock."
+    ]
+  },
+  "DemoMod:OrangeGuonStone": {
+    "NAME": "Orange Guon Stone",
+    "FLAVOR": "Belligerite at the core of the stone has grown so enraged that the stone itself now lashes out at foes.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b2 #yBlock and deal #b5 damage to a random enemy.",
+      " NL #gCombo -Enter The Fruitgeon: The damage Orange Guon Stone dealt increased to #b7.",
+      " NL #gCombo -Oranger Guon Stone: When Orange Guon Stone attack, it now attack with VFX."
+    ]
+  },
+  "DemoMod:ClearGuonStone": {
+    "NAME": "Clear Guon Stone",
+    "FLAVOR": "The Clear Guon Stone continuously cleanses the blood of its bearer of all impurities.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b2 #yBlock. #yExhaust ALL the #yBurn and #ySlime that added to the draw pile."
+    ]
+  },
+  "DemoMod:GreenGuonStone": {
+    "NAME": "Green Guon Stone",
+    "FLAVOR": "The Green Guon Stone abhors pain.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b2 #yBlock. NL Whenever you receive an unblocked #yattack damage, #b20% chance to heal #b6 HP. NL When receive a deadly #yattack damage, #b50% chance to revive and heal #b10 HP."
+    ]
+  },
+  "DemoMod:PinkGuonStone": {
+    "NAME": "Pink Guon Stone",
+    "FLAVOR": "The Pink Guon Stone is actually a White Guon Stone that has been used as a component in blood rituals, infusing it with the hearts of fallen Gungeoneers.",
+    "DESCRIPTIONS": [
+      "Upon pickup, increase your max HP by #b7. At the end of your turn, gain #b2 #yBlock."
+    ]
+  },
+  "DemoMod:RedGuonStone": {
+    "NAME": "Red Guon Stone",
+    "FLAVOR": "The Red Guon Stone is 40% Dodgicite, greatly improving dodge roll speed and distance.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b2 #yBlock. The #yBlock you gain from card #yRoll is increased by #b6."
+    ]
+  },
+  "DemoMod:BlueGuonStone": {
+    "NAME": "Blue Guon Stone",
+    "FLAVOR": "The Blue Guon Stone, or the Stone of the Critical Perception, increases its bearers reaction times in dangerous situations.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b2 #yBlock. Whenever you receive an unblocked #yattack damage, In the next #b3 turns, gain #b20 #yBlock at the start of each turn. Can only trigger once in a combat."
+    ]
+  },
+  "DemoMod:MeltedRock": {
+    "NAME": "Melted Rock",
+    "FLAVOR": "This rock is a testament to one poor soul, whose agony was so great that it still echoes in the bodies of the freshly deceased.",
+    "DESCRIPTIONS": [
+      "Whenever an enemy dies, deal #b6 damage to ALL enemies.",
+      " NL #gCombo -Human Shield: At the same time, gain #b8 times #yBlock of the number of enemies killed in the room."
+    ]
+  },
+  "DemoMod:Orange": {
+    "NAME": "Orange",
+    "FLAVOR": "With this orange, your style... it's impetuous.",
+    "DESCRIPTIONS": [
+      "Upon pickup, raise your max HP by #b12."
+    ]
+  },
+  "DemoMod:MonsterBlood": {
+    "NAME": "Monster Blood",
+    "FLAVOR": "This canister contains a sample of dangerous monster blood, collected by Mdecins Sans Diplme for study.",
+    "DESCRIPTIONS": [
+      "Upon pickup, increase your max HP by #b7. Whenever you receive an unblocked #yattack damage, apply #b2 #yPoison to ALL enemies."
+    ]
+  },
+  "DemoMod:SuperHotWatch": {
+    "NAME": "Super Hot Watch",
+    "FLAVOR": "This watch is extremely hot to the touch.",
+    "DESCRIPTIONS": [
+      "Whenever you didn't play any cards during your turn, Take an extra turn after this one. It can only be triggered twice in a row."
+    ]
+  },
+  "DemoMod:RiddleOfLead": {
+    "NAME": "Riddle Of Lead",
+    "FLAVOR": "A relic for the first hero",
+    "DESCRIPTIONS": [
+      "Upon pickup, increase your max HP by #b10 and heal all HP. At the start of the combat, gain #b2 #yStrength #yDexterity and #yFocus. NL When your HP is less than or equal to %b25% of the maximum HP, #b50% chance of immune damage."
+    ]
+  },
+  "DemoMod:Relodestone": {
+    "NAME": "Relodestone",
+    "FLAVOR": "The molecules in this rare piece of stone naturally aligned such that all of their face the same direction.",
+    "DESCRIPTIONS": [
+      "Right-click to use after you cleaned #b6 rooms. Before the start of the next turn, absorb #yattack damage from ALL enemies, And return to all enemies at the start of the next turn."
+    ]
+  },
+  "DemoMod:LichsEyeBullet": {
+    "NAME": "Lichs Eye Bullet",
+    "FLAVOR": "This pair of rounds radiates unfathomable magical power.",
+    "DESCRIPTIONS": [
+      "ALL #yGuns gain their #yCombo effects automatically."
+    ]
+  },
+  "DemoMod:PortableTableDevice": {
+    "NAME": "Portable Table Device",
+    "FLAVOR": "\"Advanced polymers reinforce this state-of-the-art handheld dining surface.\"",
+    "DESCRIPTIONS": [
+      "At the start of each combat, Choose one of the 3 random #yTableTech cards to put in your hand."
+    ]
+  },
+  "DemoMod:JetPack": {
+    "NAME": "Jet Pack",
+    "FLAVOR": "Only a Gungeoneer with a deathwish would give up their dodge roll. Luckily, this jetpack can easily be toggled on or off.",
+    "DESCRIPTIONS": [
+      "Right-click to use after you cleaned #b1 room. Gain #b1 #yFlight. You cannot gain #yBlock from cards for #b2 turns."
+    ]
+  },
+  "DemoMod:WaxWing": {
+    "NAME": "Wax Wings",
+    "FLAVOR": "A pair of finely-crafted wax wings.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 #yFlight."
+    ]
+  },
+  "DemoMod:StrengthOfFortune": {
+    "NAME": "Strength Of Fortune",
+    "FLAVOR": "How is that possible?",
+    "DESCRIPTIONS": [
+      "Your attack deals #b3 times damage."
+    ]
+  },
+  "DemoMod:Limited": {
+    "NAME": "Limited",
+    "FLAVOR": "\"I need mags!\"",
+    "DESCRIPTIONS": [
+      "Upon pickup, clear ALL the #yGun's ammo which from your master deck."
+    ]
+  },
+  "DemoMod:Armor": {
+    "NAME": "Armor",
+    "FLAVOR": "With these little armors, your heart is steadfast.",
+    "DESCRIPTIONS": [
+      "Whenever you receive an unblocked damage, lose #b1 armor to offset this damage."
+    ]
+  },
+  "DemoMod:Unsteady": {
+    "NAME": "Unsteady",
+    "FLAVOR": "You suddenly feel uncertain about doing anything.",
+    "DESCRIPTIONS": [
+      "Whenever you play #b10 cards, #yExhaust #b1 random card from your hand."
+    ]
+  },
+  "DemoMod:GnawedKey": {
+    "NAME": "Gnawed Key",
+    "FLAVOR": "The handle is shaped like the skill of a rodent. What could it unlock?",
+    "DESCRIPTIONS": [
+      "The key to open the entrance to the nest of Resourceful Rat."
+    ]
+  },
+  "DemoMod:Test1": {
+    "NAME": "Test1",
+    "FLAVOR": "I haven't thought about the description yet.",
+    "DESCRIPTIONS": [
+      "The first time you #yReload a #yGun each turn, gain [E]."
+    ]
+  },
+  "DemoMod:RatBoots": {
+    "NAME": "Rat Boots",
+    "FLAVOR": "Stolen off a hapless pointy-eared adventurer.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 Dexterity. NL Whenever you have a #yReload, gain #b1 temporaty #yDexterity."
+    ]
+  },
+  "DemoMod:ResourcefulSack": {
+    "NAME": "Resourceful Sack",
+    "FLAVOR": "An otherwise normal sack, used by the Right people for acts of thievery.",
+    "DESCRIPTIONS": [
+      "Whenever you receive an attack from an enemy, raise the counter by #b1(The max value of the counter is #b30). Right-click to use, deal #b3 damage to an enemy #yCounter times.",
+      "(Deal #b3 damage #b",
+      " times.)"
+    ]
+  },
+  "DemoMod:PartiallyEatenCheese": {
+    "NAME": "Partially Eaten Cheese",
+    "FLAVOR": "Temporarily changes what game you're playing.",
+    "DESCRIPTIONS": [
+      "Right-click to use after you dealt #b600 damage. You are invincible in the next #b2 turns and add an #yEat #yIt! to your hand for each start of your turn."
+    ]
+  },
+  "DemoMod:MeatBun": {
+    "NAME": "Meat Bun",
+    "FLAVOR": "\"A delicious, freshly baked roll! Sometimes, things just work out!\"",
+    "DESCRIPTIONS": [
+      "Upon pickup, heal #b14 HP. NL Before you take damage, Double your unblocked damage to the enemy."
+    ]
+  },
+  "DemoMod:NanoMachines": {
+    "NAME": "Nano Machines",
+    "FLAVOR": "These self-replicating Nanomachines transform lead that enters the body into armor.",
+    "DESCRIPTIONS": [
+      "Upon pickup, gain #b2 #yArmor. Whenever take damage for #b4 times, after the enemy's current action, gain #b1 #yArmor.",
+      " NL #gCombo -Steel Skin: Now you no longer lose #yBlock when you play AC-15.",
+      " NL #gCombo -Pretty Good: The rewards of potions and relics dropped from defeating enemies become better."
+    ]
+  }
+}

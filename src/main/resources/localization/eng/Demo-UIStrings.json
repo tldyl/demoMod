@@ -1,0 +1,236 @@
+{
+  "DemoMod:ReloadAction": {
+    "TEXT": [
+      "to have a manual reload."
+    ]
+  },
+  "DemoMod:EjectAction": {
+    "TEXT": [
+      "to eject."
+    ]
+  },
+  "DemoMod:SuppressiveFireAction": {
+    "TEXT": [
+      "to gain Semi-Automatic in this turn."
+    ]
+  },
+  "DemoMod:BetterGunCardInDiscardPileToHandAction": {
+    "TEXT": [
+      "Choose one to put into your hand.",
+      "Choose",
+      " cards to put into your hand.",
+      "Choose any number of cards to put into your hand."
+    ]
+  },
+  "DemoMod:FastSwitchAction": {
+    "TEXT": [
+      "This is the top card from draw pile. If this is a gun, you can put it into your hand."
+    ]
+  },
+  "DemoMod:AfterStole": {
+    "TEXT": [
+      "#r@Thief!@",
+      "#r@Stop selling, thief!@"
+    ]
+  },
+  "DemoMod:CurseValueTip": {
+    "TEXT": [
+      "Curse Points",
+      "Some cards, relics and events will increase curse points. The higher the curse points is, the higher the chance of appearing cursed enemies(50% chance when 10 points or above). Cursed enemies will drop more gold when defeated. When curse points reaches 10 or above, #yLord #yOf #yThe #yJammed will take part in each combat."
+    ]
+  },
+  "DemoMod:GuonStone": {
+    "TEXT": [
+      "Glass Guon Stone"
+    ]
+  },
+  "DemoMod:StrategicReserveAction": {
+    "TEXT": [
+      "put into top of the draw pile."
+    ]
+  },
+  "DemoMod:Maze": {
+    "TEXT": [
+      "Maze",
+      "Unknown"
+    ]
+  },
+  "DemoMod:TheRedHood": {
+    "TEXT": [
+      "The Red Hood",
+      "After attacking the target, the #yWolf apply the target #b1 #yWeak."
+    ]
+  },
+  "DemoMod:SniperWoof": {
+    "TEXT": [
+      "Sniper Woof",
+      "At the start of your turn, The next #yAttack you played will deal #g1.5 times of its damage."
+    ]
+  },
+  "DemoMod:TeaForTwo": {
+    "TEXT": [
+      "Tea For Two",
+      "When #yGun #yTea #yPot #yReload, you'll gain double #yOmega from #yTea #yPot."
+    ]
+  },
+  "DemoMod:-A-": {
+    "TEXT": [
+      "Get Equipped With -A-",
+      "#Reload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BalloonGun."
+    ]
+  },
+  "DemoMod:-C-": {
+    "TEXT": [
+      "Get Equipped With -C-",
+      "#Reload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BulletBore. Switch back to default mode after you played it."
+    ]
+  },
+  "DemoMod:-F-": {
+    "TEXT": [
+      "Get Equipped With -F-",
+      "#Reload the Megahand with its #yCapacity full can switch its mode. Switch back to default mode after you played it."
+    ]
+  },
+  "DemoMod:Kaliber k'pow uboom k'bhang": {
+    "TEXT": [
+      "Kaliber k'pow uboom k'bhang",
+      "Whenever you apply #yOutOfBody, apply an additional #b2 #yOutOfBody."
+    ]
+  },
+  "DemoMod:EmptyVessels": {
+    "TEXT": [
+      "Empty Vessels",
+      "The first time you lose HP each combat, deal #b30 damage to ALL enemies at the start of the next turn."
+    ]
+  },
+  "DemoMod:ReloadRoll": {
+    "TEXT": [
+      "Reload Roll",
+      "When #yEasyReloadBullets makes the #yCapacity full, it triggers the #yReload effect of this #yGun."
+    ]
+  },
+  "DemoMod:PrettyGood": {
+    "TEXT": [
+      "Pretty Good",
+      "The rewards of potions and relics dropped from defeating enemies become better."
+    ]
+  },
+  "DemoMod:WhatEngineDoYouUse": {
+    "TEXT": [
+      "What Engine Do You Use",
+      "Whenever you #yReload #yGungine, gain additional 1 [E]. NL Card #yUnity deals #b2 additional damage for each #yGun you have."
+    ]
+  },
+  "DemoMod:Antichamber": {
+    "TEXT": [
+      "Antichamber",
+      "The #yDarkMarker now gives the target #yRedMark and #yBlueMark in turn. If a target has both markers, it will damage and stun the target."
+    ]
+  },
+  "DemoMod:ClearerGuonStone": {
+    "TEXT": [
+      "Clearer Guon Stone",
+      "Clear Guon Stone now can #yExhaust ALL the #yStatus card that added to the draw pile."
+    ]
+  },
+  "DemoMod:HumanShield": {
+    "TEXT": [
+      "Human Shield",
+      "Whenever an enemy dies, gain #b8 times #yBlock of the number of enemies killed in the room."
+    ]
+  },
+  "DemoMod:EnterTheFruitgeon": {
+    "TEXT": [
+      "Enter The Fruitgeon",
+      "Raise the damage of Orange Guon Stone to #b7."
+    ]
+  },
+  "DemoMod:OrangerGuonStone": {
+    "TEXT": [
+      "Oranger Guon Stone",
+      "Oranger Guon Stone now attack with VFX."
+    ]
+  },
+  "DemoMod:NaturalSelection": {
+    "TEXT": [
+      "Natural Selection",
+      "Evolver now only need to be fired #b4 times to raise a level."
+    ]
+  },
+  "DemoMod:PowerhouseOfTheCell": {
+    "TEXT": [
+      "Powerhouse Of The Cell",
+      "Upon gain this combo, raise the level of all Evolver in your deck by #b1."
+    ]
+  },
+  "DemoMod:DeadlyDistraction": {
+    "TEXT": [
+      "Deadly Distraction",
+      "When the decoy is destroyed, apply #b10 Poison to ALL enemies."
+    ]
+  },
+  "DemoMod:KageBunshin": {
+    "TEXT": [
+      "Kage Bunshin",
+      "When there is decoy in the combat, the effect of #yShadow #yBullets certainly be triggered."
+    ]
+  },
+  "DemoMod:DecoyOctorok": {
+    "TEXT": [
+      "Decoy Octorok",
+      "The maximum HP of the decoy is equal to the maximum HP of the first enemy in the room (no more than #b100)."
+    ]
+  },
+  "DemoMod:KalibersGrip": {
+    "TEXT": [
+      "Kaliber's Grip",
+      "Abyssal Tentacle now applies double amount of #yConstrict."
+    ]
+  },
+  "DemoMod:ResourcefulIndeed": {
+    "TEXT": [
+      "Resourceful Indeed",
+      "Change the player's appearance to Resourceful Rat."
+    ]
+  },
+  "DemoMod:SteelSkin": {
+    "TEXT": [
+      "Steel Skin",
+      "Now you no longer lose #yBlock when you play AC-15."
+    ]
+  },
+  "DemoMod:MrShadow": {
+    "TEXT": [
+      "Mr. Shadow",
+      "When the effect of #yShadow #yBullets triggered, play the top card of your draw pile."
+    ]
+  },
+  "DemoMod:CameraShy": {
+    "TEXT": [
+      "Camera Shy",
+      "When the amount of #yCapacity in the #yCamera is #b2 or less, #yCamera can also stun ALL enemies this turn."
+    ]
+  },
+  "DemoMod:CosmicTerror": {
+    "TEXT": [
+      "Cosmic Terror",
+      "#yGun #yBlackHoleGun will apply additional #b8 #yConstrict to ALL enemies."
+    ]
+  },
+  "DemoMod:ComboManualScreen": {
+    "TEXT": [
+      "Back",
+      "Combo Manual"
+    ]
+  },
+  "DemoMod:ComboDetailScreen": {
+    "TEXT": [
+      "Or",
+      "(Card)",
+      "(Relic)",
+      "(Potion)",
+      "Combo Effect",
+      "(Click anywhere to exit this screen.)"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "DemoMod:LordOfTheJammed": {
+    "NAME": "Lord Of The Jammed",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Decoy": {
+    "NAME": "Decoy",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Mimic": {
+    "NAME": "Chest Mimic",
+    "DIALOG": [
+      "Off-guard"
+    ],
+    "MOVES": [
+      "Close Lid",
+      "Mad Mimicry",
+      "Blade Mimicry",
+      "BOO!"
+    ]
+  },
+  "DemoMod:BulletKin": {
+    "NAME": "Bullet Kin",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:VeteranBulletKin": {
+    "NAME": "Veteran Bullet Kin",
+    "DIALOG": [""],
+    "MOVES": [
+      "Anticipate",
+      "Mozambique Drill"
+    ]
+  },
+  "DemoMod:RedShotgunKin": {
+    "NAME": "Red Shotgun Kin",
+    "DIALOG": [""],
+    "MOVES": ["Reload"]
+  },
+  "DemoMod:BlueShotgunKin": {
+    "NAME": "Blue Shotgun Kin",
+    "DIALOG": [""],
+    "MOVES": ["Reload"]
+  },
+  "DemoMod:VeteranShotgunKin": {
+    "NAME": "Veteran Shotgun Kin",
+    "DIALOG": [""],
+    "MOVES": [
+      "Anticipate",
+      "Reload"
+    ]
+  },
+  "DemoMod:ResourcefulRat": {
+    "NAME": "Resourceful Rat",
+    "DIALOG": [
+      "I've just warmed up. Now I want to #r@melt@ you!",
+      "It seems that we are doomed to fight again and again. NL #r@Die, usurper!@",
+      "The most handsome king",
+      "Your arrogance",
+      "You don't have enough body skills",
+      "Someone stronger than you",
+      "You're a little aggressive"
+    ],
+    "MOVES": [
+      "Dagger Spray",
+      "Body Slam",
+      "Set up",
+      "Poison Trap",
+      "Rope throwing",
+      "Bullet Wave"
+    ]
+  },
+  "DemoMod:Mouser": {
+    "NAME": "Mouser",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Gunsinger": {
+    "NAME": "Gunsinger",
+    "DIALOG": [""],
+    "MOVES": [
+      "Bless"
+    ]
+  }
+}

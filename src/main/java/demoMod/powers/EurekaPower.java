@@ -39,6 +39,7 @@ public class EurekaPower extends AbstractPower {
         if (this.amount >= 0 && ((AbstractPlayer)owner).hand.size() < Settings.MAX_HAND_SIZE) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         } else {
+            AbstractDungeon.actionManager.clearPostCombatActions();
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, DemoMod.makeID("EurekaPower")));
         }
     }

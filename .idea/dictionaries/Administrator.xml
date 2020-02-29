@@ -6,10 +6,14 @@
       <w>backflip</w>
       <w>badlogic</w>
       <w>basemod</w>
+      <w>belligerite</w>
       <w>bunshin</w>
       <w>cardcrawl</w>
       <w>darkling</w>
+      <w>deathwish</w>
       <w>debuff</w>
+      <w>diplme</w>
+      <w>dodgicite</w>
       <w>durian</w>
       <w>ejectable</w>
       <w>elimentaler</w>
@@ -23,14 +27,18 @@
       <w>gunsinger</w>
       <w>gunstock</w>
       <w>guon</w>
+      <w>interdimensional</w>
       <w>kage</w>
       <w>kaliber</w>
       <w>kalibers</w>
       <w>kinjutsu</w>
       <w>lichs</w>
       <w>lumberjacked</w>
+      <w>mdecins</w>
       <w>megacrit</w>
+      <w>megahand</w>
       <w>modid</w>
+      <w>nanomachines</w>
       <w>noxin</w>
       <w>octorok</w>
       <w>oranger</w>
@@ -42,6 +50,8 @@
       <w>sozu</w>
       <w>stslib</w>
       <w>sutra</w>
+      <w>teleport</w>
+      <w>timestream</w>
       <w>uboom</w>
       <w>vorpal</w>
     </words>

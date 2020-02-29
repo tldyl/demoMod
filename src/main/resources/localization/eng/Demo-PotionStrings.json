@@ -1,0 +1,22 @@
+{
+  "DemoMod:BlankPotion": {
+    "NAME": "Blank",
+    "DESCRIPTIONS": [
+      "Deal #g",
+      " damage to ALL enemies. Stun them this turn."
+    ]
+  },
+  "DemoMod:LeadSkinPotion": {
+    "NAME": "Lead Skin Potion",
+    "DESCRIPTIONS": [
+      "In this combat, you receive #b",
+      " or less unblocked attack damage, reduce it to #b1."
+    ]
+  },
+  "DemoMod:SmokeBomb": {
+    "NAME": "Smoke Bomb",
+    "DESCRIPTIONS": [
+      " NL Use in shop for #rtheft."
+    ]
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "DemoMod:BlackBladePower": {
+    "NAME": "Black Blade",
+    "DESCRIPTIONS": [
+      "Increase the card #yWhite #yBlade's damage by #g",
+      " . After use card #yWhite #yBlade to this enemy and apply effect #yWhite #yBlade , remove this effect. At the end of your turn, half its amount."
+    ]
+  },
+  "DemoMod:WhiteBladePower": {
+    "NAME": "White Blade",
+    "DESCRIPTIONS": [
+      "Increase the card #yBlack #yBlade's damage by #g",
+      " this turn. After use card #yBlack #yBlade to this enemy and apply effect #yBlack #yBlade , remove this effect."
+    ]
+  },
+  "DemoMod:LoseFlightPower": {
+    "NAME": "Temporary Flight",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remove your #yFlight effect."
+    ]
+  },
+  "DemoMod:TableSutraPower": {
+    "NAME": "Table Sutra",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " random #yTable #yTech card(s) into your hand."
+    ]
+  },
+  "DemoMod:DoubleShootPower": {
+    "NAME": "Double Vision",
+    "DESCRIPTIONS": [
+      "This turn, your next Gun is fired twice.",
+      "This turn, your next #g",
+      " Guns are fired twice."
+    ]
+  },
+  "DemoMod:OutOfBodyPower": {
+    "NAME": "Out Of Body",
+    "DESCRIPTIONS": [
+      "When this creature takes an unblocked attack damage, lose #r",
+      " HP and reduce the amount by #b1."
+    ]
+  },
+  "DemoMod:ExplosiveArrowheadsPower": {
+    "NAME": "Explosive Arrowheads",
+    "DESCRIPTIONS": [
+      "When the #ySticky #yCrossbow is reloading, deals #r",
+      " damage to the enemy, then remove this effect."
+    ]
+  },
+  "DemoMod:EasyReloadPower": {
+    "NAME": "Easy Reload Bullets",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, fill #g",
+      " #yCapacity for a random Gun card from your hand(Won't trigger Reload).",
+      " NL #gCombo -Reload Roll: When this effect makes the #yCapacity full, it triggers the #yReload effect of this #yGun."
+    ]
+  },
+  "DemoMod:LeadSkinPower": {
+    "NAME": "Lead Skin",
+    "DESCRIPTIONS": [
+      "You receive #b",
+      " or less unblocked attack damage, reduce it to #b1."
+    ]
+  },
+  "DemoMod:EurekaPower": {
+    "NAME": "Eureka!",
+    "DESCRIPTIONS": [
+      "Draw cards until you have drawn #b",
+      " #yGuns."
+    ]
+  },
+  "DemoMod:ChanceBulletsPower": {
+    "NAME": "Chance Bullets",
+    "DESCRIPTIONS": [
+      "Each #yGun you fire has a #g",
+      "% chance of being replaced by a random one you have.",
+      "% chance to add a random one you have."
+    ]
+  },
+  "DemoMod:SkilledReloadPower": {
+    "NAME": "Skilled Reload",
+    "DESCRIPTIONS": [
+      "Whenever you have a #yReload, Draw #g",
+      " card(s)."
+    ]
+  },
+  "DemoMod:StrengthOfCursePower": {
+    "NAME": "Strength Of Curse",
+    "DESCRIPTIONS": [
+      "Increase the max HP by #g",
+      "%，Gain #g",
+      " #yStrength."
+    ]
+  },
+  "DemoMod:SlingerPower": {
+    "NAME": "Slinger",
+    "DESCRIPTIONS": [
+      "ALL #yGuns can still deal damage when the #yCapacity is empty. NL ALL #yGuns will be #yExhaust when the #yCapacity is empty."
+    ]
+  },
+  "DemoMod:JammedPower": {
+    "NAME": "Jammed",
+    "DESCRIPTIONS": [
+      "Immune ALL damages."
+    ]
+  },
+  "DemoMod:ShadowBulletsPower": {
+    "NAME": "Shadow Bullets",
+    "DESCRIPTIONS": [
+      "Each #yGun you fire has a #g",
+      "% chance to fired twice."
+    ]
+  },
+  "DemoMod:FullFirePower": {
+    "NAME": "Full Firepower",
+    "DESCRIPTIONS": [
+      "Your next Gun will be fired repeatedly until the Capacity is empty.",
+      "Your next #g",
+      " #yGuns will be fired repeatedly until the #yCapacity is empty."
+    ]
+  },
+  "DemoMod:BlankBulletsPower": {
+    "NAME": "Blank Bullets",
+    "DESCRIPTIONS": [
+      "Each #yGun you fire has a #g",
+      "% chance to Stun an enemy this turn."
+    ]
+  },
+  "DemoMod:PlatinumBulletsPower": {
+    "NAME": "Platinum Bullets",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yGun card, Gain #g",
+      " #yStrength or #g",
+      " #yDexterity."
+    ]
+  },
+  "DemoMod:ChaosBulletsPower": {
+    "NAME": "Chaos Bullets",
+    "DESCRIPTIONS": [
+      "Each #yGun you fire has a #g",
+      "% chance to Apply #b1 random negative effect to an enemy."
+    ]
+  },
+  "DemoMod:RedMarkPower": {
+    "NAME": "Red Mark",
+    "DESCRIPTIONS": [
+      "After encountering the #yBlue #yMark, remove all marks, deal #b6 damage to the creature and stun it this turn."
+    ]
+  },
+  "DemoMod:BlueMarkPower": {
+    "NAME": "Blue Mark",
+    "DESCRIPTIONS": [
+      "After encountering the #yRed #yMark, remove all marks, deal #b6 damage to the creature and stun it this turn."
+    ]
+  },
+  "DemoMod:BlueGuonStonePower": {
+    "NAME": "Blue Guon Stone",
+    "DESCRIPTIONS": [
+      "At the start of the next #g",
+      " turn(s), gain #b20 #yBlock."
+    ]
+  },
+  "DemoMod:MozambiqueDrillPower": {
+    "NAME": "Mozambique Drill",
+    "DESCRIPTIONS": [
+      "Whenever you fire #g",
+      " #yGuns in a single turn, the next card you play will deal #g",
+      " times of its damage.",
+      "the next card you play will deal #g",
+      " times of its damage."
+    ]
+  },
+  "DemoMod:ControlPower": {
+    "NAME": "Control",
+    "DESCRIPTIONS": [
+      "This turn, when you play #yAttacks, take action with current intention against the same other targets. NL when out of control, lose #r",
+      " HP."
+    ]
+  },
+  "DemoMod:SelfExplodePower": {
+    "NAME": "Self Explode",
+    "DESCRIPTIONS": [
+      "When died, deals #g",
+      " damage to player."
+    ]
+  },
+  "DemoMod:AlertModePower": {
+    "NAME": "Alert Mode",
+    "DESCRIPTIONS": [
+      "When died, summon #g",
+      " #yMouser(s) and reduce the amount by #b1, then distributed to all other summoned #yMouser(s)."
+    ]
+  },
+  "DemoMod:BlessPower": {
+    "NAME": "Bless",
+    "DESCRIPTIONS": [
+      "When gain this effect, gain #g",
+      " #yStrength and #g",
+      " #yRegen at the same time."
+    ]
+  },
+  "DemoMod:HighPressurePower": {
+    "NAME": "High Pressure",
+    "DESCRIPTIONS": [
+      "This turn, If the next card you played is not #y",
+      " , end your turn.",
+      "High Pressure effect changed",
+      "Attack",
+      "Skill",
+      "Power"
+    ]
+  },
+  "DemoMod:SniperWoofPower": {
+    "NAME": "Sniper Woof",
+    "DESCRIPTIONS": [
+      "This turn, The next #yAttack you played will deal #g1.5 times of its damage."
+    ]
+  },
+  "DemoMod:BulletSprayPower": {
+    "NAME": "Bullet Spray",
+    "DESCRIPTIONS": [
+      "When you played #b",
+      " cards, deal #r6 damage to player. This effect will be remove after triggered #b",
+      " times."
+    ]
+  },
+  "DemoMod:HomingMissilePower": {
+    "NAME": "Homing Missile",
+    "DESCRIPTIONS": [
+      "After #b",
+      " turns, deals #b",
+      " damage to player.",
+      "At the end of the turn, deal #b"
+    ]
+  },
+  "DemoMod:BulletBorePower": {
+    "NAME": "Thought Steal",
+    "DESCRIPTIONS": [
+      "At the start of the next turn, #yStun this enemy and deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "DemoMod:GunslingerPower": {
+    "NAME": "Gunslinger Form",
+    "DESCRIPTIONS": [
+      "All #yReload triggered effects can now also be triggered when the #yGun is fired."
+    ]
+  },
+  "DemoMod:CongealedPower": {
+    "NAME": "Congealed",
+    "DESCRIPTIONS": [
+      "Whenever you apply #b10 Congeal to an enemy, this enemy will not be able to move this turn. NL when target dies, the amount of Congeal will be equally distributed to all other enemies.",
+      "Congealed",
+      "This enemy was Congealed this turn, unable to move."
+    ]
+  },
+  "DemoMod:PacManPower": {
+    "NAME": "Pac Man",
+    "DESCRIPTIONS": [
+      "You are invincible!"
+    ]
+  },
+  "DemoMod:SuppressiveFirePower": {
+    "NAME": "Suppressive Fire",
+    "DESCRIPTIONS": [
+      "This turn, ALL of the #yGuns in your hand is #ySemiAutomatic.",
+      "This turn, #y",
+      " in your hand is #ySemiAutomatic."
+    ]
+  }
+}
