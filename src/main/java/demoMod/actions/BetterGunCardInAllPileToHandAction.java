@@ -58,6 +58,10 @@ public class BetterGunCardInAllPileToHandAction extends AbstractGameAction {
                         gunCardsInDraw.addToHand(c);
                     }
                 }
+                if (gunCardsInDraw.group.size() <= 0 && gunCardsInDiscard.size() <= 0) {
+                    this.isDone = true;
+                    return;
+                }
                 gunCardsInTotal.group.addAll(gunCardsInDiscard.group);
                 gunCardsInTotal.group.addAll(gunCardsInDraw.group);
                 if (gunCardsInTotal.size() <= this.numberOfCards && !this.optional) {

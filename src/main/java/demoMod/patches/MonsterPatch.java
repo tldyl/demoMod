@@ -1,20 +1,28 @@
 package demoMod.patches;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.esotericsoftware.spine.Skeleton;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.DemoMod;
 import demoMod.powers.CongealedPower;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 @SuppressWarnings("unused")
 public class MonsterPatch {
@@ -33,15 +41,15 @@ public class MonsterPatch {
     public static class RenderMonsterPatch {
         public RenderMonsterPatch() { }
 
-        @SpireInsertPatch(rloc=1)
-        public static void Insert(AbstractMonster m, SpriteBatch sb) {
+        public static void Prefix(AbstractMonster m, SpriteBatch sb) {
             if (m.hasPower(DemoMod.makeID("StrengthOfCursePower"))) {
                 CardCrawlGame.psb.setShader(redShader);
                 sb.setShader(redShader);
             }
         }
 
-        public static void Postfix(AbstractMonster m, SpriteBatch sb) {
+        @SpireInsertPatch(rloc = 53)
+        public static void Insert(AbstractMonster m, SpriteBatch sb) {
             CardCrawlGame.psb.setShader(null);
             sb.setShader(null);
         }

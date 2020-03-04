@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -420,11 +421,54 @@ public class ShopScreenPatch {
                     Field field = ShopScreen.class.getDeclaredField("relics");
                     field.setAccessible(true);
                     ArrayList<StoreRelic> relics = (ArrayList<StoreRelic>) field.get(screen);
-                    int ran = AbstractDungeon.miscRng.random(2);
-                    StoreRelic key = new StoreRelic(new GnawedKey(), ran, screen);
+                    StoreRelic key = new StoreRelic(new GnawedKey(), 3, screen) {
+                        @Override
+                        public void update(float rugY) {
+                            if (this.relic != null) {
+                                if (!this.isPurchased) {
+                                    this.relic.currentX = 1000.0F * Settings.scale + 150.0F * -0.7F * Settings.scale;
+                                    this.relic.currentY = rugY + 295.0F * Settings.scale;
+                                    this.relic.hb.move(this.relic.currentX, this.relic.currentY);
+                                    this.relic.hb.update();
+                                    if (this.relic.hb.hovered) {
+                                        screen.moveHand(this.relic.currentX - 190.0F * Settings.scale, this.relic.currentY - 70.0F * Settings.scale);
+                                        if (InputHelper.justClickedLeft) {
+                                            this.relic.hb.clickStarted = true;
+                                        }
+
+                                        this.relic.scale = Settings.scale * 1.25F;
+                                    } else {
+                                        this.relic.scale = MathHelper.scaleLerpSnap(this.relic.scale, Settings.scale);
+                                    }
+
+                                    if (this.relic.hb.hovered && InputHelper.justClickedRight) {
+                                        CardCrawlGame.relicPopup.open(this.relic);
+                                    }
+                                }
+
+                                if (this.relic.hb.clicked || this.relic.hb.hovered && CInputActionSet.select.isJustPressed()) {
+                                    this.relic.hb.clicked = false;
+                                    if (!Settings.isTouchScreen) {
+                                        this.purchaseRelic();
+                                    } else if (AbstractDungeon.shopScreen.touchRelic == null) {
+                                        if (AbstractDungeon.player.gold < this.price) {
+                                            screen.playCantBuySfx();
+                                            screen.createSpeech(ShopScreen.getCantBuyMsg());
+                                        } else {
+                                            AbstractDungeon.shopScreen.confirmButton.hideInstantly();
+                                            AbstractDungeon.shopScreen.confirmButton.show();
+                                            AbstractDungeon.shopScreen.confirmButton.isDisabled = false;
+                                            AbstractDungeon.shopScreen.confirmButton.hb.clickStarted = false;
+                                            AbstractDungeon.shopScreen.touchRelic = this;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    };
                     key.price = 115;
                     if (AbstractDungeon.ascensionLevel >= 16) key.price = 104;
-                    relics.set(ran, key);
+                    relics.add(key);
                     field.set(screen, relics);
                 } catch (NoSuchFieldException | IllegalAccessException e) {
                     e.printStackTrace();

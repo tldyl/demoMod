@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.CallingBell;
+import com.megacrit.cardcrawl.relics.TinyHouse;
 import com.megacrit.cardcrawl.rewards.chests.AbstractChest;
 import com.megacrit.cardcrawl.rewards.chests.LargeChest;
 import com.megacrit.cardcrawl.rooms.TreasureRoom;
@@ -100,24 +102,46 @@ public class TreasureRoomPatch {
                 }
                 room.chest = new LargeChest();
                 AbstractPlayer p = AbstractDungeon.player;
-                if (!p.hasRelic(RatBoots.ID)) {
-                    room.addRelicToRewards(new RatBoots());
+
+                if (AbstractDungeon.rareRelicPool.contains(RatBoots.ID)) {
+                    room.addRelicToRewards(RelicLibrary.getRelic(RatBoots.ID).makeCopy());
+                    System.out.println("DemoMod:Before remove size:" + AbstractDungeon.rareRelicPool.size());
+                    AbstractDungeon.rareRelicPool.remove(RatBoots.ID);
+                    System.out.println("DemoMod:After remove size:" + AbstractDungeon.rareRelicPool.size());
                 } else {
-                    double ran = AbstractDungeon.treasureRng.random(1.0F) * AbstractDungeon.rareRelicPool.size();
-                    room.addRelicToRewards(RelicLibrary.getRelic(AbstractDungeon.uncommonRelicPool.get((int)Math.floor(ran))));
+                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
+                    room.addRelicToRewards(relic);
                 }
-                if (!p.hasRelic(ResourcefulSack.ID)) {
-                    room.addRelicToRewards(new ResourcefulSack());
+                if (AbstractDungeon.rareRelicPool.contains(ResourcefulSack.ID)) {
+                    room.addRelicToRewards(RelicLibrary.getRelic(ResourcefulSack.ID).makeCopy());
+                    AbstractDungeon.rareRelicPool.remove(ResourcefulSack.ID);
                 } else {
-                    double ran = AbstractDungeon.treasureRng.random(1.0F) * AbstractDungeon.rareRelicPool.size();
-                    room.addRelicToRewards(RelicLibrary.getRelic(AbstractDungeon.uncommonRelicPool.get((int)Math.floor(ran))));
+                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
+                    room.addRelicToRewards(relic);
                 }
-                if (!p.hasRelic(PartiallyEatenCheese.ID)) {
-                    room.addRelicToRewards(new PartiallyEatenCheese());
+                if (AbstractDungeon.rareRelicPool.contains(PartiallyEatenCheese.ID)) {
+                    room.addRelicToRewards(RelicLibrary.getRelic(PartiallyEatenCheese.ID).makeCopy());
+                    AbstractDungeon.rareRelicPool.remove(PartiallyEatenCheese.ID);
                 } else {
-                    double ran = AbstractDungeon.treasureRng.random(1.0F) * AbstractDungeon.rareRelicPool.size();
-                    room.addRelicToRewards(RelicLibrary.getRelic(AbstractDungeon.uncommonRelicPool.get((int)Math.floor(ran))));
+                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
+                    room.addRelicToRewards(relic);
                 }
+                AbstractRelic bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                if (bossRelic.relicId.equals(TinyHouse.ID)) {
+                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                }
+                if (bossRelic.relicId.equals(CallingBell.ID)) {
+                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                }
+                room.addRelicToRewards(bossRelic);
+                bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                if (bossRelic.relicId.equals(TinyHouse.ID)) {
+                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                }
+                if (bossRelic.relicId.equals(CallingBell.ID)) {
+                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
+                }
+                room.addRelicToRewards(bossRelic);
                 return SpireReturn.Return(null);
             } else {
                 return SpireReturn.Continue();

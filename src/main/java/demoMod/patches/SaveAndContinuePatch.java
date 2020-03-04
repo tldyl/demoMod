@@ -3,6 +3,7 @@ package demoMod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
 import demoMod.DemoMod;
@@ -31,7 +32,7 @@ public class SaveAndContinuePatch {
          */
         @SpireInsertPatch(rloc = 0)
         @SuppressWarnings("ResultOfMethodCallIgnored")
-        public static void Insert() {
+        public static void Insert(AbstractPlayer p) {
             Spice.dropChance = 0;
             Spice.isFirstUse = true;
             VorpalBullet.chance = 0.03;

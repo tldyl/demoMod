@@ -69,6 +69,10 @@ public class ShadowBulletsPower extends AbstractPower {
             }
 
             tmp.purgeOnUse = true;
+            if (((AbstractGunCard)tmp).capacity <= 0) {
+                ((AbstractGunCard)tmp).capacity = ((AbstractGunCard)card).maxCapacity;
+                ((AbstractGunCard)tmp).target = ((AbstractGunCard)tmp).defaultTarget;
+            }
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse, true));
             if (ShadowBullets.combos[3]) {
                 this.addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));

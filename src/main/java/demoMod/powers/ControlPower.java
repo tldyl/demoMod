@@ -50,6 +50,14 @@ public class ControlPower extends AbstractPower {
             if (action.target != null && action.target.isDeadOrEscaped()) {
                 ChangeTargetPatch.target = AbstractDungeon.getRandomMonster();
             }
+            if (action.target == null) {
+                AbstractMonster m = AbstractDungeon.getRandomMonster((AbstractMonster) this.owner);
+                if (m != null) {
+                    ChangeTargetPatch.target = m;
+                } else {
+                    return;
+                }
+            }
             if (action.target != this.owner) ((AbstractMonster)this.owner).takeTurn();
         }
     }

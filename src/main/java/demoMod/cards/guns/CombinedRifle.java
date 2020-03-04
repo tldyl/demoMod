@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.actions.PlaySoundAction;
 import demoMod.cards.interfaces.MultiAttackCard;
+import demoMod.powers.GunslingerPower;
 import demoMod.sounds.DemoSoundMaster;
 
 public class CombinedRifle extends AbstractGunCard implements MultiAttackCard {
@@ -59,6 +60,9 @@ public class CombinedRifle extends AbstractGunCard implements MultiAttackCard {
     @Override
     public void autoReload(AbstractPlayer p, AbstractMonster m) {
         reload();
+        if (p.hasPower(GunslingerPower.POWER_ID)) {
+            this.calculateCardDamage(m);
+        }
     }
 
     @Override

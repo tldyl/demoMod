@@ -41,6 +41,7 @@ import demoMod.characters.HuntressCharacter;
 import demoMod.combo.ComboManager;
 import demoMod.dungeons.Maze;
 import demoMod.effects.BulletSprayEffect;
+import demoMod.effects.HuntressVictoryEffect;
 import demoMod.effects.ResourcefulRatPhaseTwoIntro;
 import demoMod.events.D20Statue;
 import demoMod.monsters.*;
@@ -76,7 +77,8 @@ public class DemoMod implements EditCardsSubscriber,
                                 PotionGetSubscriber,
                                 PostRenderSubscriber,
                                 PostUpdateSubscriber,
-                                SetUnlocksSubscriber {
+                                SetUnlocksSubscriber,
+                                AddAudioSubscriber {
 
     private static final String ATTACK_CARD = "512/bg_attack_huntress.png";
     private static final String SKILL_CARD = "512/bg_skill_huntress.png";
@@ -119,7 +121,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.12");
+        logger.info("Gungeon Mod - v1.2.13");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -482,6 +484,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info(new String("=====枪牢mod:载入特效=====".getBytes(), StandardCharsets.UTF_8));
         ResourcefulRatPhaseTwoIntro.init();
         BulletSprayEffect.init();
+        HuntressVictoryEffect.init();
         curseHb = new Hitbox(48 ,48);
         curseHb.move(Settings.WIDTH * 0.6F + 32.0F, Settings.HEIGHT - 32.0F * Settings.scale);
 
@@ -649,5 +652,12 @@ public class DemoMod implements EditCardsSubscriber,
             }
         }
         comboManualScreen.update();
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio("RELIC_VORPAL_GUN", "DemoAudio/sfx/relic_vorpal_gun.wav");
+        BaseMod.addAudio("ELEVATOR_OPEN", "DemoAudio/sfx/elevator_open.wav");
+        BaseMod.addAudio("ELEVATOR_CLOSE", "DemoAudio/sfx/elevator_close.wav");
     }
 }

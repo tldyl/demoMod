@@ -60,9 +60,16 @@ public class HomingMissilePower extends ExplosivePower implements PostPotionUseS
 
     @Override
     public void receivePostPotionUse(AbstractPotion potion) {
+        final PostPotionUseSubscriber power = this;
         if (potion.ID.equals(BlankPotion.ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-            BaseMod.unsubscribe(this);
+            DemoMod.actionsQueue.add(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    BaseMod.unsubscribe(power);
+                    isDone = true;
+                }
+            });
         }
     }
 }

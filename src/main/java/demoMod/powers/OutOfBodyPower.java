@@ -46,6 +46,7 @@ public class OutOfBodyPower extends AbstractPower {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount));
             this.amount -= 1;
+            updateDescription();
         }
         if (this.amount < 1) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, DemoMod.makeID("OutOfBodyPower")));

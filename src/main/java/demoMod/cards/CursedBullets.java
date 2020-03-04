@@ -51,8 +51,8 @@ public class CursedBullets extends CustomCard implements PostAddedToMasterDeckSu
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p instanceof HuntressCharacter) {
-            if (HuntressCharacter.curse <= 1.5) return;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, (int)HuntressCharacter.curse / 2)));
+            if (HuntressCharacter.curse <= 0) return;
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, (int)Math.ceil(HuntressCharacter.curse / 2.0))));
         } else {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3)));
         }

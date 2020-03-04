@@ -29,7 +29,7 @@ public class HipHolster extends CustomRelic implements Combo, PostEnterNewActSub
 
     public HipHolster() {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)), new Texture(DemoMod.getResourcePath(OUTLINE_IMG_PATH)),
-                RelicTier.UNCOMMON, LandingSound.FLAT);
+                RelicTier.RARE, LandingSound.FLAT);
     }
 
     @Override

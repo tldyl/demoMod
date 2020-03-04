@@ -1,5 +1,8 @@
 package demoMod.powers;
 
+import basemod.BaseMod;
+import basemod.interfaces.PostPotionUseSubscriber;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,11 +11,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 import demoMod.effects.BulletSprayEffect;
+import demoMod.potions.BlankPotion;
 
-public class BulletSprayPower extends AbstractPower {
+public class BulletSprayPower extends AbstractPower implements PostPotionUseSubscriber {
     public static final String POWER_ID = DemoMod.makeID("BulletSprayPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;
@@ -43,6 +48,7 @@ public class BulletSprayPower extends AbstractPower {
         bulletSprayEffect.fadeIn();
         bulletSprayEffect.owner = (AbstractMonster) this.owner;
         AbstractDungeon.effectList.add(bulletSprayEffect);
+        BaseMod.subscribe(this);
     }
 
     @Override
@@ -74,5 +80,21 @@ public class BulletSprayPower extends AbstractPower {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
+
+    @Override
+    public void receivePostPotionUse(AbstractPotion potion) {
+        final PostPotionUseSubscriber power = this;
+        if (potion.ID.equals(BlankPotion.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            bulletSprayEffect.fadeOut();
+            DemoMod.actionsQueue.add(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    BaseMod.unsubscribe(power);
+                    isDone = true;
+                }
+            });
+        }
     }
 }

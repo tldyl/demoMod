@@ -3,10 +3,10 @@ package demoMod.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import demoMod.DemoMod;
 import demoMod.combo.Combo;
 import demoMod.combo.ComboManager;
@@ -24,7 +24,7 @@ public class RatBoots extends CustomRelic implements PostReloadSubscriber,
     public RatBoots() {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)),
                 new Texture(DemoMod.getResourcePath(OUTLINE_IMG_PATH)),
-                RelicTier.UNCOMMON, LandingSound.FLAT);
+                RelicTier.RARE, LandingSound.FLAT);
     }
 
     @Override
@@ -53,8 +53,7 @@ public class RatBoots extends CustomRelic implements PostReloadSubscriber,
     public void onReload() {
         this.flash();
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1)));
-        this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, 1)));
+        this.addToBot(new GainBlockAction(p, 3));
     }
 
     @Override

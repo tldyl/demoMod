@@ -12,9 +12,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 import demoMod.actions.CountCardTypeAction;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class HighPressurePower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("HighPressurePower");
     private static final PowerStrings powerStrings;

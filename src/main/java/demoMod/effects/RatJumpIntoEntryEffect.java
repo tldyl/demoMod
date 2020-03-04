@@ -32,7 +32,7 @@ public class RatJumpIntoEntryEffect extends AbstractGameEffect {
             this.x += Gdx.graphics.getDeltaTime() * this.dst;
         } else {
             this.x -= Gdx.graphics.getDeltaTime() * 150;
-            this.vY -= 0.8F * 60.0F / DemoMod.MAX_FPS;
+            this.vY -= 0.8F * 60.0F / (float)DemoMod.MAX_FPS;
             this.y += vY;
         }
 
