@@ -16,6 +16,7 @@ import demoMod.combo.Combo;
 import demoMod.combo.ComboManager;
 import demoMod.sounds.DemoSoundMaster;
 
+@SuppressWarnings("Duplicates")
 public class CursedBullets extends CustomCard implements PostAddedToMasterDeckSubscriber,
                                                          Combo {
     public static final String ID = DemoMod.makeID("CursedBullets");
@@ -33,6 +34,7 @@ public class CursedBullets extends CustomCard implements PostAddedToMasterDeckSu
     private static boolean combos[] = new boolean[]{false, false, false};
 
     private boolean isRemoving = false;
+    private boolean isAdded = false;
 
     public CursedBullets() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
@@ -60,9 +62,12 @@ public class CursedBullets extends CustomCard implements PostAddedToMasterDeckSu
 
     @Override
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 1;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 1;
+            }
+            isAdded = true;
         }
     }
 

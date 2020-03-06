@@ -56,5 +56,20 @@
       "[Roll the stone] #gGain a random positive effect. #rGain a random negative effect.",
       "[Leave]"
     ]
+  },
+  "DemoMod:FountainOfPurify": {
+    "NAME": "Fountain Of Purify",
+    "DESCRIPTIONS": [
+      "You can see a fountain in front of you. There is a stream of #b~shining~ #b~water~ in it. There are also #b~gold~ #b~coins~ #b~shining~ at the bottom of the pool...",
+      "You heard that you could throw enough gold coins into such a fountain to purify your soul, so you did. NL After dropping gold coins, you feel a #pdark #pgrasp loosen.",
+      "There may have been many adventurers passing by before, and a lot of gold coins have been accumulated at the bottom of the pool. You have successfully fished out some, but then you feel a #p~lingering~ #p~uneasiness~ in your heart...",
+      "Although you are thinking about gold coins in the pool, it's not right to think about it in a second: how can so many gold coins not be fished? To be careful, you leave the fountain and move on."
+    ],
+    "OPTIONS": [
+      "[Dropping gold] #rLose #r", " #rGold. #gReduce #gcurse #gpoint #gto #g0.",
+      "[Salvage] #rIncrease 5 curse points. #gGain #g100-300 #gGold.",
+      "[Leave]",
+      "[Locked] Requires:", "Gold."
+    ]
   }
 }

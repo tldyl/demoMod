@@ -55,13 +55,14 @@ public class TreasureRoomPatch {
             method = "render"
     )
     public static class PatchRender {
-        public static void Postfix(TreasureRoom room, SpriteBatch sb) {
+        public static void Prefix(TreasureRoom room, SpriteBatch sb) {
             if (AbstractDungeon.actNum == 2 && AbstractDungeon.getCurrRoom().getMapSymbol().equals("T")) {
                 render(sb);
             }
         }
 
         private static void render(SpriteBatch sb) {
+            sb.setColor(1, 1, 1, 1);
             sb.draw(entry, Settings.WIDTH * 0.5F - 150, Settings.HEIGHT * 0.3F - 50);
         }
     }
@@ -71,7 +72,7 @@ public class TreasureRoomPatch {
             method = "update"
     )
     public static class PatchUpdate {
-        public static void Postfix(TreasureRoom room) {
+        public static void Prefix(TreasureRoom room) {
             if (AbstractDungeon.actNum == 2 && AbstractDungeon.getCurrRoom().getMapSymbol().equals("T")) {
                 hb.update();
                 if (hb.hovered && (InputHelper.justClickedLeft || CInputActionSet.select.isJustPressed()) && !AbstractDungeon.isScreenUp) {
@@ -101,31 +102,9 @@ public class TreasureRoomPatch {
                     AbstractDungeon.overlayMenu.proceedButton.setLabel(TreasureRoomBoss.TEXT[0]);
                 }
                 room.chest = new LargeChest();
-                AbstractPlayer p = AbstractDungeon.player;
-
-                if (AbstractDungeon.rareRelicPool.contains(RatBoots.ID)) {
-                    room.addRelicToRewards(RelicLibrary.getRelic(RatBoots.ID).makeCopy());
-                    System.out.println("DemoMod:Before remove size:" + AbstractDungeon.rareRelicPool.size());
-                    AbstractDungeon.rareRelicPool.remove(RatBoots.ID);
-                    System.out.println("DemoMod:After remove size:" + AbstractDungeon.rareRelicPool.size());
-                } else {
-                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
-                    room.addRelicToRewards(relic);
-                }
-                if (AbstractDungeon.rareRelicPool.contains(ResourcefulSack.ID)) {
-                    room.addRelicToRewards(RelicLibrary.getRelic(ResourcefulSack.ID).makeCopy());
-                    AbstractDungeon.rareRelicPool.remove(ResourcefulSack.ID);
-                } else {
-                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
-                    room.addRelicToRewards(relic);
-                }
-                if (AbstractDungeon.rareRelicPool.contains(PartiallyEatenCheese.ID)) {
-                    room.addRelicToRewards(RelicLibrary.getRelic(PartiallyEatenCheese.ID).makeCopy());
-                    AbstractDungeon.rareRelicPool.remove(PartiallyEatenCheese.ID);
-                } else {
-                    AbstractRelic relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
-                    room.addRelicToRewards(relic);
-                }
+                room.addRelicToRewards(returnSpecificRareRelic(RatBoots.ID));
+                room.addRelicToRewards(returnSpecificRareRelic(ResourcefulSack.ID));
+                room.addRelicToRewards(returnSpecificRareRelic(PartiallyEatenCheese.ID));
                 AbstractRelic bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
                 if (bossRelic.relicId.equals(TinyHouse.ID)) {
                     bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
@@ -144,8 +123,19 @@ public class TreasureRoomPatch {
                 room.addRelicToRewards(bossRelic);
                 return SpireReturn.Return(null);
             } else {
+                closeEntry();
                 return SpireReturn.Continue();
             }
+        }
+
+        private static AbstractRelic returnSpecificRareRelic(String relicID) {
+            AbstractRelic relic = RelicLibrary.getRelic(relicID).makeCopy();
+            if (AbstractDungeon.rareRelicPool.contains(relicID)) {
+                AbstractDungeon.rareRelicPool.remove(relicID);
+            } else if (AbstractDungeon.player.hasRelic(relicID)) {
+                relic = RelicLibrary.getRelic(AbstractDungeon.returnRandomRelicKey(AbstractRelic.RelicTier.UNCOMMON)).makeCopy();
+            }
+            return relic;
         }
     }
 

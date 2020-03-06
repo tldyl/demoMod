@@ -37,6 +37,7 @@ public class BoxingGlove extends AbstractGunCard implements ChargeCard, PostAdde
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public int stars = 0;
+    private boolean isAdded = false;
     private TextureRegion star = new TextureRegion(new Texture(DemoMod.getResourcePath("effects/boxingGloveStar.png")));
 
     private static final int COST = 1;
@@ -111,9 +112,12 @@ public class BoxingGlove extends AbstractGunCard implements ChargeCard, PostAdde
 
     @Override
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 1;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 1;
+            }
+            isAdded = true;
         }
     }
 

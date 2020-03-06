@@ -31,7 +31,6 @@ import demoMod.cards.guns.Elimentaler;
 import demoMod.cards.tempCards.RatTrap;
 import demoMod.effects.BulletWaveEffect;
 import demoMod.effects.RatJumpIntoEntryEffect;
-import demoMod.patches.AbstractPlayerPatch;
 import demoMod.patches.MonsterRoomPatch;
 import demoMod.powers.*;
 import demoMod.sounds.DemoSoundMaster;
@@ -43,7 +42,6 @@ import java.util.List;
 import java.util.Set;
 
 public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boolean>,
-                                                               AbstractPlayerPatch.PostOnPlayerDamage,
                                                                OnCardUseSubscriber {
     public static final String ID = DemoMod.makeID("ResourcefulRat");
     private static final MonsterStrings monsterStrings;
@@ -159,7 +157,6 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         CardCrawlGame.music.silenceTempBgmInstantly();
         AbstractDungeon.scene.fadeOutAmbiance();
         MonsterRoomPatch.entered = true;
-        AbstractPlayerPatch.PatchUpdateCardsOnDamage.subscribe(this);
         this.powers = new ArrayList<>();
         movePackManager.clearRemainingMoves();
         if (isBeaten) {
@@ -232,6 +229,14 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     break;
                 case 4:
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    int dmg = this.damage.get(2).output;
+                    for (AbstractPower power : AbstractDungeon.player.powers) {
+                        dmg = power.onAttacked(this.damage.get(2), dmg);
+                    }
+                    if (dmg > AbstractDungeon.player.currentBlock) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, 2, true)));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, 2, true)));
+                    }
                     break;
                 case 5:
                     if (HighPressurePower.isEndByThis) {
@@ -240,9 +245,18 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     }
                     break;
                 case 6:
-                    tmpCtr = 0;
+                    int block = AbstractDungeon.player.currentBlock;
+                    dmg = this.damage.get(3).output;
+                    int totalDamage = 0;
                     for (int i=0;i<6;i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        for (AbstractPower power : AbstractDungeon.player.powers) {
+                            dmg = power.onAttacked(this.damage.get(3), dmg);
+                        }
+                        totalDamage += dmg;
+                    }
+                    if (totalDamage > block * 1.5) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SlowPower(AbstractDungeon.player, 0)));
                     }
                     break;
             }
@@ -260,10 +274,21 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Burn(), 1, true, true));
                     break;
                 case 4:
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
+                    int block = AbstractDungeon.player.currentBlock;
+                    for (int i=0;i<4;i++) {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
+                        block -= this.damage.get(0).output;
+                        if (block < 0) {
+                            int dmg = this.damage.get(0).output;
+                            for (AbstractPower power : AbstractDungeon.player.powers) {
+                                dmg = power.onAttacked(this.damage.get(0), dmg);
+                            }
+                            if (dmg > 0) {
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, 1, true)));
+                                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
+                            }
+                        }
+                    }
                     break;
                 case 5:
                     this.addToBot(new VFXAction(this, new BulletWaveEffect(this.hb.cX, this.hb.cY, Settings.WIDTH * 0.12), 0.5F, true));
@@ -329,7 +354,6 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                 movePackManager.lastMovePack = ran;
             } else {
                 int ran = aiRng % packs2.length;
-                if (ran == 6 && !(this.currentHealth <= this.maxHealth / 2.0F)) ran = 3;
                 if (ran == 5 && this.hasPower(BulletSprayPower.POWER_ID)) {
                     ran = 3;
                 }
@@ -348,6 +372,9 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                         ran = 0;
                     }
                 } else if (ctr > 3) {
+                    ran = 8;
+                }
+                if (this.hasPower(HomingMissilePower.POWER_ID) && ran == 0) {
                     ran = 8;
                 }
                 packs2[ran].execute();
@@ -387,7 +414,6 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             this.firstMove = true;
         }
         isBeaten = true;
-        AbstractPlayerPatch.PatchUpdateCardsOnDamage.detachAll();
         movePackManager.clearRemainingMoves();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m != this && !m.isDeadOrEscaped()) {
@@ -435,31 +461,6 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
     public void onLoad(Boolean aBoolean) {
         if (aBoolean != null) {
             isBeaten = aBoolean;
-        }
-    }
-
-    @Override
-    public void afterDamage() {
-        if (!isBeaten) {
-            switch (this.nextMove) {
-                case 4:
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, 2, true)));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, 2, true)));
-                    break;
-                case 6:
-                    tmpCtr++;
-                    if (tmpCtr == 2) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SlowPower(AbstractDungeon.player, 0)));
-                    }
-                    break;
-            }
-        } else {
-            switch (this.nextMove) {
-                case 4:
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, 1, true)));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
-                    break;
-            }
         }
     }
 

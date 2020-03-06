@@ -100,7 +100,7 @@
     "NAME": "Wolf",
     "FLAVOR": "Kept the Hunter company, long ago. Reunited with his master through the fractured timestream.",
     "DESCRIPTIONS": [
-      "Replace #rDog. At the end of your turn, Deal #b12 damage to a random enemy.",
+      "At the end of your turn, Deal #b12 damage to a random enemy.",
       " NL #gCombo -The Red Hood: Apply #b1 #bWeak.",
       " NL #gCombo -Sniper Woof: At the start of your turn, The next #yAttack you played will deal #g1.5 times of its damage.",
       " NL #gCombo -Tea For Two: You will gain double Omega from #yTea #yPot."

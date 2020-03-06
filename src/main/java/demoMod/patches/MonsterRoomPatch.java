@@ -87,7 +87,7 @@ public class MonsterRoomPatch {
         public static void Insert(MonsterRoom room) {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
                 if (HuntressCharacter.curse >= 10) {
-                    room.monsters.add(new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY + 180.0F));
+                    room.monsters.add(new LordOfTheJammed( - 430.0F, (Settings.HEIGHT - AbstractDungeon.floorY) / 2.0F));
                 }
             }
         }

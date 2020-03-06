@@ -13,6 +13,7 @@ import demoMod.cards.interfaces.PostAddedToMasterDeckSubscriber;
 import demoMod.characters.HuntressCharacter;
 import demoMod.sounds.DemoSoundMaster;
 
+@SuppressWarnings("Duplicates")
 public class Casey extends CustomCard implements PostAddedToMasterDeckSubscriber {
     public static final String ID = DemoMod.makeID("Casey");
     public static final String NAME;
@@ -25,6 +26,7 @@ public class Casey extends CustomCard implements PostAddedToMasterDeckSubscriber
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 2;
+    private boolean isAdded = false;
 
     public Casey() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
@@ -49,9 +51,12 @@ public class Casey extends CustomCard implements PostAddedToMasterDeckSubscriber
 
     @Override
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 1;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 1;
+            }
+            isAdded = true;
         }
     }
 

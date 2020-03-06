@@ -28,6 +28,7 @@ public class FinishedGun extends AbstractGunCard implements PostAddedToMasterDec
     private int BASE_DMG = 14;
 
     private static final int COST = 1;
+    private boolean isAdded = false;
 
     public FinishedGun() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, DemoMod.characterColor, RARITY, TARGET);
@@ -39,9 +40,12 @@ public class FinishedGun extends AbstractGunCard implements PostAddedToMasterDec
     }
 
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 5;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 5;
+            }
+            isAdded = true;
         }
     }
 

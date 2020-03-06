@@ -44,6 +44,7 @@ import demoMod.effects.BulletSprayEffect;
 import demoMod.effects.HuntressVictoryEffect;
 import demoMod.effects.ResourcefulRatPhaseTwoIntro;
 import demoMod.events.D20Statue;
+import demoMod.events.FountainOfPurify;
 import demoMod.monsters.*;
 import demoMod.patches.*;
 import demoMod.potions.BlankPotion;
@@ -121,7 +122,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.13");
+        logger.info("Gungeon Mod - v1.2.14");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -495,6 +496,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addPotion(LeadSkinPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, LeadSkinPotion.ID);
         logger.info(new String("=====枪牢mod:初始化事件=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.addEvent(D20Statue.ID, D20Statue.class);
+        BaseMod.addEvent(FountainOfPurify.ID, FountainOfPurify.class);
         logger.info(new String("=====枪牢mod:添加基础掉落=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.registerCustomReward(
                 CustomRewardPatch.GUON_STONE,
@@ -524,7 +526,8 @@ public class DemoMod implements EditCardsSubscriber,
             e.printStackTrace();
         }
         logger.info(new String("=====枪牢mod:初始化敌人=====".getBytes(), StandardCharsets.UTF_8));
-        BaseMod.addMonster("DemoMod:3_Bullet_Kins", "3 Bullet Kins", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster("DemoMod:4_Bullet_Kins", "4 Bullet Kins", () -> new MonsterGroup(new AbstractMonster[]{
+                new BulletKin(-360, Settings.HEIGHT * 0.02F),
                 new BulletKin(-180, 0, true),
                 new BulletKin(0, Settings.HEIGHT * 0.02F),
                 new BulletKin(180, 0, true)

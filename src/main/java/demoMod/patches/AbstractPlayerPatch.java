@@ -86,34 +86,6 @@ public class AbstractPlayerPatch {
 
     @SpirePatch(
             clz = AbstractPlayer.class,
-            method = "updateCardsOnDamage"
-    )
-    public static class PatchUpdateCardsOnDamage {
-        static List<PostOnPlayerDamage> subscriber = new ArrayList<>();
-
-        public static void subscribe(PostOnPlayerDamage item) {
-            if (!subscriber.contains(item)) {
-                subscriber.add(item);
-            }
-        }
-
-        public static void detach(PostOnPlayerDamage item) {
-            subscriber.remove(item);
-        }
-
-        public static void detachAll() {
-            subscriber.clear();
-        }
-
-        public static void Prefix(AbstractPlayer p) {
-            for (PostOnPlayerDamage item : subscriber) {
-                item.afterDamage();
-            }
-        }
-    }
-
-    @SpirePatch(
-            clz = AbstractPlayer.class,
             method = "update"
     )
     public static class PatchUpdate {
@@ -122,14 +94,15 @@ public class AbstractPlayerPatch {
         static int idx_rat = 0;
         public static String animStatus = "intro";
         public static boolean enabled = false;
-        private static boolean flag = false;
-        static int frame_delay = 8;
+        private static int frame_ctr = 0;
+        private static int frame_ctr_pac = (int)(2.0 * DemoMod.MAX_FPS / 60.0);
+        static int frame_delay = (int)(8.0 * DemoMod.MAX_FPS / 60.0);
 
         public static void Prefix(AbstractPlayer p) {
-            flag = !flag;
+            frame_ctr++;
             if (p.hasPower(PacManPower.POWER_ID)) {
                 enabled = true;
-                idx.put(animStatus, idx.get(animStatus) + (flag || idx.get(animStatus) == -1 ? 1 : 0));
+                idx.put(animStatus, idx.get(animStatus) + (frame_ctr >= frame_ctr_pac || idx.get(animStatus) == -1 ? 1 : 0));
                 if (animStatus.equals("intro")) {
                     if (idx.get(animStatus) >= 12) {
                         idx.put(animStatus, -1);
@@ -150,7 +123,7 @@ public class AbstractPlayerPatch {
                         DemoSoundMaster.stopL("CHEESE_LOOP");
                         DemoSoundMaster.playA("CHEESE_OUTRO", 0.0F);
                     }
-                    idx.put(animStatus, idx.get(animStatus) + (flag || idx.get(animStatus) == -1 ? 1 : 0));
+                    idx.put(animStatus, idx.get(animStatus) + (frame_ctr >= frame_ctr_pac || idx.get(animStatus) == -1 ? 1 : 0));
                     if (idx.get(animStatus) >= 29) {
                         idx.put(animStatus, -1);
                         animStatus = "intro";
@@ -160,6 +133,7 @@ public class AbstractPlayerPatch {
             }
             idx_rat++;
             if (idx_rat >= frame_delay * ratAnim.length) idx_rat = 0;
+            if (frame_ctr >= frame_ctr_pac) frame_ctr = 0;
         }
 
         static {
@@ -239,9 +213,5 @@ public class AbstractPlayerPatch {
                 ratAnim[i] = new Texture(DemoMod.getResourcePath("char/char_rat_" + (i + 1) + ".png"));
             }
         }
-    }
-
-    public interface PostOnPlayerDamage {
-        void afterDamage();
     }
 }

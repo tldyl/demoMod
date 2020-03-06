@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.TreasureRoomBoss;
@@ -46,6 +47,7 @@ public class ProceedButtonPatch {
             AbstractDungeon.nextRoom = node;
             AbstractDungeon.closeCurrentScreen();
             AbstractDungeon.nextRoomTransitionStart();
+            CardCrawlGame.nextDungeon = TheBeyond.ID;
             button.hide();
         }
     }

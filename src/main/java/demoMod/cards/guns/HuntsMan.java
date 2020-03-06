@@ -18,6 +18,7 @@ import demoMod.combo.ComboManager;
 import demoMod.monsters.Decoy;
 import demoMod.sounds.DemoSoundMaster;
 
+@SuppressWarnings("Duplicates")
 public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSubscriber,
                                                          Combo {
     public static final String ID = DemoMod.makeID("HuntsMan");
@@ -34,6 +35,7 @@ public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSu
     private static final int COST = 1;
 
     private boolean isRemoving = false;
+    private boolean isAdded = false;
 
     public HuntsMan() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, DemoMod.characterColor, RARITY, TARGET);
@@ -87,9 +89,12 @@ public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSu
 
     @Override
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 1;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 1;
+            }
+            isAdded = true;
         }
     }
 

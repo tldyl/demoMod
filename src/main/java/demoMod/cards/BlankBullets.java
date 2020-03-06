@@ -13,6 +13,7 @@ import demoMod.characters.HuntressCharacter;
 import demoMod.powers.BlankBulletsPower;
 import demoMod.sounds.DemoSoundMaster;
 
+@SuppressWarnings("Duplicates")
 public class BlankBullets extends CustomCard implements PostAddedToMasterDeckSubscriber {
     public static final String ID = DemoMod.makeID("BlankBullets");
     public static final String NAME;
@@ -25,6 +26,7 @@ public class BlankBullets extends CustomCard implements PostAddedToMasterDeckSub
     private static final CardTarget TARGET = CardTarget.NONE;
 
     private static final int COST = 1;
+    private boolean isAdded = false;
 
     public BlankBullets() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
@@ -48,9 +50,12 @@ public class BlankBullets extends CustomCard implements PostAddedToMasterDeckSub
 
     @Override
     public void onAddedToMasterDeck() {
-        DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
-        if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse += 1.5;
+        if (!isAdded) {
+            DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
+            if (AbstractDungeon.player instanceof HuntressCharacter) {
+                HuntressCharacter.curse += 1.5;
+            }
+            isAdded = true;
         }
     }
 

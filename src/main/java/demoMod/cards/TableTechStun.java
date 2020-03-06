@@ -42,7 +42,7 @@ public class TableTechStun extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster monster) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (m.type != AbstractMonster.EnemyType.BOSS) AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, p));
+            if (m.type != AbstractMonster.EnemyType.BOSS && !m.isDeadOrEscaped()) AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, p));
         }
     }
 

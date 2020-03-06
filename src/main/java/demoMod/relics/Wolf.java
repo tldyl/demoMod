@@ -83,24 +83,6 @@ public class Wolf extends CustomRelic implements Combo {
     }
 
     @Override
-    public void obtain() {
-        ComboManager.detectComboInGame();
-        System.out.println("DemoMod:wolf obtained.");
-        for (boolean combo : combos) {
-            if (combo) {
-                setDescriptionAfterLoading();
-                break;
-            }
-        }
-        for (int i = 0; i < AbstractDungeon.player.relics.size(); i++) {
-            if (AbstractDungeon.player.relics.get(i).relicId.equals(DemoMod.makeID("Dog"))) {
-                instantObtain(AbstractDungeon.player, i, true);
-                break;
-            }
-        }
-    }
-
-    @Override
     public void onEquip() {
         ComboManager.detectComboInGame();
     }
@@ -109,10 +91,6 @@ public class Wolf extends CustomRelic implements Combo {
     public void onUnequip() {
         isRemoving = true;
         ComboManager.detectCombo();
-    }
-
-    public boolean canSpawn() {
-        return AbstractDungeon.player.hasRelic(DemoMod.makeID("Dog"));
     }
 
     @Override

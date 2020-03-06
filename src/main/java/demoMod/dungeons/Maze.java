@@ -1,6 +1,7 @@
 package demoMod.dungeons;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,6 +24,7 @@ import demoMod.scenes.MazeScene;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 @SuppressWarnings({"unchecked", "ManualArrayToCollectionCopy", "UseBulkOperation"})
@@ -57,6 +59,21 @@ public class Maze extends AbstractDungeon {
         if (!MonsterRoomPatch.entered) {
             CardCrawlGame.music.dispose();
             CardCrawlGame.music.changeBGM(ID);
+        }
+        if (Loader.isModLoaded("actlikeit")) {
+            try {
+                Class<?> cls = Class.forName("actlikeit.savefields.BehindTheScenesActNum");
+                Field field = cls.getDeclaredField("bc");
+                field.setAccessible(true);
+                Object bc = field.get(null);
+                field = cls.getDeclaredField("actNum");
+                field.setAccessible(true);
+                int actNum = (Integer) field.get(bc);
+                field.set(bc, --actNum);
+                logger.info("Decreased act number. Current act number:" + actNum);
+            } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -196,7 +213,7 @@ public class Maze extends AbstractDungeon {
     @Override
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo("DemoMod:3_Bullet_Kins", 3.0F));
+        monsters.add(new MonsterInfo("DemoMod:4_Bullet_Kins", 3.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_red_shotgun_kin", 1.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_bullet_kin", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:Red_and_blue_shotgun_kin", 2.0F));

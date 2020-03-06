@@ -76,8 +76,8 @@ public class CurseValuePatch {
                     FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, Integer.toString(AbstractDungeon.player.displayGold), goldX + GOLD_NUM_OFFSET_X, INFO_TEXT_Y, Settings.GREEN_TEXT_COLOR);
                 }
                 if (AbstractDungeon.player instanceof HuntressCharacter) {
-                    sb.draw(CurseValuePatch.curseIcon, goldX - 32.0F + 32.0F * Settings.scale + 684.0F * Settings.scale, ICON_Y, ICON_W, ICON_W);
-                    FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, String.format("%.1f", HuntressCharacter.curse), goldX - 32.0F + 32.0F * Settings.scale + 750.0F * Settings.scale, INFO_TEXT_Y, Color.PURPLE);
+                    sb.draw(CurseValuePatch.curseIcon, goldX - 32.0F + 32.0F * Settings.scale + 680.0F * Settings.scale, ICON_Y, ICON_W, ICON_W);
+                    FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, String.format("%.1f", HuntressCharacter.curse), goldX - 32.0F + 32.0F * Settings.scale + 746.0F * Settings.scale, INFO_TEXT_Y, Color.PURPLE);
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
