@@ -71,9 +71,12 @@ public class CongealedPower extends AbstractPower {
         }
         DemoSoundMaster.playA("GUN_KILLED_ELIMENTALER", 0.0F);
         if (ctr == 0) return;
-        int avgAmt = this.amount / ctr;
+        int avgAmt = (int)Math.round(this.amount / (double)ctr);
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m != this.owner && !m.isDeadOrEscaped()) {
+                if (m.hasPower(POWER_ID) && m.getPower(POWER_ID).amount + avgAmt > 30) {
+                    avgAmt = 30 - m.getPower(POWER_ID).amount;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, this.owner, new CongealedPower(m, avgAmt)));
                 this.addToBot(new TriggerMarksAction(null));
             }

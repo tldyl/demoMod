@@ -375,5 +375,12 @@
       " NL #gCombo -Steel Skin: Now you no longer lose #yBlock when you play AC-15.",
       " NL #gCombo -Pretty Good: The rewards of potions and relics dropped from defeating enemies become better."
     ]
+  },
+  "DemoMod:ElasticCartridgeClip": {
+    "NAME": "Elastic Cartridge Clip",
+    "FLAVOR": "5 or 6?",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. NL You can no longer see the clip's #yCapacity."
+    ]
   }
 }

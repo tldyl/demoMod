@@ -55,6 +55,11 @@
       "未知"
     ]
   },
+  "DemoMod:ModPanel": {
+    "TEXT": [
+      "非本mod人物也能遇到宝箱怪"
+    ]
+  },
   "DemoMod:TheRedHood": {
     "TEXT": [
       "小红帽",

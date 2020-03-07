@@ -40,6 +40,7 @@ public class Elimentaler extends AbstractGunCard implements Combo,
         this.capacity = 3;
         this.maxCapacity = 3;
         this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber;
         this.reloadSoundKey = "GUN_RELOAD_ELIMENTALER";
     }
 
@@ -51,8 +52,17 @@ public class Elimentaler extends AbstractGunCard implements Combo,
     @Override
     public void fire(AbstractPlayer p, AbstractMonster m) {
         DemoSoundMaster.playV("GUN_FIRE_ELIMENTALER", 0.1F);
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new CongealedPower(m, this.baseMagicNumber)));
-        this.addToBot(new TriggerMarksAction(this));
+        int amount = 0;
+        if (m.hasPower(CongealedPower.POWER_ID)) {
+            amount = m.getPower(CongealedPower.POWER_ID).amount;
+        }
+        if (amount + this.baseMagicNumber > 30) {
+            this.magicNumber = 30 - amount;
+        }
+        if (this.magicNumber > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new CongealedPower(m, this.magicNumber)));
+            this.addToBot(new TriggerMarksAction(this));
+        }
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 

@@ -20,6 +20,7 @@ import demoMod.powers.ChanceBulletsPower;
 import demoMod.powers.GunslingerPower;
 import demoMod.powers.SlingerPower;
 import demoMod.relics.CrisisStone;
+import demoMod.relics.ElasticCartridgeClip;
 import demoMod.sounds.DemoSoundMaster;
 
 import java.lang.reflect.Type;
@@ -232,6 +233,13 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
                 && !AbstractDungeon.player.hasPower(DemoMod.makeID("SlingerPower"))) {
             this.target = CardTarget.NONE;
         }
+    }
+
+    public int getDisplayedCapacity() {
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ElasticCartridgeClip.ID)) {
+            return 99;
+        }
+        return this.capacity;
     }
 
     @Override

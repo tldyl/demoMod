@@ -6,6 +6,7 @@ import basemod.interfaces.OnCardUseSubscriber;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
@@ -171,6 +173,11 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_RESOURCEFUL_RAT_1");
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AfterImageMonsterPower(this, 2)));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[AbstractDungeon.miscRng.random(0, 1)], 0.5F, 4.0F));
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (m != this) {
+                    this.addToBot(new StunMonsterAction(m, this));
+                }
+            }
             AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
             MonsterRoomPatch.PatchRender.enabled = true;
             phaseTwo = false;
@@ -412,6 +419,12 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             DemoSoundMaster.playA("ENTRY_OPEN", 0.0F);
             AbstractDungeon.effectList.add(new RatJumpIntoEntryEffect(this));
             this.firstMove = true;
+            for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                relic.onVictory();
+            }
+            for (AbstractPower power : AbstractDungeon.player.powers) {
+                power.onVictory();
+            }
         }
         isBeaten = true;
         movePackManager.clearRemainingMoves();

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -39,6 +40,7 @@ public class SAA extends AbstractGunCard implements Combo, PostAddedToMasterDeck
         this.capacity = 6;
         this.maxCapacity = 6;
         this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
         this.isSemiAutomatic = true;
     }
 
@@ -56,8 +58,12 @@ public class SAA extends AbstractGunCard implements Combo, PostAddedToMasterDeck
         if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
         this.capacity = this.maxCapacity;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.baseMagicNumber));
         AbstractPlayer p = AbstractDungeon.player;
+        if (Settings.MAX_HAND_SIZE - p.hand.size() < this.magicNumber) {
+            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size();
+            p.createHandIsFullDialog();
+        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.magicNumber));
         if (p.hasRelic("DemoMod:HipHolster")) {
             p.getRelic("DemoMod:HipHolster").flash();
             AbstractMonster m = AbstractDungeon.getRandomMonster();
@@ -68,7 +74,11 @@ public class SAA extends AbstractGunCard implements Combo, PostAddedToMasterDeck
 
     @Override
     public void autoReload(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.baseMagicNumber));
+        if (Settings.MAX_HAND_SIZE - p.hand.size() < this.magicNumber) {
+            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size();
+            p.createHandIsFullDialog();
+        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.magicNumber));
     }
 
     @Override

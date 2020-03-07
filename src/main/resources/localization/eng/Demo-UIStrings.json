@@ -55,6 +55,11 @@
       "Unknown"
     ]
   },
+  "DemoMod:ModPanel": {
+    "TEXT": [
+      "Spawn mimics for non hunter characters."
+    ]
+  },
   "DemoMod:TheRedHood": {
     "TEXT": [
       "The Red Hood",

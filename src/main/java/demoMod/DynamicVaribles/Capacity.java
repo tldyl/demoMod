@@ -23,7 +23,7 @@ public class Capacity extends DynamicVariable {
     public int value(AbstractCard card) {
         if (card instanceof AbstractGunCard) {
             AbstractGunCard gunCard = (AbstractGunCard) card;
-            return gunCard.capacity;
+            return gunCard.getDisplayedCapacity();
         }
         return 0;
     }
@@ -32,7 +32,7 @@ public class Capacity extends DynamicVariable {
     public int baseValue(AbstractCard card) {
         if (card instanceof AbstractGunCard) {
             AbstractGunCard gunCard = (AbstractGunCard) card;
-            return gunCard.capacity;
+            return gunCard.getDisplayedCapacity();
         }
         return 0;
     }

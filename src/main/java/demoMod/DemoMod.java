@@ -1,6 +1,7 @@
 package demoMod;
 
 import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.devcommands.act.ActCommand;
@@ -11,13 +12,16 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
@@ -122,7 +126,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.14");
+        logger.info("Gungeon Mod - v1.2.15");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -446,6 +450,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelicToCustomPool(new PortableTableDevice(), characterColor);
         BaseMod.addRelicToCustomPool(new Test1(), characterColor);
         BaseMod.addRelicToCustomPool(new RatBoots(), characterColor);
+        BaseMod.addRelicToCustomPool(new ElasticCartridgeClip(), characterColor);
 
         unlocks2 = new CustomUnlockBundle(
                 AbstractUnlock.UnlockType.RELIC, SevenLeafClover.ID, HipHolster.ID, RiddleOfLead.ID
@@ -489,8 +494,6 @@ public class DemoMod implements EditCardsSubscriber,
         curseHb = new Hitbox(48 ,48);
         curseHb.move(Settings.WIDTH * 0.6F + 32.0F, Settings.HEIGHT - 32.0F * Settings.scale);
 
-        ModPanel settingsPanel = new ModPanel();
-        BaseMod.registerModBadge(ImageMaster.loadImage(DemoMod.getResourcePath("ui/badge.png")), "Gungeon Mod", "Everyone", "TODO", settingsPanel);
         logger.info(new String("=====枪牢mod:添加药水=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.addPotion(BlankPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, BlankPotion.ID);
         BaseMod.addPotion(LeadSkinPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, LeadSkinPotion.ID);
@@ -578,6 +581,39 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addBoss(Maze.ID, ResourcefulRat.ID, DemoMod.getResourcePath("map/resourcefulRat.png"), DemoMod.getResourcePath("map/resourcefulRatOutline.png"));
         comboManualScreen = new ComboManualScreen();
         MAX_FPS = Settings.MAX_FPS;
+        loadSettings();
+        UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("ModPanel"));
+        ModPanel settingsPanel = new ModPanel();
+        ModLabeledToggleButton spawnMimicForOtherCharacters = new ModLabeledToggleButton(uiStrings.TEXT[0], 350.0F, 700.0F, Color.WHITE, FontHelper.buttonLabelFont, DemoMod.spawnMimicForOtherCharacters, settingsPanel, (me) -> {},
+                (me) -> {
+                    DemoMod.spawnMimicForOtherCharacters = me.enabled;
+                    DemoMod.saveSettings();
+                });
+        settingsPanel.addUIElement(spawnMimicForOtherCharacters);
+        BaseMod.registerModBadge(ImageMaster.loadImage(DemoMod.getResourcePath("ui/badge.png")), "Gungeon Mod", "Everyone", "TODO", settingsPanel);
+    }
+
+    public static boolean spawnMimicForOtherCharacters = false;
+    private static void saveSettings() {
+        try {
+            SpireConfig config = new SpireConfig("demoMod", "settings");
+            config.setBool("spawnMimicForOtherCharacters", spawnMimicForOtherCharacters);
+            config.save();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void loadSettings() {
+        try {
+            SpireConfig config = new SpireConfig("demoMod", "settings");
+            config.load();
+            if (config.has("spawnMimicForOtherCharacters")) {
+                spawnMimicForOtherCharacters = config.getBool("spawnMimicForOtherCharacters");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

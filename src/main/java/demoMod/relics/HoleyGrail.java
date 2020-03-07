@@ -67,6 +67,11 @@ public class HoleyGrail extends CustomRelic implements Combo {
                     guns.add(c);
                 }
             }
+            for (AbstractCard c : p.hand.group) {
+                if (c instanceof AbstractGunCard) {
+                    guns.add(c);
+                }
+            }
             for (AbstractCard c : p.discardPile.group) {
                 if (c instanceof AbstractGunCard) {
                     guns.add(c);

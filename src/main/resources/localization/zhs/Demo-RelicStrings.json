@@ -375,5 +375,12 @@
       " NL #g组合 -钢皮：现在打出AC-15不会再失去 #y格挡 。",
       " NL #g组合 -美滋滋：击败敌人掉落的药水和遗物奖励变得更好。"
     ]
+  },
+  "DemoMod:ElasticCartridgeClip": {
+    "NAME": "弹力弹夹",
+    "FLAVOR": "五发还是六发？",
+    "DESCRIPTIONS": [
+      "在每回合的开始获得 [E] 。 NL 你无法再看到 #y弹夹 容量。"
+    ]
   }
 }

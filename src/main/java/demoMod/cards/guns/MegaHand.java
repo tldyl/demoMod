@@ -55,6 +55,16 @@ public class MegaHand extends AbstractGunCard implements Combo, ChargeCard, Post
     }
 
     @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        int tmp = this.baseDamage;
+        this.baseDamage = this.baseMagicNumber;
+        super.calculateCardDamage(m);
+        this.magicNumber = m != null ? this.damage : this.multiDamage[0];
+        this.baseDamage = tmp;
+        super.calculateCardDamage(m);
+    }
+
+    @Override
     public void reload() {
         if (this.capacity == this.maxCapacity) {
             if (this.mode != -1) {
@@ -200,6 +210,7 @@ public class MegaHand extends AbstractGunCard implements Combo, ChargeCard, Post
                 modeShift();
                 break;
         }
+        p.cardInUse = this;
     }
 
     @Override
