@@ -262,8 +262,7 @@
   },
   "DemoMod:SniperShot": {
     "NAME": "Sniper Shot",
-    "DESCRIPTION": "Play a Gun card from your discard pile then put into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play a Gun card from your discard pile then put into your hand."
+    "DESCRIPTION": "Play a Gun card from your discard pile then put into your hand. NL Exhaust."
   },
   "DemoMod:DirectionalPad": {
     "NAME": "Directional Pad",
@@ -406,7 +405,7 @@
   },
   "DemoMod:Camera": {
     "NAME": "Camera",
-    "DESCRIPTION": "Gun. Deal !D! damage to ALL enemies. Capacity 1:Stun ALL enemies this turn. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage to ALL enemies. Capacity 1:Stun ALL enemies this turn. NL If the Capacity has been lowered to 0, Exhaust. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:BlackHoleGun": {
     "NAME": "BlackHole Gun",

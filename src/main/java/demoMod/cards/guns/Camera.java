@@ -35,7 +35,7 @@ public class Camera extends AbstractGunCard implements Combo, PostAddedToMasterD
 
     public Camera() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, DemoMod.characterColor, RARITY, TARGET);
-        this.baseDamage = 7;
+        this.baseDamage = 6;
         this.capacity = 4;
         this.maxCapacity = 4;
         this.reloadSoundKey = "";
@@ -50,7 +50,9 @@ public class Camera extends AbstractGunCard implements Combo, PostAddedToMasterD
     public void fire(AbstractPlayer p, AbstractMonster m) {
         this.calculateCardDamage(null);
         DemoSoundMaster.playA("GUN_FIRE_CAMERA", 0.0F);
-        DemoMod.effectsQueue.add(new TimeFreezeEffect(0.8F, false));
+        if (!DemoMod.disableVFXForCamera) {
+            DemoMod.effectsQueue.add(new TimeFreezeEffect(0.8F, false));
+        }
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
         if (this.capacity == 0 || (combos[1] && this.capacity <= 1)) {
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -58,6 +60,9 @@ public class Camera extends AbstractGunCard implements Combo, PostAddedToMasterD
                     this.addToBot(new StunMonsterAction(monster, p));
                 }
             }
+        }
+        if (this.capacity == 0) {
+            this.exhaust = true;
         }
     }
 
@@ -67,6 +72,12 @@ public class Camera extends AbstractGunCard implements Combo, PostAddedToMasterD
             this.upgradeName();
             this.upgradeDamage(3);
         }
+    }
+
+    @Override
+    public void clearAmmo() {
+        super.clearAmmo();
+        this.exhaust = true;
     }
 
     static {

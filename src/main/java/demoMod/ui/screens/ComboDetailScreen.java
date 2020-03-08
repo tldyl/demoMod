@@ -135,6 +135,7 @@ public class ComboDetailScreen {
         if (comboName != null && description != null) {
             FontHelper.renderFontCentered(sb, FontHelper.bannerFont, comboName, Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.1F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
             TipHelper.renderGenericTip(Settings.WIDTH * 0.03F, Settings.HEIGHT * 0.9F, label, description);
+            TipHelper.render(sb);
         }
     }
 }

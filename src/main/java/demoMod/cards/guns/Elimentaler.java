@@ -56,8 +56,8 @@ public class Elimentaler extends AbstractGunCard implements Combo,
         if (m.hasPower(CongealedPower.POWER_ID)) {
             amount = m.getPower(CongealedPower.POWER_ID).amount;
         }
-        if (amount + this.baseMagicNumber > 30) {
-            this.magicNumber = 30 - amount;
+        if (amount + this.baseMagicNumber > 20) {
+            this.magicNumber = 20 - amount;
         }
         if (this.magicNumber > 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new CongealedPower(m, this.magicNumber)));

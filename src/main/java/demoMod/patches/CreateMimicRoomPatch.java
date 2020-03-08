@@ -29,7 +29,7 @@ public class CreateMimicRoomPatch {
 
             for (List<MapRoomNode> aMap : AbstractDungeon.map) {
                 for (MapRoomNode node : aMap) {
-                    if (node.room instanceof TreasureRoom || node.room instanceof EventRoom) {
+                    if ((node.room instanceof TreasureRoom && AbstractDungeon.actNum != 2) || node.room instanceof EventRoom) {
                         chestNodes.add(node);
                     }
                 }

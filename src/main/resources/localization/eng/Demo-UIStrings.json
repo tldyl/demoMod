@@ -57,7 +57,8 @@
   },
   "DemoMod:ModPanel": {
     "TEXT": [
-      "Spawn mimics for non hunter characters."
+      "Spawn mimics for non hunter characters.",
+      "Disable VFX of card \"Camera\"."
     ]
   },
   "DemoMod:TheRedHood": {

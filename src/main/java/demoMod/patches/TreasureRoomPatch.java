@@ -27,6 +27,8 @@ import demoMod.relics.PartiallyEatenCheese;
 import demoMod.relics.RatBoots;
 import demoMod.relics.ResourcefulSack;
 
+import java.lang.reflect.Field;
+
 @SuppressWarnings("unused")
 public class TreasureRoomPatch {
     private static Texture entry;
@@ -80,6 +82,18 @@ public class TreasureRoomPatch {
                     if (AbstractDungeon.player.hasRelic(DemoMod.makeID("GnawedKey")) && !isOpen) {
                         AbstractDungeon.player.loseRelic(DemoMod.makeID("GnawedKey"));
                         AbstractDungeon.effectsQueue.add(new EnterTheMazeEffect());
+                        try {
+                            Field field = AbstractChest.class.getDeclaredField("hb");
+                            field.setAccessible(true);
+                            Hitbox hb = (Hitbox) field.get(room.chest);
+                            field.set(room.chest, new Hitbox(hb.x, hb.y, hb.width, hb.height) {
+                                @Override
+                                public void update() {
+                                }
+                            });
+                        } catch (NoSuchFieldException | IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
                     }
                     if (isOpen) {
                         AbstractDungeon.effectsQueue.add(new PlayerJumpIntoEntryEffect(true));

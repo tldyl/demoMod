@@ -59,7 +59,8 @@ public class FortunesFavor extends CustomCard implements Combo,
             if (!monster.isDeadOrEscaped() &&
                     (monster.intent == AbstractMonster.Intent.ATTACK
                     || monster.intent == AbstractMonster.Intent.ATTACK_DEBUFF
-                    || monster.intent == AbstractMonster.Intent.ATTACK_DEFEND)) {
+                    || monster.intent == AbstractMonster.Intent.ATTACK_DEFEND
+                    || monster.intent == AbstractMonster.Intent.ATTACK_BUFF)) {
                 try {
                     Field multiField = AbstractMonster.class.getDeclaredField("intentMultiAmt");
                     multiField.setAccessible(true);

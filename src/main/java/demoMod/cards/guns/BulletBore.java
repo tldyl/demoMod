@@ -25,7 +25,7 @@ public class BulletBore extends AbstractGunCard implements Combo, PostAddedToMas
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
     private boolean isRemoving = false;
 

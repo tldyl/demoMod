@@ -132,7 +132,7 @@
       "congeal"
     ],
     "PROPER_NAME": "Congealed",
-    "DESCRIPTION": "Whenever you apply #b10 Congeal to an enemy, this enemy will not be able to move this turn. NL when target dies, the amount of Congeal will be equally distributed to all other enemies. NL The upper limit of the congeal's amount is #b30."
+    "DESCRIPTION": "Whenever you apply #b10 Congeal to an enemy, this enemy will not be able to move this turn. NL when target dies, the amount of Congeal will be equally distributed to all other enemies. NL The upper limit of the congeal's amount is #b20."
   },
   {
     "NAMES": [

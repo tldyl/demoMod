@@ -2,6 +2,7 @@ package demoMod.cards.guns;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -42,18 +43,13 @@ public class TripleGun extends AbstractGunCard {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         } else if (this.capacity == 1) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-            if (!m.isDying && !m.isEscaping) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-            }
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
             this.target = CardTarget.ALL_ENEMY;
         } else {
-            int i = 0;
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                this.baseDamage = this.baseMagicNumber;
-                this.calculateCardDamage(null);
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, this.multiDamage[i], this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-                i++;
-            }
+            this.baseDamage = this.baseMagicNumber;
+            this.calculateCardDamage(null);
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE, true));
+            this.baseDamage = BASE_DMG;
             this.target = this.defaultTarget;
         }
     }
@@ -69,6 +65,7 @@ public class TripleGun extends AbstractGunCard {
         if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
             AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
             AbstractMonster m = AbstractDungeon.getRandomMonster();
+            this.target = CardTarget.ENEMY;
             tripleFire(AbstractDungeon.player, m);
         }
         afterReload();

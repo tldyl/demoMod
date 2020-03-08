@@ -262,8 +262,7 @@
   },
   "DemoMod:SniperShot": {
     "NAME": "冷枪",
-    "DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。"
+    "DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。 NL 消耗 。"
   },
   "DemoMod:DirectionalPad": {
     "NAME": "方向键",
@@ -406,7 +405,7 @@
   },
   "DemoMod:Camera": {
     "NAME": "照相机",
-    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。 弹夹 为1：击晕所有敌人一回合。 弹夹 !DemoModCapacity! 。"
+    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。 弹夹 为1：击晕所有敌人一回合。 NL 如果 弹夹 曾经降低到0过， 消耗 。 弹夹 !DemoModCapacity! 。"
   },
   "DemoMod:BlackHoleGun": {
     "NAME": "黑洞枪",

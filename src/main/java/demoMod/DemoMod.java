@@ -126,7 +126,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.15");
+        logger.info("Gungeon Mod - v1.2.16");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -589,15 +589,23 @@ public class DemoMod implements EditCardsSubscriber,
                     DemoMod.spawnMimicForOtherCharacters = me.enabled;
                     DemoMod.saveSettings();
                 });
+        ModLabeledToggleButton disableVFXForCamera = new ModLabeledToggleButton(uiStrings.TEXT[1], 350.0F, 650.0F, Color.WHITE, FontHelper.buttonLabelFont, DemoMod.disableVFXForCamera, settingsPanel, (me) -> {},
+                (me) -> {
+                    DemoMod.disableVFXForCamera = me.enabled;
+                    DemoMod.saveSettings();
+                });
         settingsPanel.addUIElement(spawnMimicForOtherCharacters);
         BaseMod.registerModBadge(ImageMaster.loadImage(DemoMod.getResourcePath("ui/badge.png")), "Gungeon Mod", "Everyone", "TODO", settingsPanel);
     }
 
     public static boolean spawnMimicForOtherCharacters = false;
+    public static boolean disableVFXForCamera = false;
+
     private static void saveSettings() {
         try {
             SpireConfig config = new SpireConfig("demoMod", "settings");
             config.setBool("spawnMimicForOtherCharacters", spawnMimicForOtherCharacters);
+            config.setBool("disableVFXForCamera", disableVFXForCamera);
             config.save();
         } catch (Exception e) {
             e.printStackTrace();
@@ -610,6 +618,9 @@ public class DemoMod implements EditCardsSubscriber,
             config.load();
             if (config.has("spawnMimicForOtherCharacters")) {
                 spawnMimicForOtherCharacters = config.getBool("spawnMimicForOtherCharacters");
+            }
+            if (config.has("disableVFXForCamera")) {
+                disableVFXForCamera = config.getBool("disableVFXForCamera");
             }
         } catch (Exception e) {
             e.printStackTrace();

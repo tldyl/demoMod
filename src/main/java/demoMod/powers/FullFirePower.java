@@ -46,11 +46,10 @@ public class FullFirePower extends AbstractPower {
             }
             int capacity = ((AbstractGunCard) card).capacity;
             for (int i=0;i<capacity;i++) {
-                AbstractCard tmp = card.makeSameInstanceOf();
-                ((AbstractGunCard) tmp).capacity = ((AbstractGunCard) card).capacity;
                 if (m != null) {
                     card.calculateCardDamage(m);
                 }
+                AbstractCard tmp = card.makeSameInstanceOf();
                 tmp.purgeOnUse = true;
                 tmp.current_x = card.current_x;
                 tmp.current_y = card.current_y;
