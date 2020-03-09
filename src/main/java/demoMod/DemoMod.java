@@ -126,7 +126,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.16");
+        logger.info("Gungeon Mod - v1.2.17");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -278,17 +278,7 @@ public class DemoMod implements EditCardsSubscriber,
         UnlockTracker.unlockCard(ManualReload.ID);
         UnlockTracker.unlockCard(Roll.ID);
 
-        unlocks0 = new CustomUnlockBundle(
-                Rummage.ID, Eureka.ID, Behold.ID
-        );
 
-        unlocks1 = new CustomUnlockBundle(
-                Gungine.ID, SpreadAmmo.ID, Evolver.ID
-        );
-
-        unlocks3 = new CustomUnlockBundle(
-                Casey.ID, StrategicReserve.ID, Replace.ID
-        );
         logger.info(new String("=====枪牢mod:初始化卡牌完毕=====".getBytes(), StandardCharsets.UTF_8));
     }
 
@@ -396,6 +386,7 @@ public class DemoMod implements EditCardsSubscriber,
         DemoSoundMaster.stopL("CHEESE_LOOP");
         MonsterRoomPatch.mazeTempMusicSoundKey = "ACT_MAZE_COMBAT";
         MonsterRoomPatch.entered = false;
+        TreasureRoomPatch.closeEntry();
     }
 
     @Override
@@ -451,13 +442,6 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelicToCustomPool(new Test1(), characterColor);
         BaseMod.addRelicToCustomPool(new RatBoots(), characterColor);
         BaseMod.addRelicToCustomPool(new ElasticCartridgeClip(), characterColor);
-
-        unlocks2 = new CustomUnlockBundle(
-                AbstractUnlock.UnlockType.RELIC, SevenLeafClover.ID, HipHolster.ID, RiddleOfLead.ID
-        );
-        unlocks4 = new CustomUnlockBundle(
-                AbstractUnlock.UnlockType.RELIC, LichsEyeBullet.ID, SuperHotWatch.ID, WaxWing.ID
-        );
 
         logger.info(new String("=====枪牢mod:遗物添加完毕=====".getBytes(), StandardCharsets.UTF_8));
     }
@@ -595,7 +579,9 @@ public class DemoMod implements EditCardsSubscriber,
                     DemoMod.saveSettings();
                 });
         settingsPanel.addUIElement(spawnMimicForOtherCharacters);
+        settingsPanel.addUIElement(disableVFXForCamera);
         BaseMod.registerModBadge(ImageMaster.loadImage(DemoMod.getResourcePath("ui/badge.png")), "Gungeon Mod", "Everyone", "TODO", settingsPanel);
+        AbstractDungeonPatch.instance = new AbstractDungeonPatch();
     }
 
     public static boolean spawnMimicForOtherCharacters = false;
@@ -659,6 +645,21 @@ public class DemoMod implements EditCardsSubscriber,
     @Override
     public void receiveSetUnlocks() {
         logger.info(new String("=====枪牢mod:初始化解锁内容=====".getBytes(), StandardCharsets.UTF_8));
+        unlocks0 = new CustomUnlockBundle(
+                Rummage.ID, Eureka.ID, Behold.ID
+        );
+        unlocks1 = new CustomUnlockBundle(
+                Gungine.ID, SpreadAmmo.ID, Evolver.ID
+        );
+        unlocks2 = new CustomUnlockBundle(
+                AbstractUnlock.UnlockType.RELIC, SevenLeafClover.ID, HipHolster.ID, RiddleOfLead.ID
+        );
+        unlocks3 = new CustomUnlockBundle(
+                Casey.ID, StrategicReserve.ID, Replace.ID
+        );
+        unlocks4 = new CustomUnlockBundle(
+                AbstractUnlock.UnlockType.RELIC, LichsEyeBullet.ID, SuperHotWatch.ID, WaxWing.ID
+        );
         BaseMod.addUnlockBundle(unlocks0, HuntressEnum.HUNTRESS, 0);
         BaseMod.addUnlockBundle(unlocks1, HuntressEnum.HUNTRESS, 1);
         BaseMod.addUnlockBundle(unlocks2, HuntressEnum.HUNTRESS, 2);

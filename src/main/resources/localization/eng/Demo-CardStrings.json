@@ -423,7 +423,7 @@
   },
   "DemoMod:FortunesFavor": {
     "NAME": "Fortune's Favor",
-    "DESCRIPTION": "Gain half of the total damage that all enemies want to deals to you."
+    "DESCRIPTION": "Gain half of the total damage's Block that all enemies want to deals to you."
   },
   "DemoMod:BoxingGlove": {
     "NAME": "Boxing Glove",

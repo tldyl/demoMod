@@ -183,7 +183,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     /**
      * 这把枪被自动填装时触发此方法。
      */
-    public abstract void autoReload(AbstractPlayer p, AbstractMonster m);
+    protected abstract void autoReload(AbstractPlayer p, AbstractMonster m);
 
     /**
      * 这把枪开火时触发此方法。

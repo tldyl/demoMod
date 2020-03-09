@@ -51,9 +51,11 @@ public class DirectionalPad extends AbstractGunCard {
 
     @Override
     public void autoReload(AbstractPlayer p, AbstractMonster m) {
-        fire(p, m);
-        AbstractDungeon.player.masterDeck.removeCard(this.cardID);
-        addRandomRewards();
+        if (this.capacity == this.maxCapacity) {
+            fire(p, m);
+            AbstractDungeon.player.masterDeck.removeCard(this.cardID);
+            addRandomRewards();
+        }
     }
 
     @Override

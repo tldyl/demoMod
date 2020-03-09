@@ -36,7 +36,7 @@ public class EurekaPower extends AbstractPower {
         if (c instanceof AbstractGunCard) {
             this.amount--;
         }
-        if (this.amount >= 0 && ((AbstractPlayer)owner).hand.size() < Settings.MAX_HAND_SIZE) {
+        if (this.amount > 0 && ((AbstractPlayer)owner).hand.size() < Settings.MAX_HAND_SIZE) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         } else {
             AbstractDungeon.actionManager.clearPostCombatActions();
