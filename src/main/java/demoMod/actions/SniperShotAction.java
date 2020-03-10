@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
+import demoMod.monsters.LordOfTheJammed;
 
 public class SniperShotAction extends AbstractGameAction {
     public static final String[] TEXT;
@@ -33,9 +34,9 @@ public class SniperShotAction extends AbstractGameAction {
                 }
                 if (gunCardsInDiscard.size() == 1) {
                     if (this.p.hand.size() < Settings.MAX_HAND_SIZE) {
-                        this.p.hand.addToHand(gunCardsInDiscard.group.get(0));
+                        this.p.discardPile.moveToHand(gunCardsInDiscard.group.get(0));
                         if (!AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                            AbstractMonster m = AbstractDungeon.getRandomMonster();
+                            AbstractMonster m = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(LordOfTheJammed.ID));
                             if (gunCardsInDiscard.group.get(0).target == AbstractCard.CardTarget.ALL_ENEMY) {
                                 gunCardsInDiscard.group.get(0).calculateCardDamage(null);
                             } else {
@@ -58,10 +59,9 @@ public class SniperShotAction extends AbstractGameAction {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                     if (this.p.hand.size() < Settings.MAX_HAND_SIZE) {
-                        this.p.hand.addToHand(c);
-                        this.p.discardPile.removeCard(c);
+                        this.p.discardPile.moveToHand(c);
                         if (!AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                            AbstractMonster m = AbstractDungeon.getRandomMonster();
+                            AbstractMonster m = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(LordOfTheJammed.ID));
                             if (c.target == AbstractCard.CardTarget.ALL_ENEMY) {
                                 c.calculateCardDamage(null);
                             } else {

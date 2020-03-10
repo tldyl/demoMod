@@ -109,7 +109,9 @@ public class MazeScene extends AbstractScene {
     @Override
     public void renderCombatRoomBg(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        this.renderAtlasRegionIf(sb, this.bg, !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss));
+        if (!(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss)) {
+            sb.draw(this.bg.getTexture(), 0, 0, 0.0F, 0.0F, (float) this.bg.packedWidth, (float) this.bg.packedHeight, Settings.WIDTH / 1920.0F, Settings.HEIGHT / 1136.0F, 0.0F, this.bg.getRegionX(), this.bg.getRegionY(), this.bg.getRegionWidth(), this.bg.getRegionHeight(), false, false);
+        }
         this.renderAtlasRegionIf(sb, this.rat_1_bg, AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && !ResourcefulRat.phaseTwo);
         if (ResourcefulRat.phaseTwo && !ResourcefulRat.isTrueBeaten) {
             sb.draw(this.rat_2_bg_1, 0,
@@ -138,7 +140,7 @@ public class MazeScene extends AbstractScene {
                         color.r = 1;
                         color.g = 0.7F;
                         color.b = 0;
-                        render(sb, Settings.WIDTH * 0.83F * Settings.scale, Settings.HEIGHT * 0.76F * Settings.scale);
+                        render(sb, Settings.WIDTH * 0.56F, Settings.HEIGHT * 0.49F);
                     }
                 };
                 effect.update();

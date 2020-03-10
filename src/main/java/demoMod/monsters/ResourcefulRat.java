@@ -168,6 +168,11 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             MonsterRoomPatch.PatchRender.enabled = false;
             phaseTwo = true;
             this.img = new Texture(DemoMod.getResourcePath("monsters/resourcefulRat/idle/idle_scale_1.3.png"));
+            if (AbstractDungeon.ascensionLevel >= 19) {
+                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 50)));
+            } else {
+                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 60)));
+            }
         } else {
             AbstractDungeon.getCurrRoom().rewardAllowed = false;
             AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_RESOURCEFUL_RAT_1");
@@ -378,11 +383,14 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     if (ctr <= 5) {
                         ran = 0;
                     }
-                } else if (ctr > 3) {
+                } else if (ctr > 5) {
                     ran = 8;
                 }
                 if (this.hasPower(HomingMissilePower.POWER_ID) && ran == 0) {
                     ran = 8;
+                }
+                if (movePackManager.lastMovePack == 8 && ran == 4) {
+                    ran = aiRng % packs2.length;
                 }
                 packs2[ran].execute();
                 movePackManager.lastMovePack = ran;

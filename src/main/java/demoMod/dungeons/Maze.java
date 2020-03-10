@@ -1,6 +1,7 @@
 package demoMod.dungeons;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.*;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import demoMod.DemoMod;
+import demoMod.characters.HuntressCharacter;
 import demoMod.monsters.ResourcefulRat;
 import demoMod.patches.CardCrawlGamePatch;
 import demoMod.patches.MonsterRoomPatch;
@@ -75,6 +77,15 @@ public class Maze extends AbstractDungeon {
                 e.printStackTrace();
             }
         }
+        if (AbstractDungeon.player instanceof HuntressCharacter) {
+            try {
+                Field field = AbstractPlayer.class.getDeclaredField("img");
+                field.setAccessible(true);
+                field.set(AbstractDungeon.player, new Texture(DemoMod.getResourcePath("char/character2.png")));
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Maze(AbstractPlayer p, SaveFile saveFile) {
@@ -92,6 +103,15 @@ public class Maze extends AbstractDungeon {
         if (!MonsterRoomPatch.entered) {
             CardCrawlGame.music.dispose();
             CardCrawlGame.music.changeBGM(ID);
+        }
+        if (AbstractDungeon.player instanceof HuntressCharacter) {
+            try {
+                Field field = AbstractPlayer.class.getDeclaredField("img");
+                field.setAccessible(true);
+                field.set(AbstractDungeon.player, new Texture(DemoMod.getResourcePath("char/character2.png")));
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 

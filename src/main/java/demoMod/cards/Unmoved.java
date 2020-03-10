@@ -2,6 +2,7 @@ package demoMod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,9 +42,30 @@ public class Unmoved extends CustomCard {
     }
 
     @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        if (c.type == CardType.ATTACK && !c.exhaust && !c.purgeOnUse) {
+            UnmovedAction.findCards(this.baseMagicNumber, CardType.ATTACK);
+            if (this.upgraded) {
+                this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            } else {
+                this.rawDescription = cardStrings.DESCRIPTION;
+            }
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0] + UnmovedAction.cards.size();
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
+            for (int i=0;i<UnmovedAction.cards.size() - 1;i++) {
+                this.rawDescription += UnmovedAction.cards.get(i).name;
+                this.rawDescription += ",";
+            }
+            this.rawDescription += UnmovedAction.cards.get(UnmovedAction.cards.size() - 1).name;
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+            this.initializeDescription();
+        }
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
-        this.addToBot(new UnmovedAction(this.baseMagicNumber));
+        this.addToBot(new UnmovedAction(this.baseMagicNumber, CardType.ATTACK));
     }
 
     static {

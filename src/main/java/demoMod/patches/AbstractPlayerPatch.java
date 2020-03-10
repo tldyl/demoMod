@@ -7,10 +7,13 @@ import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -211,6 +214,26 @@ public class AbstractPlayerPatch {
             ratAnim = new Texture[4];
             for (int i=0;i<ratAnim.length;i++) {
                 ratAnim[i] = new Texture(DemoMod.getResourcePath("char/char_rat_" + (i + 1) + ".png"));
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "useCard"
+    )
+    public static class PatchUseCard {
+        @SpireInsertPatch(rloc = 22)
+        public static void Insert(AbstractPlayer p, AbstractCard c, AbstractMonster m, int energyOnUse) {
+            for (AbstractCard card : p.drawPile.group) {
+                if (!(card instanceof Pain)) {
+                    card.triggerOnOtherCardPlayed(c);
+                }
+            }
+            for (AbstractCard card : p.discardPile.group) {
+                if (!(card instanceof Pain)) {
+                    card.triggerOnOtherCardPlayed(c);
+                }
             }
         }
     }

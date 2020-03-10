@@ -271,7 +271,12 @@
   "DemoMod:Unmoved": {
     "NAME": "Unmoved",
     "DESCRIPTION": "Gain !B! Block. Put the last played Attack this combat into your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Put the last 2 played Attack this combat into your hand."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Put the last 2 played Attacks this combat into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "(The last ",
+      " Attacks you played is:",
+      ")"
+    ]
   },
   "DemoMod:DarkMarker": {
     "NAME": "Dark Marker",
@@ -393,7 +398,12 @@
   },
   "DemoMod:OldTrick": {
     "NAME": "Old Trick",
-    "DESCRIPTION": "Deal !D! damage. NL Put the last played Skill this combat into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Put the last played Skill this combat into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "(The last ",
+      " Skills you played is:",
+      ")"
+    ]
   },
   "DemoMod:ZorGun": {
     "NAME": "Zor Gun",

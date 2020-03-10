@@ -2,7 +2,6 @@ package demoMod.powers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
@@ -30,7 +29,7 @@ public class SelfExplodePower extends AbstractPower {
 
     @Override
     public void onDeath() {
-        AbstractDungeon.actionManager.addToBottom(new SelfExplodeAction(this.owner, this.amount));
+        DemoMod.actionsQueue.add(new SelfExplodeAction(this.owner, this.amount));
     }
 
     static {

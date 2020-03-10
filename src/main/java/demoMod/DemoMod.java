@@ -22,7 +22,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -105,7 +104,6 @@ public class DemoMod implements EditCardsSubscriber,
     public static boolean afterSteal = false;
     public static List<AbstractGameEffect> effectsQueue = new ArrayList<>();
     public static List<AbstractGameAction> actionsQueue = new ArrayList<>();
-    public static Hitbox curseHb;
     public static ComboManualScreen comboManualScreen;
     public static int MAX_FPS;
 
@@ -126,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.17");
+        logger.info("Gungeon Mod - v1.2.18");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -475,8 +473,8 @@ public class DemoMod implements EditCardsSubscriber,
         ResourcefulRatPhaseTwoIntro.init();
         BulletSprayEffect.init();
         HuntressVictoryEffect.init();
-        curseHb = new Hitbox(48 ,48);
-        curseHb.move(Settings.WIDTH * 0.6F + 32.0F, Settings.HEIGHT - 32.0F * Settings.scale);
+
+
 
         logger.info(new String("=====枪牢mod:添加药水=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.addPotion(BlankPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, BlankPotion.ID);

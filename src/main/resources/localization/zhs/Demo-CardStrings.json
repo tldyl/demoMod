@@ -271,7 +271,12 @@
   "DemoMod:Unmoved": {
     "NAME": "不为所动",
     "DESCRIPTION": "获得 !B! 点 格挡 。将打出的上一张攻击牌放入手牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。将打出的前 !M! 张攻击牌放入手牌。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。将打出的前 !M! 张攻击牌放入手牌。",
+    "EXTENDED_DESCRIPTION": [
+      "(你打出的前",
+      "张攻击牌是：",
+      ")"
+    ]
   },
   "DemoMod:DarkMarker": {
     "NAME": "黑暗标志",
@@ -393,7 +398,12 @@
   },
   "DemoMod:OldTrick": {
     "NAME": "故技重施",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将打出的上一张技能牌放入手牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将打出的上一张技能牌放入手牌。",
+    "EXTENDED_DESCRIPTION": [
+      "(你打出的前",
+      "张技能牌是：",
+      ")"
+    ]
   },
   "DemoMod:ZorGun": {
     "NAME": "佐尔枪",

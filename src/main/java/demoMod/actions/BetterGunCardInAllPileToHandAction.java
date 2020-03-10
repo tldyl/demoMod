@@ -86,6 +86,8 @@ public class BetterGunCardInAllPileToHandAction extends AbstractGameAction {
                                 gunCard.reload();
                                 gunCard.superFlash();
                             }
+                        } else {
+                            this.player.createHandIsFullDialog();
                         }
                     }
                     this.isDone = true;
@@ -130,6 +132,8 @@ public class BetterGunCardInAllPileToHandAction extends AbstractGameAction {
                             gunCard.reload();
                             gunCard.superFlash();
                         }
+                    } else {
+                        this.player.createHandIsFullDialog();
                     }
                     c.lighten(false);
                     c.unhover();

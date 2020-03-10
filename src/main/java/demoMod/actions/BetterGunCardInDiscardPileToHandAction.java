@@ -46,8 +46,7 @@ public class BetterGunCardInDiscardPileToHandAction extends AbstractGameAction {
                     ArrayList<AbstractCard> cardsToMove = new ArrayList<>(gunCardsInDiscard.group);
                     for (AbstractCard c : cardsToMove) {
                         if (this.player.hand.size() < Settings.MAX_HAND_SIZE) {
-                            this.player.hand.addToHand(c);
-                            this.player.discardPile.removeCard(c);
+                            this.player.discardPile.moveToHand(c);
                             AbstractGunCard gunCard = (AbstractGunCard)c;
                             gunCard.target = gunCard.defaultTarget;
                             gunCard.isReload = false;
@@ -58,6 +57,8 @@ public class BetterGunCardInDiscardPileToHandAction extends AbstractGameAction {
                             }
                             gunCard.reload();
                             gunCard.superFlash();
+                        } else {
+                            this.player.createHandIsFullDialog();
                         }
                     }
                     this.isDone = true;
@@ -83,8 +84,7 @@ public class BetterGunCardInDiscardPileToHandAction extends AbstractGameAction {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                     if (this.player.hand.size() < Settings.MAX_HAND_SIZE) {
-                        this.player.hand.addToHand(c);
-                        this.player.discardPile.removeCard(c);
+                        this.player.discardPile.moveToHand(c);
                         AbstractGunCard gunCard = (AbstractGunCard)c;
                         gunCard.target = gunCard.defaultTarget;
                         gunCard.isReload = false;

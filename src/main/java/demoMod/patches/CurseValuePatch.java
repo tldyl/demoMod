@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
@@ -25,11 +26,13 @@ public class CurseValuePatch {
     public static final UIStrings uiStrings;
     public static final String label;
     public static final String tip;
+    public static Hitbox curseHb;
 
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString(DemoMod.makeID("CurseValueTip"));
         label = uiStrings.TEXT[0];
         tip = uiStrings.TEXT[1];
+        curseHb = new Hitbox(48 ,48);
     }
 
     @SpirePatch(
@@ -76,8 +79,9 @@ public class CurseValuePatch {
                     FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, Integer.toString(AbstractDungeon.player.displayGold), goldX + GOLD_NUM_OFFSET_X, INFO_TEXT_Y, Settings.GREEN_TEXT_COLOR);
                 }
                 if (AbstractDungeon.player instanceof HuntressCharacter) {
-                    sb.draw(CurseValuePatch.curseIcon, goldX - 32.0F + 32.0F * Settings.scale + 680.0F * Settings.scale, ICON_Y, ICON_W, ICON_W);
-                    FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, String.format("%.1f", HuntressCharacter.curse), goldX - 32.0F + 32.0F * Settings.scale + 746.0F * Settings.scale, INFO_TEXT_Y, Color.PURPLE);
+                    curseHb.move(goldX - 32.0F + 32.0F * Settings.scale + 675.0F * Settings.scale, ICON_Y);
+                    sb.draw(CurseValuePatch.curseIcon, goldX - 32.0F + 32.0F * Settings.scale + 675.0F * Settings.scale, ICON_Y, ICON_W, ICON_W);
+                    FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, String.format("%.1f", HuntressCharacter.curse), goldX - 32.0F + 32.0F * Settings.scale + 741.0F * Settings.scale, INFO_TEXT_Y, Color.PURPLE);
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
@@ -94,9 +98,9 @@ public class CurseValuePatch {
     public static class UpdateTips {
         public static void Postfix(TopPanel topPanel) {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
-                DemoMod.curseHb.update();
+                curseHb.update();
                 if (!Settings.hideTopBar) {
-                    if (DemoMod.curseHb.hovered) {
+                    if (curseHb.hovered) {
                         TipHelper.renderGenericTip((float) InputHelper.mX - 140.0F * Settings.scale, (float) Settings.HEIGHT - 120.0F * Settings.scale, label, tip);
                     }
                 }

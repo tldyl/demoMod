@@ -7,11 +7,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
+import demoMod.actions.UnmovedAction;
 
 public class OldTrick extends CustomCard {
     public static final String ID = DemoMod.makeID("OldTrick");
@@ -21,7 +21,7 @@ public class OldTrick extends CustomCard {
 
     private static final CardStrings cardStrings;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
@@ -40,39 +40,26 @@ public class OldTrick extends CustomCard {
     }
 
     @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        if (c.type == CardType.SKILL && !c.exhaust && !c.purgeOnUse) {
+            UnmovedAction.findCards(1, CardType.SKILL);
+            this.rawDescription = cardStrings.DESCRIPTION;
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0] + UnmovedAction.cards.size();
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
+            for (int i=0;i<UnmovedAction.cards.size() - 1;i++) {
+                this.rawDescription += UnmovedAction.cards.get(i).name;
+                this.rawDescription += ",";
+            }
+            this.rawDescription += UnmovedAction.cards.get(UnmovedAction.cards.size() - 1).name;
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+            this.initializeDescription();
+        }
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        AbstractCard skillCard = null;
-        for (int i = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1; i >= 0; i--) {
-            if (AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).type == CardType.SKILL) {
-                skillCard = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i);
-                if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() > 1) {
-                    for (int j=i-1;j>=0;j--) {
-                        if (skillCard.uuid.equals(AbstractDungeon.actionManager.cardsPlayedThisCombat.get(j).uuid)) {
-                            i = j;
-                            skillCard = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(j);
-                        } else {
-                            if (AbstractDungeon.actionManager.cardsPlayedThisCombat.get(j).type == CardType.SKILL) break;
-                        }
-                    }
-                }
-                if (!p.exhaustPile.contains(skillCard)) {
-                    break;
-                }
-            }
-        }
-        if (skillCard != null) {
-            if (p.hand.size() < Settings.MAX_HAND_SIZE) {
-                if (p.discardPile.contains(skillCard)) {
-                    p.discardPile.moveToHand(skillCard);
-                } else if (p.drawPile.contains(skillCard)) {
-                    p.drawPile.moveToHand(skillCard);
-                }
-            } else {
-                p.createHandIsFullDialog();
-            }
-            p.hand.refreshHandLayout();
-        }
+        this.addToBot(new UnmovedAction(1, CardType.SKILL));
     }
 
     static {
