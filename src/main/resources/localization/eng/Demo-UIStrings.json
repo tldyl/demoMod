@@ -223,6 +223,12 @@
       "#yGun #yBlackHoleGun will apply additional #b8 #yConstrict to ALL enemies."
     ]
   },
+  "DemoMod:BlessingAndACurse": {
+    "TEXT": [
+      "Blessing And A Curse",
+      "Whenever you killed #b4 enemies with #yStrengthOfCurse, gain #b1 #yStrength at the start of each combat."
+    ]
+  },
   "DemoMod:ComboManualScreen": {
     "TEXT": [
       "Back",

@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Bezier;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.GameCursor;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -95,8 +96,12 @@ public class ResourcefulSack extends AbstractClickRelic implements RenderSubscri
 
     private void takeDamage(AbstractMonster m) {
         if (m == null) return;
+        AbstractPlayer p = AbstractDungeon.player;
         activated = false;
         this.flash();
+        if (p.hasPower("Surrounded")) {
+            p.flipHorizontal = m.drawX < p.drawX;
+        }
         AbstractDungeon.actionManager.addToBottom(new ResourcefulSackAction(m, this.counter));
         this.counter = 0;
         setDescriptionAfterLoading();

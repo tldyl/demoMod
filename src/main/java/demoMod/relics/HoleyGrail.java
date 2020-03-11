@@ -7,12 +7,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.DemoMod;
-import demoMod.cards.ConditionalReflex;
 import demoMod.cards.guns.AbstractGunCard;
 import demoMod.characters.HuntressCharacter;
 import demoMod.combo.Combo;
 import demoMod.combo.ComboManager;
-import demoMod.powers.SkilledReloadPower;
 import demoMod.sounds.DemoSoundMaster;
 
 import java.util.ArrayList;
@@ -57,7 +55,7 @@ public class HoleyGrail extends CustomRelic implements Combo {
     }
 
     @Override
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
+    public int onAttacked(DamageInfo info, int damageAmount) {
         AbstractPlayer p = AbstractDungeon.player;
         if (info.type == DamageInfo.DamageType.NORMAL && damageAmount > p.currentBlock) {
             this.flash();

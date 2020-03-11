@@ -1,14 +1,16 @@
 package demoMod.relics;
 
 import basemod.abstracts.CustomRelic;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.DemoMod;
+import demoMod.relics.interfaces.PreDamageGive;
 import demoMod.sounds.DemoSoundMaster;
 
-public class MeatBun extends CustomRelic {
+public class MeatBun extends CustomRelic implements PreDamageGive, CustomSavable<Boolean> {
     public static final String ID = DemoMod.makeID("MeatBun");
     public static final String IMG_PATH = "relics/meatBun.png";
 
@@ -51,15 +53,27 @@ public class MeatBun extends CustomRelic {
     }
 
     @Override
-    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-                info.owner != null &&
-                info.type != DamageInfo.DamageType.HP_LOSS &&
-                info.type != DamageInfo.DamageType.THORNS &&
-                !this.usedUp) {
-            this.flash();
-            return 2 * damageAmount;
+                type == DamageInfo.DamageType.NORMAL && !this.usedUp) {
+            return 2.0F * damage;
         }
-        return damageAmount;
+        return damage;
+    }
+
+    @Override
+    public Boolean onSave() {
+        return this.usedUp;
+    }
+
+    @Override
+    public void onLoad(Boolean b) {
+        if (b != null) {
+            if (b) {
+                this.usedUp();
+            }
+        } else {
+            this.usedUp = false;
+        }
     }
 }

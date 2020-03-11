@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.DemoMod;
+import demoMod.relics.interfaces.PreDamageGive;
 
-public class StrengthOfFortune extends CustomRelic {
+public class StrengthOfFortune extends CustomRelic implements PreDamageGive {
     public static final String ID = DemoMod.makeID("StrengthOfFortune");
     public static final String IMG_PATH = "relics/strengthOfFortune.png";
 
@@ -22,11 +23,11 @@ public class StrengthOfFortune extends CustomRelic {
     }
 
     @Override
-    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS) {
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && type == DamageInfo.DamageType.NORMAL) {
             this.flash();
-            return 3 * damageAmount;
+            return 3.0F * damage;
         }
-        return damageAmount;
+        return damage;
     }
 }

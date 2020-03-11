@@ -3,6 +3,7 @@ package demoMod.powers;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.unique.IncreaseMaxHpAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import demoMod.DemoMod;
 import demoMod.characters.HuntressCharacter;
+import demoMod.relics.SilverBullets;
 
 public class StrengthOfCursePower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("StrengthOfCursePower");
@@ -34,8 +36,13 @@ public class StrengthOfCursePower extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, strengthToApply)));
     }
 
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
+        return AbstractDungeon.player.hasRelic(SilverBullets.ID) ? (float)(1.0 + 0.15 * HuntressCharacter.curse) * damage : damage;
+    }
+
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + (int)(HuntressCharacter.curse * 3) + DESCRIPTIONS[1] + strengthToApply + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + (int)(HuntressCharacter.curse * 5) + DESCRIPTIONS[1] + strengthToApply + DESCRIPTIONS[2];
     }
 
     static {

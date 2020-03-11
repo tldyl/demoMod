@@ -124,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.18");
+        logger.info("Gungeon Mod - v1.2.19");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -331,6 +331,9 @@ public class DemoMod implements EditCardsSubscriber,
             case ZHS:
                 language = "zhs";
                 break;
+            case KOR:
+                language = "kor";
+                break;
             default:
                 language = "eng";
         }
@@ -440,6 +443,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelicToCustomPool(new Test1(), characterColor);
         BaseMod.addRelicToCustomPool(new RatBoots(), characterColor);
         BaseMod.addRelicToCustomPool(new ElasticCartridgeClip(), characterColor);
+        BaseMod.addRelicToCustomPool(new SilverBullets(), characterColor);
 
         logger.info(new String("=====枪牢mod:遗物添加完毕=====".getBytes(), StandardCharsets.UTF_8));
     }

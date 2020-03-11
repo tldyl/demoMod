@@ -10,9 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Bezier;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -150,7 +148,11 @@ public class Bottle extends AbstractClickRelic implements RenderSubscriber,
 
     private void takeDamage(AbstractMonster m) {
         if (m == null) return;
+        AbstractPlayer p = AbstractDungeon.player;
         activated = false;
+        if (p.hasPower("Surrounded")) {
+            p.flipHorizontal = m.drawX < p.drawX;
+        }
         AbstractDungeon.actionManager.addToBottom(new BottleAction(m, new DamageInfo(m, 3, DamageInfo.DamageType.THORNS)));
         setDescriptionAfterLoading();
     }

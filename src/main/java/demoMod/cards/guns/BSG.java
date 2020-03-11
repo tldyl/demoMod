@@ -2,6 +2,7 @@ package demoMod.cards.guns;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
-import demoMod.sounds.DemoSoundMaster;
 
 public class BSG extends AbstractGunCard {
 
@@ -55,12 +55,9 @@ public class BSG extends AbstractGunCard {
     public void fire(AbstractPlayer p, AbstractMonster m) {
         int mblk = m.currentBlock;
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        this.calculateCardDamage(null);
         if (this.damage > mblk) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.isDying && !monster.isEscaping) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-                }
-            }
+            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
         }
     }
 

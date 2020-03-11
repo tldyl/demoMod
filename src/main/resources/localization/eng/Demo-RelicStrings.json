@@ -382,5 +382,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. NL You can no longer see the clip's #yCapacity."
     ]
+  },
+  "DemoMod:SilverBullets": {
+    "NAME": "Silver Bullets",
+    "FLAVOR": "These bullets have been individually blessed to strike down the accursed.",
+    "DESCRIPTIONS": [
+      "Every #b1 #yCursePoint you have, damage done to #ycursed enemies increased by #b15%."
+    ]
   }
 }

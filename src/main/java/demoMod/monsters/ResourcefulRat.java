@@ -254,6 +254,8 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     if (HighPressurePower.isEndByThis) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new PoisonPower(AbstractDungeon.player, this, 4)));
                         HighPressurePower.isEndByThis = false;
+                    } else {
+                        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, 2, true)));
                     }
                     break;
                 case 6:

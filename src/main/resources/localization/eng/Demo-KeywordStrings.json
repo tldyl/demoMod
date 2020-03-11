@@ -76,7 +76,8 @@
     "NAMES": [
       "curse value",
       "cursepoints",
-      "curse points"
+      "curse points",
+      "cursepoint"
     ],
     "PROPER_NAME": "Curse Points",
     "DESCRIPTION": "Some cards, relics and events will increase curse points. The higher the curse points is, the higher the chance of appearing cursed enemies(50% chance when 10 points or above). Cursed enemies will drop more gold when defeated. When curse points reaches 10 or above, #yLord #yOf #yThe #yJammed will take part in each combat."
