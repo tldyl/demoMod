@@ -15,7 +15,6 @@ import demoMod.DemoMod;
 import demoMod.powers.CongealedPower;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 @SuppressWarnings("unused")
 public class MonsterPatch {
@@ -35,7 +34,7 @@ public class MonsterPatch {
         public RenderMonsterPatch() { }
 
         public static void Prefix(AbstractMonster m, SpriteBatch sb) {
-            if (m.hasPower(DemoMod.makeID("StrengthOfCursePower"))) {
+            if (!m.isDead && !m.escaped && m.hasPower(DemoMod.makeID("StrengthOfCursePower"))) {
                 CardCrawlGame.psb.setShader(redShader);
                 sb.setShader(redShader);
             }
@@ -45,6 +44,16 @@ public class MonsterPatch {
         public static void Insert(AbstractMonster m, SpriteBatch sb) {
             CardCrawlGame.psb.setShader(null);
             sb.setShader(null);
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "dispose"
+    )
+    public static class DiePatch {
+        public static void Prefix(AbstractMonster m) {
+            CardCrawlGame.psb.setShader(null);
         }
     }
 

@@ -25,9 +25,8 @@ public class ActionManagerPatch {
                     m.applyTurnPowers();
                     actionManager.monsterQueue.remove(0);
                     if (actionManager.monsterQueue.isEmpty()) {
-                        actionManager.addToBottom(new WaitAction(1.5F));
+                        actionManager.addToBottom(new WaitAction(0.8F));
                     }
-                    m.rollMove();
                     return SpireReturn.Return(null);
                 } else {
                     return SpireReturn.Continue();

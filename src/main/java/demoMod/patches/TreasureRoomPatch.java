@@ -120,18 +120,13 @@ public class TreasureRoomPatch {
                 room.addRelicToRewards(returnSpecificRareRelic(ResourcefulSack.ID));
                 room.addRelicToRewards(returnSpecificRareRelic(PartiallyEatenCheese.ID));
                 AbstractRelic bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
-                if (bossRelic.relicId.equals(TinyHouse.ID)) {
-                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
-                }
-                if (bossRelic.relicId.equals(CallingBell.ID)) {
+                while (bossRelic.relicId.equals(TinyHouse.ID) || bossRelic.relicId.equals(CallingBell.ID)) {
                     bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
                 }
                 room.addRelicToRewards(bossRelic);
+
                 bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
-                if (bossRelic.relicId.equals(TinyHouse.ID)) {
-                    bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
-                }
-                if (bossRelic.relicId.equals(CallingBell.ID)) {
+                while (bossRelic.relicId.equals(TinyHouse.ID) || bossRelic.relicId.equals(CallingBell.ID)) {
                     bossRelic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.BOSS);
                 }
                 room.addRelicToRewards(bossRelic);
