@@ -5,449 +5,449 @@
   },
   "DemoMod:Defend_Huntress": {
     "NAME": "수비",
-    "DESCRIPTION": "방어도를 !B! 얻습니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다 ."
   },
   "DemoMod:Invincible": {
-    "NAME": "불패",
-    "DESCRIPTION": "당신 은 매 라운드 최대 !M! 생명 치 를 잃 게 됩 니 다."
+    "NAME": "천하무적",
+    "DESCRIPTION": "이번 턴에 체력을 !M! 이상 잃지 않습니다."
   },
   "DemoMod:Spice": {
-    "NAME": "향료",
-    "DESCRIPTION": "2 포인트 최대 생명 을 잃 고 힘 을 !M! 포인트 얻 고 카드 1 장 을 뽑 습 니 다.이 카드 는 한 번 칠 때마다 카드 보상 화면 에 나타 날 확률 이 증가 합 니 다. NL 소멸 ."
+    "NAME": "스파이스",
+    "DESCRIPTION": "최대 체력을 2 잃고, 힘을 !M! 얻고, 카드를 1 장 뽑습니다. 이 카드를 사용하면, 보상화면에 이 카드가 나올 확률이 증가합니다. NL 소멸."
   },
   "DemoMod:BlackBlade": {
-    "NAME": "黑刃",
-    "DESCRIPTION": "造成 !D! 点伤害，给予未被格挡伤害点数的 NL 黑刃气 。"
+    "NAME": "블랙 블레이드",
+    "DESCRIPTION": "피해를 !D! 줍니다.이 카드로 준 피해만큼 블랙블레이드 를 적용합니다."
   },
   "DemoMod:WhiteBlade": {
-    "NAME": "白刃",
-    "DESCRIPTION": "造成 !D! 点伤害，给予未被格挡伤害点数的 NL 白刃气 。"
+    "NAME": "화이트 블레이드",
+    "DESCRIPTION": "피해를 !D! 줍니다.이 카드로 준 피해만큼 화이트블레이드 를 적용합니다."
   },
   "DemoMod:BSG": {
-    "NAME": "大射机枪",
-    "DESCRIPTION": "枪 。 造成 !D! 点伤害。如果这张牌造成的伤害未被敌人完全 格挡 ，则对所有敌人再造成 !D! 点伤害。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "BSG",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드의 피해가 적에게 막히지 않으면, 모든 적에게 !D! 피해를 줍니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:BalloonGun": {
-    "NAME": "气球枪",
-    "DESCRIPTION": "枪 。 造成 !D! 点伤害3次。抽到这张牌时，获得 飞行 。当你在战斗中失去生命时，这张牌会自动 NL 消耗 。 弹夹 !DemoModCapacity! 。"
+    "NAME": "풍선건",
+    "DESCRIPTION": "총. 피해를 !D! 만큼 3 번 줍니다. 카드를 뽑으면, 비행 을 부여합니다. 전투에서 체력을 잃으면, 이 카드는 자동으로 소멸됩니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:RustySidearm": {
-    "NAME": "녹 슨 투창",
-    "DESCRIPTION": "총 . !D! 데 미 지 를 입 힙 니 다 집게. NL 반자동 . 새총 !DemoModCapacity! ."
+    "NAME": "녹슨 사이드암",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 반자동. 탄창 !DemoModCapacity!."
   },
-  "DemoMod:ManualReload": {
-    "NAME": "스 위칭",
-    "DESCRIPTION": "버 려 진 카드 더미 에서 총 이 든 카드 를 선택 하고, 집어 넣 기 를 한다.",
-    "UPGRADE_DESCRIPTION": "카드 를 뽑 거나 카드 를 버 리 는 것 중에서 총 으로 된 카드 를 선택 하여 바 운 드 를 채 우 고 카드 를 넣는다."
+ "DemoMod:ManualReload": {
+    "NAME": "수동 재장전",
+    "DESCRIPTION": "버린 카드 더미에 있는 총 을 선택합니다, 재장전 한 후 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미나 버린 카드 더미에 있는 총 을 선택합니다, 재장전 한 후 손으로 가져옵니다."
   },
   "DemoMod:CrossBow": {
-    "NAME": "십자 형 쇠 뇌",
-    "DESCRIPTION": "총 . !D! 데 미 지 를 입 힙 니 다 집게. NL 새총 !DemoModCapacity! ."
+    "NAME": "석궁",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:TableSutra": {
-    "NAME": "桌经",
-    "DESCRIPTION": "在每回合的开始，将一张随机 桌技 牌放入手牌。"
+    "NAME": "테이블 수트라",
+    "DESCRIPTION": "턴 시작시, 무작위 테이블 기술 을 손으로 가져옵니다."
   },
   "DemoMod:TableTechSight": {
-    "NAME": "桌技:视域",
-    "DESCRIPTION": "获得 !B! 点 格挡 。在这个回合，你打出的下一张 枪 牌将打出两次。 NL 虚无 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。在这个回合，你打出的下两张 枪 牌将打出两次。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:마음의 눈",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 턴, 사용하는 총이 2 번 발사됩니다. NL 휘발성. 소멸.",
+    "UPGRADE_DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 턴, 사용하는 총 2 개가 2 번 사용됩니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechMoney": {
-    "NAME": "桌技:金钱",
-    "DESCRIPTION": "获得 !B! 点 格挡 。获得 !M! 金币 。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:자금",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 골드를 !M! 얻습니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechRocket": {
-    "NAME": "桌技:火箭",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:로켓",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechShotgun": {
-    "NAME": "桌技:霰弹枪",
-    "DESCRIPTION": "获得 !B! 点 格挡 。对随机敌人造成 !D! 点伤害 !M! 次。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:산탄총",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 무작위 적에게 !D! 피해를 !M! 번 줍니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechHeat": {
-    "NAME": "桌技:灼热",
-    "DESCRIPTION": "获得 !B! 点 格挡 。在你每个回合结束时对所有敌人造成 !M! 点伤害。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:히트",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 턴 종료시, 모든 적에게 피해를 !M! 줍니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechRage": {
-    "NAME": "桌技:愤怒",
-    "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 点 力量 。在你的回合结束时，失去 !M! 点 力量 。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:분노",
+    "DESCRIPTION": "방어도 !B! 얻고 힘을 !M! 얻습니다.내 턴이 끝날 때, 힘을 !M! 잃습니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechBlanks": {
-    "NAME": "桌技:空响弹",
-    "DESCRIPTION": "获得 !B! 点 格挡 。房间内每有一名敌人，就额外获得 !M! 点 格挡 。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:공포탄",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 전투에 있는 적 하나당 방어도 를 !M! 얻습니다. NL 휘발성. 소멸."
   },
   "DemoMod:TableTechStun": {
-    "NAME": "桌技:眩晕",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 击晕 所有非boss敌人一回合。 NL 虚无 。 消耗 。"
+    "NAME": "테이블 기술:기절",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 턴 모든 적을 기절시킵니다. NL 휘발성. 소멸."
   },
-  "DemoMod:TripleGun": {
-    "NAME": "枪神",
-    "DESCRIPTION": "枪 。 弹夹 为3：造成 !D! 点伤害。 弹夹 为2：造成 !D! 点伤害2次。 弹夹 为1： 对所有敌人造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。",
+ "DemoMod:TripleGun": {
+    "NAME": "트리플 건",
+    "DESCRIPTION": "총. 탄창 3:피해를 !D! 줍니다. 탄창 2:피해를 !D! 만큼 2 번 줍니다. 탄창 1: 모든 적에게 !M! 의 피해를 입힙니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "枪 。 弹夹 为3：造成 ",
-      " 点伤害。 弹夹 为2：造成 ",
-      " 点伤害2次。 弹夹 为1： 对所有敌人造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。"
+      "총. 탄창 3:피해를 ",
+      " 줍니다. 탄창 2:피해를 ",
+      " 만큼 2 번 줍니다. 탄창 1: 모든 적에게 !M! 의 피해를 입힙니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:FinishedGun": {
-    "NAME": "完成之枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 弹夹 为1：造成的伤害增加 !DemoModExtraDamage! ，再造成这名敌人想要对你造成伤害点数的伤害。 半自动 。 弹夹 !DemoModCapacity! 。"
+    "NAME": "완성된 총",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창 1：피해량이 !DemoModExtraDamage! , 증가하고 대상이 나에게 입히려는 피해만큼 추가로 피해량이 증가합니다. 반자동. 탄창 !DemoModCapacity!."
   },
   "DemoMod:HighKaliber": {
-    "NAME": "至高卡里波尔",
-    "DESCRIPTION": "枪 。给予 !M! 层 灵魂出窍 。造成 !D! 点伤害。 弹夹 !DemoModCapacity! 。"
+    "NAME": "하이 칼리버",
+    "DESCRIPTION": "총. 유체이탈 을 !M! 부여합니다. 피해를 !D! 줍니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:SAA": {
-    "NAME": "柯尔特单动左轮",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 装填 这张牌时，抽 !M! 张牌。 半自动 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "SAA",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 카드를 !M! 장 뽑습니다. 반자동. NL 탄창 !DemoModCapacity!."
   },
-  "DemoMod:Behold!": {
-    "NAME": "锁定!",
-    "DESCRIPTION": "获得 [E] 。从抽牌堆、弃牌堆中选择任意张是 枪 的牌放入手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。从抽牌堆、弃牌堆中选择任意张是 枪 的牌放入手牌。 消耗 。"
+ "DemoMod:Behold!": {
+    "NAME": "주시!",
+    "DESCRIPTION": "[E] 를 얻습니다. 뽑을 카드 더미와 버릴 카드 더미에서 총 들을 선택해, 내 손에 넣습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "[E] [E] 를 얻습니다. 뽑을 카드 더미와 버릴 카드 더미에서 총 들을 선택해, 내 손에 넣습니다. NL 소멸."
   },
   "DemoMod:Roll": {
-    "NAME": "뒹굴다",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 카드 에서 카드 를 선택해 장탄 을 하 다."
+    "NAME": "구르기",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 손에 있는 총 을 선택하여 재장전 합니다."
   },
   "DemoMod:Unity": {
-    "NAME": "统一",
-    "DESCRIPTION": "造成 !D! 点伤害。 战斗牌组中每有一张是 枪 的牌，伤害增加 !M! 。"
+    "NAME": "총기옥",
+    "DESCRIPTION": "피해를 !D! 줍니다. 덱에 있는 총 하나당 피해량이 !M! 증가합니다."
   },
   "DemoMod:FastSwitch": {
-    "NAME": "快速拔枪",
-    "DESCRIPTION": "抽一张牌。查看抽牌堆顶部的一张牌。如果这张牌是 枪 ，可以将它放入手牌。",
-    "UPGRADE_DESCRIPTION": "抽一张牌。从抽牌堆中选择一张是 枪 的牌放入手牌。"
+    "NAME": "빠른 스위칭",
+    "DESCRIPTION": "카드를 1 장 뽑습니다. 뽑을 카드 더미 맨 위를 봅니다. 만약 그 카드가 총이라면, 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "카드를 1 장 뽑습니다. 뽑을 카드 더미에서 총 을 손으로 가져옵니다."
   },
   "DemoMod:DoubleSwitch": {
-    "NAME": "双手换弹",
-    "DESCRIPTION": "从手牌中选择至多两张牌进行 装填 。"
+    "NAME": "더블 스위치",
+    "DESCRIPTION": "손에 있는 총 을 2 개 까지 고르고 재장전 합니다."
   },
   "DemoMod:StickyCrossBow": {
-    "NAME": "黏性十字弩",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。给予 !M! 层 爆炸箭镞 。 半自动 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "끈적끈적 석궁",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 폭발 화살 을 !M! 부여합니다. 반자동. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:RadGun": {
-    "NAME": "拉德枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在 弹夹 为满时 填装 ，这张牌的基础伤害翻倍，否则重置基础伤害。 NL 弹夹 !DemoModCapacity! 。",
-    "UPGRADE_DESCRIPTION": "枪 。造成 !D! 点伤害。如果在 弹夹 为满或为2时 填装 ，这张牌的基础伤害翻倍，否则重置基础伤害。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "라드 건",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태일때 재장전 하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태 또는 탄창이 2 발 남았을때 장전하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Rummage": {
-    "NAME": "翻找",
-    "DESCRIPTION": "抽4张牌。丢弃抽到的不是 枪 的牌。",
-    "UPGRADE_DESCRIPTION": "抽4张牌。丢弃抽到的不是 枪 的牌。 NL 从弃牌堆中选择一张牌放入手牌。"
+    "NAME": "수색",
+    "DESCRIPTION": "카드를 4 장 뽑습니다. 총이 아닌 카드를 버립니다.",
+    "UPGRADE_DESCRIPTION": "카드를 4 장 뽑습니다. 총이 아닌 카드를 버립니다. NL 버린 카드 더미에서 카드를 한 장 손으로 가져옵니다."
   },
-  "DemoMod:Eureka": {
-    "NAME": "找到了!",
-    "DESCRIPTION": "抽牌 直到抽到 !M! 把 枪 。 消耗 。"
+ "DemoMod:Eureka": {
+    "NAME": "유레카!",
+    "DESCRIPTION": "총 을 !M! 장 뽑을때까지 카드를 뽑습니다. 소멸."
   },
   "DemoMod:FightSabre": {
-    "NAME": "军刀",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。这张牌被 装填 时，获得 !B! 点 格挡 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "소드건",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Gungine": {
-    "NAME": "喷气式枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次 NL 。 消耗 手牌中所有的 诅咒 和 状态 牌。这张牌被 装填 时，获得 [E] 。 NL 弹夹 !DemoModCapacity! 。",
-    "UPGRADE_DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次 NL 。 消耗 手牌中所有的 诅咒 和 状态 牌。这张牌被 装填 时，获得 [E] [E] 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "건진",
+    "DESCRIPTION": "총. 피해를 !D! 만큼 2 번 줍니다. 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 소멸 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:EasyReloadBullets": {
-    "NAME": "易装子弹",
-    "DESCRIPTION": "你每打出一张 技能牌 ，就为手牌中的随机一把 枪 回复一层 弹夹 NL (不会触发 装填 )。",
-    "UPGRADE_DESCRIPTION": "固有 。 你每打出一张 技能牌 ，就为手牌中的随机一把 枪 回复一层 弹夹 (不会触发 装填 )。"
+    "NAME": "간편 재장전 총탄",
+    "DESCRIPTION": "스킬을 사용할때마다, 내 손에 있는 무작위 총의 탄창을 1개 채웁니다(재장전 효과가 발동하지 않습니다).",
+    "UPGRADE_DESCRIPTION": "선천성. 스킬을 사용할때마다, 내 손에 있는 무작위 총의 탄창을 1개 채웁니다(재장전 효과가 발동하지 않습니다)."
   },
   "DemoMod:PotionOfGunFriendShip": {
-    "NAME": "枪之友谊药水",
-    "DESCRIPTION": "在本场战斗 升级 你手牌中的所有 枪 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "在本场战斗 升级 你的所有 枪 。 消耗 。"
+    "NAME": "총기 우정의 물약",
+    "DESCRIPTION": "내 손에 있는 모든 총 을 전투가 끝날때까지 강화 합니다. 소멸.",
+    "UPGRADE_DESCRIPTION": "모든 총 을 전투가 끝날때까지 강화 합니다. 소멸."
   },
   "DemoMod:DoubleVision": {
-    "NAME": "复视",
-    "DESCRIPTION": "在这个回合，你的下一把 枪 将打出两次。",
-    "UPGRADE_DESCRIPTION": "在这个回合，你的下 !M! 把 枪 将打出两次。"
+    "NAME": "더블 비전",
+    "DESCRIPTION": "이번 턴, 다음에 사용하는 총 이 2 번 발사됩니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴, 다음에 사용하는 총 !M! 개가 2 번 발사됩니다."
   },
   "DemoMod:ChanceBullets": {
-    "NAME": "机会子弹",
-    "DESCRIPTION": "你打出的每一把 枪 的攻击效果都有 !M! %的概率替换为你所拥有的随机另一把 枪 的效果。",
-    "UPGRADE_DESCRIPTION": "你打出的每一把 枪 的攻击效果都有 !M! %的概率附加上你所拥有的随机另一把 枪 的效果。"
+    "NAME": "확률탄",
+    "DESCRIPTION": "총 을 발사할때마다 !M!% 확률로 내가 가지고 있는 다른 무기의 공격으로 바뀝니다.",
+    "UPGRADE_DESCRIPTION": "총 을 발사할때마다 !M!% 확률로 내가 가지고 있는 다른 무기의 공격을 추가합니다."
   },
   "DemoMod:SkilledReload": {
-    "NAME": "熟练装填",
-    "DESCRIPTION": "你每进行一次 装填 ，抽一张牌。"
+    "NAME": "능숙한 장전",
+    "DESCRIPTION": "내가 재장전 할 때마다, 카드를 1 장 뽑습니다."
   },
   "DemoMod:Slinger": {
-    "NAME": "甩枪术",
-    "DESCRIPTION": "所有的 枪 在 弹夹 为空时打出仍能造成伤害。 所有的 枪 在 弹夹 为空时打出会被 消耗 。"
+    "NAME": "슬링거",
+    "DESCRIPTION": "모든 총이 탄창 이 비어도 공격할 수 있습니다. NL 탄창이 비었을때 발사하면 소멸됩니다."
   },
   "DemoMod:SpreadAmmo": {
-    "NAME": "弹药包",
-    "DESCRIPTION": "装填 你的所有 枪 。 消耗 。"
+    "NAME": "갈색 탄약 상자",
+    "DESCRIPTION": "모든 총 카드를 재장전합니다. 소멸."
   },
-  "DemoMod:CursedBullets": {
-    "NAME": "诅咒子弹",
-    "DESCRIPTION": "获得等同于你 诅咒值 点数一半的 力量 。",
-    "UPGRADE_DESCRIPTION": "固有 。获得等同于你 诅咒值 点数一半的 力量 。"
+ "DemoMod:CursedBullets": {
+    "NAME": "저주받은 총탄",
+    "DESCRIPTION": "내가 가지고 있는 저주포인트 의 반만큼 힘을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. 내가 가지고 있는 저주포인트 의 반만큼 힘을 얻습니다."
   },
   "DemoMod:ShadowBullets": {
-    "NAME": "阴影子弹",
-    "DESCRIPTION": "所有的 枪 有 !M! %的概率打出两次。"
+    "NAME": "그림자 탄환",
+    "DESCRIPTION": "총 을 발사할때마다 !M!% 확률로 2 번 발사합니다."
   },
   "DemoMod:BattleInHaste": {
-    "NAME": "仓促应战",
-    "DESCRIPTION": "将抽牌堆的随机一把 枪 放入手牌。",
-    "UPGRADE_DESCRIPTION": "将抽牌堆的随机 !M! 把 枪 放入手牌。"
+    "NAME": "전투 가속",
+    "DESCRIPTION": "뽑을 카드 더미에서 무작위 총 1 장을 손에 추가합니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에서 무작위 총 !M! 장을 손에 추가합니다."
   },
   "DemoMod:Casey": {
-    "NAME": "卡西",
-    "DESCRIPTION": "造成 !D! 点伤害。如果这张牌杀死了敌人，对随机另一名敌人造成溢出伤害 !M! 倍的伤害。"
+    "NAME": "케이시",
+    "DESCRIPTION": "피해를 !D! 줍니다. 만약 이 카드로 적을 처치하면, 무작위 적에게 초과한 피해량의 !M! 배의 피해를 입힙니다."
   },
   "DemoMod:FullFirepower": {
-    "NAME": "火力全开",
-    "DESCRIPTION": "你的下一把 枪 将重复打出到 弹药 耗尽。 消耗 。",
-    "UPGRADE_DESCRIPTION": "你的下一把 枪 将重复打出到 弹药 耗尽。"
+    "NAME": "전탄 발사",
+    "DESCRIPTION": "다음에 사용하는 총이 탄창을 모두 소모할때까지 발사됩니다. 소멸.",
+    "UPGRADE_DESCRIPTION": "다음에 사용하는 총이 탄창을 모두 소모할때까지 발사됩니다."
   },
   "DemoMod:BlankBullets": {
-    "NAME": "空响弹子弹",
-    "DESCRIPTION": "所有的 枪 有 !M! %的概率 击晕 敌人一回合。"
+    "NAME": "공포탄 총탄",
+    "DESCRIPTION": "총 을 쏠때마다 !M!% 확률로 적을 기절시킬 수 있습니다."
   },
   "DemoMod:HuntsMan": {
-    "NAME": "斧头枪",
-    "DESCRIPTION": "枪 。对随机敌人造成 !D! 点伤害4次。这张牌被 装填 时，获得 !B! 点 格挡 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "헌츠맨",
+    "DESCRIPTION": "총. 무작위 적에게 피해를 !D! 만큼 4 번 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:TeaPot": {
-    "NAME": "茶壶",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 弹夹 为1：造成的伤害增加 !DemoModExtraDamage! 。这张牌被 装填 时，获得 !M! 层 欧米伽 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "주전자",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창 1:피해량이 !DemoModExtraDamage! 증가합니다. 이 카드를 재장전 하면, 오메가 !M! 를 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Charge": {
-    "NAME": "蓄力",
-    "DESCRIPTION": "以蓄力方式打出此牌。(需要额外花费 [E] )。"
+    "NAME": "충전",
+    "DESCRIPTION": "이 카드를 충전하여 사용합니다.(비용이 [E] 만큼 더 소모됩니다)。"
   },
   "DemoMod:NonCharge": {
-    "NAME": "不蓄力",
-    "DESCRIPTION": "以常规方式打出此牌。"
+    "NAME": "비-충전",
+    "DESCRIPTION": "이 카드를 일반적으로 사용합니다."
   },
-  "DemoMod:MegaHand": {
-    "NAME": "洛克手炮",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 蓄力 ：造成 !M! 点伤害。 弹夹 !DemoModCapacity! 。",
+   "DemoMod:MegaHand": {
+    "NAME": "메가핸드",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 충전: 피해를 !M! 줍니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "空中射手",
-      "泡沫铅",
-      "撞击轰炸机",
-      "时间限制器",
-      "原子火焰",
-      "叶子护盾",
-      "金属刀片",
-      "快速回旋镖",
-      "枪 。造成 !D! 点伤害 3 次。 弹夹 !DemoModCapacity! 。",
+      "에어 슈터",
+      "거품 리드",
+      "크래시 봄버",
+      "시간 정지기",
+      "핵 발사",
+      "리프 실드",
+      "메탈 블레이드",
+      "빠른 부메랑",
+      "총. 피해를 !D! 만큼 3 번 줍니다. 탄창 !DemoModCapacity!.",
       "",
-      "枪 。目标失去 !D! 点生命。在下回合 晕眩 这名敌人并对所有敌人造成 !D! 点伤害。切换回默认形态。 弹夹 !DemoModCapacity! 。",
-      "枪 。对所有敌人造成 !D! 点伤害。跳过所有敌人下回合的行动。切换回默认形态。 弹夹 !DemoModCapacity! 。"
+      "총. 대상이 체력을 !D! 잃습니다. 다음 턴, 대상을 기절시키고 모든 적에게 피해를 !D! 줍니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!.",
+      "총. 모든 적에게 피해를 !D! 줍니다. 추가 턴을 가집니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:PlatinumBullets": {
-    "NAME": "白金子弹",
-    "DESCRIPTION": "你每打出一张是 枪 的牌，就获得1点 力量 或1点 敏捷 。"
+    "NAME": "백금 총탄",
+    "DESCRIPTION": "총 카드를 사용할때마다, 힘 1 또는 민첩 1 을 부여합니다."
   },
   "DemoMod:ChaosBullets": {
-    "NAME": "混沌子弹",
-    "DESCRIPTION": "你每打出一张是 枪 的牌，都有 !M! %的概率给予敌人 1 层随机负面效果。"
+    "NAME": "혼돈 총탄",
+    "DESCRIPTION": "총 을 쏠때마다 !M!% 확률로 적에게 부정적인 효과를 부여합니다."
   },
   "DemoMod:ConditionalReflex": {
-    "NAME": "条件反射",
-    "DESCRIPTION": "抽1张牌。进行 装填 时如果这张牌在弃牌堆，它会回到手牌。"
+    "NAME": "조건 반사",
+    "DESCRIPTION": "카드를 1 장 뽑습니다. 재장전 효과가 발동할때마다, 이 카드를 버린카드 더미에서 손으로 가져옵니다."
   },
   "DemoMod:JK47": {
     "NAME": "JK-47",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。这张牌被 装填 时，给予所有敌人 !M! 层 虚弱 。 弹夹 !DemoModCapacity! 。"
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면,모든 적에게 약화를 !M! 부여합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:SniperShot": {
-    "NAME": "冷枪",
-    "DESCRIPTION": "从弃牌堆中选择一张是 枪 的牌，将其打出后放入手牌。 NL 消耗 。"
+    "NAME": "저격",
+    "DESCRIPTION": "버린 카드 더미에서 총 을 선택하여 사격하고 내 손으로 가져옵니다. NL 소멸."
   },
   "DemoMod:DirectionalPad": {
-    "NAME": "方向键",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在本场战斗打出的上一张牌是攻击牌，获得 !B! 点 格挡 。在 弹夹 为空时打出会在奖励界面增加一项随机奖励并将这张牌从你的卡组中移除。 弹夹 !DemoModCapacity! 。"
+    "NAME": "방향 패드",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이번 전투에서 직전에 사용한 카드가 공격카드일 경우, 방어도 를 !B! 얻습니다. 탄창이 비었을때 사용하면, 무작위 보상을 보상화면에 추가하고 덱에서 제거합니다. 탄창 !DemoModCapacity!."
   },
-  "DemoMod:Unmoved": {
-    "NAME": "不为所动",
-    "DESCRIPTION": "获得 !B! 点 格挡 。将打出的上一张攻击牌放入手牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。将打出的前 !M! 张攻击牌放入手牌。",
+   "DemoMod:Unmoved": {
+    "NAME": "냉정함",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 전투에서 마지막으로 사용한 공격카드를 손으로 가져옵니다.",
+     "UPGRADE_DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 전투에서 마지막으로 사용한 공격카드를 2 장 손으로 가져옵니다.",
     "EXTENDED_DESCRIPTION": [
-      "(你打出的前",
-      "张攻击牌是：",
+	  "(마지막으로 ",
+      " 사용한 공격카드:",
       ")"
     ]
   },
   "DemoMod:DarkMarker": {
-    "NAME": "黑暗标志",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。 弹夹 !DemoModCapacity! 。",
+    "NAME": "암흑 표지",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "枪 。对所有敌人造成 !D! X点伤害并击晕它们一回合。 消耗 。 满弹夹时 装填 可切换形态。 弹夹 !DemoModCapacity! 。",
-      "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。给予 红色标记 。 弹夹 !DemoModCapacity! 。",
-      "枪 。造成 !D! 点伤害。满弹夹时 装填 可切换形态。给予 蓝色标记 。 弹夹 !DemoModCapacity! 。"
+      "총. 모든 적에게 !D! * X 만큼의 피해를 주고 기절시킵니다. 소멸. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
+      "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 레드마크 를 부여합니다. 탄창 !DemoModCapacity!.",
+      "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 블루마크 를 부여합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:StrategicReserve": {
-    "NAME": "战略储备",
-    "DESCRIPTION": "从手牌中选择两张牌放到抽牌堆顶。 NL 在下回合，获得 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "从手牌中选择任意张牌放到抽牌堆顶。 NL 在下回合，获得 [E] [E] 。"
+    "NAME": "전략적 비축",
+    "DESCRIPTION": "손에 있는 카드 2 장을 덱의 맨 위에 놓습니다. NL 다음 턴 시작 시, [E] [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "손에 있는 카드를 원하는 만큼 뽑을 카드 더미 맨 위에 둡니다. NL 다음 턴 시작 시, [E] [E] 를 얻습니다."
   },
   "DemoMod:ProbeStrike": {
-    "NAME": "试探打击",
-    "DESCRIPTION": "造成 !D! 点伤害。如果这名敌人的意图不是攻击，获得 [E] 并抽一张牌，给予 !M! 层 易伤 ，否则获得 !B! 点 格挡 。"
+    "NAME": "정찰 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. 적이 공격의도가 없으면, [E] 를 얻고 카드를 1 장 뽑고, 취약을 !M! 부여합니다, 아니면 방어도 를 !B! 얻습니다."
   },
   "DemoMod:Evolver": {
-    "NAME": "进化枪",
-    "DESCRIPTION": "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+    "NAME": "이볼버",
+    "DESCRIPTION": "총. 강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。"
+      "총. 강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "총. 강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "총. 강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "총. 강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "총. 강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:MozambiqueDrill": {
-    "NAME": "近战枪技",
-    "DESCRIPTION": "你在单个回合内每打出 !M! 张是 枪 的牌，你的下一张牌造成的攻击伤害翻倍。"
+    "NAME": "모잠비크 드릴",
+    "DESCRIPTION": "한 턴에 총 을 !M! 번 발사하면, 다음에 사용하는 카드의 피해량이 2 배가 됩니다."
   },
   "DemoMod:GunstockTap": {
-    "NAME": "枪托敲击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽一张牌。 NL 从手牌中选择 !M! 张是 枪 的牌进行 装填 。"
+    "NAME": "개머리판 치기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 1 장 뽑습니다. NL 내 손에 있는 총 들을 !M! 장 선택하여 재장전합니다."
   },
   "DemoMod:AbyssalTentacle": {
-    "NAME": "深渊触手",
-    "DESCRIPTION": "枪 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 缠绕 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "심해의 촉수",
+    "DESCRIPTION": "총. NL 피해를 !D! 줍니다. NL 포박을 !M! 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:LifeOrb": {
-    "NAME": "生命球",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次。 NL 如果这张牌杀死了敌人，这张牌在本局游戏下次 装填 时对所有敌人造成与杀死的所有敌人最大生命值之和相同点数的伤害。 弹夹 !DemoModCapacity! 。"
+    "NAME": "라이프 오브",
+    "DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 이 카드로 적을 처치하면, 다음 재장전 때 모든 적에게 이 카드로 처치한 모든 적의 최대체력의 합 만큼 피해를 입힙니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Replace": {
-    "NAME": "更换",
-    "DESCRIPTION": "丢弃一张牌。 NL 从弃牌堆中选择一张牌放入手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "丢弃一张牌。 NL 从弃牌堆中选择一张牌放入手牌。"
+    "NAME": "전환",
+    "DESCRIPTION": "카드를 1 장 버립니다. NL 버린 카드 더미에서 내 손으로 가져옵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "카드를 1 장 버립니다. NL 버린 카드 더미에서 내 손으로 가져옵니다."
   },
   "DemoMod:FeignSurrender": {
-    "NAME": "诈降",
-    "DESCRIPTION": "丢弃所有攻击牌。 NL 抽被丢弃的牌的数量张牌。",
-    "UPGRADE_DESCRIPTION": "丢弃所有攻击牌。 NL 抽被丢弃的牌的数量张牌。最少抽2张牌。"
+    "NAME": "거짓 항복",
+    "DESCRIPTION": "모든 공격카드를 버립니다. NL 버린 만큼 카드를 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "모든 공격카드를 버립니다. NL 버린 만큼 카드를 뽑습니다(최소 2 장은 뽑습니다)."
   },
   "DemoMod:ThirdPartyController": {
-    "NAME": "第三方手柄",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 如果目标不是boss， 控制 这个敌人。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "서드 파티 컨트롤러",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 대상이 보스가 아니면, 그 적을 조종 합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Flaw": {
-    "NAME": "破绽",
-    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时，获得一层 易伤 。 虚无 。"
+    "NAME": "결함",
+    "DESCRIPTION": "사용불가. NL 이 카드를 뽑으면, 취약 을 1 받습니다. 휘발성."
   },
   "DemoMod:RatTrap": {
-    "NAME": "老鼠的陷阱",
-    "DESCRIPTION": "不能被打出 。回合结束时如果你在本回合打出过攻击牌，受到 !M! 点伤害并将一张 *晕眩 加入抽牌堆，然后 消耗 。"
+    "NAME": "쥐 덫",
+    "DESCRIPTION": "사용불가. 턴 종료시, 이번 턴에 공격카드를 사용하면, 피해를 !M! 만큼 입고 뽑을 카드 더미에 *어지러움 을 추가하고 소멸합니다."
   },
   "DemoMod:AWP": {
-    "NAME": "狙击枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 当这是你手牌中的唯一一把 枪 时，这张牌造成的伤害翻倍。 弹夹 !DemoModCapacity! 。"
+    "NAME": "A.W.P.",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 손에 있는 유일한 총일 경우에, 피해가 2 배가 됩니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Purify": {
-    "NAME": "纯化",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，从牌组中选择一张牌和这张牌一起移除。 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，从牌组中选择一张牌和这张牌一起移除。"
+    "NAME": "정화",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타 라면, 덱에서 카드 한장을 골라 이 카드와 함께 소멸 시킵니다. 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 치명타 라면, 덱에서 카드 한장을 골라 이 카드와 함께 소멸 시킵니다."
   },
   "DemoMod:Deposit": {
-    "NAME": "定期储蓄",
-    "DESCRIPTION": "在本场战斗第 !M! 次抽到这张牌时，获得30金币并 消耗 这张牌。",
+    "NAME": "예금",
+    "DESCRIPTION": "이 전투에서 !M! 번 뽑으면, 30 골드를 얻고 이 카드를 소멸 시킵니다.",
     "EXTENDED_DESCRIPTION": [
-      "(已抽到这张牌",
-      "次。)"
+      "(이 카드를 ",
+      " 번 뽑았습니다.)"
     ]
   },
   "DemoMod:PracticeMakesPerfect": {
-    "NAME": "熟能生巧",
-    "DESCRIPTION": "每进行一次 装填 ，这张牌在本场战斗的耗能减少 [E] 。抽 !M! 张牌。"
+    "NAME": "연습이 완벽을 만든다",
+    "DESCRIPTION": "이번 전투에서 재장전한 총 하나당 [E] 가 1씩 감소합니다. 카드를 !M! 장 뽑습니다."
   },
   "DemoMod:BulletBore": {
-    "NAME": "钻头枪",
-    "DESCRIPTION": "枪 。目标失去 !D! 点生命。在下回合 晕眩 这名敌人并对所有敌人造成 !D! 点伤害 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "불릿 보어",
+    "DESCRIPTION": "총. 대상이 체력을 !D! 잃습니다. 다음 턴에, 그 적을 기절시키고 모든 적에게 피해를 !D! 줍니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:GunslingerForm": {
-    "NAME": "枪手形态",
-    "DESCRIPTION": "所有 装填 时触发的效果 NL 现在也可以由打出 枪 时触发。 虚无 。",
-    "UPGRADE_DESCRIPTION": "所有 装填 时触发的效果 NL 现在也可以由打出 枪 时触发。"
+    "NAME": "건슬링어 폼",
+    "DESCRIPTION": "총이 발사할때마다 재장전 효과도 같이 발동시킵니다. 휘발성.",
+    "UPGRADE_DESCRIPTION": "총이 발사할때마다 재장전 효과도 같이 발동시킵니다."
   },
   "DemoMod:Elimentaler": {
-    "NAME": "滋补者",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 NL 给予 !M! 层 凝固 。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "치즈 뿌리개",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 응고 !M! 을 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:EatIt": {
-    "NAME": "吃掉它！",
-    "DESCRIPTION": "选择秒杀一个非boss敌人或对一个boss敌人造成40点伤害。"
+    "NAME": "잡아 먹기!",
+    "DESCRIPTION": "보스가 아닌 적을 처치합니다 보스라면 40 의 피해를 입힙니다."
   },
   "DemoMod:Ejector": {
-    "NAME": "退弹器",
-    "DESCRIPTION": "从手牌中选择至多一张是 枪 的牌，将其 弹夹 变为0。",
-    "UPGRADE_DESCRIPTION": "从手牌中选择任意张是 枪 的牌，将其 弹夹 变为0。"
+    "NAME": "이젝터",
+    "DESCRIPTION": "내 손에서 총 을 1장 선택하여 탄창 을 비웁니다.",
+    "UPGRADE_DESCRIPTION": "내 손에서 총 들을 선택하여 탄창 을 비웁니다."
   },
   "DemoMod:GunShield": {
-    "NAME": "枪盾",
-    "DESCRIPTION": "获得 !B! 点 格挡 。手牌中每有一把 枪 ，获得 !B! 点 格挡 一次。"
+    "NAME": "총기방패",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 내 손에 있는 총 한장당 방어도 를 !B! 만큼 얻습니다."
   },
   "DemoMod:AC15": {
     "NAME": "AC-15",
-    "DESCRIPTION": "枪。 造成 !D! 点伤害。 NL 失去所有 格挡 。这张牌在本场战斗的伤害增加失去的 格挡 值。 弹夹 !DemoModCapacity! 。"
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 방어도 를 전부 잃습니다. 이 카드의 피해량은 이 카드의 효과로 잃은 방어도의 값과 같습니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:OldTrick": {
-    "NAME": "故技重施",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将打出的上一张技能牌放入手牌。",
-    "EXTENDED_DESCRIPTION": [
-      "(你打出的前",
-      "张技能牌是：",
+    "NAME": "뻔한 수법",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투에서 마지막으로 사용한 스킬카드를 손으로 가져옵니다.",
+	"EXTENDED_DESCRIPTION": [
+      "(마지막으로",
+      "사용한 스킬카드：",
       ")"
     ]
   },
   "DemoMod:ZorGun": {
-    "NAME": "佐尔枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 这张牌被 装填 时，打出抽牌堆顶的 !M! 张牌并将此牌的耗能增加 [E] 。 NL 这张牌进入弃牌堆时，耗能减少 [E] 。 弹夹 !DemoModCapacity! 。"
+    "NAME": "조르건",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 뽑을 카드 더미에서 !M! 장을 사용하고 이 카드의 비용이 [E] 증가합니다. 이 카드가 버린 카드 더미로 들어가면 비용이 [E] 감소합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Desperate": {
-    "NAME": "孤注一掷",
-    "DESCRIPTION": "抽 !M! 张牌。每抽到一把 枪 ，获得 [E] 。"
+    "NAME": "발악",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 총 을 뽑으면, [E] 를 얻습니다."
   },
   "DemoMod:Camera": {
-    "NAME": "照相机",
-    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。 弹夹 为1：击晕所有敌人一回合。 NL 如果 弹夹 曾经降低到0过， 消耗 。 弹夹 !DemoModCapacity! 。"
+    "NAME": "카메라",
+    "DESCRIPTION": "총. 모든 적에게 피해를 !D! 줍니다. 탄창 1:이번 턴 모든 적을 기절시킵니다. NL 탄창이 0 이 되면, 소멸 합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:BlackHoleGun": {
-    "NAME": "黑洞枪",
-    "DESCRIPTION": "枪 。对所有敌人造成 !D! 点伤害。所有人失去 !M! 点力量一回合。 清空弃牌堆中所有 枪 的 弹夹 。 NL 将一张 *虚空 放入弃牌堆。 NL 弹夹 !DemoModCapacity! 。"
+    "NAME": "블랙홀 건",
+    "DESCRIPTION": "총. 모든 적에게 피해를 !D! 줍니다. 이번 턴 모든 캐릭터가 힘을 !M! 잃습니다. 모든 총의 탄창을 버립니다. NL 버린 카드 더미에 *공허 를 추가합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Polaris": {
-    "NAME": "北极星",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。每打出两次就在本局游戏内提升一个等级(最高为3级)。你每受到一次伤害就在本局游戏内降低一个等级。 弹夹 !DemoModCapacity! 。",
-    "UPGRADE_DESCRIPTION": "枪 。 半自动 。造成 !D! 点伤害。每打出两次就在本局游戏内提升一个等级(最高为3级)。你每受到一次伤害就在本局游戏内降低一个等级。 弹夹 !DemoModCapacity! 。"
+    "NAME": "폴라리스",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "총. 반자동. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1레벨 하락합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:SuppressiveFire": {
-    "NAME": "火力压制",
-    "DESCRIPTION": "在这个回合将手牌中的一把 枪 变为 半自动 。",
-    "UPGRADE_DESCRIPTION": "在这个回合将手牌中的所有 枪 变为 半自动 。"
+    "NAME": "진압 사격",
+    "DESCRIPTION": "이번 턴 동안 내 손에 있는 총 1장이 반자동 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴 동안 내 손에 있는 총 이 반자동 을 얻습니다."
   },
   "DemoMod:FortunesFavor": {
-    "NAME": "财富的青睐",
-    "DESCRIPTION": "获得所有敌人想对你造成伤害点数总和一半的 格挡 。"
+    "NAME": "행운의 손길",
+    "DESCRIPTION": "적들이 주려는 피해 총합의 절반만큼 방어도 를 얻습니다."
   },
   "DemoMod:BoxingGlove": {
-    "NAME": "拳击手套",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。 斩杀 时，获得一个标记(最多3个)。 NL 蓄力 ：消耗所有标记，每消耗一个基础伤害翻倍。 弹夹 !DemoModCapacity! 。"
+    "NAME": "권투 글러브",
+    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드로 적을 죽이면, 마크를 얻습니다(최대 3). NL 충전: 모든 마크를 잃습니다, 잃어버린 마크 하나당 피해량이 2 배 증가합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:MachoBrace": {
-    "NAME": "强制锻炼器",
-    "DESCRIPTION": "获得 !B! 点 格挡 。从手牌中选择一张牌进行 装填 。你打出的下一张攻击牌伤害增加 !M! 。"
+    "NAME": "마초 브레이스",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 내 손에 있는 총 을 선택하고 재장전 합니다. 다음 공격의 피해량이 !M! 증가합니다."
   },
   "DemoMod:CombinedRifle": {
-    "NAME": "组合步枪",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害 !DemoModMulti! 次。 装填 以切换形态。 弹夹 !DemoModCapacity! 。",
+    "NAME": "합성 라이플",
+    "DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "枪 。造成 !D! 点伤害。 装填 以切换形态。 弹夹 !DemoModCapacity! 。"
+      "총. 피해를 !D! 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!."
     ]
   }
 }

@@ -1,87 +1,87 @@
 {
   "DemoMod:LordOfTheJammed": {
-    "NAME": "亡枪族长",
+    "NAME": "궁지에 몰린 자들의 지배자",
     "DIALOG": [""],
     "MOVES": [""]
   },
   "DemoMod:Decoy": {
-    "NAME": "诱饵",
+    "NAME": "미끼",
     "DIALOG": [""],
     "MOVES": [""]
   },
   "DemoMod:Mimic": {
-    "NAME": "拟身怪",
+    "NAME": "상자 미믹",
     "DIALOG": [
-      "猝不及防"
+      "Off-guard"
     ],
     "MOVES": [
-      "防御形态",
-      "狂暴",
-      "刀片拟身",
-      "嘣!"
+      "Close Lid",
+      "Mad Mimicry",
+      "Blade Mimicry",
+      "BOO!"
     ]
   },
   "DemoMod:BulletKin": {
-    "NAME": "子弹怪",
+    "NAME": "총탄 일족",
     "DIALOG": [""],
     "MOVES": [""]
   },
   "DemoMod:VeteranBulletKin": {
-    "NAME": "资深子弹怪",
+    "NAME": "베테랑 총탄 일족",
     "DIALOG": [""],
     "MOVES": [
-      "预判",
-      "近战枪技"
+      "Anticipate",
+      "모잠비크 드릴"
     ]
   },
   "DemoMod:RedShotgunKin": {
-    "NAME": "红霰弹怪",
+    "NAME": "빨간 산탄총 일족",
     "DIALOG": [""],
-    "MOVES": ["重新装填"]
+    "MOVES": ["재장전"]
   },
   "DemoMod:BlueShotgunKin": {
-    "NAME": "蓝霰弹怪",
+    "NAME": "파란 산탄총 일족",
     "DIALOG": [""],
-    "MOVES": ["重新装填"]
+    "MOVES": ["재장전"]
   },
   "DemoMod:VeteranShotgunKin": {
-    "NAME": "高手霰弹怪",
+    "NAME": "베테랑 산탄총 일족",
     "DIALOG": [""],
     "MOVES": [
-      "预判",
-      "重新装填"
+      "Anticipate",
+      "재장전"
     ]
   },
   "DemoMod:ResourcefulRat": {
-    "NAME": "机智大鼠",
+    "NAME": "쥐갈 공명",
     "DIALOG": [
-      "我刚热了身，我现在要 #r@融化你！@",
-      "看来我们是注定要一遍一遍地重来了。 NL #r@去死吧，篡权者！@",
-      "最帅的国王",
-      "你的自大",
-      "你身法缺到家了",
-      "比你更强的某人",
-      "你有点冒进"
+      "이건 몸풀기임다. 이제 #r@녹아버릴@ 준비하십쇼!",
+      "우리가 이 일을 계속 반복할 운명이었던 모양인 것 같슴다. NL #r@죽으십쇼@, #r@이@ #r@강탈자!@",
+      "엄청 잘생긴 왕",
+      "당신의 오만함",
+      "신체능력이 부족하시군요",
+      "당신보다 강한 자",
+      "조금 공격적이시군요"
     ],
     "MOVES": [
-      "匕首雨",
-      "全身撞击",
-      "部署",
-      "毒液陷阱",
-      "甩大绳",
-      "弹幕雨"
+      "Dagger Spray",
+      "Body Slam",
+      "Set up",
+      "Poison Trap",
+      "Rope throwing",
+      "Bullet Wave"
     ]
   },
   "DemoMod:Mouser": {
-    "NAME": "机械鼠",
+    "NAME": "마우저",
     "DIALOG": [""],
     "MOVES": [""]
   },
   "DemoMod:Gunsinger": {
-    "NAME": "枪之歌咏者",
+    "NAME": "건싱어",
     "DIALOG": [""],
     "MOVES": [
-      "咏唱"
+      "Bless"
     ]
   }
 }

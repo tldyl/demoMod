@@ -1,22 +1,22 @@
 {
   "DemoMod:BlankPotion": {
-    "NAME": "空响弹",
+    "NAME": "공포탄",
     "DESCRIPTIONS": [
-      "对所有敌人造成 #g",
-      " 点伤害。击晕所有敌人一回合。"
+      "모든 적에게 #g",
+      " 의 피해를 줍니다. 이번 턴 기절시킵니다."
     ]
   },
   "DemoMod:LeadSkinPotion": {
-    "NAME": "铅皮药水",
+    "NAME": "납 피부의 물약",
     "DESCRIPTIONS": [
-      "在本场战斗将你受到的 #b",
-      " 点及以下的 #y攻击 伤害降为 #b1 。"
+      "이번 전투에서, 내가 받는 #b",
+      " 미만의 피해를, #b1 로 감소시킵니다."
     ]
   },
   "DemoMod:SmokeBomb": {
-    "NAME": "烟雾弹",
+    "NAME": "연막탄",
     "DESCRIPTIONS": [
-      " NL 在商店使用可进行 #r偷窃 。"
+      " NL 상점에서 사용하면 #r도둑질 할 수 있습니다."
     ]
   }
 }

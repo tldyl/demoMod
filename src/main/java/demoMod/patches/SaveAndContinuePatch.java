@@ -44,6 +44,7 @@ public class SaveAndContinuePatch {
             ResourcefulRat.isBeaten = false;
             ResourcefulRat.isTrueBeaten = false;
             MonsterRoomPatch.PatchRender.isEntryOpen = false;
+            MonsterRoomPatch.PatchUpdate.hb_enabled = true;
             TreasureRoomPatch.closeEntry();
             File file = new File("saves/HUNTRESS.curseValue");
             if (file.exists()) {

@@ -28,7 +28,7 @@ public class MachoBrace extends CustomCard {
     public MachoBrace() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
         this.baseBlock = 6;
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 4;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MachoBrace extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(3);
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
         }
     }
 
