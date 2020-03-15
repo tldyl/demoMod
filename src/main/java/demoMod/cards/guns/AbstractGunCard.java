@@ -2,6 +2,9 @@ package demoMod.cards.guns;
 
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,9 +21,11 @@ import demoMod.interfaces.PostReloadSubscriber;
 import demoMod.monsters.Decoy;
 import demoMod.powers.ChanceBulletsPower;
 import demoMod.powers.GunslingerPower;
+import demoMod.powers.PlatinumBulletsPower;
 import demoMod.powers.SlingerPower;
 import demoMod.relics.CrisisStone;
 import demoMod.relics.ElasticCartridgeClip;
+import demoMod.relics.SilverBullets;
 import demoMod.sounds.DemoSoundMaster;
 
 import java.lang.reflect.Type;
@@ -41,6 +46,11 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     public boolean isMaxCapacityModified = false;
     public boolean isSemiAutomatic = false;
     public boolean isSemiAutomaticForTurn = false;
+
+    private static ShaderProgram silverShader = new ShaderProgram(
+            Gdx.files.internal("DemoShader/silverGuns/vertexShader.vs"),
+            Gdx.files.internal("DemoShader/silverGuns/fragShader.fs")
+    );
 
     public AbstractGunCard(String id, String name, String img, int cost, String rawDescription, CardColor color, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -263,5 +273,16 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     @Override
     public Type savedType() {
         return new TypeToken<GeneralGunCardData>(){}.getType();
+    }
+
+    @Override
+    public void render(SpriteBatch sb, boolean selected) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null &&
+                (p.hasRelic(SilverBullets.ID) || p.hasPower(PlatinumBulletsPower.POWER_ID))) {
+            sb.setShader(silverShader);
+        }
+        super.render(sb, selected);
+        sb.setShader(null);
     }
 }

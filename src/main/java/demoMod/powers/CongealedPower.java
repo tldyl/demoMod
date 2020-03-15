@@ -1,6 +1,7 @@
 package demoMod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.TriggerMarksAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,17 +10,22 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import demoMod.DemoMod;
 import demoMod.patches.AbstractMonsterEnum;
 import demoMod.sounds.DemoSoundMaster;
 
+import java.lang.reflect.Field;
+
 public class CongealedPower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("CongealedPower");
     public static String[] DESCRIPTIONS;
-    public boolean activated = false;
     private int oct = 0;
+    private byte moveByte;
+    private AbstractMonster.Intent moveIntent;
+    private EnemyMoveInfo move;
 
     public CongealedPower(AbstractCreature owner, int amount) {
         this.ID = POWER_ID;
@@ -41,24 +47,49 @@ public class CongealedPower extends AbstractPower {
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         this.oct = this.amount / 10;
-        this.addToBot(new TriggerMarksAction(null));
     }
 
     @Override
     public void triggerMarks(AbstractCard card) {
-        if (this.amount / 10 > this.oct && !this.activated) {
+        if (this.amount / 10 > this.oct) {
             this.flash();
             AbstractDungeon.effectList.add(new FlashPowerEffect(this));
-            this.activated = true;
-            AbstractMonster m = (AbstractMonster)this.owner;
-            m.setMove((byte)-1, AbstractMonsterEnum.CONGEALED);
-            m.createIntent();
+            this.addToBot(new AbstractGameAction() {
+                public void update() {
+                    if (owner instanceof AbstractMonster) {
+                        moveByte = ((AbstractMonster)owner).nextMove;
+                        moveIntent = ((AbstractMonster)owner).intent;
+
+                        try {
+                            Field f = AbstractMonster.class.getDeclaredField("move");
+                            f.setAccessible(true);
+                            move = (EnemyMoveInfo)f.get(owner);
+                            move.intent = AbstractMonsterEnum.CONGEALED;
+                            ((AbstractMonster)owner).createIntent();
+                        } catch (NoSuchFieldException | IllegalAccessException var2) {
+                            var2.printStackTrace();
+                        }
+                    }
+
+                    this.isDone = true;
+                }
+            });
         }
     }
 
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
-        this.activated = false;
+        if (this.owner instanceof AbstractMonster) {
+            AbstractMonster m = (AbstractMonster)this.owner;
+            if (m.intent == AbstractMonsterEnum.CONGEALED) {
+                if (this.move != null) {
+                    m.setMove(this.moveByte, this.moveIntent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
+                } else {
+                    m.setMove(this.moveByte, this.moveIntent);
+                }
+                m.createIntent();
+                m.applyPowers();
+            }
+        }
     }
 
     @Override

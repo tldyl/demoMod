@@ -2,6 +2,7 @@ package demoMod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -36,8 +37,9 @@ public class BulletBorePower extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        AbstractDungeon.actionManager.addToBottom(new StunMonsterAction((AbstractMonster) owner, AbstractDungeon.player));
-
+        if (!owner.hasPower(StunMonsterPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new StunMonsterAction((AbstractMonster) owner, AbstractDungeon.player));
+        }
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             if (!m.isDeadOrEscaped()) {
                 this.addToBot(new VFXAction(new ExplosionSmallEffect(m.hb.cX, m.hb.cY), 0.1F));
