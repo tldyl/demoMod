@@ -389,5 +389,35 @@
     "DESCRIPTIONS": [
       "내가 가지고 있는 저주포인트 #b1 점당, #y궁지에 #y몰린 #y자들 에게 주는 피해량이 #b15% 증가합니다."
     ]
+  },
+  "DemoMod:SerJunkan": {
+    "NAME": "Ser Junkan",
+    "FLAVOR": "Strange. Conscious junk.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, take an action. Collect #yJunk to make it stronger. NL ",
+      "Level #b0 :Every #b2 turns, gain #b4 #yBlock.",
+      "Level #b1 :Counter #b0:Gain #b4 #yBlock. Counter #b1:Deal #b3 damage to a random enemy.",
+      "Level #b2 :Counter #b0:Gain #b5 #yBlock. Counter #b1:Deal #b5 damage to a random enemy.",
+      "Level #b3 :Gain #b5 #yBlock. Deal #b5 damage to a random enemy.",
+      "Level #b4 :Gain #b5 #yBlock. Deal #b9 damage to a random enemy.",
+      "Level #b5 :Gain #b7 #yBlock. Deal #b6 damage to ALL enemies #b2 times.",
+      "Level #b6 :Gain #b7 #yBlock. Deal #b9 damage to ALL enemies #b2 times(Influenced by #yStrength). NL Every #b3 turns, if you are going to receive an unblocked damage, immune the next damage you take. NL When player was being killed, revive and heal all HP, then lose this relic.",
+      "Level #b7 :Deal #b4 damage to a random enemy #b15 times.",
+      "Level #b? :Counter #b0:Deal #b2 damage to a random enemy #b15 times, clear #yStrengthOfCurse from ALL enemies. NL Counter #b1:Remove all #yBlock from an enemy and deal #b10 damage #b2 times. NL Counter #b2:Remove all #yBlock from ALL enemies and Deal #b8 damage to a random enemy #b7 times."
+    ]
+  },
+  "DemoMod:Junk": {
+    "NAME": "Junk",
+    "FLAVOR": "Just some junks.",
+    "DESCRIPTIONS": [
+      "Try to collect it to make #ySer #yJunkan stronger!"
+    ]
+  },
+  "DemoMod:GoldJunk": {
+    "NAME": "Gold Junk",
+    "FLAVOR": "One Man's Trash.",
+    "DESCRIPTIONS": [
+      "Upon pickup, gain #b500 gold."
+    ]
   }
 }

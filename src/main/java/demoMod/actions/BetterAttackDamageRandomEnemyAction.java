@@ -14,6 +14,7 @@ public class BetterAttackDamageRandomEnemyAction extends AttackDamageRandomEnemy
     private AbstractCard card;
     private AttackEffect effect;
     private AbstractMonster exception;
+    private boolean isPureDamage = false;
 
     public BetterAttackDamageRandomEnemyAction(AbstractCard card, AttackEffect effect, AbstractMonster exception) {
         super(card, effect);
@@ -22,16 +23,24 @@ public class BetterAttackDamageRandomEnemyAction extends AttackDamageRandomEnemy
         this.exception = exception;
     }
 
+    public BetterAttackDamageRandomEnemyAction(int damage, AttackEffect effect, AbstractMonster exception) {
+        super(null, effect);
+        this.effect = effect;
+        this.exception = exception;
+        this.isPureDamage = true;
+        this.amount = damage;
+    }
+
     public void update() {
         this.target = AbstractDungeon.getMonsters().getRandomMonster(exception, true, AbstractDungeon.cardRandomRng);
         if (this.target != null) {
-            this.card.calculateCardDamage((AbstractMonster)this.target);
+            if (!isPureDamage) this.card.calculateCardDamage((AbstractMonster)this.target);
             if (AttackEffect.LIGHTNING == this.effect) {
-                this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn), AttackEffect.NONE));
+                this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, isPureDamage ? amount : this.card.damage, isPureDamage ? DamageInfo.DamageType.THORNS : this.card.damageTypeForTurn), AttackEffect.NONE));
                 this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
                 this.addToTop(new VFXAction(new LightningEffect(this.target.hb.cX, this.target.hb.cY)));
             } else {
-                this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn), this.effect));
+                this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, isPureDamage ? amount : this.card.damage, isPureDamage ? DamageInfo.DamageType.THORNS : this.card.damageTypeForTurn), this.effect));
             }
         }
 

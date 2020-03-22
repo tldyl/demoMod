@@ -21,7 +21,7 @@ public class StrengthOfCursePower extends AbstractPower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
-    private int strengthToApply = (int)(Math.log(1 + HuntressCharacter.curse) * 1.5);
+    public int strengthToApply = (int)(Math.log(1 + HuntressCharacter.curse) * 1.5);
 
     public StrengthOfCursePower(AbstractCreature owner) {
         this.name = NAME;

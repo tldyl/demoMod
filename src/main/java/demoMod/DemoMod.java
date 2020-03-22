@@ -124,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.22");
+        logger.info("Gungeon Mod - v1.2.23");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -431,6 +431,9 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelic(new PartiallyEatenCheese(), RelicType.SHARED);
         BaseMod.addRelic(new MeatBun(), RelicType.SHARED);
         BaseMod.addRelic(new NanoMachines(), RelicType.SHARED);
+        BaseMod.addRelic(new SerJunkan(), RelicType.SHARED);
+        BaseMod.addRelic(new Junk(), RelicType.SHARED);
+        BaseMod.addRelic(new GoldJunk(), RelicType.SHARED);
         BaseMod.addRelicToCustomPool(new RedGuonStone(), characterColor);
         BaseMod.addRelicToCustomPool(new HipHolster(), characterColor);
         BaseMod.addRelicToCustomPool(new Dog(), characterColor);
