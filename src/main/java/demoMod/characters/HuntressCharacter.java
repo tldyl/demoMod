@@ -111,7 +111,7 @@ public class HuntressCharacter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike_Huntress();
+        return new ManualReload();
     }
 
     @Override

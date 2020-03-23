@@ -1,6 +1,7 @@
 package demoMod.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,6 +27,7 @@ public class GunslingerForm extends CustomCard {
     public GunslingerForm() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
         this.isEthereal = true;
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override

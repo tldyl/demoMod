@@ -39,7 +39,7 @@ public class WeirdEgg extends AbstractClickRelic {
     @Override
     protected void onRightClick() {
         DemoSoundMaster.playA("RELIC_WEIRD_EGG", 0.0F);
-        if (this.counter < 20) {
+        if (this.counter < 15) {
             AbstractRelic relic = AbstractDungeon.returnRandomRelic(RelicTier.COMMON);
             relic.instantObtain(AbstractDungeon.player, getIndex(), true);
         } else if (this.counter < 30) {
