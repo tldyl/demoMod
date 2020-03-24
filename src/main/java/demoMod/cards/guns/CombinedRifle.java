@@ -2,6 +2,7 @@ package demoMod.cards.guns;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -68,11 +69,15 @@ public class CombinedRifle extends AbstractGunCard implements MultiAttackCard {
     @Override
     public void fire(AbstractPlayer p, AbstractMonster m) {
         if (defaultMode) {
+            this.baseDamage = 3;
+            this.calculateCardDamage(m);
             for (int i=0;i<this.multi;i++) {
                 this.addToBot(new PlaySoundAction("GUN_FIRE_COMBINED_RIFLE_1", 0.0F));
                 this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         } else {
+            this.baseDamage = 26 + this.baseMagicNumber;
+            this.calculateCardDamage(m);
             this.addToBot(new PlaySoundAction("GUN_FIRE_COMBINED_RIFLE_2", 0.0F));
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         }
@@ -85,6 +90,14 @@ public class CombinedRifle extends AbstractGunCard implements MultiAttackCard {
             this.upgradeMagicNumber(6);
             this.multi += 1;
         }
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        CombinedRifle rifle = (CombinedRifle) card;
+        rifle.defaultMode = this.defaultMode;
+        return rifle;
     }
 
     @Override

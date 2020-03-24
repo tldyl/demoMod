@@ -51,9 +51,12 @@ public class ComboManager {
     public static List<String> getAllComboId(Combo item) {
         List<String> ret = new ArrayList<>();
         for (String comboId : combos.keySet()) {
-            for (Combo combo : combos.get(comboId)) {
-                if (combo.getItemId().equals(item.getItemId())) {
-                    ret.add(comboId);
+            if (combos.get(comboId).size() > 1) {
+                for (Combo combo : combos.get(comboId)) {
+                    String actualId = comboId.split(":")[0] + ":" + comboId.split(":")[1];
+                    if (combo.getItemId().equals(item.getItemId()) && !ret.contains(actualId)) {
+                        ret.add(actualId);
+                    }
                 }
             }
         }

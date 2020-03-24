@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import demoMod.DemoMod;
 import demoMod.dungeons.Maze;
 import demoMod.monsters.ResourcefulRat;
 
@@ -84,6 +85,9 @@ public class TimeFreezeEffect extends AbstractGameEffect {
 
     @Override
     public void render(SpriteBatch sb) {
+        if (DemoMod.disableVFXForCamera) {
+            return;
+        }
         sb.setColor(1, 1, 1, this.a);
         sb.draw(this.img, 0,
                 0,

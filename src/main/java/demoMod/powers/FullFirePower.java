@@ -57,6 +57,7 @@ public class FullFirePower extends AbstractPower {
                 AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, tmp.energyOnUse, true));
                 ((AbstractGunCard) card).capacity--;
             }
+            ((AbstractGunCard) card).clearAmmo();
             if (!((AbstractPlayer)this.owner).hasRelic("DemoMod:HipHolster") && !this.owner.hasPower(DemoMod.makeID("SlingerPower"))) card.target = AbstractCard.CardTarget.NONE;
             --this.amount;
             if (this.amount == 0) {

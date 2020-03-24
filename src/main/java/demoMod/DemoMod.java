@@ -124,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.24");
+        logger.info("Gungeon Mod - v1.2.25");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,

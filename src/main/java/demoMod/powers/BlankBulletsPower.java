@@ -2,7 +2,6 @@ package demoMod.powers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -38,7 +37,7 @@ public class BlankBulletsPower extends AbstractPower {
         if (card instanceof AbstractGunCard) {
             AbstractGunCard gunCard = (AbstractGunCard)card;
             if (gunCard.target != AbstractCard.CardTarget.NONE && m != null) {
-                int ran = MathUtils.random(99);
+                int ran = AbstractDungeon.miscRng.random(99);
                 if (ran < this.amount) {
                     if (!m.isDeadOrEscaped() && !m.hasPower("stslib:Stunned")) {
                         this.flash();
