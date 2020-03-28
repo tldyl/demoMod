@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -77,15 +76,15 @@ public class Spice extends CustomCard implements CustomSavable<SpiceData> {
             if (p instanceof HuntressCharacter) {
                 HuntressCharacter.curse += 0.5;
                 SpiceCounter spiceCounter = new SpiceCounter(this.magicNumber);
-                spiceCounter.obtain();
-                //spiceCounter.currentX = spiceCounter.img.getWidth() / 2;
-                //spiceCounter.currentY = Settings.HEIGHT - 96.0F;
+                spiceCounter.instantObtain(p, p.blights.size(), true);
+
                 SaveFile saveFile = CardCrawlGame.saveFile;
                 if (saveFile == null) saveFile = new SaveFile();
                 if (saveFile.endless_increments == null) {
                     saveFile.endless_increments = new ArrayList<>();
                     saveFile.endless_increments.add(0);
                 }
+                CardCrawlGame.saveFile = saveFile;
             }
             isFirstUse = false;
         }

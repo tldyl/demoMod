@@ -25,7 +25,7 @@ public class Roll extends CustomCard {
 
     public Roll() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
-        this.baseBlock = 6;
+        this.baseBlock = 7;
         this.block = this.baseBlock;
     }
 

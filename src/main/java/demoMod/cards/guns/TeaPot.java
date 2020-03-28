@@ -141,7 +141,8 @@ public class TeaPot extends AbstractGunCard implements Combo, PostAddedToMasterD
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
-        ComboManager.addCombo(DemoMod.makeID("TeaForTwo"), TeaPot.class);
+        ComboManager.addCombo(DemoMod.makeID("TeaForTwo:Wolf"), TeaPot.class);
+        ComboManager.addCombo(DemoMod.makeID("TeaForTwo:SerJunkan"), TeaPot.class);
         ComboManager.addCombo(DemoMod.makeID("MonstersAndMonocles"), TeaPot.class);
     }
 

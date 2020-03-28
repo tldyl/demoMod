@@ -139,6 +139,6 @@ public class Wolf extends CustomRelic implements Combo {
     static {
         ComboManager.addCombo(DemoMod.makeID("TheRedHood"), Wolf.class);
         ComboManager.addCombo(DemoMod.makeID("SniperWoof"), Wolf.class);
-        ComboManager.addCombo(DemoMod.makeID("TeaForTwo"), Wolf.class);
+        ComboManager.addCombo(DemoMod.makeID("TeaForTwo:Wolf"), Wolf.class);
     }
 }

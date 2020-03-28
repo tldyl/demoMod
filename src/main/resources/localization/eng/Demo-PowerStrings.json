@@ -268,5 +268,13 @@
       "This turn, #y",
       " in your hand is #ySemiAutomatic."
     ]
+  },
+  "DemoMod:StunImmunePower": {
+    "NAME": "Stun Immune",
+    "DESCRIPTIONS": [
+      "In the next #b",
+      " turns, negates #yStun debuff.",
+      " turn, negates #yStun debuff."
+    ]
   }
 }

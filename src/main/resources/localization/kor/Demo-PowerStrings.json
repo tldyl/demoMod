@@ -268,5 +268,13 @@
       "이번 턴, 내 손에 있는 #y",
       " 는 #y반자동 을 얻었습니다."
     ]
+  },
+  "DemoMod:StunImmunePower": {
+    "NAME": "Stun Immune",
+    "DESCRIPTIONS": [
+      "In the next #b",
+      " turns, negates #yStun debuff.",
+      " turn, negates #yStun debuff."
+    ]
   }
 }

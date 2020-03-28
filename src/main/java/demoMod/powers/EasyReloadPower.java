@@ -3,7 +3,6 @@ package demoMod.powers;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -12,7 +11,6 @@ import demoMod.cards.EasyReloadBullets;
 import demoMod.cards.guns.AbstractGunCard;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 @SuppressWarnings("WeakerAccess")
 public class EasyReloadPower extends AbstractPower {
@@ -20,7 +18,6 @@ public class EasyReloadPower extends AbstractPower {
     public static PowerType POWER_TYPE = PowerType.BUFF;
 
     public static String[] DESCRIPTIONS;
-    private Random random = new Random(Settings.seed);
 
     public EasyReloadPower(int amount) {
         this.ID = POWER_ID;
@@ -46,11 +43,23 @@ public class EasyReloadPower extends AbstractPower {
         if (c.type != AbstractCard.CardType.SKILL) return;
         this.flash();
         ArrayList<AbstractCard> cardsToReload = new ArrayList<>();
+        ArrayList<AbstractCard> cardsNeededToReload = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card instanceof AbstractGunCard) cardsToReload.add(card);
         }
+        for (AbstractCard card : cardsToReload) {
+            AbstractGunCard gunCard = (AbstractGunCard) card;
+            if (gunCard.capacity < gunCard.maxCapacity || (gunCard.canFullReload && EasyReloadBullets.combos[0])) {
+                cardsNeededToReload.add(gunCard);
+            }
+        }
         if (cardsToReload.size() == 0) return;
-        AbstractGunCard gunCard = (AbstractGunCard) cardsToReload.get(random.nextInt(cardsToReload.size()));
+        AbstractGunCard gunCard;
+        if (cardsNeededToReload.isEmpty()) {
+            gunCard = (AbstractGunCard) cardsToReload.get(AbstractDungeon.cardRandomRng.random(cardsToReload.size() - 1));
+        } else {
+            gunCard = (AbstractGunCard) cardsNeededToReload.get(AbstractDungeon.cardRandomRng.random(cardsNeededToReload.size() - 1));
+        }
         if (gunCard.maxCapacity - gunCard.capacity > this.amount || !EasyReloadBullets.combos[0]) {
             gunCard.capacity += this.amount;
         } else {

@@ -26,7 +26,7 @@ public class Unmoved extends CustomCard {
 
     public Unmoved() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
-        this.baseBlock = 6;
+        this.baseBlock = 8;
         this.baseMagicNumber = 1;
     }
 

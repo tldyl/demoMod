@@ -20,14 +20,18 @@ import demoMod.DemoMod;
 import demoMod.actions.BetterAttackDamageRandomEnemyAction;
 import demoMod.actions.LoseRelicAction;
 import demoMod.actions.PlaySoundAction;
+import demoMod.combo.Combo;
+import demoMod.combo.ComboManager;
 import demoMod.monsters.Decoy;
 import demoMod.powers.StrengthOfCursePower;
 import demoMod.relics.interfaces.PostBeforePlayerDeath;
 
-public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath {
+public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Combo {
     public static final String ID = DemoMod.makeID("SerJunkan");
     public static final String IMG_PATH = "relics/serJunkan_0.png";
     private static Texture[] imgs = new Texture[9];
+    public static final Texture comboTexture = new Texture(DemoMod.getResourcePath("combos/relics/serJunkan.png"));
+    private boolean isRemoving = false;
 
     public static int LEVEL = 0;
 
@@ -54,6 +58,12 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath {
         if (AbstractDungeon.player.hasRelic(GoldJunk.ID)) {
             onTrigger(null);
         }
+    }
+
+    @Override
+    public void onUnequip() {
+        isRemoving = true;
+        ComboManager.detectCombo();
     }
 
     @Override
@@ -264,5 +274,34 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath {
             p.heal(AbstractDungeon.player.maxHealth);
             DemoMod.actionsQueue.add(new LoseRelicAction(this));
         }
+    }
+
+    @Override
+    public String getItemId() {
+        return ID;
+    }
+
+    @Override
+    public void onComboActivated(String comboId) {
+
+    }
+
+    @Override
+    public void onComboDisabled(String comboId) {
+
+    }
+
+    @Override
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    @Override
+    public Texture getComboPortrait() {
+        return comboTexture;
+    }
+
+    static {
+        ComboManager.addCombo(DemoMod.makeID("TeaForTwo:SerJunkan"), SerJunkan.class);
     }
 }

@@ -13,6 +13,7 @@ public class LoseRelicAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        relicToLose.onUnequip();
         AbstractDungeon.player.relics.remove(relicToLose);
         AbstractDungeon.player.reorganizeRelics();
         this.isDone = true;

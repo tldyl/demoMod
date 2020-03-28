@@ -27,7 +27,7 @@ public class MachoBrace extends CustomCard {
 
     public MachoBrace() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
-        this.baseBlock = 6;
+        this.baseBlock = 7;
         this.baseMagicNumber = 4;
     }
 
