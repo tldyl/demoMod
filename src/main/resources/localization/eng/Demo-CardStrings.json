@@ -449,5 +449,9 @@
     "EXTENDED_DESCRIPTION": [
       "Gun. Deal !D! damage. Reload to switch the mode. Capacity !DemoModCapacity!."
     ]
+  },
+  "DemoMod:HungryBullets": {
+    "NAME": "Hungry Bullets",
+    "DESCRIPTION": "In this battle, for every !M! Guns you fire, gain Block equal to unblocked damage dealt."
   }
 }

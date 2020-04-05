@@ -124,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.26");
+        logger.info("Gungeon Mod - v1.2.27");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -210,7 +210,6 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addCard(new StrategicReserve());
         BaseMod.addCard(new ProbeStrike());
         BaseMod.addCard(new Evolver());
-        BaseMod.addCard(new MozambiqueDrill());
         BaseMod.addCard(new GunstockTap());
         BaseMod.addCard(new AbyssalTentacle());
         BaseMod.addCard(new LifeOrb());
@@ -237,6 +236,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addCard(new BoxingGlove());
         BaseMod.addCard(new MachoBrace());
         BaseMod.addCard(new CombinedRifle());
+        BaseMod.addCard(new HungryBullets());
         //接下来是桌技卡
         BaseMod.addCard(new TableTechSight());
         BaseMod.addCard(new TableTechMoney());
@@ -268,6 +268,7 @@ public class DemoMod implements EditCardsSubscriber,
         bulletCards.add(new PlatinumBullets());
         bulletCards.add(new ShadowBullets());
         bulletCards.add(new ChaosBullets());
+        bulletCards.add(new HungryBullets());
 
         UnlockTracker.unlockCard(Strike_Huntress.ID);
         UnlockTracker.unlockCard(Defend_Huntress.ID);

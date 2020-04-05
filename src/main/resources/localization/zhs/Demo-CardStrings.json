@@ -266,7 +266,7 @@
   },
   "DemoMod:DirectionalPad": {
     "NAME": "方向键",
-    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在本场战斗打出的上一张牌是攻击牌，获得 !B! 点 格挡 。在 弹夹 为空时打出会在奖励界面增加一项随机奖励并将这张牌从你的卡组中移除。 弹夹 !DemoModCapacity! 。"
+    "DESCRIPTION": "枪 。造成 !D! 点伤害。如果在本场战斗打出的上一张牌是攻击牌，获得 !B! 点 格挡 。在 弹夹 为空时打出会在奖励界面增加一项随机奖励并将这张牌从你的卡组中移除。 NL 弹夹 !DemoModCapacity! 。"
   },
   "DemoMod:Unmoved": {
     "NAME": "不为所动",
@@ -449,5 +449,9 @@
     "EXTENDED_DESCRIPTION": [
       "枪 。造成 !D! 点伤害。 装填 以切换形态。 弹夹 !DemoModCapacity! 。"
     ]
+  },
+  "DemoMod:HungryBullets": {
+    "NAME": "饥饿子弹",
+    "DESCRIPTION": "在本场战斗，你每打出 !M! 把 枪 ，获得其所造成的未被格挡的伤害相等的 格挡 。"
   }
 }

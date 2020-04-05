@@ -14,17 +14,14 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
 
-import java.util.Random;
-
 public class PlatinumBulletsPower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("PlatinumBulletsPower");
-    private static Random random = new Random();
     public static String[] DESCRIPTIONS;
 
     public PlatinumBulletsPower(AbstractCreature owner, int amount) {
         this.ID = POWER_ID;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
-        this.owner= owner;
+        this.owner = owner;
         this.amount = amount;
         DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(DemoMod.getResourcePath("powers/PlatinumBullets84.png")), 0, 0, 84, 84);
@@ -35,7 +32,7 @@ public class PlatinumBulletsPower extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card instanceof AbstractGunCard) {
-            if (random.nextBoolean()) {
+            if (AbstractDungeon.cardRandomRng.randomBoolean()) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount)));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new DexterityPower(owner, amount)));

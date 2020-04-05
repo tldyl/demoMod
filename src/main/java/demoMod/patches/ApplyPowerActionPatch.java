@@ -36,7 +36,7 @@ public class ApplyPowerActionPatch {
                         AbstractDungeon.actionManager.addToTop(new TextAboveCreatureAction(action.target, ApplyPowerAction.TEXT[0]));
                         action.target.getPower(StunImmunePower.POWER_ID).flash();
                         duration -= Gdx.graphics.getDeltaTime();
-                        dur.set(dur, duration);
+                        dur.set(action, duration);
                         return SpireReturn.Return(null);
                     } else {
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(action.target, AbstractDungeon.player, new StunImmunePower((AbstractMonster) action.target, 3)));

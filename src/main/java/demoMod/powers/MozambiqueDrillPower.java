@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
 
+@Deprecated
 public class MozambiqueDrillPower extends AbstractPower {
     public static final String[] DESCRIPTIONS;
     private int multiplier = 2;

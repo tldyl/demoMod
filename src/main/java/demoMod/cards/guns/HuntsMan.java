@@ -2,7 +2,6 @@ package demoMod.cards.guns;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -52,7 +51,7 @@ public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSu
         if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
             AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
             for (int i=0;i<4;i++) {
-                this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                this.addToBot(new BetterAttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
             }
         }
         this.calculateCardDamage(null);

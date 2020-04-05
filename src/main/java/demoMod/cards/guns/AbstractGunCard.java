@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -235,6 +236,12 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             }
         }
         return card;
+    }
+
+    @Override
+    public void initializeDescription() {
+        this.rawDescription = CardCrawlGame.languagePack.getCardStrings(this.cardID).DESCRIPTION;
+        super.initializeDescription();
     }
 
     public void clearAmmo() {

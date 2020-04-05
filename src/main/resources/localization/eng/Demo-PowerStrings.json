@@ -276,5 +276,13 @@
       " turns, negates #yStun debuff.",
       " turn, negates #yStun debuff."
     ]
+  },
+  "DemoMod:HungryBulletsPower": {
+    "NAME": "Hungry Bullets",
+    "DESCRIPTIONS": [
+      "You can gain #yBlock equal to unblocked damage dealt after you played #b",
+      " #yGuns.",
+      "The next #yGun you played will gain #yBlock equal to unblocked damage dealt."
+    ]
   }
 }

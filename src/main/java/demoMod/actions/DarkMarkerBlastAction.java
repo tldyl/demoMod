@@ -2,7 +2,7 @@ package demoMod.actions;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,12 +15,10 @@ import demoMod.sounds.DemoSoundMaster;
 public class DarkMarkerBlastAction extends AbstractGameAction {
     private AbstractPlayer player = AbstractDungeon.player;
     private AbstractCard card;
-    private int energyOnUse;
 
-    public DarkMarkerBlastAction(AbstractCard card, int energyOnUse) {
+    public DarkMarkerBlastAction(AbstractCard card) {
         this.duration = 1.0F;
         this.card = card;
-        this.energyOnUse = energyOnUse;
     }
 
     @Override
@@ -30,12 +28,8 @@ public class DarkMarkerBlastAction extends AbstractGameAction {
             DemoMod.effectsQueue.add(new DarkMarkerBlastEffect());
         }
         if (this.duration <= 0.05F) {
-            for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!monster.isDeadOrEscaped()) {
-                    card.calculateCardDamage(monster);
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(player, card.damage * energyOnUse, card.damageTypeForTurn)));
-                }
-            }
+            card.calculateCardDamage(null);
+            this.addToBot(new DamageAllEnemiesAction(player, card.multiDamage, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!monster.isDeadOrEscaped()) {
                     card.calculateCardDamage(monster);

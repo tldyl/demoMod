@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -58,12 +59,14 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
             blastMode = !blastMode;
             if (blastMode) {
                 this.cost = -1;
+                this.costForTurn = -1;
                 this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
                 this.exhaust = true;
                 this.target = CardTarget.ALL_ENEMY;
                 this.baseDamage /= 2;
             } else {
                 this.cost = COST;
+                this.costForTurn = COST;
                 if (!isCombo) {
                     this.rawDescription = cardStrings.DESCRIPTION;
                 } else {
@@ -88,12 +91,31 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
 
     }
 
+    public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
+        if (this.blastMode) {
+            super.calculateCardDamage(null);
+            AbstractPlayer p = AbstractDungeon.player;
+            int boost = 0;
+            if (p.hasRelic("Chemical X")) {
+                boost = 2;
+            }
+            for (int i=0;i<this.multiDamage.length;i++) {
+                this.multiDamage[i] *= this.energyOnUse + boost;
+            }
+            this.damage = this.multiDamage[0];
+        }
+    }
+
     @Override
     public void fire(AbstractPlayer p, AbstractMonster m) {
         if (blastMode) {
             if (this.energyOnUse > 0) {
                 EnergyPanel.setEnergy(0);
-                AbstractDungeon.actionManager.addToBottom(new DarkMarkerBlastAction(this, this.energyOnUse));
+                if (p.hasRelic("Chemical X")) {
+                    p.getRelic("Chemical X").flash();
+                }
+                AbstractDungeon.actionManager.addToBottom(new DarkMarkerBlastAction(this));
             }
         } else {
             DemoSoundMaster.playV("GUN_FIRE_DARK_MARKER_1", 0.1F);
@@ -102,16 +124,46 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
                 if (redMark) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new RedMarkPower(m)));
                     redMark = false;
-                    this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
-                    this.initializeDescription();
                 } else {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BlueMarkPower(m)));
                     redMark = true;
-                    this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
-                    this.initializeDescription();
+                }
+                this.updateComboText();
+                for (AbstractCard card : p.drawPile.group) {
+                    if (card instanceof DarkMarker && card != this) {
+                        DarkMarker darkMarker = (DarkMarker) card;
+                        darkMarker.updateComboText();
+                    }
+                }
+                for (AbstractCard card : p.discardPile.group) {
+                    if (card instanceof DarkMarker && card != this) {
+                        DarkMarker darkMarker = (DarkMarker) card;
+                        darkMarker.updateComboText();
+                    }
+                }
+                for (AbstractCard card : p.hand.group) {
+                    if (card instanceof DarkMarker && card != this) {
+                        DarkMarker darkMarker = (DarkMarker) card;
+                        darkMarker.updateComboText();
+                    }
+                }
+                for (AbstractCard card : p.exhaustPile.group) {
+                    if (card instanceof DarkMarker && card != this) {
+                        DarkMarker darkMarker = (DarkMarker) card;
+                        darkMarker.updateComboText();
+                    }
                 }
             }
         }
+    }
+
+    private void updateComboText() {
+        if (redMark) {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
+        } else {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        }
+        this.initializeDescription();
     }
 
     @Override
