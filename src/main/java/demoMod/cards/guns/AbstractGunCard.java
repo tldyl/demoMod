@@ -238,12 +238,6 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
         return card;
     }
 
-    @Override
-    public void initializeDescription() {
-        this.rawDescription = CardCrawlGame.languagePack.getCardStrings(this.cardID).DESCRIPTION;
-        super.initializeDescription();
-    }
-
     public void clearAmmo() {
         this.capacity = 0;
         if (!AbstractDungeon.player.hasRelic("DemoMod:HipHolster")

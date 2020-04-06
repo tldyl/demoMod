@@ -65,12 +65,6 @@ public class Spice extends CustomCard implements CustomSavable<SpiceData> {
     }
 
     @Override
-    public void initializeDescription() {
-        this.rawDescription = CardCrawlGame.languagePack.getCardStrings(this.cardID).DESCRIPTION;
-        super.initializeDescription();
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         DemoSoundMaster.playV("ITEM_DOUBLE_VISION", 0.1F);
         if (!isFirstUse) {

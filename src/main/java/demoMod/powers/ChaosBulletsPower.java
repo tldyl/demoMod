@@ -12,8 +12,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
+import com.megacrit.cardcrawl.powers.watcher.EndTurnDeathPower;
+import com.megacrit.cardcrawl.powers.watcher.MarkPower;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
+import demoMod.monsters.Decoy;
 
 public class ChaosBulletsPower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("ChaosBulletsPower");
@@ -43,8 +47,8 @@ public class ChaosBulletsPower extends AbstractPower {
     }
 
     private static AbstractPower getRandomDebuff(AbstractCreature owner, AbstractPlayer p) {
-        int ran = AbstractDungeon.miscRng.random(10) + 1;
-        if (owner == null) owner = AbstractDungeon.getRandomMonster();
+        int ran = AbstractDungeon.miscRng.random(14) + 1;
+        if (owner == null) owner = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID));
         switch (ran) {
             case 1:
                 return new WeakPower(owner, 1, false);
@@ -68,6 +72,14 @@ public class ChaosBulletsPower extends AbstractPower {
                 return new SlowPower(owner, 1);
             case 11:
                 return new ConstrictedPower(owner, p, 1);
+            case 12:
+                return new CongealedPower(owner, 1);
+            case 13:
+                return new MarkPower(owner, 1);
+            case 14:
+                return new BlockReturnPower(owner, 1);
+            case 15:
+                if (((AbstractMonster)owner).type != AbstractMonster.EnemyType.BOSS) return new EndTurnDeathPower(owner);
         }
         return new WeakPower(owner, 1, false);
     }
