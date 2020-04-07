@@ -270,19 +270,19 @@
     ]
   },
   "DemoMod:StunImmunePower": {
-    "NAME": "Stun Immune",
+    "NAME": "기절 면역",
     "DESCRIPTIONS": [
-      "In the next #b",
-      " turns, negates #yStun debuff.",
-      " turn, negates #yStun debuff."
+      "다음 #b",
+      " 턴 동안, #y기절 효과에 면역입니다.",
+      " 턴 동안, #y기절 효과에 면역입니다"
     ]
   },
   "DemoMod:HungryBulletsPower": {
-    "NAME": "Hungry Bullets",
+    "NAME": "배고픈 총탄",
     "DESCRIPTIONS": [
-      "You can gain #yBlock equal to unblocked damage dealt after you played #b",
-      " #yGuns.",
-      "The next #yGun you played will gain #yBlock equal to unblocked damage dealt."
+      "매 ",
+      " 번째 사용하는 #y총이 준 막히지 않은 피해량만큼 #b방어도 를 얻습니다.",
+      "다음에 사용하는 #y총 이 준 피해량만큼 방어도를 얻습니다."
     ]
   }
 }
