@@ -102,7 +102,7 @@
   "DemoMod:JammedPower": {
     "NAME": "Jammed",
     "DESCRIPTIONS": [
-      "Immune ALL damages."
+      "Immune ALL damages. If there's no any other enemies survive, #yLordOfTheJammed will exit this combat immediately."
     ]
   },
   "DemoMod:ShadowBulletsPower": {

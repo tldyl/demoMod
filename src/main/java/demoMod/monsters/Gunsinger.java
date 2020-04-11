@@ -15,12 +15,14 @@ import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
 import demoMod.effects.BlessEffect;
+import demoMod.interfaces.PostOnMonsterDeathSubscriber;
+import demoMod.patches.MonsterPatch;
 import demoMod.powers.BlessPower;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gunsinger extends AbstractMonster {
+public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubscriber {
 
     public static final String ID = DemoMod.makeID("Gunsinger");
     private static final MonsterStrings monsterStrings;
@@ -43,6 +45,7 @@ public class Gunsinger extends AbstractMonster {
     private int frameCounter = 0;
 
     private AbstractGameEffect effect;
+    private AbstractMonster blessTarget;
 
     private static int maxCount = 12 * DemoMod.MAX_FPS / 60; //每过多少帧给怪物换一帧
     private static List<List<Texture>> frames = new ArrayList<>();
@@ -78,22 +81,22 @@ public class Gunsinger extends AbstractMonster {
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MalleablePower(this, 16)));
+        MonsterPatch.DiePatch.subscribe(this);
     }
 
     @Override
     public void useStaggerAnimation() { //受伤时触发
         super.useStaggerAnimation();
         this.phase = 0;
-        this.setMove((byte)2, Intent.UNKNOWN);
-        this.createIntent();
-        if (!this.effect.isDone) {
-            ((BlessEffect)effect).stop();
-        }
-        AbstractDungeon.actionManager.addToBottom(new TextAboveCreatureAction(this, TextAboveCreatureAction.TextType.INTERRUPTED));
-        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!m.isDeadOrEscaped() && m.hasPower(DemoMod.makeID("BlessPower"))) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, m, BlessPower.POWER_ID));
+        if (this.blessTarget != null) {
+            this.setMove((byte) 2, Intent.UNKNOWN);
+            this.createIntent();
+            if (!this.effect.isDone) {
+                ((BlessEffect) effect).stop();
             }
+            AbstractDungeon.actionManager.addToBottom(new TextAboveCreatureAction(this, TextAboveCreatureAction.TextType.INTERRUPTED));
+            addToBot(new RemoveSpecificPowerAction(this.blessTarget, this.blessTarget, BlessPower.POWER_ID));
+            this.blessTarget = null;
         }
     }
 
@@ -102,21 +105,15 @@ public class Gunsinger extends AbstractMonster {
         switch (this.nextMove) {
             case 1:
                 this.phase = 1;
-                boolean hasBlessed = false;
-                for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (!m.isDeadOrEscaped() && m.hasPower(DemoMod.makeID("BlessPower"))) {
-                        hasBlessed = true;
-                        break;
-                    }
-                }
-                if (!hasBlessed) {
+                if (this.blessTarget == null) {
                     AbstractMonster m = null;
                     for (int i=0;i<10;i++) {
                         m = AbstractDungeon.getRandomMonster();
-                        if (m != this) break;
+                        if (m != this && !(m instanceof LordOfTheJammed) && !(m instanceof Decoy)) break;
                     }
                     if (m != null && m != this) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, this, new BlessPower(m)));
+                        this.blessTarget = m;
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.blessTarget, this, new BlessPower(this.blessTarget)));
                     }
                 }
                 if (this.effect.isDone) {
@@ -155,6 +152,9 @@ public class Gunsinger extends AbstractMonster {
             maxCount = 6 * DemoMod.MAX_FPS / 60;
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, MalleablePower.POWER_ID));
             setMove((byte)3, Intent.ATTACK, this.damage.get(0).base);
+            if (!this.effect.isDone) {
+                ((BlessEffect) effect).stop();
+            }
         } else {
             setMove(MOVES[0], (byte)1, Intent.BUFF);
             this.createIntent();
@@ -183,8 +183,9 @@ public class Gunsinger extends AbstractMonster {
     }
 
     @Override
-    public void die() {
-        super.die();
+    public void die(boolean triggerRelics) {
+        MonsterPatch.DiePatch.unsubscribe(this);
+        super.die(triggerRelics);
     }
 
     @Override
@@ -197,5 +198,19 @@ public class Gunsinger extends AbstractMonster {
         NAME = monsterStrings.NAME;
         MOVES = monsterStrings.MOVES;
         DIALOG = monsterStrings.DIALOG;
+    }
+
+    @Override
+    public void onMonsterDeath(AbstractMonster m) {
+        if (this.blessTarget == m) {
+            this.phase = 0;
+            this.setMove((byte) 2, Intent.UNKNOWN);
+            this.createIntent();
+            if (!this.effect.isDone) {
+                ((BlessEffect) effect).stop();
+            }
+            AbstractDungeon.actionManager.addToBottom(new TextAboveCreatureAction(this, TextAboveCreatureAction.TextType.INTERRUPTED));
+            this.blessTarget = null;
+        }
     }
 }

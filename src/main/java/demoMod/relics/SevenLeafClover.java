@@ -3,6 +3,7 @@ package demoMod.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -59,5 +60,10 @@ public class SevenLeafClover extends CustomRelic {
     @Override
     public AbstractRelic makeCopy() {
         return new SevenLeafClover();
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 34;
     }
 }

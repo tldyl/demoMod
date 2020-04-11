@@ -102,7 +102,7 @@
   "DemoMod:JammedPower": {
     "NAME": "지배",
     "DESCRIPTIONS": [
-      "모든 피해에 면역입니다."
+      "모든 피해에 면역입니다. 다른 적 들 이 없 었 다 면, #y궁지에 #y몰린 #y자들의 #y지배자 전투 에서 즉시 퇴장 합 니 다."
     ]
   },
   "DemoMod:ShadowBulletsPower": {

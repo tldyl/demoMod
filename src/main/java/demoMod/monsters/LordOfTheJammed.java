@@ -10,9 +10,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
+import demoMod.interfaces.PostOnMonsterDeathSubscriber;
+import demoMod.patches.MonsterPatch;
 import demoMod.powers.JammedPower;
 
-public class LordOfTheJammed extends AbstractMonster {
+public class LordOfTheJammed extends AbstractMonster implements PostOnMonsterDeathSubscriber {
     public static final String ID = DemoMod.makeID("LordOfTheJammed");
     private static final MonsterStrings monsterStrings;
     public static final String NAME;
@@ -34,6 +36,7 @@ public class LordOfTheJammed extends AbstractMonster {
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new JammedPower(this)));
+        MonsterPatch.DiePatch.subscribe(this);
     }
 
     @Override
@@ -44,6 +47,7 @@ public class LordOfTheJammed extends AbstractMonster {
                 break;
             case 2:
                 AbstractDungeon.actionManager.addToBottom(new SuicideAction(this, false));
+                return;
         }
         rollMove();
     }
@@ -59,6 +63,8 @@ public class LordOfTheJammed extends AbstractMonster {
         }
         if (isAllEnemyDead) {
             setMove((byte) 2, Intent.UNKNOWN);
+            this.createIntent();
+            this.takeTurn();
         } else {
             setMove((byte) 1, AbstractMonster.Intent.ATTACK, (this.damage.get(0)).base);
         }
@@ -69,5 +75,16 @@ public class LordOfTheJammed extends AbstractMonster {
         NAME = monsterStrings.NAME;
         MOVES = monsterStrings.MOVES;
         DIALOG = monsterStrings.DIALOG;
+    }
+
+    @Override
+    public void onMonsterDeath(AbstractMonster m) {
+        getMove(0);
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        MonsterPatch.DiePatch.unsubscribe(this);
+        super.die(triggerRelics);
     }
 }

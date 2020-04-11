@@ -39,7 +39,7 @@ public class TeaPot extends AbstractGunCard implements Combo, PostAddedToMasterD
         this.maxCapacity = 3;
         this.baseDamage = 8;
         this.extraDamage = 8;
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 5;
         this.reloadSoundKey = "GUN_RELOAD_TEAPOT";
     }
 

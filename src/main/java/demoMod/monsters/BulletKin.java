@@ -37,7 +37,7 @@ public class BulletKin extends AbstractMonster {
     public BulletKin(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
-            setHp(18, 22);
+            setHp(16, 20);
         } else {
             setHp(13, 17);
         }
@@ -53,15 +53,21 @@ public class BulletKin extends AbstractMonster {
 
     @Override
     public void takeTurn() {
+        int ctr = 0;
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && m instanceof BulletKin) ctr++;
+        }
         switch (this.nextMove) {
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                setMove((byte)2, Intent.UNKNOWN);
+                if (ctr < 8) {
+                    setMove((byte) 2, Intent.UNKNOWN);
+                }
                 break;
             case 2:
                 AbstractMonster kin = new BulletKin(MathUtils.random(-300.0F, 180.0F), MathUtils.random(0.0F, 380.0F));
-                ((BulletKin) kin).wantSpawn = AbstractDungeon.monsterRng.randomBoolean();
+                ((BulletKin) kin).wantSpawn = ctr < 8 && AbstractDungeon.monsterRng.randomBoolean();
                 AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(kin, false));
                 setMove((byte)1, Intent.ATTACK, this.damage.get(0).base);
                 break;

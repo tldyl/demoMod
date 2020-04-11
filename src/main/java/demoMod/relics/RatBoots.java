@@ -53,7 +53,7 @@ public class RatBoots extends CustomRelic implements PostReloadSubscriber,
     public void onReload() {
         this.flash();
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new GainBlockAction(p, 3));
+        this.addToBot(new GainBlockAction(p, 5));
     }
 
     @Override

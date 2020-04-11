@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.SlaversCollar;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
@@ -66,6 +67,8 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
     private MovePack[] packs1;
     private MovePack[] packs2;
 
+    private int defendBase = AbstractDungeon.ascensionLevel >= 19 ? 35 : 30;
+
     private int tmpCtr = 0;
 
     public ResourcefulRat(float x, float y) {
@@ -81,15 +84,15 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         packs2 = new MovePack[9];
         packs1[0] = () -> {
             movePackManager.addMove(() -> setMove((byte) 1, Intent.DEFEND_BUFF));
-            movePackManager.addMove(() -> setMove((byte) 1, Intent.DEFEND_BUFF));
-            movePackManager.addMove(() -> setMove((byte) 1, Intent.DEFEND_BUFF));
+            movePackManager.addMove(() -> setMove((byte) 1, Intent.DEFEND));
+            movePackManager.addMove(() -> setMove((byte) 1, Intent.DEFEND));
             movePackManager.addMove(() -> setMove(MOVES[1], (byte) 2, Intent.ATTACK, bodySlamDamage));
             movePackManager.addMove(() -> {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new HighPressurePower()));
                 setMove(MOVES[0], (byte) 3, Intent.ATTACK, 6, 2, true);
             });
         };
-        packs1[1] = () -> movePackManager.addMove(() -> setMove((byte) 0, Intent.UNKNOWN));
+        packs1[1] = () -> movePackManager.addMove(() -> setMove(MOVES[2], (byte) 0, Intent.UNKNOWN));
         packs1[2] = () -> {
             movePackManager.addMove(() -> {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new HighPressurePower()));
@@ -223,9 +226,13 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new RatTrap(), amount, true, true));
                     break;
                 case 1:
-                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, 30));
+                    AbstractDungeon.actionManager.addToTop(new GainBlockAction(this, this.defendBase));
                     if (!this.hasPower(BarricadePower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BarricadePower(this)));
+                    }
+                    this.defendBase += AbstractDungeon.ascensionLevel >= 19 ? 5 : 7;
+                    if (defendBase >= 45) {
+                        defendBase = 30;
                     }
                     break;
                 case 2:
@@ -270,7 +277,8 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                         totalDamage += dmg;
                     }
                     if (totalDamage > block * 1.5) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SlowPower(AbstractDungeon.player, 0)));
+                        addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new SlowPower(AbstractDungeon.player, 0)));
+                        addToBot(new ApplyPowerAction(this, this, new AfterImageMonsterPower(this, 1)));
                     }
                     break;
             }
@@ -429,6 +437,9 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             DemoSoundMaster.playA("ENTRY_OPEN", 0.0F);
             AbstractDungeon.effectList.add(new RatJumpIntoEntryEffect(this));
             this.firstMove = true;
+            if (AbstractDungeon.player.hasRelic(SlaversCollar.ID)) {
+                AbstractDungeon.player.getRelic(SlaversCollar.ID).beginLongPulse();
+            }
             for (AbstractRelic relic : AbstractDungeon.player.relics) {
                 relic.onVictory();
             }

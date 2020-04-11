@@ -12,9 +12,12 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import demoMod.DemoMod;
+import demoMod.interfaces.PostOnMonsterDeathSubscriber;
 import demoMod.powers.CongealedPower;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class MonsterPatch {
@@ -51,7 +54,7 @@ public class MonsterPatch {
             clz = AbstractMonster.class,
             method = "dispose"
     )
-    public static class DiePatch {
+    public static class DisposePatch {
         public static void Prefix(AbstractMonster m) {
             CardCrawlGame.psb.setShader(null);
         }
@@ -105,6 +108,33 @@ public class MonsterPatch {
                 return SpireReturn.Return(null);
             }
             return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "die",
+            paramtypez = {
+                    boolean.class
+            }
+    )
+    public static class DiePatch {
+        private static List<PostOnMonsterDeathSubscriber> subscribers = new ArrayList<>();
+
+        public static void subscribe(PostOnMonsterDeathSubscriber subscriber) {
+            if (!subscribers.contains(subscriber)) {
+                subscribers.add(subscriber);
+            }
+        }
+
+        public static void unsubscribe(PostOnMonsterDeathSubscriber subscriber) {
+            subscribers.remove(subscriber);
+        }
+
+        public static void Prefix(AbstractMonster m, boolean triggerRelics) {
+            for (PostOnMonsterDeathSubscriber subscriber : subscribers) {
+                subscriber.onMonsterDeath(m);
+            }
         }
     }
 }
