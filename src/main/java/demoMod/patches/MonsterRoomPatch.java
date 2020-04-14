@@ -40,7 +40,7 @@ public class MonsterRoomPatch {
         public static void Insert(MonsterRoom room) {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
                 if (HuntressCharacter.curse >= 10) {
-                    room.monsters.add(new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY));
+                    room.monsters.addMonster(0, new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY));
                 }
             }
         }
@@ -66,7 +66,7 @@ public class MonsterRoomPatch {
         public static void Insert(MonsterRoom room) {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
                 if (HuntressCharacter.curse >= 10) {
-                    room.monsters.add(new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY));
+                    room.monsters.addMonster(0, new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY));
                 }
             }
             if (AbstractDungeon.id.equals(Maze.ID) && ResourcefulRat.isBeaten) {
@@ -87,7 +87,7 @@ public class MonsterRoomPatch {
         public static void Insert(MonsterRoom room) {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
                 if (HuntressCharacter.curse >= 10) {
-                    room.monsters.add(new LordOfTheJammed( - 430.0F, (Settings.HEIGHT - AbstractDungeon.floorY) / 2.0F));
+                    room.monsters.addMonster(0, new LordOfTheJammed( - 430.0F, room.monsters.monsters.get(0).animY));
                 }
             }
         }

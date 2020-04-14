@@ -131,7 +131,7 @@ public class MonsterPatch {
             subscribers.remove(subscriber);
         }
 
-        public static void Prefix(AbstractMonster m, boolean triggerRelics) {
+        public static void Postfix(AbstractMonster m, boolean triggerRelics) {
             for (PostOnMonsterDeathSubscriber subscriber : subscribers) {
                 subscriber.onMonsterDeath(m);
             }

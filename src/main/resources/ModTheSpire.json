@@ -4,7 +4,7 @@
   "author_list": ["Temple9"],
   "description": "枪牢尖塔，目前人物的所有卡牌已制作完毕 \n感谢群友 嗜睡症(评估.jpg) 帮我画的人物立绘！ \n后续可能还会加入一些新内容(有生之年系列) \nmod项目已经开源： https://github.com/tldyl/demoMod \n这个mod引用了宝箱怪mod中的内容(宝箱怪mod作者：Blank The Evil、The_Evil_Pickle) \n如果击败了宝箱怪，不要sl，否则会卡关，这个bug应该是没法修复了。 \n韩语翻译：Gohan",
   "dependencies": ["basemod", "stslib"],
-  "version": "1.2.30",
+  "version": "1.2.31",
   "sts_version": "01-27-2020",
   "update_json": ""
 }
