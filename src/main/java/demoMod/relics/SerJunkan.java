@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.WhirlwindAction;
 import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -163,8 +164,10 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                     this.addToBot(new GainBlockAction(p, 4));
                     this.counter++;
                 } else {
+                    AbstractMonster monster = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true);
+                    if (monster == null) break;
                     this.flash();
-                    this.addToBot(new DamageAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true), new DamageInfo(p, 3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    this.addToBot(new DamageAction(monster, new DamageInfo(p, 3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                     this.counter = 0;
                 }
                 break;
@@ -174,20 +177,26 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                     this.addToBot(new GainBlockAction(p, 5));
                     this.counter++;
                 } else {
+                    AbstractMonster monster = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true);
+                    if (monster == null) break;
                     this.flash();
-                    this.addToBot(new DamageAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true), new DamageInfo(p, 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    this.addToBot(new DamageAction(monster, new DamageInfo(p, 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                     this.counter = 0;
                 }
                 break;
             case 3:
+                AbstractMonster monster = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true);
+                if (monster == null) break;
                 this.flash();
                 this.addToBot(new GainBlockAction(p, 5));
-                this.addToBot(new DamageAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true), new DamageInfo(p, 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                this.addToBot(new DamageAction(monster, new DamageInfo(p, 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 break;
             case 4:
+                monster = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true);
+                if (monster == null) break;
                 this.flash();
                 this.addToBot(new GainBlockAction(p, 5));
-                this.addToBot(new DamageAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true), new DamageInfo(p, 9, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                this.addToBot(new DamageAction(monster, new DamageInfo(p, 9, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 break;
             case 5:
                 this.flash();
@@ -272,6 +281,12 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
             AbstractPlayer p = AbstractDungeon.player;
             this.flash();
             p.heal(AbstractDungeon.player.maxHealth);
+            DemoMod.actionsQueue.add(new WaitAction(2.0F));
+            if (Settings.FAST_MODE) {
+                for (int i=0;i<10;i++) {
+                    DemoMod.actionsQueue.add(new WaitAction(2.0F));
+                }
+            }
             DemoMod.actionsQueue.add(new LoseRelicAction(this));
         }
     }

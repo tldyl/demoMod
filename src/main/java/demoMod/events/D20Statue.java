@@ -183,6 +183,7 @@ public class D20Statue extends AbstractImageEvent {
                             DemoSoundMaster.playA("RELIC_BIG_BOY", 0.0F);
                             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.HIGH, ScreenShake.ShakeDur.XLONG, true);
                             AbstractDungeon.player.maxHealth = 1;
+                            AbstractDungeon.player.currentHealth = 1;
                             AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2), new StrengthOfFortune());
                             this.imageEventText.updateBodyText(DESCRIPTIONS[24] + DESCRIPTIONS[25] + DESCRIPTIONS[26]);
                         }

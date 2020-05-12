@@ -64,6 +64,7 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
                 this.exhaust = true;
                 this.target = CardTarget.ALL_ENEMY;
                 this.baseDamage /= 2;
+                this.isMultiDamage = true;
             } else {
                 this.cost = COST;
                 this.costForTurn = COST;
@@ -79,6 +80,7 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
                 this.exhaust = false;
                 this.target = this.defaultTarget;
                 this.baseDamage = BASE_DMG;
+                this.isMultiDamage = false;
             }
             this.initializeDescription();
         }

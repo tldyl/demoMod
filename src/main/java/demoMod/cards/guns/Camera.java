@@ -39,6 +39,7 @@ public class Camera extends AbstractGunCard implements Combo, PostAddedToMasterD
         this.capacity = 4;
         this.maxCapacity = 4;
         this.reloadSoundKey = "";
+        this.isMultiDamage = true;
     }
 
     @Override

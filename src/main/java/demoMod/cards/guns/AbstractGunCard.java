@@ -280,7 +280,8 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     public void render(SpriteBatch sb, boolean selected) {
         AbstractPlayer p = AbstractDungeon.player;
         if (p != null &&
-                (p.hasRelic(SilverBullets.ID) || p.hasPower(PlatinumBulletsPower.POWER_ID))) {
+                (p.hasRelic(SilverBullets.ID) || p.hasPower(PlatinumBulletsPower.POWER_ID)) &&
+                !this.isFlipped) {
             sb.setShader(silverShader);
         }
         super.render(sb, selected);
