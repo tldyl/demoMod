@@ -124,7 +124,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.32");
+        logger.info("Gungeon Mod - v1.2.33");
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -435,6 +435,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelic(new SerJunkan(), RelicType.SHARED);
         BaseMod.addRelic(new Junk(), RelicType.SHARED);
         BaseMod.addRelic(new GoldJunk(), RelicType.SHARED);
+        BaseMod.addRelic(new LamentConfigurum(), RelicType.SHARED);
         BaseMod.addRelicToCustomPool(new RedGuonStone(), characterColor);
         BaseMod.addRelicToCustomPool(new HipHolster(), characterColor);
         BaseMod.addRelicToCustomPool(new Dog(), characterColor);
@@ -532,6 +533,11 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addMonster("DemoMod:Veteran_shot_gun_kin_and_bullet_kin", "Veteran shot gun kin and bullet kin", () -> new MonsterGroup(new AbstractMonster[]{
                 new BulletKin(-120, 0, true),
                 new VeteranShotgunKin(120, 0)
+        }));
+        BaseMod.addMonster("DemoMod:2_Veteran_bullet_kins_and_red_shotgun_kin", "2 Veteran bullet kins and red shotgun kin", () -> new MonsterGroup(new AbstractMonster[]{
+                new VeteranBulletKin(-180, 0),
+                new VeteranBulletKin(0, Settings.HEIGHT * 0.02F),
+                new RedShotgunKin(180, 0)
         }));
         BaseMod.addMonster("DemoMod:Veteran_shot_gun_kin_and_blue_shotgun_kin", "Veteran shot gun kin and blue shotgun kin", () -> new MonsterGroup(new AbstractMonster[]{
                 new BlueShotgunKin(-120, 0),

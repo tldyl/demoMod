@@ -42,7 +42,7 @@
   },
   "DemoMod:CrossBow": {
     "NAME": "Crossbow",
-    "DESCRIPTION": "Gun. Deal !D! damage. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. Draw 1. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:TableSutra": {
     "NAME": "Table Sutra",

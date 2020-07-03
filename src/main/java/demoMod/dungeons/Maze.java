@@ -233,11 +233,12 @@ public class Maze extends AbstractDungeon {
     @Override
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo("DemoMod:4_Bullet_Kins", 3.0F));
+        monsters.add(new MonsterInfo("DemoMod:4_Bullet_Kins", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_red_shotgun_kin", 1.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_bullet_kin", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:Red_and_blue_shotgun_kin", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:3_Bullet_Kins_with_one_veteran", 1.0F));
+        monsters.add(new MonsterInfo("DemoMod:2_Veteran_bullet_kins_and_red_shotgun_kin", 2.0F));
 
         MonsterInfo.normalizeWeights(monsters);
         populateMonsterList(monsters, count, false);

@@ -14,8 +14,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
+import demoMod.interfaces.PostReloadSubscriber;
+import demoMod.relics.HipHolster;
 
-public class HungryBulletsPower extends AbstractPower {
+public class HungryBulletsPower extends AbstractPower implements PostReloadSubscriber {
     public static final String POWER_ID = DemoMod.makeID("HungryBulletsPower");
     private static final PowerStrings powerStrings;
     public static final String[] descriptions;
@@ -46,25 +48,29 @@ public class HungryBulletsPower extends AbstractPower {
             if (card instanceof AbstractGunCard) {
                 this.amount--;
                 if (this.amount == 0) {
-                    this.addToBot(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            addToBot(new AbstractGameAction() {
-                                @Override
-                                public void update() {
-                                    HungryBulletsPower.this.amount = defaultAmount;
-                                    isDone = true;
-                                }
-                            });
-                            isDone = true;
-                        }
-                    });
+                    addActionToBottom();
                 }
             }
         } else {
             this.amount = this.defaultAmount;
         }
         updateDescription();
+    }
+
+    private void addActionToBottom() {
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        HungryBulletsPower.this.amount = defaultAmount;
+                        isDone = true;
+                    }
+                });
+                isDone = true;
+            }
+        });
     }
 
     @Override
@@ -86,5 +92,20 @@ public class HungryBulletsPower extends AbstractPower {
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         descriptions = powerStrings.DESCRIPTIONS;
+    }
+
+    @Override
+    public void onReload() {
+        if (AbstractDungeon.player.hasRelic(HipHolster.ID)) {
+            if (this.amount > 0) {
+                this.amount--;
+                if (this.amount == 0) {
+                    addActionToBottom();
+                }
+            } else {
+                this.amount = this.defaultAmount;
+            }
+            updateDescription();
+        }
     }
 }

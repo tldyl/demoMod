@@ -419,5 +419,12 @@
     "DESCRIPTIONS": [
       "Upon pickup, gain #b500 gold."
     ]
+  },
+  "DemoMod:LamentConfigurum": {
+    "NAME": "Lament Configurum",
+    "FLAVOR": "This puzzle box plays beautiful, melodic tones as it is solved.",
+    "DESCRIPTIONS": [
+      "Right-click to use in a combat after you cleaned #b1 room. Decrease its counter by #b1 and spawn several monsters. NL When the counter turn to #b0 , gain a random #buncommon or #yrare #yrelic and #r1 #yCursePoint, raise the max counter by #b1. NL You can get up to #b5 #yrelics from this relic."
+    ]
   }
 }

@@ -68,7 +68,6 @@ public class HuntressCharacter extends CustomPlayer {
         startingDeck.add(Strike_Huntress.ID);
         startingDeck.add(Strike_Huntress.ID);
         startingDeck.add(Strike_Huntress.ID);
-        startingDeck.add(Strike_Huntress.ID);
         startingDeck.add(Defend_Huntress.ID);
         startingDeck.add(Defend_Huntress.ID);
         startingDeck.add(Defend_Huntress.ID);

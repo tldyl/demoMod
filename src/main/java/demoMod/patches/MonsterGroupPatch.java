@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
+import demoMod.actions.CheckInvincibleAction;
 import demoMod.characters.HuntressCharacter;
 import demoMod.monsters.LordOfTheJammed;
 import demoMod.powers.StrengthOfCursePower;
@@ -26,12 +27,13 @@ public class MonsterGroupPatch {
                 double chance = HuntressCharacter.curse * 5;
                 if (chance > 50) chance = 50;
                 for (AbstractMonster m : monsterGroup.monsters) {
-                    if (!(m instanceof CorruptHeart || m instanceof LordOfTheJammed)) {
+                    if (!(m instanceof LordOfTheJammed)) {
                         int ran = AbstractDungeon.miscRng.random(99);
                         if (ran < chance) {
                             System.out.println("DemoMod:Cursed a monster.");
                             DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
                             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new StrengthOfCursePower(m)));
+                            AbstractDungeon.actionManager.addToBottom(new CheckInvincibleAction(m, (float)(0.05 * HuntressCharacter.curse)));
                             AbstractDungeon.getCurrRoom().addGoldToRewards((int)(HuntressCharacter.curse));
                         }
                     }

@@ -42,7 +42,7 @@
   },
   "DemoMod:CrossBow": {
     "NAME": "十字弩",
-    "DESCRIPTION": "枪 。 造成 !D! 点伤害。 NL 弹夹 !DemoModCapacity! 。"
+    "DESCRIPTION": "枪 。 造成 !D! 点伤害。 NL 抽1张牌。 NL 弹夹 !DemoModCapacity! 。"
   },
   "DemoMod:TableSutra": {
     "NAME": "桌经",
