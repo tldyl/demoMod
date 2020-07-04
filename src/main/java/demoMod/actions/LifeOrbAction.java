@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.cards.guns.LifeOrb;
 import demoMod.effects.LifeOrbEffect;
+import demoMod.monsters.Decoy;
 import demoMod.sounds.DemoSoundMaster;
 
 public class LifeOrbAction extends AbstractGameAction {
@@ -27,8 +28,11 @@ public class LifeOrbAction extends AbstractGameAction {
         this.multi = multi;
         this.card = card;
         this.duration = 2.0F;
-        lifeOrbEffect = new LifeOrbEffect(target);
         this.target = target;
+        if (target == null) {
+            this.target = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID));
+        }
+        lifeOrbEffect = new LifeOrbEffect(this.target);
         this.startingCounter = 0;
         this.durationCounter = 0.0F;
     }

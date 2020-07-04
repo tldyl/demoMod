@@ -185,7 +185,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);
         if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
             AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
-            AbstractMonster m = AbstractDungeon.getRandomMonster();
+            AbstractMonster m = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID));
             fire(AbstractDungeon.player, m);
         }
         afterReload();
