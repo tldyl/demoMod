@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
+import demoMod.monsters.Decoy;
 
 public class LifeOrbEffect extends AbstractGameEffect {
 
@@ -30,6 +31,9 @@ public class LifeOrbEffect extends AbstractGameEffect {
     public LifeOrbEffect(AbstractMonster target) {
         this.source = AbstractDungeon.player;
         this.target = target;
+        if (target == null) {
+            this.target = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID));
+        }
         this.duration = 2.0F;
         this.img = new Texture(DemoMod.getResourcePath("effects/lifeOrb.png"));
         this.x = target.hb.cX;
