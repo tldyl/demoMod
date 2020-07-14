@@ -82,19 +82,19 @@
   "DemoMod:-A-": {
     "TEXT": [
       "Get Equipped With -A-",
-      "#Reload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BalloonGun."
+      "#yReload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BalloonGun."
     ]
   },
   "DemoMod:-C-": {
     "TEXT": [
       "Get Equipped With -C-",
-      "#Reload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BulletBore. Switch back to default mode after you played it."
+      "#yReload the Megahand with its #yCapacity full can switch its mode. Megahand will attack in the same way as BulletBore. Switch back to default mode after you played it."
     ]
   },
   "DemoMod:-F-": {
     "TEXT": [
       "Get Equipped With -F-",
-      "#Reload the Megahand with its #yCapacity full can switch its mode. Switch back to default mode after you played it."
+      "#yReload the Megahand with its #yCapacity full can switch its mode. Switch back to default mode after you played it."
     ]
   },
   "DemoMod:Kaliber k'pow uboom k'bhang": {
@@ -184,7 +184,7 @@
   "DemoMod:DecoyOctorok": {
     "TEXT": [
       "Decoy Octorok",
-      "The maximum HP of the decoy is equal to the maximum HP of the first enemy in the room (no more than #b100)."
+      "The maximum HP of the decoy is equal to the maximum HP of the first enemy in the room (no more than #b100 )."
     ]
   },
   "DemoMod:KalibersGrip": {

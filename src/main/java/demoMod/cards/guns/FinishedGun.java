@@ -107,6 +107,7 @@ public class FinishedGun extends AbstractGunCard implements PostAddedToMasterDec
             this.upgradeDamage(4);
             this.BASE_DMG += 4;
             this.extraDamage += 4;
+            this.isExtraDamageModified = true;
         }
     }
 

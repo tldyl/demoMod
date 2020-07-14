@@ -122,10 +122,11 @@
   },
   {
     "NAMES": [
-      "control"
+      "control",
+      "controlled"
     ],
     "PROPER_NAME": "Control",
-    "DESCRIPTION": "The controlled enemy will take action with the current intention against the same other targets when you play #yAttacks this turn. NL Will lose HP of corresponding amount when it is out of control."
+    "DESCRIPTION": "The #yControlled creatures will deal damage to other enemies based on damage dealt to it. Loses HP after #yControl."
   },
   {
     "NAMES": [
@@ -142,5 +143,19 @@
     ],
     "PROPER_NAME": "Semi Automatic",
     "DESCRIPTION": "After playing this card, if its cost in this turn is not #b0, it will return to your hand instead of entering the discard pile."
+  },
+  {
+    "NAMES": [
+      "omega"
+    ],
+    "PROPER_NAME": "Omega",
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies."
+  },
+  {
+    "NAMES": [
+      "constrict"
+    ],
+    "PROPER_NAME": "Constrict",
+    "DESCRIPTION": "Constricted creatures receive damage at the end of their turn."
   }
 ]

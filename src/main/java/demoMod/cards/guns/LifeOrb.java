@@ -46,10 +46,7 @@ public class LifeOrb extends AbstractGunCard implements MultiAttackCard, CustomS
     @Override
     public void reload() {
         super.reload();
-        if (this.capacity == this.maxCapacity) return;
-        this.capacity = this.maxCapacity;
         autoReload(AbstractDungeon.player, null);
-        afterReload();
     }
 
     @Override

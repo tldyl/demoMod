@@ -37,8 +37,8 @@
   },
   "DemoMod:ManualReload": {
     "NAME": "Manual Reload",
-    "DESCRIPTION": "Select a Gun card from your discard pile, Reload and return to your hand.",
-    "UPGRADE_DESCRIPTION": "Select a Gun card from your discard pile and draw pile, Reload and return to your hand."
+    "DESCRIPTION": "Select a Gun card from your discard pile, Reload it and return it to your hand.",
+    "UPGRADE_DESCRIPTION": "Select a Gun card from your discard pile and draw pile, Reload it and return it to your hand."
   },
   "DemoMod:CrossBow": {
     "NAME": "Crossbow",
@@ -96,11 +96,11 @@
   },
   "DemoMod:HighKaliber": {
     "NAME": "High Kaliber",
-    "DESCRIPTION": "Gun. Apply !M! OutOfBody. Deal !D! damage. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. Apply !M! OutOfBody. Capacity !DemoModCapacity!."
   },
   "DemoMod:SAA": {
     "NAME": "SAA",
-    "DESCRIPTION": "Gun. Deal !D! damage. When this card is Reload, draw !M! cards. SemiAutomatic. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. When this card is Reloaded, draw !M! cards. SemiAutomatic. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:Behold!": {
     "NAME": "Behold!",
@@ -117,12 +117,12 @@
   },
   "DemoMod:FastSwitch": {
     "NAME": "Fast Switch",
-    "DESCRIPTION": "Draw 1 card. Look at a card at the top of the draw pile. If this card is a Gun, you can put it into your hand.",
+    "DESCRIPTION": "Draw 1 card. Look at the top card of the draw pile. If this card is a Gun, you can put it into your hand.",
     "UPGRADE_DESCRIPTION": "Draw 1 card. Put a Gun from your draw pile into your hand."
   },
   "DemoMod:DoubleSwitch": {
     "NAME": "Double Switch",
-    "DESCRIPTION": "Select and Reload at most 2 Guns from your hand."
+    "DESCRIPTION": "Reload up to 2 Guns in your hand."
   },
   "DemoMod:StickyCrossBow": {
     "NAME": "Sticky Crossbow",
@@ -130,8 +130,8 @@
   },
   "DemoMod:RadGun": {
     "NAME": "Rad Gun",
-    "DESCRIPTION": "Gun. Deal !D! damage. If Reload on full Capacity, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "Gun. Deal !D! damage. If Reload on full Capacity or Capacity is 2, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. If Reloaded on full Capacity, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "Gun. Deal !D! damage. If Reloaded on full Capacity or Capacity is at 2, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:Rummage": {
     "NAME": "Rummage",
@@ -153,8 +153,8 @@
   },
   "DemoMod:EasyReloadBullets": {
     "NAME": "Easy Reload Bullets",
-    "DESCRIPTION": "Whenever you play a Skill, fill 1 Capacity for a random Gun card from your hand(Won't trigger Reload).",
-    "UPGRADE_DESCRIPTION": "Innate. Whenever you play a Skill, fill 1 Capacity for a random Gun card from your hand(Won't trigger Reload)."
+    "DESCRIPTION": "Whenever you play a Skill, fill 1 Capacity for a random Gun card from your hand(Won't trigger any Reload effects).",
+    "UPGRADE_DESCRIPTION": "Innate. Whenever you play a Skill, fill 1 Capacity for a random Gun card from your hand(Won't trigger any Reload effects)."
   },
   "DemoMod:PotionOfGunFriendShip": {
     "NAME": "Potion Of Gun Friendship",
@@ -168,8 +168,8 @@
   },
   "DemoMod:ChanceBullets": {
     "NAME": "Chance Bullets",
-    "DESCRIPTION": "Each gun you fire has a !M!% chance of being replaced by a random one you have.",
-    "UPGRADE_DESCRIPTION": "Each gun you fire has a !M!% chance to add a random one you have."
+    "DESCRIPTION": "Each Gun you fire has a !M!% chance of being replaced by a random Gun you have.",
+    "UPGRADE_DESCRIPTION": "Each Gun you fire has a !M!% chance to add a random Gun you have."
   },
   "DemoMod:SkilledReload": {
     "NAME": "Skilled Reload",
@@ -177,7 +177,7 @@
   },
   "DemoMod:Slinger": {
     "NAME": "Slinger",
-    "DESCRIPTION": "ALL Guns can still deal damage when the Capacity is empty. NL ALL Guns will be Exhaust when the Capacity is empty."
+    "DESCRIPTION": "Guns deal damage when Capacity is at 0. NL Guns used at 0 Capacity get Exhausted."
   },
   "DemoMod:SpreadAmmo": {
     "NAME": "Spread Ammo",
@@ -190,7 +190,7 @@
   },
   "DemoMod:ShadowBullets": {
     "NAME": "Shadow Bullets",
-    "DESCRIPTION": "Each gun you fire has a !M!% chance to fired twice."
+    "DESCRIPTION": "Guns have a !M!% of firing twice."
   },
   "DemoMod:BattleInHaste": {
     "NAME": "Battle In Haste",
@@ -203,8 +203,8 @@
   },
   "DemoMod:FullFirepower": {
     "NAME": "Full Firepower",
-    "DESCRIPTION": "Your next Gun will be fired repeatedly until the Capacity is empty. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Your next Gun will be fired repeatedly until the Capacity is empty."
+    "DESCRIPTION": "Your next Gun will be fired repeatedly until the Capacity is at 0. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Your next Gun will be fired repeatedly until the Capacity is at 0."
   },
   "DemoMod:BlankBullets": {
     "NAME": "Blank Bullets",
@@ -212,11 +212,11 @@
   },
   "DemoMod:HuntsMan": {
     "NAME": "Huntsman",
-    "DESCRIPTION": "Gun. Deal !D! damage to a random enemy 4 times. When this card is Reload, Gain !B! Block. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage to a random enemy 4 times. When this card gets Reload, Gain !B! Block. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:TeaPot": {
     "NAME": "Tea Pot",
-    "DESCRIPTION": "Gun. Deal !D! damage. Capacity 1:Increase the damage by !DemoModExtraDamage!. When this card is Reload, Gain !M! Omega. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. Capacity 1:Increase damage by !DemoModExtraDamage!. When this card is Reloaded, Gain !M! Omega. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:Charge": {
     "NAME": "Charge",
@@ -254,11 +254,11 @@
   },
   "DemoMod:ConditionalReflex": {
     "NAME": "Conditional Reflex",
-    "DESCRIPTION": "Draw 1 card. When you have a Reload, return this from the discard pile to your hand."
+    "DESCRIPTION": "Draw 1. When you Reload, if this card is in your discard pile, return it to your hand."
   },
   "DemoMod:JK47": {
     "NAME": "JK-47",
-    "DESCRIPTION": "Gun. Deal !D! damage. When this card is Reload, Apply !M! Weak to ALL enemies. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. When this card is Reloaded, it applies !D! Weak to ALL enemies. Capacity !DemoModCapacity!."
   },
   "DemoMod:SniperShot": {
     "NAME": "Sniper Shot",
@@ -266,7 +266,7 @@
   },
   "DemoMod:DirectionalPad": {
     "NAME": "Directional Pad",
-    "DESCRIPTION": "Gun. Deal !D! damage. If the last card played this combat was an Attack, Gain !B! Block. Playing when the Capacity is empty, adds a random bonus to the bonus screen and removes the card from your master deck. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. If the previous card played this combat was an Attack, Gain !B! Block. If this card is played when at 0 Capacity, receive an extra reward at the end of combat and this gets removed from your master deck permanently. Capacity !DemoModCapacity!."
   },
   "DemoMod:Unmoved": {
     "NAME": "Unmoved",
@@ -294,17 +294,17 @@
   },
   "DemoMod:ProbeStrike": {
     "NAME": "Probe Strike",
-    "DESCRIPTION": "Deal !D! damage. If the enemy not intends to attack, Gain [E] and draw 1 card, Apply !M! Vulnerable, or gain !B! Block."
+    "DESCRIPTION": "Deal !D! damage. If the enemy doesn't intend to attack, Gain [E], draw 1 card, Apply !M! Vulnerable or gain !B! Block."
   },
   "DemoMod:Evolver": {
     "NAME": "Evolver",
-    "DESCRIPTION": "Gun. Cannot Upgrade. NL Deal !D! damage. NL Whenever play this 6 times, step up the level permanently. Capacity !DemoModCapacity!.",
+    "DESCRIPTION": "Gun. Cannot be Upgraded. NL Deal !D! damage. NL Whenever this is played 6 times, it gains a level permanently. Capacity !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "Gun. Cannot Upgrade. NL Deal !D! damage. NL Whenever play this 4 times, step up the level permanently. Capacity !DemoModCapacity!.",
-      "Gun. Cannot Upgrade. NL Deal !D! damage 3 times. NL Whenever play this 6 times, step up the level permanently. Capacity !DemoModCapacity!.",
-      "Gun. Cannot Upgrade. NL Deal !D! damage 3 times. NL Whenever play this 4 times, step up the level permanently. Capacity !DemoModCapacity!.",
-      "Gun. Cannot Upgrade. NL Deal !D! damage and apply !M! Constrict. NL Whenever play this 6 times, step up the level permanently. Capacity !DemoModCapacity!.",
-      "Gun. Cannot Upgrade. NL Deal !D! damage and apply !M! Constrict. NL Whenever play this 4 times, step up the level permanently. Capacity !DemoModCapacity!."
+      "Gun. Cannot be Upgraded. NL Deal !D! damage. NL Whenever this is played 4 times, it gains a level permanently. Capacity !DemoModCapacity!.",
+      "Gun. Cannot be Upgraded. NL Deal !D! damage 3 times. NL Whenever this is played 6 times, it gains a level permanently. Capacity !DemoModCapacity!.",
+      "Gun. Cannot be Upgraded. NL Deal !D! damage 3 times. NL Whenever this is played 4 times, it gains a level permanently. Capacity !DemoModCapacity!.",
+      "Gun. Cannot be Upgraded. NL Deal !D! damage and apply !M! Constrict. NL Whenever this is played 6 times, it gains a level permanently. Capacity !DemoModCapacity!.",
+      "Gun. Cannot be Upgraded. NL Deal !D! damage and apply !M! Constrict. NL Whenever this is played 4 times, it gains a level permanently. Capacity !DemoModCapacity!."
     ]
   },
   "DemoMod:MozambiqueDrill": {
@@ -313,7 +313,7 @@
   },
   "DemoMod:GunstockTap": {
     "NAME": "Gunstock Tap",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Select and Reload at most !M! Guns from your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Reload up to !M! Guns from your hand."
   },
   "DemoMod:AbyssalTentacle": {
     "NAME": "Abyssal Tentacle",
@@ -321,7 +321,7 @@
   },
   "DemoMod:LifeOrb": {
     "NAME": "Life Orb",
-    "DESCRIPTION": "Gun. Deal !D! damage !DemoModMulti! times. NL If this card kills an enemy, This card causes the same damage points to ALL enemies as the sum of the maximum HP of all enemies slain in the next Reload in this game. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage !DemoModMulti! times. NL If this card kills an enemy, upon being reloaded, it deals damage equivalent to the maximum HP of all slain enemies this combat to ALL enemies. Capacity !DemoModCapacity!."
   },
   "DemoMod:Replace": {
     "NAME": "Replace",
@@ -330,12 +330,12 @@
   },
   "DemoMod:FeignSurrender": {
     "NAME": "Feign Surrender",
-    "DESCRIPTION": "Discard All Attacks. NL Draw the number of cards discarded.",
-    "UPGRADE_DESCRIPTION": "Discard All Attacks. NL Draw the number of cards discarded(Draw at least 2)."
+    "DESCRIPTION": "Discard All Attacks. NL Draw cards equal to the amount of cards discarded.",
+    "UPGRADE_DESCRIPTION": "Discard All Attacks. NL Draw cards equal to the amount of cards discarded(Draw at least 2)."
   },
   "DemoMod:ThirdPartyController": {
     "NAME": "Third Party Controller",
-    "DESCRIPTION": "Gun. Deal !D! damage. NL If target is not boss, Control this enemy. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. NL If used on a non-boss enemy, It gets Controlled. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:Flaw": {
     "NAME": "Flaw",
@@ -351,8 +351,8 @@
   },
   "DemoMod:Purify": {
     "NAME": "Purify",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, Select a card from your master deck to remove with this card together. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, Select a card from your master deck to remove with this card together."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, Choose a card from your master deck to remove alongside this one. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, Choose a card from your master deck to remove alongside this one."
   },
   "DemoMod:Deposit": {
     "NAME": "Deposit",
@@ -385,20 +385,20 @@
   },
   "DemoMod:Ejector": {
     "NAME": "Ejector",
-    "DESCRIPTION": "Select a Gun from your hand and clear its Capacity.",
+    "DESCRIPTION": "Choose a Gun in your hand and clear the Capacity.",
     "UPGRADE_DESCRIPTION": "Choose any number of Guns from your hand and clear their Capacity."
   },
   "DemoMod:GunShield": {
     "NAME": "Gun Shield",
-    "DESCRIPTION": "Gain !B! Block. Gain !B! Block for each Gun in your hand."
+    "DESCRIPTION": "Gain !B! Block. Gain an additional !B! Block for each Gun in your hand."
   },
   "DemoMod:AC15": {
     "NAME": "AC-15",
-    "DESCRIPTION": "Gun. Deal !D! damage. NL Lose ALL Block. The damage of this card in this combat increases the lost Block value. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. NL Lose ALL Block. This Gun deals damage corresponding to the amount of Block lost. Capacity !DemoModCapacity!."
   },
   "DemoMod:OldTrick": {
     "NAME": "Old Trick",
-    "DESCRIPTION": "Deal !D! damage. NL Put the last played Skill this combat into your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Put your last played Skill this combat into your hand.",
     "EXTENDED_DESCRIPTION": [
       "(The last ",
       " Skills you played is:",
@@ -415,7 +415,7 @@
   },
   "DemoMod:Camera": {
     "NAME": "Camera",
-    "DESCRIPTION": "Gun. Deal !D! damage to ALL enemies. Capacity 1:Stun ALL enemies this turn. NL If the Capacity has been lowered to 0, Exhaust. NL Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage to ALL enemies. Capacity 1:Stun ALL enemies. NL If the Capacity has been lowered to 0, Exhaust. NL Capacity !DemoModCapacity!."
   },
   "DemoMod:BlackHoleGun": {
     "NAME": "BlackHole Gun",
@@ -424,7 +424,7 @@
   "DemoMod:Polaris": {
     "NAME": "Polaris",
     "DESCRIPTION": "Gun. Deal !D! damage. Whenever you play twice, promoted one level (up to level 3) in this game. When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "Gun. SemiAutomatic. Deal !D! damage. Whenever you play twice, promoted one level (up to level 3) in this game. When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!."
+    "UPGRADE_DESCRIPTION": "Gun. SemiAutomatic. Deal !D! damage. Whenever this card is played twice, it's level increases (up to level 3). When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!."
   },
   "DemoMod:SuppressiveFire": {
     "NAME": "Suppressive Fire",
@@ -433,11 +433,11 @@
   },
   "DemoMod:FortunesFavor": {
     "NAME": "Fortune's Favor",
-    "DESCRIPTION": "Gain half of the total damage's Block that all enemies want to deals to you."
+    "DESCRIPTION": "Gain Block equal to half of the total amount of damage being intented towards you."
   },
   "DemoMod:BoxingGlove": {
     "NAME": "Boxing Glove",
-    "DESCRIPTION": "Gun. Deal !D! damage. If this card kills an enemy, gain a mark(Up to 3). NL Charge: Lose ALL marks, double its damage for lose each mark. Capacity !DemoModCapacity!."
+    "DESCRIPTION": "Gun. Deal !D! damage. When this card kills an enemy, gain 1 mark(Up to 3). NL Charge: Lose ALL marks, double its damage for each mark lost. Capacity !DemoModCapacity!."
   },
   "DemoMod:MachoBrace": {
     "NAME": "Macho Brace",
@@ -452,6 +452,7 @@
   },
   "DemoMod:HungryBullets": {
     "NAME": "Hungry Bullets",
-    "DESCRIPTION": "In this battle, for every !M! Guns you fire, gain Block equal to unblocked damage dealt."
+    "DESCRIPTION": "Every !M! th Gun you fire, gain Block equal to damage dealt.",
+    "UPGRADE_DESCRIPTION": "Every !M! rd Gun you fire, gain Block equal to damage dealt."
   }
 }

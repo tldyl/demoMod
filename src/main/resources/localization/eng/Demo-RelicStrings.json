@@ -257,7 +257,7 @@
     "NAME": "Riddle Of Lead",
     "FLAVOR": "A relic for the first hero to master the Gungeon. Bestows unreasonable courage in the face of danger, and the luck to survive it.",
     "DESCRIPTIONS": [
-      "Upon pickup, increase your max HP by #b10 and heal all HP. At the start of the combat, gain #b2 #yStrength #yDexterity and #yFocus. NL When your HP is less than or equal to %b25% of the maximum HP, #b50% chance of immune damage."
+      "Upon pickup, increase your max HP by #b10 and heal all HP. At the start of the combat, gain #b2 #yStrength #yDexterity and #yFocus. NL When your HP is less than or equal to #b25% of the maximum HP, #b50% chance of immune damage."
     ]
   },
   "DemoMod:Relodestone": {

@@ -11,7 +11,10 @@ public class ExtraDamage extends DynamicVariable {
     }
 
     @Override
-    public boolean isModified(AbstractCard abstractCard) {
+    public boolean isModified(AbstractCard card) {
+        if (card instanceof AbstractGunCard) {
+            return ((AbstractGunCard)card).isMaxCapacityModified;
+        }
         return false;
     }
 
@@ -35,6 +38,6 @@ public class ExtraDamage extends DynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        return card.upgraded;
+        return isModified(card);
     }
 }

@@ -77,6 +77,7 @@ public class Maze extends AbstractDungeon {
                 e.printStackTrace();
             }
         }
+        AbstractDungeon.actNum = 2;
         if (AbstractDungeon.player instanceof HuntressCharacter) {
             try {
                 Field field = AbstractPlayer.class.getDeclaredField("img");

@@ -14,7 +14,10 @@ import demoMod.cards.Spice;
  * 在击败怪物后的卡牌奖励里按香料替换概率将卡牌随机替换为香料
  */
 @SuppressWarnings("unused")
-@SpirePatch(cls="com.megacrit.cardcrawl.dungeons.AbstractDungeon", method="getRewardCards")
+@SpirePatch(
+        clz=AbstractDungeon.class,
+        method="getRewardCards"
+)
 public class CardRewardPatch {
     public CardRewardPatch() {
 

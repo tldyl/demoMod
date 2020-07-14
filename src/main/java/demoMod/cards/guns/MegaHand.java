@@ -200,11 +200,8 @@ public class MegaHand extends AbstractGunCard implements Combo, ChargeCard, Post
                 }
                 DemoSoundMaster.playA("GUN_FIRE_TIME_LIMITER", 0.0F);
                 DemoMod.effectsQueue.add(new TimeFreezeEffect());
-                int[] damageMatrix = new int[AbstractDungeon.getCurrRoom().monsters.monsters.size()];
-                for (int i=0;i<damageMatrix.length;i++) {
-                    damageMatrix[i] = this.damage;
-                }
-                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, damageMatrix, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+                this.calculateCardDamage(null);
+                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
                 AbstractDungeon.actionManager.addToBottom(new SkipEnemiesTurnAction());
                 this.mode = -1;
                 modeShift();

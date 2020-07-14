@@ -141,5 +141,19 @@
     ],
     "PROPER_NAME": "반자동",
     "DESCRIPTION": "이 카드를 사용한 후에, 비용이 #b0 이 아니라면, 버린 카드 더미에서 손으로 돌아옵니다."
+  },
+  {
+    "NAMES": [
+      "오메가"
+    ],
+    "PROPER_NAME": "오메가",
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies."
+  },
+  {
+    "NAMES": [
+      "포박을"
+    ],
+    "PROPER_NAME": "포박을",
+    "DESCRIPTION": "Constricted creatures receive damage at the end of their turn."
   }
 ]

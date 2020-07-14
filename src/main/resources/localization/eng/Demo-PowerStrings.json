@@ -89,7 +89,7 @@
     "NAME": "Strength Of Curse",
     "DESCRIPTIONS": [
       "Increase the max HP by #g",
-      "%，Gain #g",
+      "%, Gain #g",
       " #yStrength."
     ]
   },

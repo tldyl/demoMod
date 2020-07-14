@@ -298,13 +298,13 @@
   },
   "DemoMod:Evolver": {
     "NAME": "进化枪",
-    "DESCRIPTION": "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+    "DESCRIPTION": "枪 。不能被 升级 。 NL 造成 !D! 点伤害。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
     "EXTENDED_DESCRIPTION": [
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害3次。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
-      "枪 。不能被升级。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。"
+      "枪 。不能被 升级 。 NL 造成 !D! 点伤害。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被 升级 。 NL 造成 !D! 点伤害3次。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被 升级 。 NL 造成 !D! 点伤害3次。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被 升级 。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出6次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。",
+      "枪 。不能被 升级 。 NL 造成 !D! 点伤害。给予 !M! 层 缠绕 。 NL 每打出4次就在本局游戏内提升一个等级。 弹夹 !DemoModCapacity! 。"
     ]
   },
   "DemoMod:MozambiqueDrill": {
@@ -452,6 +452,7 @@
   },
   "DemoMod:HungryBullets": {
     "NAME": "饥饿子弹",
-    "DESCRIPTION": "在本场战斗，你每打出 !M! 把 枪 ，获得其所造成的未被格挡的伤害相等的 格挡 。"
+    "DESCRIPTION": "在本场战斗，你每打出 !M! 把 枪 ，获得其所造成的未被格挡的伤害相等的 格挡 。",
+    "UPGRADE_DESCRIPTION": "在本场战斗，你每打出 !M! 把 枪 ，获得其所造成的未被格挡的伤害相等的 格挡 。"
   }
 }
