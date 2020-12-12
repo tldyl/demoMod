@@ -50,7 +50,7 @@ public class OrangeGuonStone extends CustomRelic implements Combo {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, baseDamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         } else {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
-            AbstractDungeon.actionManager.addToBottom(new OrangeGuonStoneDamageAction(m, baseDamage));
+            if (m != null) AbstractDungeon.actionManager.addToBottom(new OrangeGuonStoneDamageAction(m, baseDamage));
         }
         setDescriptionAfterLoading();
     }
@@ -60,6 +60,7 @@ public class OrangeGuonStone extends CustomRelic implements Combo {
         ComboManager.detectComboInGame();
     }
 
+    @Override
     public void onUnequip() {
         isRemoving = true;
         ComboManager.detectCombo();
@@ -112,5 +113,6 @@ public class OrangeGuonStone extends CustomRelic implements Combo {
     static {
         ComboManager.addCombo(DemoMod.makeID("EnterTheFruitgeon"), OrangeGuonStone.class);
         ComboManager.addCombo(DemoMod.makeID("OrangerGuonStone"), OrangeGuonStone.class);
+        ComboManager.addCombo(DemoMod.makeID("OrangerGuonStone:Plus1Bullets"), OrangeGuonStone.class);
     }
 }

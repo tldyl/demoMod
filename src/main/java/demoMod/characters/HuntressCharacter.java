@@ -4,24 +4,32 @@ import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import demoMod.DemoMod;
 import demoMod.cards.Defend_Huntress;
 import demoMod.cards.Strike_Huntress;
+import demoMod.cards.guns.AbstractGunCard;
 import demoMod.cards.guns.CrossBow;
 import demoMod.cards.ManualReload;
 import demoMod.cards.Roll;
 import demoMod.cards.guns.RustySidearm;
 import demoMod.patches.AbstractCardEnum;
+import demoMod.patches.AbstractPlayerPatch;
 import demoMod.patches.HuntressEnum;
 import demoMod.relics.Dog;
 import demoMod.sounds.DemoSoundMaster;
@@ -174,7 +182,49 @@ public class HuntressCharacter extends CustomPlayer {
 
     @Override
     public String getVampireText() {
-        return com.megacrit.cardcrawl.events.city.Vampires.DESCRIPTIONS[1];
+        return Vampires.DESCRIPTIONS[1];
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        if (c.type == AbstractCard.CardType.ATTACK) {
+            if (c instanceof AbstractGunCard) {
+                AbstractGunCard gunCard = (AbstractGunCard) c;
+                if (gunCard.capacity > 0) {
+                    this.useFastAttackAnimation();
+                }
+            } else {
+                this.useFastAttackAnimation();
+            }
+        }
+
+        c.calculateCardDamage(monster);
+        if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
+            c.energyOnUse = EnergyPanel.totalCount;
+        }
+
+        if (c.cost == -1 && c.isInAutoplay) {
+            c.freeToPlayOnce = true;
+        }
+
+        c.use(this, monster);
+        AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
+        if (!c.dontTriggerOnUseCard) {
+            this.hand.triggerOnOtherCardPlayed(c);
+            AbstractPlayerPatch.PatchUseCard.Insert(this, c, monster, energyOnUse);
+        }
+
+        this.hand.removeCard(c);
+        this.cardInUse = c;
+        c.target_x = (float)(Settings.WIDTH / 2);
+        c.target_y = (float)(Settings.HEIGHT / 2);
+        if (c.costForTurn > 0 && !c.freeToPlay() && !c.isInAutoplay && (!this.hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) {
+            this.energy.use(c.costForTurn);
+        }
+
+        if (!this.hand.canUseAnyCard() && !this.endTurnQueued) {
+            AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
+        }
     }
 
     static {

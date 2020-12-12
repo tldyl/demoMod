@@ -27,7 +27,7 @@ public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSu
     public static final Texture comboTexture = new Texture(DemoMod.getResourcePath("combos/cards/huntsMan.png"));
 
     private static final CardStrings cardStrings;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static boolean combos[] = new boolean[]{false, false, false, false};
 

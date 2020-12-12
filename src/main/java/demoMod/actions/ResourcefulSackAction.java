@@ -20,8 +20,8 @@ public class ResourcefulSackAction extends AbstractGameAction {
     @Override
     public void update() {
         for (int i=0;i<this.amount;i++) {
-            AbstractDungeon.actionManager.addToBottom(new PlaySoundAction("ARROW_EXPLODE"));
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ResourcefulSackBulletExplodeEffect(this.target)));
+            AbstractDungeon.actionManager.addToBottom(new PlaySoundAction("ARROW_EXPLODE", 0.0F));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ResourcefulSackBulletExplodeEffect(this.target), 0.0F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(target, new DamageInfo(AbstractDungeon.player, 3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
         }
         this.isDone = true;

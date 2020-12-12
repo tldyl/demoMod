@@ -24,7 +24,7 @@
   "DemoMod:BulletKin": {
     "NAME": "Bullet Kin",
     "DIALOG": [""],
-    "MOVES": [""]
+    "MOVES": ["Lift the table"]
   },
   "DemoMod:VeteranBulletKin": {
     "NAME": "Veteran Bullet Kin",
@@ -61,7 +61,12 @@
       "Your arrogance",
       "You don't have enough body skills",
       "Someone stronger than you",
-      "You're a little aggressive"
+      "You're a little aggressive",
+      "You're not in shape",
+      "You're not involved at all",
+      "Your arrogance",
+      "Dungeon Lord",
+      "The richest rat"
     ],
     "MOVES": [
       "Dagger Spray",

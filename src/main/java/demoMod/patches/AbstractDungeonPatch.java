@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -15,8 +16,12 @@ import demoMod.characters.HuntressCharacter;
 import demoMod.events.D20Statue;
 import demoMod.events.FountainOfPurify;
 import demoMod.interfaces.PostEnterNewActSubscriber;
+import org.apache.logging.log4j.core.Logger;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+
+import static demoMod.patches.SaveAndContinuePatch.SaveFileClassPatch.misc_seed_count;
 
 @SuppressWarnings("unused")
 public class AbstractDungeonPatch implements CustomSavable<Integer> {
@@ -104,6 +109,24 @@ public class AbstractDungeonPatch implements CustomSavable<Integer> {
             if (AbstractDungeon.player instanceof HuntressCharacter &&
                     HuntressCharacter.curse >= 0.5) {
                 tmp.add(FountainOfPurify.ID);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractDungeon.class,
+            method = "loadSeeds"
+    )
+    public static class PatchLoadSeeds {
+        public static void Postfix(SaveFile file) {
+            AbstractDungeon.miscRng = new Random(Settings.seed, misc_seed_count.get(file));
+            try {
+                Field field = AbstractDungeon.class.getDeclaredField("logger");
+                field.setAccessible(true);
+                Logger logger = (Logger) field.get(null);
+                logger.info("Misc seed:   " + AbstractDungeon.miscRng.counter);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
     }

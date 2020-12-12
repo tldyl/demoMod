@@ -2,10 +2,8 @@ package demoMod.patches;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.modthespire.lib.ByRef;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,6 +14,9 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
+import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.rooms.ShopRoom;
+import com.megacrit.cardcrawl.shop.Merchant;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 import com.megacrit.cardcrawl.shop.StorePotion;
 import com.megacrit.cardcrawl.shop.StoreRelic;
@@ -29,14 +30,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Arrays;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class ShopScreenPatch {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("DemoMod:AfterStole");
     public static final String[] TEXT = uiStrings.TEXT;
     public static double chance = 1.0;
-    private static Random random = new Random();
 
     @SuppressWarnings("unchecked")
     @SpirePatch(
@@ -124,11 +124,12 @@ public class ShopScreenPatch {
                     if ((hoveredCard[0] != null) && (((AbstractCard)hoveredCard[0]).hb.clicked || (CInputActionSet.select.isJustPressed()))) {
                         ((AbstractCard)hoveredCard[0]).hb.clicked = false;
                         if (!Settings.isTouchScreen) {
-                            if (random.nextDouble() < chance) {
+                            if (AbstractDungeon.merchantRng.random(1.0F) < chance) {
                                 DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
                                 HuntressCharacter.curse += 1.0;
                                 CardCrawlGame.metricData.addShopPurchaseData(((AbstractCard)hoveredCard[0]).getMetricID());
                                 AbstractDungeon.topLevelEffects.add(new FastCardObtainEffect((AbstractCard)hoveredCard[0], ((AbstractCard)hoveredCard[0]).current_x, ((AbstractCard)hoveredCard[0]).current_y));
+                                DemoMod.isStolen = true;
                                 ((ArrayList)coloredCardsField.get(screen)).remove(hoveredCard[0]);
                                 ((ArrayList)colorlessCardsField.get(screen)).remove(hoveredCard[0]);
                                 chance /= 2;
@@ -159,79 +160,7 @@ public class ShopScreenPatch {
                 e.printStackTrace();
             }
             //如果玩家没有使用偷就走正常流程
-            try {
-                Field coloredCardsField = ShopScreen.class.getDeclaredField("coloredCards");
-                coloredCardsField.setAccessible(true);
-                ArrayList<AbstractCard> coloredCards = (ArrayList<AbstractCard>) coloredCardsField.get(screen);
-                Field colorlessCardsField = ShopScreen.class.getDeclaredField("colorlessCards");
-                colorlessCardsField.setAccessible(true);
-                ArrayList<AbstractCard> colorlessCards = (ArrayList<AbstractCard>) colorlessCardsField.get(screen);
-                Field somethingHoveredField = ShopScreen.class.getDeclaredField("somethingHovered");
-                somethingHoveredField.setAccessible(true);
-                Field notHoveredTimerField = ShopScreen.class.getDeclaredField("notHoveredTimer");
-                notHoveredTimerField.setAccessible(true);
-                Field handTargetYField = ShopScreen.class.getDeclaredField("handTargetY");
-                handTargetYField.setAccessible(true);
-                Field touchCardField = ShopScreen.class.getDeclaredField("touchCard");
-                touchCardField.setAccessible(true);
-                Field speechTimerField = ShopScreen.class.getDeclaredField("speechTimer");
-                speechTimerField.setAccessible(true);
-                for (AbstractCard c : coloredCards) {
-                    if (c.hb.hovered) {
-                        hoveredCard[0] = c;
-                        somethingHoveredField.set(screen, true);
-                        screen.moveHand(c.current_x - AbstractCard.IMG_WIDTH / 2.0F, c.current_y);
-                        break;
-                    }
-                }
-                for (AbstractCard c : colorlessCards) {
-                    if (c.hb.hovered) {
-                        hoveredCard[0] = c;
-                        somethingHoveredField.set(screen, true);
-                        screen.moveHand(c.current_x - AbstractCard.IMG_WIDTH / 2.0F, c.current_y);
-                        break;
-                    }
-                }
-                if (!(Boolean) somethingHoveredField.get(screen)) {
-                    notHoveredTimerField.set(screen, (Float)notHoveredTimerField.get(screen) + Gdx.graphics.getDeltaTime());
-                    if ((Float)notHoveredTimerField.get(screen) > 1.0F) {
-                        handTargetYField.set(screen, Settings.HEIGHT);
-                    }
-                } else {
-                    notHoveredTimerField.set(screen, 0.0F);
-                }
-                if ((hoveredCard[0] != null) && (InputHelper.justClickedLeft)) {
-                    ((AbstractCard)hoveredCard[0]).hb.clickStarted = true;
-                }
-                if ((hoveredCard[0] != null) && ((InputHelper.justClickedRight) || (CInputActionSet.proceed.isJustPressed()))) {
-                    InputHelper.justClickedRight = false;
-                    CardCrawlGame.cardPopup.open((AbstractCard) hoveredCard[0]);
-                }
-                if ((hoveredCard[0] != null) && (((AbstractCard)hoveredCard[0]).hb.clicked || (CInputActionSet.select.isJustPressed()))) {
-                    ((AbstractCard)hoveredCard[0]).hb.clicked = false;
-                    if (DemoMod.afterSteal) return SpireReturn.Return(null);
-                    if (!Settings.isTouchScreen) {
-                        Method purchaseCardMethod = ShopScreen.class.getDeclaredMethod("purchaseCard", AbstractCard.class);
-                        purchaseCardMethod.setAccessible(true);
-                        purchaseCardMethod.invoke(screen, (AbstractCard)hoveredCard[0]);
-                    } else if (touchCardField.get(screen) == null) {
-                        if (AbstractDungeon.player.gold < ((AbstractCard)hoveredCard[0]).price) {
-                            speechTimerField.set(screen, MathUtils.random(40.0F, 60.0F));
-                            screen.playCantBuySfx();
-                            screen.createSpeech(ShopScreen.getCantBuyMsg());
-                        } else {
-                            screen.confirmButton.hideInstantly();
-                            screen.confirmButton.show();
-                            screen.confirmButton.isDisabled = false;
-                            screen.confirmButton.hb.clickStarted = false;
-                            touchCardField.set(screen, hoveredCard[0]);
-                        }
-                    }
-                }
-            } catch (NoSuchFieldException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            return SpireReturn.Return(null);
+            return SpireReturn.Continue();
         }
     }
 
@@ -259,13 +188,14 @@ public class ShopScreenPatch {
                 return SpireReturn.Return(null);
             }
             if (DemoMod.canSteal) {
-                if (random.nextDouble() < chance) {
+                if (AbstractDungeon.merchantRng.random(1.0F) < chance) {
                     CardCrawlGame.metricData.addShopPurchaseData(storeRelic.relic.relicId);
                     AbstractDungeon.getCurrRoom().relics.add(storeRelic.relic);
                     storeRelic.relic.instantObtain(AbstractDungeon.player, AbstractDungeon.player.relics.size(), true);
                     storeRelic.relic.flash();
                     DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
                     HuntressCharacter.curse += 1.0;
+                    DemoMod.isStolen = true;
                     try {
                         Field shopScreenField = StoreRelic.class.getDeclaredField("shopScreen");
                         shopScreenField.setAccessible(true);
@@ -294,7 +224,25 @@ public class ShopScreenPatch {
                         for (String text : TEXT) {
                             ((ArrayList<String>) idleMessages.get(screen)).add(text);
                         }
-                    } catch (NoSuchFieldException | IllegalAccessException e) {
+                        if (AbstractDungeon.getCurrRoom() instanceof ShopRoom) {
+                            ShopRoom room = (ShopRoom) AbstractDungeon.getCurrRoom();
+                            idleMessages = Merchant.class.getDeclaredField("idleMessages");
+                            idleMessages.setAccessible(true);
+                            ((ArrayList) idleMessages.get(room.merchant)).clear();
+                            ((ArrayList) idleMessages.get(room.merchant)).addAll(Arrays.asList(TEXT));
+                            if (Loader.isModLoaded("GungeonModExtend")) {
+                                Class cls = Class.forName("demoMod.patches.demoExt.ShopRoomPatch$ExtraMerchantPatch");
+                                SpireField<Merchant> extraMerchantField = (SpireField<Merchant>) cls.getDeclaredField("extraMerchant").get(null);
+                                Merchant extraMerchant = extraMerchantField.get(room);
+                                if (extraMerchant != null) {
+                                    idleMessages = extraMerchant.getClass().getDeclaredField("idleMessages");
+                                    idleMessages.setAccessible(true);
+                                    ((ArrayList) idleMessages.get(extraMerchant)).clear();
+                                    ((ArrayList) idleMessages.get(extraMerchant)).addAll(Arrays.asList(TEXT));
+                                }
+                            }
+                        }
+                    } catch (NoSuchFieldException | IllegalAccessException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                     chance /= 2;
@@ -332,10 +280,11 @@ public class ShopScreenPatch {
                     AbstractDungeon.player.getRelic("Sozu").flash();
                     return SpireReturn.Return(null);
                 }
-                if (random.nextDouble() < chance) {
+                if (AbstractDungeon.merchantRng.random(1.0F) < chance) {
                     if (AbstractDungeon.player.obtainPotion(storePotion.potion)) {
                         DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
                         HuntressCharacter.curse += 1.0;
+                        DemoMod.isStolen = true;
                         CardCrawlGame.metricData.addShopPurchaseData(storePotion.potion.ID);
                         chance /= 2;
                     } else {

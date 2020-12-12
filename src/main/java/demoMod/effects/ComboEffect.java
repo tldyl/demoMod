@@ -128,7 +128,7 @@ public class ComboEffect extends AbstractGameEffect {
                 this.item2.getRegionWidth(),
                 this.item2.getRegionHeight(),
                 1.0F, 1.0F, this.rotation);
-        FontHelper.renderFontCentered(sb, FontHelper.bannerFont, this.description, this.descX, this.descY, new Color(1.0F, 1.0F, 1.0F, descAlpha));
+        FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, this.description, this.descX, this.descY, new Color(1.0F, 1.0F, 1.0F, descAlpha));
     }
 
     @Override

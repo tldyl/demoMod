@@ -54,7 +54,7 @@ public class Casey extends CustomCard implements PostAddedToMasterDeckSubscriber
         if (!isAdded) {
             DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
             if (AbstractDungeon.player instanceof HuntressCharacter) {
-                HuntressCharacter.curse += 1;
+                HuntressCharacter.curse += 2;
             }
             isAdded = true;
         }
@@ -63,7 +63,7 @@ public class Casey extends CustomCard implements PostAddedToMasterDeckSubscriber
     @Override
     public void onRemoveFromMasterDeck() {
         if (AbstractDungeon.player instanceof HuntressCharacter) {
-            HuntressCharacter.curse -= 1;
+            HuntressCharacter.curse -= 2;
         }
     }
 

@@ -5,6 +5,8 @@ import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.devcommands.act.ActCommand;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -102,6 +104,7 @@ public class DemoMod implements EditCardsSubscriber,
     public static HuntressCharacter huntressCharacter;
     public static boolean canSteal = false;
     public static boolean afterSteal = false;
+    public static boolean isStolen = false;
     public static List<AbstractGameEffect> effectsQueue = new ArrayList<>();
     public static List<AbstractGameAction> actionsQueue = new ArrayList<>();
     public static ComboManualScreen comboManualScreen;
@@ -124,7 +127,13 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v1.2.34");
+        logger.info("Gungeon Mod - v2.0.0");
+        logger.info("Loading...");
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.HUNTRESS,
                 HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR, HUNTRESS_COLOR,
@@ -133,6 +142,8 @@ public class DemoMod implements EditCardsSubscriber,
                 getResourcePath(ATTACK_CARD_PORTRAIT), getResourcePath(SKILL_CARD_PORTRAIT),
                 getResourcePath(POWER_CARD_PORTRAIT), getResourcePath(ENERGY_ORB_PORTRAIT), getResourcePath(CARD_ENERGY_ORB));
     }
+
+    public static void main(String args[]) {}
 
     public static void initialize() {
         new DemoMod();
@@ -225,7 +236,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addCard(new Ejector());
         BaseMod.addCard(new GunShield());
         BaseMod.addCard(new AC15());
-        BaseMod.addCard(new OldTrick());
+        BaseMod.addCard(new HardPowerCard());
         BaseMod.addCard(new ZorGun());
         BaseMod.addCard(new Desperate());
         BaseMod.addCard(new Camera());
@@ -449,21 +460,15 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelicToCustomPool(new RatBoots(), characterColor);
         BaseMod.addRelicToCustomPool(new ElasticCartridgeClip(), characterColor);
         BaseMod.addRelicToCustomPool(new SilverBullets(), characterColor);
+        BaseMod.addRelicToCustomPool(new Plus1Bullets(), characterColor);
 
         logger.info(new String("=====枪牢mod:遗物添加完毕=====".getBytes(), StandardCharsets.UTF_8));
     }
 
     @Override
     public void receivePostDeath() {
-        Spice.dropChance = 0;
-        Spice.isFirstUse = true;
-        VorpalBullet.chance = 0.03;
-        File file = new File("saves/HUNTRESS.curseValue");
-        if (file.exists()) {
-            file.delete();
-        }
         MonsterHelperPatch.PatchGetEncounterName.changeName();
-        if (AbstractDungeon.id.equals(Maze.ID)) {
+        if (AbstractDungeon.id.equals(Maze.ID) && AbstractDungeon.player instanceof HuntressCharacter) {
             try {
                 Field field = AbstractPlayer.class.getDeclaredField("corpseImg");
                 field.setAccessible(true);
@@ -489,8 +494,8 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addPotion(BlankPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, BlankPotion.ID);
         BaseMod.addPotion(LeadSkinPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, LeadSkinPotion.ID);
         logger.info(new String("=====枪牢mod:初始化事件=====".getBytes(), StandardCharsets.UTF_8));
-        BaseMod.addEvent(D20Statue.ID, D20Statue.class);
-        BaseMod.addEvent(FountainOfPurify.ID, FountainOfPurify.class);
+        BaseMod.addEvent(new AddEventParams.Builder(D20Statue.ID, D20Statue.class).playerClass(HuntressEnum.HUNTRESS).create());
+        BaseMod.addEvent(new AddEventParams.Builder(FountainOfPurify.ID, FountainOfPurify.class).playerClass(HuntressEnum.HUNTRESS).spawnCondition(() -> HuntressCharacter.curse > 0).create());
         logger.info(new String("=====枪牢mod:添加基础掉落=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.registerCustomReward(
                 CustomRewardPatch.GUON_STONE,
@@ -515,6 +520,7 @@ public class DemoMod implements EditCardsSubscriber,
             powerMap.put(PlatinumBulletsPower.POWER_ID, PlatinumBulletsPower.class);
             powerMap.put(PacManPower.POWER_ID, PacManPower.class);
             powerMap.put(BulletSprayPower.POWER_ID, BulletSprayPower.class);
+            powerMap.put(OutOfBodyPower.POWER_ID, OutOfBodyPower.class);
             field.set(null, powerMap);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -547,10 +553,11 @@ public class DemoMod implements EditCardsSubscriber,
                 new RedShotgunKin(-120, 0),
                 new VeteranShotgunKin(120, 0)
         }));
-        BaseMod.addMonster("DemoMod:3_Bullet_Kins_with_one_veteran", "3 Bullet Kins with one veteran", () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster("DemoMod:4_Bullet_Kins_with_one_veteran", "4 Bullet Kins with one veteran", () -> new MonsterGroup(new AbstractMonster[]{
                 new BulletKin(-180, 0, true),
                 new VeteranBulletKin(0, Settings.HEIGHT * 0.02F),
-                new BulletKin(180, 0, false)
+                new BulletKin(180, 0, false),
+                new BulletKin(360, 0, true)
         }));
         BaseMod.addMonster("DemoMod:2_Mousers", "2 Mousers", () -> new MonsterGroup(new AbstractMonster[]{
                 new Mouser(-240.0F, 0.0F, 3),
@@ -709,9 +716,10 @@ public class DemoMod implements EditCardsSubscriber,
     @Override
     public void receivePostUpdate() {
         if (actionsQueue.size() > 0) {
-            actionsQueue.get(0).update();
-            if (actionsQueue.get(0).isDone) {
-                actionsQueue.remove(0);
+            AbstractGameAction action = actionsQueue.get(0);
+            action.update();
+            if (action.isDone) {
+                actionsQueue.remove(action);
             }
         }
         comboManualScreen.update();

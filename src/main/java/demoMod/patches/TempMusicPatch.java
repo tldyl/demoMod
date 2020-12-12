@@ -34,6 +34,18 @@ public class TempMusicPatch {
             if (key.equals("ACT_MAZE_COMBAT")) {
                 return SpireReturn.Return(MainMusic.newMusic("DemoAudio/music/act_maze_combat.mp3"));
             }
+            if (key.equals("BOSS_DRAGUN_1")) {
+                return SpireReturn.Return(MainMusic.newMusic("DemoAudio/music/boss_dragun_1.mp3"));
+            }
+            if (key.equals("BOSS_DRAGUN_2")) {
+                return SpireReturn.Return(MainMusic.newMusic("DemoAudio/music/boss_dragun_2.mp3"));
+            }
+            if (key.equals("EVENT_WINCHESTERS_GAME")) {
+                return SpireReturn.Return(MainMusic.newMusic("DemoAudio/music/event_winchesters_game.ogg"));
+            }
+            if (key.equals("EVENT_WINCHESTERS_GAME_PLAYING")) {
+                return SpireReturn.Return(MainMusic.newMusic("DemoAudio/music/event_winchesters_game_playing.ogg"));
+            }
             return SpireReturn.Continue();
         }
     }

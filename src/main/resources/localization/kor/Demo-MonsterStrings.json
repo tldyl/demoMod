@@ -24,7 +24,7 @@
   "DemoMod:BulletKin": {
     "NAME": "총탄 일족",
     "DIALOG": [""],
-    "MOVES": [""]
+    "MOVES": ["Lift the table"]
   },
   "DemoMod:VeteranBulletKin": {
     "NAME": "베테랑 총탄 일족",
@@ -61,7 +61,12 @@
       "당신의 오만함",
       "신체능력이 부족하시군요",
       "당신보다 강한 자",
-      "조금 공격적이시군요"
+      "조금 공격적이시군요",
+      "You're not in shape",
+      "You're not involved at all",
+      "Your arrogance",
+      "Dungeon Lord",
+      "The richest rat"
     ],
     "MOVES": [
       "Dagger Spray",

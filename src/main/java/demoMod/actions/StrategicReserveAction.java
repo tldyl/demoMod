@@ -23,6 +23,11 @@ public class StrategicReserveAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if (AbstractDungeon.player.hand.size() == 0) {
+            this.isDone = true;
+            return;
+        }
+
         if (this.duration == 0.5F) {
             AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, true, true);
             this.tickDuration();

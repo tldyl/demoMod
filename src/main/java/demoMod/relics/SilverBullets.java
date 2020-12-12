@@ -42,7 +42,7 @@ public class SilverBullets extends CustomRelic implements Combo {
 
     @Override
     public void atBattleStart() {
-        int tmp = (int) Math.floor(this.counter / 4.0);
+        int tmp = (int) Math.floor(this.counter / 3.0);
         if (isCombo && tmp > 0) {
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, tmp)));
         }
@@ -67,7 +67,7 @@ public class SilverBullets extends CustomRelic implements Combo {
     }
 
     private void enableCounter() {
-        this.counter = 0;
+        if (this.counter < 0) this.counter = 0;
     }
 
     private void disableCounter() {

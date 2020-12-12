@@ -102,5 +102,6 @@ public class ClearGuonStone extends CustomRelic implements PostCardAddedToDrawPi
 
     static {
         ComboManager.addCombo(DemoMod.makeID("ClearerGuonStone:Bottle"), ClearGuonStone.class);
+        ComboManager.addCombo(DemoMod.makeID("ClearerGuonStone:Plus1Bullets"), ClearGuonStone.class);
     }
 }

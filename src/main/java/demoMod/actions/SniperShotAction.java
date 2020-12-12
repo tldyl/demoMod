@@ -1,6 +1,7 @@
 package demoMod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,10 +9,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 import demoMod.cards.guns.AbstractGunCard;
 import demoMod.monsters.LordOfTheJammed;
 
+import java.util.Iterator;
+
+@SuppressWarnings("Duplicates")
 public class SniperShotAction extends AbstractGameAction {
     public static final String[] TEXT;
     private AbstractPlayer p;
@@ -42,7 +47,82 @@ public class SniperShotAction extends AbstractGameAction {
                             } else {
                                 gunCardsInDiscard.group.get(0).calculateCardDamage(m);
                             }
-                            gunCardsInDiscard.group.get(0).use(p, m);
+
+                            AbstractCard c = gunCardsInDiscard.group.get(0);
+                            c.use(p, m);
+                            addToBot(new UseCardAction(c, m) {
+                                @Override
+                                public void update() {
+                                    if (duration == 0.15F) {
+                                        Iterator var1 = AbstractDungeon.player.powers.iterator();
+
+                                        while (var1.hasNext()) {
+                                            AbstractPower p = (AbstractPower) var1.next();
+                                            if (!c.dontTriggerOnUseCard) {
+                                                p.onAfterUseCard(c, this);
+                                            }
+                                        }
+
+                                        var1 = AbstractDungeon.getMonsters().monsters.iterator();
+
+                                        while (var1.hasNext()) {
+                                            AbstractMonster m = (AbstractMonster) var1.next();
+
+                                            for (AbstractPower p : m.powers) {
+                                                if (!c.dontTriggerOnUseCard) {
+                                                    p.onAfterUseCard(c, this);
+                                                }
+                                            }
+                                        }
+
+                                        c.freeToPlayOnce = false;
+                                        c.isInAutoplay = false;
+                                        if (c.purgeOnUse) {
+                                            this.addToTop(new ShowCardAndPoofAction(c));
+                                            this.isDone = true;
+                                            AbstractDungeon.player.cardInUse = null;
+                                            return;
+                                        }
+
+                                        if (c.type == AbstractCard.CardType.POWER) {
+                                            this.addToTop(new ShowCardAction(c));
+                                            if (Settings.FAST_MODE) {
+                                                this.addToTop(new WaitAction(0.1F));
+                                            } else {
+                                                this.addToTop(new WaitAction(0.7F));
+                                            }
+
+                                            AbstractDungeon.player.hand.empower(c);
+                                            this.isDone = true;
+                                            AbstractDungeon.player.hand.applyPowers();
+                                            AbstractDungeon.player.hand.glowCheck();
+                                            AbstractDungeon.player.cardInUse = null;
+                                            return;
+                                        }
+
+                                        AbstractDungeon.player.cardInUse = null;
+                                        boolean spoonProc = false;
+                                        if (this.exhaustCard && AbstractDungeon.player.hasRelic("Strange Spoon") && c.type != AbstractCard.CardType.POWER) {
+                                            spoonProc = AbstractDungeon.cardRandomRng.randomBoolean();
+                                        }
+
+                                        if (this.exhaustCard && !spoonProc) {
+                                            AbstractDungeon.player.hand.moveToExhaustPile(c);
+                                            CardCrawlGame.dungeon.checkForPactAchievement();
+                                        } else {
+                                            if (spoonProc) {
+                                                AbstractDungeon.player.getRelic("Strange Spoon").flash();
+                                            }
+                                        }
+
+                                        c.exhaustOnUseOnce = false;
+                                        c.dontTriggerOnUseCard = false;
+                                        this.addToBot(new HandCheckAction());
+                                    }
+                                    tickDuration();
+                                }
+                            });
+                            //AbstractDungeon.actionManager.phase = GameActionManager.Phase.WAITING_ON_USER;
                         }
                     }
                     this.isDone = true;
@@ -68,9 +148,81 @@ public class SniperShotAction extends AbstractGameAction {
                                 c.calculateCardDamage(m);
                             }
                             c.use(p, m);
+                            addToBot(new UseCardAction(c, m) {
+                                @Override
+                                public void update() {
+                                    if (duration == 0.15F) {
+                                        Iterator var1 = AbstractDungeon.player.powers.iterator();
+
+                                        while (var1.hasNext()) {
+                                            AbstractPower p = (AbstractPower) var1.next();
+                                            if (!c.dontTriggerOnUseCard) {
+                                                p.onAfterUseCard(c, this);
+                                            }
+                                        }
+
+                                        var1 = AbstractDungeon.getMonsters().monsters.iterator();
+
+                                        while (var1.hasNext()) {
+                                            AbstractMonster m = (AbstractMonster) var1.next();
+
+                                            for (AbstractPower p : m.powers) {
+                                                if (!c.dontTriggerOnUseCard) {
+                                                    p.onAfterUseCard(c, this);
+                                                }
+                                            }
+                                        }
+
+                                        c.freeToPlayOnce = false;
+                                        c.isInAutoplay = false;
+                                        if (c.purgeOnUse) {
+                                            this.addToTop(new ShowCardAndPoofAction(c));
+                                            this.isDone = true;
+                                            AbstractDungeon.player.cardInUse = null;
+                                            return;
+                                        }
+
+                                        if (c.type == AbstractCard.CardType.POWER) {
+                                            this.addToTop(new ShowCardAction(c));
+                                            if (Settings.FAST_MODE) {
+                                                this.addToTop(new WaitAction(0.1F));
+                                            } else {
+                                                this.addToTop(new WaitAction(0.7F));
+                                            }
+
+                                            AbstractDungeon.player.hand.empower(c);
+                                            this.isDone = true;
+                                            AbstractDungeon.player.hand.applyPowers();
+                                            AbstractDungeon.player.hand.glowCheck();
+                                            AbstractDungeon.player.cardInUse = null;
+                                            return;
+                                        }
+
+                                        AbstractDungeon.player.cardInUse = null;
+                                        boolean spoonProc = false;
+                                        if (this.exhaustCard && AbstractDungeon.player.hasRelic("Strange Spoon") && c.type != AbstractCard.CardType.POWER) {
+                                            spoonProc = AbstractDungeon.cardRandomRng.randomBoolean();
+                                        }
+
+                                        if (this.exhaustCard && !spoonProc) {
+                                            AbstractDungeon.player.hand.moveToExhaustPile(c);
+                                            CardCrawlGame.dungeon.checkForPactAchievement();
+                                        } else {
+                                            if (spoonProc) {
+                                                AbstractDungeon.player.getRelic("Strange Spoon").flash();
+                                            }
+                                        }
+
+                                        c.exhaustOnUseOnce = false;
+                                        c.dontTriggerOnUseCard = false;
+                                        this.addToBot(new HandCheckAction());
+                                    }
+                                    tickDuration();
+                                }
+                            });
+                            c.lighten(false);
+                            c.unhover();
                         }
-                        c.lighten(false);
-                        c.unhover();
                     } else {
                         this.p.createHandIsFullDialog();
                     }
@@ -79,9 +231,9 @@ public class SniperShotAction extends AbstractGameAction {
                     c.unhover();
                     c.target_x = (float)CardGroup.DISCARD_PILE_X;
                 }
-
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 AbstractDungeon.player.hand.refreshHandLayout();
+                //AbstractDungeon.actionManager.phase = GameActionManager.Phase.WAITING_ON_USER;
             }
             this.tickDuration();
         }

@@ -2,6 +2,7 @@ package demoMod.cards.guns;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
@@ -17,19 +18,27 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
+import demoMod.actions.PlaySoundAction;
+import demoMod.cards.interfaces.PostAddedToMasterDeckSubscriber;
+import demoMod.combo.Combo;
+import demoMod.combo.ComboManager;
 import demoMod.dto.GunCardSaveData;
 import demoMod.dto.PolarisData;
-import demoMod.sounds.DemoSoundMaster;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Polaris extends AbstractGunCard {
+public class Polaris extends AbstractGunCard implements Combo, PostAddedToMasterDeckSubscriber {
     public static final String ID = DemoMod.makeID("Polaris");
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/polaris.png";
+
+    public static final Texture comboTexture = new Texture(DemoMod.getResourcePath("combos/cards/polaris.png"));
+    private boolean isRemoving = false;
+    private static boolean isCombo = false;
+    private static int EXTRA_COMBO_DMG = 0;
 
     private static final CardStrings cardStrings;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -53,11 +62,11 @@ public class Polaris extends AbstractGunCard {
         int actualLevel = (int)Math.ceil(level / 2.0);
         switch (actualLevel) {
             case 1:
-                return 5;
+                return 5 + EXTRA_COMBO_DMG;
             case 2:
-                return 10;
+                return 10 + EXTRA_COMBO_DMG;
             case 3:
-                return 15;
+                return 15 + EXTRA_COMBO_DMG;
             default:
                 return 5;
         }
@@ -76,8 +85,12 @@ public class Polaris extends AbstractGunCard {
 
     @Override
     public void fire(AbstractPlayer p, AbstractMonster m) {
-        DemoSoundMaster.playV("GUN_FIRE_POLARIS", 0.1F);
+        addToBot(new PlaySoundAction("GUN_FIRE_POLARIS"));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        if (this.level >= 5) {
+            addToBot(new PlaySoundAction("GUN_FIRE_POLARIS"));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        }
         levelUp();
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (this.uuid.equals(card.uuid)) {
@@ -113,12 +126,28 @@ public class Polaris extends AbstractGunCard {
     private void levelUp() {
         if (this.level < 6) this.level++;
         this.baseDamage = getDamageByLevel(this.level);
+        if (this.level >= 5 && isCombo) {
+            this.baseDamage = 12;
+            if (this.upgraded) {
+                this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+            } else {
+                this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+            }
+        }
     }
 
     private void levelDown() {
         this.level -= 2;
         if (this.level < 1) this.level = 1;
         this.baseDamage = getDamageByLevel(this.level);
+        if (this.level >= 5 && isCombo) this.baseDamage = 12;
+        if (this.level < 5 && isCombo) {
+            if (this.upgraded) {
+                this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            } else {
+                this.rawDescription = cardStrings.DESCRIPTION;
+            }
+        }
     }
 
     @SpireOverride
@@ -162,5 +191,76 @@ public class Polaris extends AbstractGunCard {
         LEVEL_IMG.add(new TextureRegion(new Texture(DemoMod.getResourcePath("effects/polaris_1.png"))));
         LEVEL_IMG.add(new TextureRegion(new Texture(DemoMod.getResourcePath("effects/polaris_2.png"))));
         LEVEL_IMG.add(new TextureRegion(new Texture(DemoMod.getResourcePath("effects/polaris_3.png"))));
+        ComboManager.addCombo("DemoExt:SquareBrace", Polaris.class);
+    }
+
+    @Override
+    public void onAddedToMasterDeck() {
+        ComboManager.detectComboInGame();
+    }
+
+    @Override
+    public void onRemoveFromMasterDeck() {
+        isRemoving = true;
+        ComboManager.detectCombo();
+    }
+
+    @Override
+    public String getItemId() {
+        return ID;
+    }
+
+    @Override
+    public void onComboActivated(String comboId) {
+        isCombo = true;
+        EXTRA_COMBO_DMG = 2;
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (card instanceof Polaris) {
+                Polaris polaris = (Polaris) card;
+                polaris.maxCapacity = 12;
+                polaris.capacity = polaris.maxCapacity;
+                polaris.portrait = new TextureAtlas.AtlasRegion(new Texture(DemoMod.getResourcePath("cards/polaris_c.png")), 0, 0, 250, 190);
+                if (polaris.level >= 5) {
+                    if (polaris.upgraded) {
+                        polaris.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+                    } else {
+                        polaris.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+                    }
+                    polaris.initializeDescription();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onComboDisabled(String comboId) {
+        isCombo = false;
+        EXTRA_COMBO_DMG = 0;
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (card instanceof Polaris) {
+                Polaris polaris = (Polaris) card;
+                polaris.maxCapacity = 6;
+                polaris.capacity = polaris.maxCapacity;
+                polaris.portrait = new TextureAtlas.AtlasRegion(new Texture(DemoMod.getResourcePath("cards/polaris.png")), 0, 0, 250, 190);
+                if (polaris.level >= 5) {
+                    if (polaris.upgraded) {
+                        polaris.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+                    } else {
+                        polaris.rawDescription = cardStrings.DESCRIPTION;
+                    }
+                    polaris.initializeDescription();
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    @Override
+    public Texture getComboPortrait() {
+        return comboTexture;
     }
 }

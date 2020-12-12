@@ -214,16 +214,26 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                 this.addToBot(new WhirlwindAction(p, DamageInfo.createDamageMatrix(9 + s, true), DamageInfo.DamageType.THORNS, true, 2));
                 break;
             case 7:
+                s = 0;
+                if (p.hasPower(StrengthPower.POWER_ID)) {
+                    s = p.getPower(StrengthPower.POWER_ID).amount;
+                }
+                if (s < 0) s = 0;
                 this.flash();
                 for (int i=0;i<15;i++) {
-                    this.addToBot(new BetterAttackDamageRandomEnemyAction(4, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
+                    this.addToBot(new BetterAttackDamageRandomEnemyAction(4 + s, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
                 }
                 break;
             case 8:
+                s = 0;
+                if (p.hasPower(StrengthPower.POWER_ID)) {
+                    s = p.getPower(StrengthPower.POWER_ID).amount;
+                }
+                if (s < 0) s = 0;
                 this.flash();
                 if (this.counter == 0) {
                     for (int i=0;i<15;i++) {
-                        this.addToBot(new BetterAttackDamageRandomEnemyAction(2, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
+                        this.addToBot(new BetterAttackDamageRandomEnemyAction(2 + s, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
                     }
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (m.hasPower(StrengthOfCursePower.POWER_ID)) {
@@ -245,8 +255,8 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                     AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID), true);
                     if (m != null) {
                         this.addToBot(new LoseBlockAction(m, p, m.currentBlock));
-                        this.addToBot(new DamageAction(m, new DamageInfo(p, 10, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                        this.addToBot(new DamageAction(m, new DamageInfo(p, 10, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                        this.addToBot(new DamageAction(m, new DamageInfo(p, 10 + s, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                        this.addToBot(new DamageAction(m, new DamageInfo(p, 10 + s, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     }
                     this.counter++;
                 } else {
@@ -255,7 +265,7 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                         this.addToBot(new LoseBlockAction(m, p, m.currentBlock));
                     }
                     for (int i=0;i<7;i++) {
-                        this.addToBot(new BetterAttackDamageRandomEnemyAction(8, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
+                        this.addToBot(new BetterAttackDamageRandomEnemyAction(8 + s, AbstractGameAction.AttackEffect.FIRE, AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID)));
                     }
                     this.counter = 0;
                 }
@@ -280,6 +290,7 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
         if (LEVEL == 6) {
             AbstractPlayer p = AbstractDungeon.player;
             this.flash();
+            addToBot(new RelicAboveCreatureAction(p, this));
             p.heal(AbstractDungeon.player.maxHealth);
             DemoMod.actionsQueue.add(new WaitAction(2.0F));
             if (Settings.FAST_MODE) {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import demoMod.DemoMod;
+import demoMod.actions.PlaySoundAction;
 import demoMod.characters.HuntressCharacter;
 import demoMod.dungeons.Maze;
 import demoMod.effects.PlayerJumpIntoEntryEffect;
@@ -74,6 +76,17 @@ public class MonsterRoomPatch {
                 CardCrawlGame.music.silenceTempBgmInstantly();
                 AbstractDungeon.effectList.add(new ResourcefulRatPhaseTwoIntro(AbstractDungeon.getCurrRoom().monsters.getMonster(ResourcefulRat.ID)));
                 AbstractDungeon.bossList.add(ResourcefulRat.ID);
+            }
+            if (AbstractDungeon.id.equals("DemoExt:Forge")) { //TODO 后面改成入场动画
+                room.phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                DemoMod.actionsQueue.add(new PlaySoundAction("BOSS_DRAGUN_APPEAR", 16.59F, 0.0F));
+                DemoMod.actionsQueue.add(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        room.phase = AbstractRoom.RoomPhase.COMBAT;
+                        isDone = true;
+                    }
+                });
             }
         }
     }

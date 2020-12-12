@@ -21,7 +21,7 @@ public class Replace extends CustomCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public Replace() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);

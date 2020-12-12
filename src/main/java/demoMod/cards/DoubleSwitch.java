@@ -19,23 +19,26 @@ public class DoubleSwitch extends CustomCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public DoubleSwitch() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
+        this.baseMagicNumber = 2;
+        this.magicNumber = 2;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.magicNumber += 2;
+            this.baseMagicNumber += 2;
         }
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        AbstractDungeon.actionManager.addToBottom(new ReloadAction(2));
+        AbstractDungeon.actionManager.addToBottom(new ReloadAction(this.magicNumber));
     }
 
     static {

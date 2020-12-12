@@ -2,6 +2,8 @@ package demoMod.sounds;
 
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.core.Settings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -10,6 +12,7 @@ import java.util.Random;
 public class DemoSoundMaster {
     private static HashMap<String, Sfx> map = new HashMap<>();
     private static Random random;
+    private static final Logger log = LogManager.getLogger(DemoSoundMaster.class);
 
     public DemoSoundMaster() {
     }
@@ -116,7 +119,7 @@ public class DemoSoundMaster {
         if (map.containsKey(key)) {
             return (map.get(key)).play(Settings.SOUND_VOLUME * Settings.MASTER_VOLUME, 1.0F + pitchAdjust, 0.0F);
         }
-        System.out.println("DemoMod:ERROR - Sound not found!");
+        log.error("Could not find Sound key: {}", key);
         return 0L;
     }
 
@@ -125,7 +128,7 @@ public class DemoSoundMaster {
         if (map.containsKey(key)) {
             return (map.get(key)).play(Settings.SOUND_VOLUME * Settings.MASTER_VOLUME, 1.0F + (float)pitch, 0.0F);
         }
-        System.out.println("DemoMod:ERROR - Sound not found!");
+        log.error("Could not find Sound key: {}", key);
         return 0L;
     }
 
@@ -133,7 +136,7 @@ public class DemoSoundMaster {
         if (map.containsKey(key)) {
             return (map.get(key)).loop(Settings.SOUND_VOLUME * Settings.MASTER_VOLUME);
         }
-        System.out.println("DemoMod:ERROR - Sound not found!");
+        log.error("Could not find Sound key: {}", key);
         return 0L;
     }
 

@@ -9,7 +9,7 @@ import demoMod.monsters.ResourcefulRat;
 @SuppressWarnings("unused")
 public class MonsterHelperPatch {
 
-    private static String name = ResourcefulRat.DIALOG[MathUtils.random(4) + 2];
+    private static String name = ResourcefulRat.DIALOG[MathUtils.random(9) + 2];
 
     @SpirePatch(
             clz = MonsterHelper.class,

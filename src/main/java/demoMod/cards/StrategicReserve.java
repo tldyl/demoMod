@@ -43,6 +43,9 @@ public class StrategicReserve extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 2, false));
+            if (p.hand.group.size() <= 3) {
+                AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 2, false));
+            }
         } else {
             AbstractDungeon.actionManager.addToBottom(new StrategicReserveAction(99));
         }

@@ -18,9 +18,10 @@ public class MeltedRock extends CustomRelic implements Combo {
     public static final String ID = DemoMod.makeID("MeltedRock");
     public static final String IMG_PATH = "relics/meltedRock.png";
     public static final Texture comboTexture = new Texture(DemoMod.getResourcePath("combos/relics/meltedRock.png"));
-    private static boolean combos[] = new boolean[]{false};
+    private static boolean combos[] = new boolean[]{false, false};
 
     private boolean isRemoving = false;
+    private int lastDamage = 0;
 
     public MeltedRock() {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)),
@@ -58,12 +59,18 @@ public class MeltedRock extends CustomRelic implements Combo {
     }
 
     @Override
+    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
+        lastDamage = damageAmount;
+        return damageAmount;
+    }
+
+    @Override
     public void onMonsterDeath(AbstractMonster m) {
         this.counter++;
         if (this.counter < AbstractDungeon.getCurrRoom().monsters.monsters.size()) {
             this.flash();
             DemoSoundMaster.playV("RELIC_MELTED_ROCK", 0.1F);
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(6, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(combos[1] ? lastDamage : 6, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             if (combos[0]) {
                 setDescriptionAfterLoading();
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, 8 * this.counter));
@@ -84,12 +91,26 @@ public class MeltedRock extends CustomRelic implements Combo {
 
     @Override
     public void onComboActivated(String comboId) {
-        combos[0] = true;
+        switch (comboId) {
+            case "DemoMod:HumanShield":
+                combos[0] = true;
+                break;
+            case "DemoExt:ExtremeOperation":
+                combos[1] = true;
+                break;
+        }
     }
 
     @Override
     public void onComboDisabled(String comboId) {
-        combos[0] = false;
+        switch (comboId) {
+            case "DemoMod:HumanShield":
+                combos[0] = false;
+                break;
+            case "DemoExt:ExtremeOperation":
+                combos[1] = false;
+                break;
+        }
     }
 
     @Override
@@ -104,5 +125,6 @@ public class MeltedRock extends CustomRelic implements Combo {
 
     static {
         ComboManager.addCombo(DemoMod.makeID("HumanShield"), MeltedRock.class);
+        ComboManager.addCombo("DemoExt:ExtremeOperation", MeltedRock.class);
     }
 }

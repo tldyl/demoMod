@@ -110,30 +110,30 @@ public class ComboDetailScreen {
                 sb.draw(combo.getComboPortrait(), x, y);
                 if (combo instanceof AbstractCard) {
                     AbstractCard card = (AbstractCard) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.eventBodyText, card.name + CARD, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, card.name + CARD, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 } else if (combo instanceof AbstractRelic) {
                     AbstractRelic relic = (AbstractRelic) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.eventBodyText, relic.name + RELIC, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, relic.name + RELIC, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 } else if (combo instanceof AbstractPotion) {
                     AbstractPotion potion = (AbstractPotion) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.eventBodyText, potion.name + POTION, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, potion.name + POTION, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 }
                 ctr++;
                 x += 160;
                 if (ctr < combos.get(comboId).size()) {
-                    FontHelper.renderFontCentered(sb, FontHelper.bannerFont, PLS, x + 74.0F, y + 128.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, PLS, x + 74.0F, y + 128.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                     x += 60;
                 }
             }
             y -= 168;
             lines++;
             if (lines < this.startingX.keySet().size()) {
-                FontHelper.renderFontCentered(sb, FontHelper.bannerFont, OR, Settings.WIDTH / 2.0F, y + 160.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, OR, Settings.WIDTH / 2.0F, y + 160.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 y -= 40;
             }
         }
         if (comboName != null && description != null) {
-            FontHelper.renderFontCentered(sb, FontHelper.bannerFont, comboName, Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.1F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+            FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, comboName, Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.1F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
             TipHelper.renderGenericTip(Settings.WIDTH * 0.03F, Settings.HEIGHT * 0.9F, label, description);
             TipHelper.render(sb);
         }

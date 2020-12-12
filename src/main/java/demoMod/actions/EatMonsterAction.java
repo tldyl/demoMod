@@ -54,7 +54,6 @@ public class EatMonsterAction extends AbstractGameAction {
                 this.target.currentBlock = 0;
                 this.target.gold = 0;
                 this.target.currentHealth = 0;
-                this.target.halfDead = true;
                 this.target.healthBarUpdatedEvent();
                 this.target.damage(new DamageInfo(null, 0, DamageInfo.DamageType.HP_LOSS));
             } else {

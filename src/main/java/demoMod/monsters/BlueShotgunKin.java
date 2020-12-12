@@ -14,6 +14,8 @@ import demoMod.actions.PlaySoundAction;
 import demoMod.powers.SelfExplodePower;
 import demoMod.sounds.DemoSoundMaster;
 
+import static demoMod.utils.Utils.calcMaxHpMultiplier;
+
 public class BlueShotgunKin extends AbstractMonster {
     public static final String ID = DemoMod.makeID("BlueShotgunKin");
     private static final MonsterStrings monsterStrings;
@@ -33,9 +35,9 @@ public class BlueShotgunKin extends AbstractMonster {
     public BlueShotgunKin(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
-            setHp(42, 46);
+            setHp(42 * (int)calcMaxHpMultiplier(), 46 * (int)calcMaxHpMultiplier());
         } else {
-            setHp(38, 42);
+            setHp(38 * (int)calcMaxHpMultiplier(), 42 * (int)calcMaxHpMultiplier());
         }
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
     }

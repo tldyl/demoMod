@@ -81,6 +81,7 @@ public class LamentConfigurum extends AbstractClickRelic implements CustomSavabl
                 this.relicGained++;
                 if (this.relicGained >= 5) {
                     this.usedUp();
+                    this.counter = -2;
                 }
                 DemoSoundMaster.playV("CURSE_INCREASED", 0.1F);
                 if (AbstractDungeon.player instanceof HuntressCharacter) {
@@ -92,7 +93,7 @@ public class LamentConfigurum extends AbstractClickRelic implements CustomSavabl
         }
     }
 
-    private AbstractMonster getRandomMonster() {
+    public static AbstractMonster getRandomMonster() {
         return monsterFactory.get(AbstractDungeon.miscRng.random(4)).getMonster();
     }
 

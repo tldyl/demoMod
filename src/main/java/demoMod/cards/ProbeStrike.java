@@ -34,7 +34,7 @@ public class ProbeStrike extends CustomCard {
         this.tags = new ArrayList<>();
         tags.add(CardTags.STRIKE);
         this.baseMagicNumber = 1;
-        this.baseBlock = 10;
+        this.baseBlock = 7;
     }
 
     @Override
@@ -49,6 +49,7 @@ public class ProbeStrike extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         if (m.intent != AbstractMonster.Intent.ATTACK &&
                 m.intent != AbstractMonster.Intent.ATTACK_BUFF &&
                 m.intent != AbstractMonster.Intent.ATTACK_DEBUFF &&
@@ -59,7 +60,6 @@ public class ProbeStrike extends CustomCard {
         } else {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
         }
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     static {

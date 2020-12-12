@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import demoMod.DemoMod;
 import demoMod.powers.AlertModePower;
 
+import static demoMod.utils.Utils.calcMaxHpMultiplier;
+
 public class Mouser extends AbstractMonster {
 
     public static final String ID = DemoMod.makeID("Mouser");
@@ -23,7 +25,7 @@ public class Mouser extends AbstractMonster {
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
-    private static final int HP_MAX = 5;
+    private static final int HP_MAX = 3;
     private static final float HB_X = -8.0F;
     private static final float HB_Y = 10.0F;
     private static final float HB_W = 120.0F;
@@ -33,7 +35,7 @@ public class Mouser extends AbstractMonster {
     private int spawnAmount;
 
     public Mouser(float x, float y, int spawnAmount) {
-        super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
+        super(NAME, ID, HP_MAX * (int)calcMaxHpMultiplier(), HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
         this.spawnAmount = spawnAmount;
     }

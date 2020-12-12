@@ -12,6 +12,8 @@ import demoMod.DemoMod;
 import demoMod.cards.tempCards.Flaw;
 import demoMod.sounds.DemoSoundMaster;
 
+import static demoMod.utils.Utils.calcMaxHpMultiplier;
+
 public class VeteranBulletKin extends AbstractMonster {
     public static final String ID = DemoMod.makeID("VeteranBulletKin");
     private static final MonsterStrings monsterStrings;
@@ -31,9 +33,9 @@ public class VeteranBulletKin extends AbstractMonster {
     public VeteranBulletKin(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
-            setHp(18, 22);
+            setHp(18 * (int)calcMaxHpMultiplier(), 22 * (int)calcMaxHpMultiplier());
         } else {
-            setHp(13, 17);
+            setHp(13 * (int)calcMaxHpMultiplier(), 17 * (int)calcMaxHpMultiplier());
         }
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
     }

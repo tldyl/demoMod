@@ -30,6 +30,11 @@ public class FountainOfPurify extends AbstractImageEvent {
     }
 
     @Override
+    public void onEnterRoom() {
+        CardCrawlGame.music.playTempBGM("SHRINE");
+    }
+
+    @Override
     protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
             case 0:

@@ -46,6 +46,11 @@ public class D20Statue extends AbstractImageEvent {
         initBadEffects();
     }
 
+    @Override
+    public void onEnterRoom() {
+        CardCrawlGame.music.playTempBGM("SHRINE");
+    }
+
     private void initGoodEffects() {
         DiceEffects renewed = () -> {
             int healAmount = AbstractDungeon.miscRng.random(10, 14);
@@ -70,9 +75,7 @@ public class D20Statue extends AbstractImageEvent {
             if (AbstractDungeon.player.hasRelic(DemoMod.makeID("Armor"))) {
                 AbstractDungeon.player.getRelic(DemoMod.makeID("Armor")).counter += amount + 1;
             } else {
-                Armor armor = new Armor();
-                armor.counter += amount;
-                armor.instantObtain();
+                new Armor().setAmount(2).instantObtain();
             }
         };
         DiceEffects cleansed = () -> {

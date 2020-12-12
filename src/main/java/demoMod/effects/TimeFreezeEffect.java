@@ -73,6 +73,13 @@ public class TimeFreezeEffect extends AbstractGameEffect {
                         case 3:
                             CardCrawlGame.music.playTempBGM("BOSS_BEYOND");
                             break;
+                        case 5:
+                            if(AbstractDungeon.id.equals("DemoExt:Forge")) {
+                                CardCrawlGame.music.playTempBGM("BOSS_DRAGUN_1");
+                            } else {
+                                CardCrawlGame.music.playTempBGM("BOSS_ENDING");
+                            }
+                            break;
                         default:
                             CardCrawlGame.music.playTempBGM("BOSS_ENDING");
                             break;
@@ -88,7 +95,7 @@ public class TimeFreezeEffect extends AbstractGameEffect {
         if (DemoMod.disableVFXForCamera) {
             return;
         }
-        sb.setColor(1, 1, 1, this.a);
+        sb.setColor(1, 1, 1, this.a * 0.7F);
         sb.draw(this.img, 0,
                 0,
                 0,
@@ -100,6 +107,6 @@ public class TimeFreezeEffect extends AbstractGameEffect {
 
     @Override
     public void dispose() {
-
+        this.img.getTexture().dispose();
     }
 }

@@ -122,7 +122,7 @@
   },
   "DemoMod:DoubleSwitch": {
     "NAME": "Double Switch",
-    "DESCRIPTION": "Reload up to 2 Guns in your hand."
+    "DESCRIPTION": "Reload up to !M! Guns in your hand."
   },
   "DemoMod:StickyCrossBow": {
     "NAME": "Sticky Crossbow",
@@ -131,7 +131,10 @@
   "DemoMod:RadGun": {
     "NAME": "Rad Gun",
     "DESCRIPTION": "Gun. Deal !D! damage. If Reloaded on full Capacity, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "Gun. Deal !D! damage. If Reloaded on full Capacity or Capacity is at 2, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
+    "UPGRADE_DESCRIPTION": "Gun. Deal !D! damage. If Reloaded on full Capacity or Capacity is at 2, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!.",
+    "EXTENDED_DESCRIPTION": [
+      "Gun. Deal !D! damage. If Reloaded on Capacity above 3, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
+    ]
   },
   "DemoMod:Rummage": {
     "NAME": "Rummage",
@@ -177,7 +180,8 @@
   },
   "DemoMod:Slinger": {
     "NAME": "Slinger",
-    "DESCRIPTION": "Guns deal damage when Capacity is at 0. NL Guns used at 0 Capacity get Exhausted."
+    "DESCRIPTION": "Whenever you play a Gun card, put a random Skill from the draw pile or discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Gun card, put a random Skill from the draw pile or discard pile into your hand."
   },
   "DemoMod:SpreadAmmo": {
     "NAME": "Spread Ammo",
@@ -194,8 +198,8 @@
   },
   "DemoMod:BattleInHaste": {
     "NAME": "Battle In Haste",
-    "DESCRIPTION": "Put 1 random Gun from your draw pile into your hand.",
-    "UPGRADE_DESCRIPTION": "Put !M! random Guns from your draw pile into your hand."
+    "DESCRIPTION": "Put 1 random Gun from your draw pile into your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put !M! random Guns from your draw pile into your hand. Exhaust."
   },
   "DemoMod:Casey": {
     "NAME": "Casey",
@@ -424,7 +428,11 @@
   "DemoMod:Polaris": {
     "NAME": "Polaris",
     "DESCRIPTION": "Gun. Deal !D! damage. Whenever you play twice, promoted one level (up to level 3) in this game. When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "Gun. SemiAutomatic. Deal !D! damage. Whenever this card is played twice, it's level increases (up to level 3). When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!."
+    "UPGRADE_DESCRIPTION": "Gun. SemiAutomatic. Deal !D! damage. Whenever this card is played twice, it's level increases (up to level 3). When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!.",
+    "EXTENDED_DESCRIPTION": [
+      "Gun. Deal !D! damage twice. Whenever you play twice, promoted one level (up to level 3) in this game. When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!.",
+      "Gun. SemiAutomatic. Deal !D! damage twice. Whenever this card is played twice, it's level increases (up to level 3). When you lose HP in a combat, reduce one level in this game. Capacity !DemoModCapacity!."
+    ]
   },
   "DemoMod:SuppressiveFire": {
     "NAME": "Suppressive Fire",
@@ -454,5 +462,9 @@
     "NAME": "Hungry Bullets",
     "DESCRIPTION": "Every !M! th Gun you fire, gain Block equal to damage dealt.",
     "UPGRADE_DESCRIPTION": "Every !M! rd Gun you fire, gain Block equal to damage dealt."
+  },
+  "DemoMod:HardPowerCard": {
+    "NAME": "Hard Power",
+    "DESCRIPTION": "Gain !B! Block. NL In this turn, turn the damage that can be completely Blocked to 1."
   }
 }

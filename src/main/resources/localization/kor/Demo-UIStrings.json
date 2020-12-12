@@ -139,6 +139,42 @@
       "#y상태이상 카드가 뽑을 카드 더미로 들어가면 자동으로 #y소멸 시킵니다."
     ]
   },
+  "DemoMod:BluerGuonStone": {
+    "TEXT": [
+      "Bluer Guon Stone",
+      "When Blue guon stone triggered, increase the #yBlock by #b10 you gained at the start of your turn."
+    ]
+  },
+  "DemoMod:FriendToGunAndBullet": {
+    "TEXT": [
+      "Friend To Gun And Bullet",
+      "When played #yPotion #yOf #yGun #yFriendship , choose a #yGun in your hand, it'll play at the end of your turn to a random enemy."
+    ]
+  },
+  "DemoMod:GreenerGuonStone": {
+    "TEXT": [
+      "Greener Guon Stone",
+      "When Green guon stone triggered, gain #b20 gold."
+    ]
+  },
+  "DemoMod:PinkerGuonStone": {
+    "TEXT": [
+      "Pinker Guon Stone",
+      "When you receive an unblocked damage, apply #yControl to damage source."
+    ]
+  },
+  "DemoMod:RedderGuonStone": {
+    "TEXT": [
+      "Redder Guon Stone",
+      "When you completely #yBlocked an attack, gain #b4 #yViger."
+    ]
+  },
+  "DemoMod:WhiterGuonStone": {
+    "TEXT": [
+      "Whiter Guon Stone",
+      "At the end of your turn, gain #b4 #yBlock rather than #b2."
+    ]
+  },
   "DemoMod:HumanShield": {
     "TEXT": [
       "인간 방패",
@@ -226,7 +262,7 @@
   "DemoMod:BlessingAndACurse": {
     "TEXT": [
       "축복이자 저주",
-      "#y저주 에 걸린 적들을 4마리 처치할때마다, 매 전투 시작시 #y힘 을 #b1 얻습니다."
+      "#y저주 에 걸린 적들을 #b3 마리 처치할때마다, 매 전투 시작시 #y힘 을 #b1 얻습니다."
     ]
   },
   "DemoMod:ComboManualScreen": {

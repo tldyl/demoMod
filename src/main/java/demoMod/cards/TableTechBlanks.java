@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 
 public class TableTechBlanks extends CustomCard {
@@ -39,18 +40,18 @@ public class TableTechBlanks extends CustomCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster monster) {
-        int blockToAdd = 0;
-        for (int i=0;i<AbstractDungeon.getCurrRoom().monsters.monsters.size();i++) {
-            int unitBlock = AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isDeadOrEscaped() ? 0 : this.baseMagicNumber;
-            if (unitBlock == 0) continue;
-            if (p.hasPower("Dexterity")) {
-                int dexterity = p.getPower("Dexterity").amount;
-                unitBlock += dexterity;
-            }
-            if (p.hasPower("Frail")) unitBlock *= 0.75;
-            blockToAdd += unitBlock;
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        int blockToAdd;
+        float unitBlock;
+        int aliveMonsters = 0;
+        for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!monster.isDeadOrEscaped()) aliveMonsters++;
         }
+        unitBlock = aliveMonsters * this.baseMagicNumber;
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            unitBlock = power.modifyBlock(unitBlock);
+        }
+        blockToAdd = (int) unitBlock;
         if (blockToAdd < 0) blockToAdd = 0;
         blockToAdd += this.block;
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, blockToAdd));

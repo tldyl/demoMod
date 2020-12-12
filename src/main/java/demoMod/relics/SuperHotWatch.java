@@ -14,6 +14,7 @@ public class SuperHotWatch extends CustomRelic {
 
     private boolean activated = true;
     private static final int THRESHOLD = 2;
+    private boolean playCardThisTurn = false;
 
     public SuperHotWatch() {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)),
@@ -27,6 +28,7 @@ public class SuperHotWatch extends CustomRelic {
 
     @Override
     public void atTurnStart() {
+        this.playCardThisTurn = false;
         this.activated = true;
         if (this.counter < THRESHOLD) {
             this.beginLongPulse();
@@ -42,6 +44,7 @@ public class SuperHotWatch extends CustomRelic {
     @Override
     public void onVictory() {
         this.counter = -1;
+        this.stopPulse();
     }
 
     @Override
@@ -58,8 +61,12 @@ public class SuperHotWatch extends CustomRelic {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        this.activated = false;
-        this.counter = 0;
-        this.stopPulse();
+        if (playCardThisTurn) {
+            this.activated = false;
+            this.counter = 0;
+            this.stopPulse();
+        } else {
+            playCardThisTurn = true;
+        }
     }
 }

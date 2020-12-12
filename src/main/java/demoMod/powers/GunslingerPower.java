@@ -23,6 +23,7 @@ public class GunslingerPower extends AbstractPower {
         this.updateDescription();
     }
 
+    @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }

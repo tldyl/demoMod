@@ -122,7 +122,7 @@
   },
   "DemoMod:DoubleSwitch": {
     "NAME": "더블 스위치",
-    "DESCRIPTION": "손에 있는 총 을 2 개 까지 고르고 재장전 합니다."
+    "DESCRIPTION": "손에 있는 총 을 !M! 개 까지 고르고 재장전 합니다."
   },
   "DemoMod:StickyCrossBow": {
     "NAME": "끈적끈적 석궁",
@@ -131,7 +131,10 @@
   "DemoMod:RadGun": {
     "NAME": "라드 건",
     "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태일때 재장전 하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태 또는 탄창이 2 발 남았을때 장전하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!."
+    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태 또는 탄창이 2 발 남았을때 장전하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
+    "EXTENDED_DESCRIPTION": [
+      "Gun. Deal !D! damage. If Reloaded on Capacity above 3, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
+    ]
   },
   "DemoMod:Rummage": {
     "NAME": "수색",
@@ -177,7 +180,8 @@
   },
   "DemoMod:Slinger": {
     "NAME": "슬링거",
-    "DESCRIPTION": "모든 총이 탄창 이 비어도 공격할 수 있습니다. NL 탄창이 비었을때 발사하면 소멸됩니다."
+    "DESCRIPTION": "Whenever you play a Gun card, put a random Skill from the draw pile or discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Gun card, put a random Skill from the draw pile or discard pile into your hand."
   },
   "DemoMod:SpreadAmmo": {
     "NAME": "갈색 탄약 상자",
@@ -194,8 +198,8 @@
   },
   "DemoMod:BattleInHaste": {
     "NAME": "전투 가속",
-    "DESCRIPTION": "뽑을 카드 더미에서 무작위 총 1 장을 손에 추가합니다.",
-    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에서 무작위 총 !M! 장을 손에 추가합니다."
+    "DESCRIPTION": "뽑을 카드 더미에서 무작위 총 1 장을 손에 추가합니다. 소멸.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에서 무작위 총 !M! 장을 손에 추가합니다. 소멸."
   },
   "DemoMod:Casey": {
     "NAME": "케이시",
@@ -425,7 +429,11 @@
   "DemoMod:Polaris": {
     "NAME": "폴라리스",
     "DESCRIPTION": "총. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "총. 반자동. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1레벨 하락합니다. 탄창 !DemoModCapacity!."
+    "UPGRADE_DESCRIPTION": "총. 반자동. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1레벨 하락합니다. 탄창 !DemoModCapacity!.",
+    "EXTENDED_DESCRIPTION": [
+      "총. 피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
+      "총. 반자동. 피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!."
+    ]
   },
   "DemoMod:SuppressiveFire": {
     "NAME": "진압 사격",
@@ -455,5 +463,9 @@
     "NAME": "배고픈 총탄",
     "DESCRIPTION": "전투에서 총을 !M! 번 발사할때마다, 막히지 않은 피해량만큼 방어도를 얻습니다.",
     "UPGRADE_DESCRIPTION": "전투에서 총을 !M! 번 발사할때마다, 막히지 않은 피해량만큼 방어도를 얻습니다."
+  },
+  "DemoMod:HardPowerCard": {
+    "NAME": "Hard Power",
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL In this turn, turn the damage that can be completely Blocked to 1."
   }
 }

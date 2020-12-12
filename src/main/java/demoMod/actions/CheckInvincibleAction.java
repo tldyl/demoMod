@@ -24,6 +24,7 @@ public class CheckInvincibleAction extends AbstractGameAction {
                 maxAmt *= 1 + this.percent;
                 field.set(this.target.getPower(InvinciblePower.POWER_ID), maxAmt);
                 this.target.getPower(InvinciblePower.POWER_ID).amount = maxAmt;
+                this.target.getPower(InvinciblePower.POWER_ID).updateDescription();
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
             }

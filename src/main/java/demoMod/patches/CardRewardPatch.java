@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.cards.Spice;
 
+import java.util.Random;
+
 /**
  * @author Temple9
  * @since 2019-9-13
@@ -26,10 +28,10 @@ public class CardRewardPatch {
     @SpireInsertPatch(rloc=54, localvars={"card"}) //将以下这段代码注入到getRewardCards方法的第54行后
     public static void Insert(@ByRef(type="cards.AbstractCard") Object[] _card) { //传入这个方法的本地变量card的地址
         try {
-            java.util.Random random = new java.util.Random();
+            Random random = new Random();
             double ran = random.nextDouble();
             if (ran < Spice.dropChance) {
-                _card[0] = new demoMod.cards.Spice();
+                _card[0] = new Spice();
                 if (AbstractDungeon.player.hasRelic("Toxic Egg 2")) {
                     ((AbstractCard)_card[0]).upgrade();
                 }

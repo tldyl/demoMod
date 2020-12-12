@@ -47,6 +47,6 @@ public class ComboItemButton extends Button {
         }
         sb.draw(this.img, this.x, this.y, Settings.WIDTH * 0.6F, 60.0F * Settings.scale);
         sb.setColor(com.badlogic.gdx.graphics.Color.WHITE);
-        FontHelper.renderFontCenteredHeight(sb, FontHelper.eventBodyText, this.caption, this.x, this.y + 20.0F, Settings.WIDTH * 0.6F, Settings.CREAM_COLOR.cpy());
+        FontHelper.renderFontCenteredHeight(sb, FontHelper.panelNameFont, this.caption, this.x, this.y + 20.0F, Settings.WIDTH * 0.6F, Settings.CREAM_COLOR.cpy());
     }
 }

@@ -45,12 +45,7 @@ public class NanoMachines extends CustomRelic implements Combo, PostEnterNewActS
     @Override
     public void onEquip() {
         ComboManager.detectComboInGame();
-        if (AbstractDungeon.player.hasRelic(Armor.ID)) {
-            AbstractDungeon.player.getRelic(Armor.ID).counter += 2;
-        } else {
-            new Armor().instantObtain();
-            AbstractDungeon.player.getRelic(Armor.ID).counter += 1;
-        }
+        DemoMod.actionsQueue.add(new ObtainRelicAction(new Armor().setAmount(2)));
     }
 
     @Override
@@ -64,15 +59,7 @@ public class NanoMachines extends CustomRelic implements Combo, PostEnterNewActS
                 this.flash();
                 this.stopPulse();
                 this.counter = 0;
-                if (AbstractDungeon.player.hasRelic(Armor.ID)) {
-                    AbstractDungeon.player.getRelic(Armor.ID).counter += 1;
-                } else {
-                    if (AbstractDungeon.player.hasRelic(Armor.ID)) {
-                        AbstractDungeon.player.getRelic(Armor.ID).counter++;
-                    } else {
-                        this.addToBot(new ObtainRelicAction(new Armor()));
-                    }
-                }
+                this.addToBot(new ObtainRelicAction(new Armor()));
             }
         }
     }

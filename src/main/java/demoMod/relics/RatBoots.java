@@ -4,6 +4,7 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -53,7 +54,8 @@ public class RatBoots extends CustomRelic implements PostReloadSubscriber,
     public void onReload() {
         this.flash();
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new GainBlockAction(p, 5));
+        this.addToTop(new RelicAboveCreatureAction(p, this));
+        this.addToBot(new GainBlockAction(p, 6));
     }
 
     @Override

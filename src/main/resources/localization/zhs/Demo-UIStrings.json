@@ -139,6 +139,42 @@
       "透明滚石现在会 #y消耗 加入抽牌堆的所有 #y状态牌 。"
     ]
   },
+  "DemoMod:BluerGuonStone": {
+    "TEXT": [
+      "更蓝的蓝色滚石",
+      "蓝色滚石效果触发时，每回合开始时给予你的 #y格挡 值增加 #b10 。"
+    ]
+  },
+  "DemoMod:FriendToGunAndBullet": {
+    "TEXT": [
+      "枪弹之友",
+      "打出 #y枪之友谊药水 时，从手牌中选择一把 #y枪 ，在每回合结束时对随机敌方目标打出一次。"
+    ]
+  },
+  "DemoMod:GreenerGuonStone": {
+    "TEXT": [
+      "更绿的绿色滚石",
+      "绿色滚石效果触发时，获得 #b20 金币。"
+    ]
+  },
+  "DemoMod:PinkerGuonStone": {
+    "TEXT": [
+      "更粉的粉色滚石",
+      "当你受到未被 #y格挡 的攻击时，对攻击者施加 #y控制 。"
+    ]
+  },
+  "DemoMod:RedderGuonStone": {
+    "TEXT": [
+      "更红的红色滚石",
+      "每当你完全 #y格挡 住一次敌方的攻击时，获得 #b4 层 #y活力 。"
+    ]
+  },
+  "DemoMod:WhiterGuonStone": {
+    "TEXT": [
+      "更白的白色滚石",
+      "在你的回合结束时，获得 #b4 点 #y格挡 而不是 #b2 点。"
+    ]
+  },
   "DemoMod:HumanShield": {
     "TEXT": [
       "人肉盾牌",
@@ -226,7 +262,7 @@
   "DemoMod:BlessingAndACurse": {
     "TEXT": [
       "祝福与诅咒",
-      "你每杀死 #b4 个带有 #y诅咒之力 的敌人，在每场战斗开始时就获得 #b1 点 #y力量 。"
+      "你每杀死 #b3 个带有 #y诅咒之力 的敌人，在每场战斗开始时就获得 #b1 点 #y力量 。"
     ]
   },
   "DemoMod:ComboManualScreen": {
@@ -243,6 +279,11 @@
       "(药水)",
       "组合效果",
       "(点击任意处退出此界面)"
+    ]
+  },
+  "DemoMod:GunFriendAction": {
+    "TEXT": [
+      "在每回合开始时将其打出"
     ]
   }
 }

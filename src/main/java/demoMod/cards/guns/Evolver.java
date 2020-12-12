@@ -65,9 +65,6 @@ public class Evolver extends AbstractGunCard implements Combo,
         Evolver evolver = (Evolver)card;
         evolver.level = this.level;
         evolver.exp = this.exp;
-        evolver.portrait = this.portrait;
-        evolver.rawDescription = this.rawDescription;
-        evolver.initializeDescription();
         evolver.capacity = this.capacity;
         evolver.maxCapacity = this.maxCapacity;
         evolver.defaultTarget = this.defaultTarget;

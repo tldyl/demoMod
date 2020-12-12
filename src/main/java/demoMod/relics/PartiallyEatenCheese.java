@@ -83,6 +83,7 @@ public class PartiallyEatenCheese extends AbstractClickRelic implements Combo {
             AbstractPlayerPatch.PatchUpdate.animStatus = "intro";
         }
         this.activated = false;
+        this.stopPulse();
     }
 
     @Override

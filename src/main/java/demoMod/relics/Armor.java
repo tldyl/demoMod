@@ -2,6 +2,8 @@ package demoMod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import demoMod.DemoMod;
 import demoMod.actions.LoseRelicAction;
 import demoMod.sounds.DemoSoundMaster;
@@ -14,6 +16,20 @@ public class Armor extends CustomRelic {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)),
                 RelicTier.SPECIAL, LandingSound.CLINK);
         this.counter = 1;
+    }
+
+    public AbstractRelic setAmount(int counter) {
+        this.counter = counter;
+        return this;
+    }
+
+    public void instantObtain() {
+        if (AbstractDungeon.player.hasRelic(ID)) {
+            AbstractDungeon.player.getRelic(ID).counter += this.counter;
+            AbstractDungeon.player.getRelic(ID).flash();
+            return;
+        }
+        super.instantObtain();
     }
 
     @Override

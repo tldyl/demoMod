@@ -16,11 +16,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import demoMod.DemoMod;
+import demoMod.interfaces.PreAttackDecreaseBlock;
 import demoMod.powers.PacManPower;
 import demoMod.relics.ResourcefulSack;
 import demoMod.relics.interfaces.PostBeforePlayerDeath;
@@ -73,7 +75,7 @@ public class AbstractPlayerPatch {
     )
     public static class PatchDamage {
         @SpireInsertPatch(rloc = 127)
-        public static SpireReturn Insert(AbstractPlayer p, DamageInfo info) {
+        public static SpireReturn Insert1(AbstractPlayer p, DamageInfo info) {
             for (AbstractRelic relic : AbstractDungeon.player.relics) {
                 if (relic instanceof PostBeforePlayerDeath) {
                     if (!((PostBeforePlayerDeath)relic).isUsedUp()) {
@@ -84,6 +86,16 @@ public class AbstractPlayerPatch {
             }
             if (p.currentHealth > 0) return SpireReturn.Return(null);
             return SpireReturn.Continue();
+        }
+
+        @SpireInsertPatch(rloc = 6, localvars = {"damageAmount"})
+        public static void Insert2(AbstractPlayer p, DamageInfo info, @ByRef int[] damageAmount) {
+            for (AbstractPower power : p.powers) {
+                if (power instanceof PreAttackDecreaseBlock) {
+                    PreAttackDecreaseBlock subscriber = (PreAttackDecreaseBlock) power;
+                    damageAmount[0] = subscriber.onAttackBeforeDecreaseBlock(info, damageAmount[0]);
+                }
+            }
         }
     }
 

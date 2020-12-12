@@ -22,6 +22,8 @@ import demoMod.powers.BlessPower;
 import java.util.ArrayList;
 import java.util.List;
 
+import static demoMod.utils.Utils.calcMaxHpMultiplier;
+
 public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubscriber {
 
     public static final String ID = DemoMod.makeID("Gunsinger");
@@ -70,9 +72,9 @@ public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubs
     public Gunsinger(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
-            setHp(18, 22);
+            setHp(18 * (int)calcMaxHpMultiplier(), 22 * (int)calcMaxHpMultiplier());
         } else {
-            setHp(13, 17);
+            setHp(13 * (int)calcMaxHpMultiplier(), 17 * (int)calcMaxHpMultiplier());
         }
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
         this.effect = new BlessEffect(this.drawX, this.drawY + 16);
@@ -87,10 +89,10 @@ public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubs
     @Override
     public void useStaggerAnimation() { //受伤时触发
         super.useStaggerAnimation();
-        this.phase = 0;
         if (this.blessTarget != null) {
             this.setMove((byte) 2, Intent.UNKNOWN);
             this.createIntent();
+            this.phase = 0;
             if (!this.effect.isDone) {
                 ((BlessEffect) effect).stop();
             }

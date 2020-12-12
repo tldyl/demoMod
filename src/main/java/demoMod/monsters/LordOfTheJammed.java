@@ -48,6 +48,18 @@ public class LordOfTheJammed extends AbstractMonster implements PostOnMonsterDea
     }
 
     @Override
+    public void increaseMaxHp(int amount, boolean showEffect) {
+    }
+
+    @Override
+    public void heal(int healAmount, boolean showEffect) {
+    }
+
+    @Override
+    public void addBlock(int amount) {
+    }
+
+    @Override
     public void takeTurn() {
         switch (this.nextMove) {
             case 1:

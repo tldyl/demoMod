@@ -139,6 +139,42 @@
       "Clear Guon Stone now can #yExhaust ALL the #yStatus card that added to the draw pile."
     ]
   },
+  "DemoMod:BluerGuonStone": {
+    "TEXT": [
+      "Bluer Guon Stone",
+      "When Blue guon stone triggered, increase the #yBlock by #b10 you gained at the start of your turn."
+    ]
+  },
+  "DemoMod:FriendToGunAndBullet": {
+    "TEXT": [
+      "Friend To Gun And Bullet",
+      "When played #yPotion #yOf #yGun #yFriendship , choose a #yGun in your hand, it'll play at the end of your turn to a random enemy."
+    ]
+  },
+  "DemoMod:GreenerGuonStone": {
+    "TEXT": [
+      "Greener Guon Stone",
+      "When Green guon stone triggered, gain #b20 gold."
+    ]
+  },
+  "DemoMod:PinkerGuonStone": {
+    "TEXT": [
+      "Pinker Guon Stone",
+      "When you receive an unblocked damage, apply #yControl to damage source."
+    ]
+  },
+  "DemoMod:RedderGuonStone": {
+    "TEXT": [
+      "Redder Guon Stone",
+      "When you completely #yBlocked an attack, gain #b4 #yViger."
+    ]
+  },
+  "DemoMod:WhiterGuonStone": {
+    "TEXT": [
+      "Whiter Guon Stone",
+      "At the end of your turn, gain #b4 #yBlock rather than #b2."
+    ]
+  },
   "DemoMod:HumanShield": {
     "TEXT": [
       "Human Shield",
@@ -172,7 +208,7 @@
   "DemoMod:DeadlyDistraction": {
     "TEXT": [
       "Deadly Distraction",
-      "When the decoy is destroyed, apply #b10 Poison to ALL enemies."
+      "When the decoy is destroyed, apply #b10 #yPoison to ALL enemies."
     ]
   },
   "DemoMod:KageBunshin": {
@@ -226,7 +262,7 @@
   "DemoMod:BlessingAndACurse": {
     "TEXT": [
       "Blessing And A Curse",
-      "Whenever you killed #b4 enemies with #yStrengthOfCurse, gain #b1 #yStrength at the start of each combat."
+      "Whenever you killed #b3 enemies with #yStrengthOfCurse, gain #b1 #yStrength at the start of each combat."
     ]
   },
   "DemoMod:ComboManualScreen": {

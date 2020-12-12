@@ -31,6 +31,7 @@ public class BattleInHaste extends CustomCard {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust = true;
     }
 
     @Override

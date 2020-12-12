@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
+import demoMod.combo.ComboManager;
 
 public class BlueGuonStonePower extends AbstractPower {
     public static final String POWER_ID = DemoMod.makeID("BlueGuonStonePower");
@@ -32,7 +33,11 @@ public class BlueGuonStonePower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, 20));
+        if (ComboManager.hasComboActivated(DemoMod.makeID("BluerGuonStone"))) {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, 30));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, 20));
+        }
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 0));
         this.amount -= 1;
         if (this.amount <= 0) {
@@ -41,6 +46,10 @@ public class BlueGuonStonePower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if (ComboManager.hasComboActivated(DemoMod.makeID("BluerGuonStone"))) {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 30 + DESCRIPTIONS[2];
+        } else {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 20 + DESCRIPTIONS[2];
+        }
     }
 }

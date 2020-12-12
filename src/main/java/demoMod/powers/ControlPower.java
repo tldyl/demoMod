@@ -43,7 +43,6 @@ public class ControlPower extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK) {
-            this.flash();
             ChangeTargetPatch.source.clear();
             ChangeTargetPatch.source.addAll(AbstractDungeon.getCurrRoom().monsters.monsters);
             ChangeTargetPatch.target = action.target;
@@ -58,7 +57,10 @@ public class ControlPower extends AbstractPower {
                     return;
                 }
             }
-            if (action.target != this.owner) ((AbstractMonster)this.owner).takeTurn();
+            if (action.target != this.owner) {
+                this.flash();
+                ((AbstractMonster)this.owner).takeTurn();
+            }
         }
     }
 

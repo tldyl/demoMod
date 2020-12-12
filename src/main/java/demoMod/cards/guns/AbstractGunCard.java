@@ -22,7 +22,6 @@ import demoMod.monsters.Decoy;
 import demoMod.powers.ChanceBulletsPower;
 import demoMod.powers.GunslingerPower;
 import demoMod.powers.PlatinumBulletsPower;
-import demoMod.powers.SlingerPower;
 import demoMod.relics.CrisisStone;
 import demoMod.relics.ElasticCartridgeClip;
 import demoMod.relics.SilverBullets;
@@ -107,12 +106,11 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             }
         } else if (this.capacity == 0 && !redirected) {
             if (!p.hasRelic("DemoMod:HipHolster")
-                    && !p.hasPower(SlingerPower.POWER_ID)
                     && !this.cardID.equals(DemoMod.makeID("DirectionalPad"))) {
                 this.target = CardTarget.NONE;
             }
         }
-        if (!isReload || p.hasRelic("DemoMod:HipHolster") || p.hasPower(SlingerPower.POWER_ID)) {
+        if (!isReload || p.hasRelic("DemoMod:HipHolster")) {
             this.returnToHand = (this.isSemiAutomatic || this.isSemiAutomaticForTurn) && this.costForTurn > 0;
             if (!this.returnToHand) {
                 this.isSemiAutomaticForTurn = false;
@@ -120,10 +118,6 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             fire(p, m);
             if (isReload && p.hasRelic("DemoMod:HipHolster")) {
                 p.getRelic("DemoMod:HipHolster").flash();
-                if (!p.hasPower(SlingerPower.POWER_ID)) {
-                    DemoSoundMaster.playA(this.reloadSoundKey, 0F);
-                    isReload = false;
-                }
                 autoReload(p, m);
                 afterReload();
             }
@@ -203,39 +197,19 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
 
     @Override
     public AbstractCard makeStatEquivalentCopy() {
-        AbstractCard card = this.makeCopy();
-        for (int i = 0; i < this.timesUpgraded; ++i) {
-            card.upgrade();
-        }
-        card.name = this.name;
-        card.target = this.target;
-        card.upgraded = this.upgraded;
-        card.timesUpgraded = this.timesUpgraded;
-        card.baseDamage = this.baseDamage;
-        card.baseBlock = this.baseBlock;
-        card.baseMagicNumber = this.baseMagicNumber;
-        card.cost = this.cost;
-        card.costForTurn = this.costForTurn;
-        card.isCostModified = this.isCostModified;
-        card.isCostModifiedForTurn = this.isCostModifiedForTurn;
-        card.inBottleLightning = this.inBottleLightning;
-        card.inBottleFlame = this.inBottleFlame;
-        card.inBottleTornado = this.inBottleTornado;
-        card.isSeen = this.isSeen;
-        card.isLocked = this.isLocked;
-        card.misc = this.misc;
-        card.freeToPlayOnce = this.freeToPlayOnce;
-
-        AbstractGunCard gunCard = (AbstractGunCard) card;
+        AbstractGunCard gunCard = (AbstractGunCard) super.makeStatEquivalentCopy();
         gunCard.capacity = this.capacity;
         gunCard.maxCapacity = this.maxCapacity;
+        gunCard.rawDescription = this.rawDescription;
+        gunCard.initializeDescription();
+        gunCard.portrait = this.portrait;
         if (this.capacity <= 0) {
             if (!AbstractDungeon.player.hasRelic("DemoMod:HipHolster")
                     && !AbstractDungeon.player.hasPower(DemoMod.makeID("SlingerPower"))) {
                 this.target = CardTarget.NONE;
             }
         }
-        return card;
+        return gunCard;
     }
 
     public void clearAmmo() {

@@ -221,7 +221,7 @@
     "NAME": "Blue Guon Stone",
     "FLAVOR": "The Blue Guon Stone, or the Stone of the Critical Perception, increases its bearers reaction times in dangerous situations.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #b2 #yBlock. Whenever you receive an unblocked #yattack damage, In the next #b3 turns, gain #b20 #yBlock at the start of each turn. Can only trigger once in a combat."
+      "At the end of your turn, gain #b2 #yBlock. Whenever you receive an unblocked #yattack damage, In the next #b3 turns, gain #b", " #yBlock at the start of each turn. Can only trigger once in a combat."
     ]
   },
   "DemoMod:MeltedRock": {
@@ -250,7 +250,7 @@
     "NAME": "Super Hot Watch",
     "FLAVOR": "This watch is extremely hot to the touch.",
     "DESCRIPTIONS": [
-      "Whenever you didn't play any cards during your turn, Take an extra turn after this one. It can only be triggered twice in a row."
+      "Whenever you play #b1 or less cards during your turn, Take an extra turn after this one. It can only be triggered twice in a row."
     ]
   },
   "DemoMod:RiddleOfLead": {
@@ -341,7 +341,7 @@
     "NAME": "Rat Boots",
     "FLAVOR": "Stolen off a hapless pointy-eared adventurer.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b1 Dexterity. NL Whenever you have a #yReload, gain #b5 #yBlock."
+      "At the start of each combat, gain #b1 Dexterity. NL Whenever you have a #yReload, gain #b6 #yBlock."
     ]
   },
   "DemoMod:ResourcefulSack": {
@@ -425,6 +425,13 @@
     "FLAVOR": "This puzzle box plays beautiful, melodic tones as it is solved.",
     "DESCRIPTIONS": [
       "Right-click to use in a combat after you cleaned #b1 room. Decrease its counter by #b1 and spawn several monsters. NL When the counter turn to #b0 , gain a random #buncommon or #yrare #yrelic and #r1 #yCursePoint, raise the max counter by #b1. NL You can get up to #b5 #yrelics from this relic."
+    ]
+  },
+  "DemoMod:Plus1Bullets": {
+    "NAME": "+1 Bullets",
+    "FLAVOR": "Peer-reviewed studies have shown that these bullets are precisely 1 better than normal bullets.",
+    "DESCRIPTIONS": [
+      "#yGuns deal #b1 additional damage."
     ]
   }
 }

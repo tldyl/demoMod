@@ -1,6 +1,8 @@
 package demoMod.powers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.DemoMod;
 
-public class OutOfBodyPower extends AbstractPower {
+public class OutOfBodyPower extends AbstractPower implements HealthBarRenderPower {
     public static final String POWER_ID = DemoMod.makeID("OutOfBodyPower");
     public static PowerType POWER_TYPE = PowerType.DEBUFF;
     private AbstractCreature source;
@@ -31,6 +33,10 @@ public class OutOfBodyPower extends AbstractPower {
         updateDescription();
     }
 
+    public OutOfBodyPower(AbstractCreature owner, int amount) {
+        this(owner, AbstractDungeon.player, amount);
+    }
+
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
@@ -44,13 +50,23 @@ public class OutOfBodyPower extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.owner == source && info.type == DamageInfo.DamageType.NORMAL && damageAmount > owner.currentBlock) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount));
+            AbstractDungeon.actionManager.addToTop(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount));
             this.amount -= 1;
             updateDescription();
         }
         if (this.amount < 1) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, DemoMod.makeID("OutOfBodyPower")));
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, DemoMod.makeID("OutOfBodyPower")));
         }
         return damageAmount;
+    }
+
+    @Override
+    public int getHealthBarAmount() {
+        return this.amount;
+    }
+
+    @Override
+    public Color getColor() {
+        return Color.GRAY.cpy();
     }
 }

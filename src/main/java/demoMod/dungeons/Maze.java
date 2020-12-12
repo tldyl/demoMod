@@ -96,7 +96,7 @@ public class Maze extends AbstractDungeon {
 
         initializeLevelSpecificChances();
         miscRng = new Random(Settings.seed + saveFile.floor_num);
-        mapRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + AbstractDungeon.actNum * 100);
+        mapRng = new Random(Settings.seed + AbstractDungeon.actNum * 100);
         generateSpecialMap();
 
         populatePathTaken(saveFile);
@@ -238,7 +238,7 @@ public class Maze extends AbstractDungeon {
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_red_shotgun_kin", 1.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_bullet_kin", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:Red_and_blue_shotgun_kin", 2.0F));
-        monsters.add(new MonsterInfo("DemoMod:3_Bullet_Kins_with_one_veteran", 1.0F));
+        monsters.add(new MonsterInfo("DemoMod:4_Bullet_Kins_with_one_veteran", 1.0F));
         monsters.add(new MonsterInfo("DemoMod:2_Veteran_bullet_kins_and_red_shotgun_kin", 2.0F));
 
         MonsterInfo.normalizeWeights(monsters);
@@ -250,8 +250,8 @@ public class Maze extends AbstractDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo("DemoMod:Red_and_blue_shotgun_kin_with_gunsinger", 2.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_red_shotgun_kin_with_gunsinger", 1.0F));
-        monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_blue_shotgun_kin_with_gunsinger", 1.0F));
-        monsters.add(new MonsterInfo("DemoMod:2_Mousers", 2.0F));
+        monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_blue_shotgun_kin_with_gunsinger", 2.0F));
+        monsters.add(new MonsterInfo("DemoMod:2_Mousers", 1.0F));
         monsters.add(new MonsterInfo("DemoMod:Veteran_shot_gun_kin_and_blue_shotgun_kin", 1.0F));
 
         MonsterInfo.normalizeWeights(monsters);

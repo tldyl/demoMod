@@ -19,7 +19,6 @@ public class SetAreaNamePatch {
             __instance.levelName = Maze.NAME;
             __instance.levelNum = Maze.NUM;
         }
-
     }
 
     private static class Locator extends SpireInsertLocator {

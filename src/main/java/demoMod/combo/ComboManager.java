@@ -182,4 +182,14 @@ public class ComboManager {
     public static List<Combo> getAllCombo(String comboId) {
         return combos.get(comboId);
     }
+
+    public static boolean hasComboActivated(String comboId) {
+        String comboName = comboId.split(":")[1];
+        for (String combos : hasComboActivated.keySet()) {
+            if (combos.split(":")[1].equals(comboName)) {
+                return hasComboActivated.get(combos);
+            }
+        }
+        return false;
+    }
 }

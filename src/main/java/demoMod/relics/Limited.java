@@ -33,12 +33,14 @@ public class Limited extends CustomRelic {
 
     @Override
     public void onMasterDeckChange() {
-        this.flash();
+        boolean shouldFlash = false;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card instanceof AbstractGunCard) {
                 AbstractGunCard gunCard = (AbstractGunCard) card;
+                if (gunCard.capacity > 0) shouldFlash = true;
                 gunCard.clearAmmo();
             }
         }
+        if (shouldFlash) this.flash();
     }
 }

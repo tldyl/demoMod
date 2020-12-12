@@ -55,7 +55,7 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) {
+        if (this.capacity >= this.maxCapacity) {
             blastMode = !blastMode;
             if (blastMode) {
                 this.cost = -1;
@@ -114,9 +114,9 @@ public class DarkMarker extends AbstractGunCard implements Combo, PostAddedToMas
         if (blastMode) {
             if (this.energyOnUse > 0) {
                 EnergyPanel.setEnergy(0);
-                if (p.hasRelic("Chemical X")) {
-                    p.getRelic("Chemical X").flash();
-                }
+                AbstractDungeon.actionManager.addToBottom(new DarkMarkerBlastAction(this));
+            } else if (p.hasRelic("Chemical X")) {
+                p.getRelic("Chemical X").flash();
                 AbstractDungeon.actionManager.addToBottom(new DarkMarkerBlastAction(this));
             }
         } else {

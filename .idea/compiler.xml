@@ -9,5 +9,8 @@
         <module name="demoMod" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demoMod-extend" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

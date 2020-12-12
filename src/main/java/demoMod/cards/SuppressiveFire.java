@@ -16,10 +16,10 @@ public class SuppressiveFire extends CustomCard {
 
     private static final CardStrings cardStrings;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public SuppressiveFire() {
         super(ID, NAME, DemoMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, DemoMod.characterColor, RARITY, TARGET);

@@ -34,8 +34,7 @@ public class GundromedaStrain extends CustomRelic {
                 }
             }
             m.healthBarUpdatedEvent();
+            this.addToTop(new RelicAboveCreatureAction(m, this));
         }
-
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 }

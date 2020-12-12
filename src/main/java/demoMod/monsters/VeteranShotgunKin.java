@@ -16,6 +16,8 @@ import demoMod.cards.tempCards.Flaw;
 import demoMod.powers.SelfExplodePower;
 import demoMod.sounds.DemoSoundMaster;
 
+import static demoMod.utils.Utils.calcMaxHpMultiplier;
+
 public class VeteranShotgunKin extends AbstractMonster {
     public static final String ID = DemoMod.makeID("VeteranShotgunKin");
     private static final MonsterStrings monsterStrings;
@@ -35,9 +37,9 @@ public class VeteranShotgunKin extends AbstractMonster {
     public VeteranShotgunKin(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, IMG_PATH, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
-            setHp(35, 41);
+            setHp(35 * (int)calcMaxHpMultiplier(), 41 * (int)calcMaxHpMultiplier());
         } else {
-            setHp(31, 37);
+            setHp(31 * (int)calcMaxHpMultiplier(), 37 * (int)calcMaxHpMultiplier());
         }
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
     }

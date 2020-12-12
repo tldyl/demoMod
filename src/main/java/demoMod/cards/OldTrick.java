@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.actions.UnmovedAction;
 
+@Deprecated
 public class OldTrick extends CustomCard {
     public static final String ID = DemoMod.makeID("OldTrick");
     public static final String NAME;

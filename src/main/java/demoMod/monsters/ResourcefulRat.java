@@ -3,10 +3,12 @@ package demoMod.monsters;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
 import basemod.interfaces.OnCardUseSubscriber;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -34,6 +36,7 @@ import demoMod.cards.guns.Elimentaler;
 import demoMod.cards.tempCards.RatTrap;
 import demoMod.effects.BulletWaveEffect;
 import demoMod.effects.RatJumpIntoEntryEffect;
+import demoMod.effects.TextureAboveCreatureEffect;
 import demoMod.patches.MonsterRoomPatch;
 import demoMod.powers.*;
 import demoMod.sounds.DemoSoundMaster;
@@ -124,7 +127,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         packs1[5] = () -> movePackManager.addMove(() -> setMove((byte) 6, Intent.ATTACK_DEBUFF, 3, 6, true));
 
         packs2[0] = () -> {
-            movePackManager.addMove(() -> setMove((byte) 1, Intent.BUFF));
+            movePackManager.addMove(() -> setMove((byte) 1, Intent.ATTACK_BUFF, 15));
             movePackManager.addMove(() -> setMove((byte) 2, Intent.ATTACK, 15));
             movePackManager.addMove(() -> setMove((byte) 2, Intent.ATTACK, 15));
         };
@@ -181,11 +184,17 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_RESOURCEFUL_RAT_1");
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AfterImageMonsterPower(this, 2)));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[AbstractDungeon.miscRng.random(0, 1)], 0.5F, 4.0F));
-            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (m != this) {
-                    this.addToBot(new StunMonsterAction(m, this));
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                        if (m != ResourcefulRat.this) {
+                            this.addToTop(new ApplyPowerAction(m, ResourcefulRat.this, new StunMonsterPower(m, 1)));
+                        }
+                    }
+                    isDone = true;
                 }
-            }
+            });
             AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
             MonsterRoomPatch.PatchRender.enabled = true;
             phaseTwo = false;
@@ -229,6 +238,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     AbstractDungeon.actionManager.addToTop(new GainBlockAction(this, this.defendBase));
                     if (!this.hasPower(BarricadePower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BarricadePower(this)));
+                        addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 0)));
                     }
                     this.defendBase += AbstractDungeon.ascensionLevel >= 19 ? 5 : 7;
                     if (defendBase >= 45) {
@@ -237,6 +247,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     break;
                 case 2:
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, BarricadePower.POWER_ID));
+                    addToBot(new RemoveSpecificPowerAction(this, this, InvinciblePower.POWER_ID));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                     break;
                 case 3:
@@ -285,6 +296,8 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         } else {
             switch (this.nextMove) {
                 case 1:
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    DemoMod.effectsQueue.add(new TextureAboveCreatureEffect(AbstractDungeon.player, new TextureAtlas(Gdx.files.internal("powers/powers.atlas")).findRegion("128/accuracy").getTexture()));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HomingMissilePower(this, 3)));
                     break;
                 case 2:
@@ -451,6 +464,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         movePackManager.clearRemainingMoves();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m != this && !m.isDeadOrEscaped()) {
+                m.powers.clear();
                 AbstractDungeon.actionManager.addToBottom(new SuicideAction(m, false));
             }
         }

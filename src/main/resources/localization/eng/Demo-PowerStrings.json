@@ -96,7 +96,7 @@
   "DemoMod:SlingerPower": {
     "NAME": "Slinger",
     "DESCRIPTIONS": [
-      "ALL #yGuns can still deal damage when the #yCapacity is empty. NL ALL #yGuns will be #yExhaust when the #yCapacity is empty."
+      "Whenever you play a #yGun card, put #b", " random Skill(s) from the draw pile or discard pile into your hand."
     ]
   },
   "DemoMod:JammedPower": {
@@ -282,7 +282,21 @@
     "DESCRIPTIONS": [
       "You can gain #yBlock equal to unblocked damage dealt after you played #b",
       " #yGuns.",
-      "The next #yGun you played will gain #yBlock equal to unblocked damage dealt."
+      "The next #yGun you played will gain #yBlock equal to unblocked damage dealt.",
+      " (Gain extra #b", " times of #Block.)",
+      "The next #yGun you played will gain #yBlock equal to unblocked damage dealt.", " (Gain extra #b", " times of #Block.)"
+    ]
+  },
+  "DemoMod:GunFriendPower": {
+    "NAME": "Friend To Gun And Bullet",
+    "DESCRIPTIONS": [
+      "At the end of your turn, play #y", " #b", " times."
+    ]
+  },
+  "DemoMod:HardPower": {
+    "NAME": "Hard Power",
+    "DESCRIPTIONS": [
+      "In this turn, turn the damage that can be completely Blocked to #b1."
     ]
   }
 }

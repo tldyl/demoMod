@@ -1,5 +1,8 @@
 package demoMod.utils;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+
 public class Utils {
     public static Point getCirclePoint(Point point, double angle, double r) {
         double x = point.x + r * Math.cos(angle);
@@ -49,5 +52,25 @@ public class Utils {
         ret[1].x = xd;
         ret[1].y = yd;
         return ret;
+    }
+
+    public static float calcMaxHpMultiplier() {
+        return (float)AbstractDungeon.actNum / 6.0F + 19.0F / 15.0F;
+    }
+
+    public static float radToDeg(float rad) {
+        return (rad / 3.14159265F) * 180.0F;
+    }
+
+    public static AbstractRelic returnRandomRelicTierRelic() {
+        AbstractRelic.RelicTier tier;
+        if (AbstractDungeon.relicRng.random(1.0F) < 0.5F) {
+            tier = AbstractRelic.RelicTier.COMMON;
+        } else if (AbstractDungeon.relicRng.random(1.0F) < 0.83F) {
+            tier = AbstractRelic.RelicTier.UNCOMMON;
+        } else {
+            tier = AbstractRelic.RelicTier.RARE;
+        }
+        return AbstractDungeon.returnRandomRelic(tier);
     }
 }

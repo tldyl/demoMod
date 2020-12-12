@@ -32,6 +32,11 @@ public class LeadSkinPower extends AbstractPower {
     }
 
     @Override
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
+        return this.amount > damage ? 1 : damage;
+    }
+
+    @Override
     public int onAttacked(DamageInfo info, int damage) {
         System.out.println(damage);
         if (damage <= this.amount && damage > 1 && info.type != DamageType.HP_LOSS && info.type != DamageType.THORNS) {

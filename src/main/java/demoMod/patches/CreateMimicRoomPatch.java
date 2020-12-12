@@ -38,7 +38,7 @@ public class CreateMimicRoomPatch {
                 if (AbstractDungeon.mapRng.random(99) <= 2.1 * HuntressCharacter.curse + 2.25) {
                     if (node.room instanceof TreasureRoom) {
                         node.setRoom(new MimicRoom(true));
-                    } else {
+                    } else if (AbstractDungeon.mapRng.randomBoolean()) {
                         node.setRoom(new MimicRoom(false));
                     }
                 }

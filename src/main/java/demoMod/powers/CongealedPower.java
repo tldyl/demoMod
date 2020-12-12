@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import demoMod.DemoMod;
+import demoMod.cards.guns.Elimentaler;
 import demoMod.patches.AbstractMonsterEnum;
 import demoMod.sounds.DemoSoundMaster;
 
@@ -26,6 +27,7 @@ public class CongealedPower extends AbstractPower {
     private byte moveByte;
     private AbstractMonster.Intent moveIntent;
     private EnemyMoveInfo move;
+    private AbstractCard callingCard;
 
     public CongealedPower(AbstractCreature owner, int amount) {
         this.ID = POWER_ID;
@@ -51,6 +53,8 @@ public class CongealedPower extends AbstractPower {
 
     @Override
     public void triggerMarks(AbstractCard card) {
+        if (!(card instanceof Elimentaler) || ((AbstractMonster)owner).intent == AbstractMonsterEnum.CONGEALED) return;
+        this.callingCard = card;
         if (this.amount / 10 > this.oct) {
             this.flash();
             AbstractDungeon.effectList.add(new FlashPowerEffect(this));
@@ -109,7 +113,7 @@ public class CongealedPower extends AbstractPower {
                     avgAmt = 20 - m.getPower(POWER_ID).amount;
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, this.owner, new CongealedPower(m, avgAmt)));
-                this.addToBot(new TriggerMarksAction(null));
+                this.addToBot(new TriggerMarksAction(this.callingCard));
             }
         }
     }

@@ -35,9 +35,9 @@ public class SevenLeafClover extends CustomRelic {
     public void justEnteredRoom(AbstractRoom room) {
         if ((room instanceof TreasureRoom)) {
             this.flash();
-            this.pulse = true;
+            this.beginLongPulse();
         } else {
-            this.pulse = false;
+            this.stopPulse();
         }
     }
 
@@ -50,10 +50,15 @@ public class SevenLeafClover extends CustomRelic {
             while (cardSet.size() < 3) {
                 cardSet.add(AbstractDungeon.getCard(AbstractCard.CardRarity.RARE));
             }
-            reward.cards = new ArrayList<>(cardSet);
+            reward.cards = new ArrayList<>();
+            for (AbstractCard card : cardSet) {
+                reward.cards.add(card.makeCopy());
+            }
             AbstractDungeon.getCurrRoom().addCardReward(reward);
             double ran = AbstractDungeon.treasureRng.random(1.0F) * AbstractDungeon.rareRelicPool.size();
-            AbstractDungeon.getCurrRoom().addRelicToRewards(RelicLibrary.getRelic(AbstractDungeon.rareRelicPool.get((int)Math.floor(ran))));
+            String key = AbstractDungeon.rareRelicPool.get((int)Math.floor(ran));
+            AbstractDungeon.getCurrRoom().addRelicToRewards(RelicLibrary.getRelic(key).makeCopy());
+            AbstractDungeon.rareRelicPool.remove(key);
         }
     }
 
