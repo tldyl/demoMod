@@ -1,4 +1,14 @@
 {
+  "DemoMod:GunCardTypeName": {
+    "TEXT": [
+      "Gun"
+    ]
+  },
+  "DemoMod:GunCardKeywordName": {
+    "TEXT": [
+      "gun"
+    ]
+  },
   "DemoMod:ReloadAction": {
     "TEXT": [
       "to have a manual reload."
@@ -124,7 +134,7 @@
   "DemoMod:WhatEngineDoYouUse": {
     "TEXT": [
       "What Engine Do You Use",
-      "Whenever you #yReload #yGungine, gain additional 1 [E]. NL Card #yUnity deals #b2 additional damage for each #yGun you have."
+      "Whenever you #yReload #yGungine, gain additional [E] . NL Card #yUnity deals #b2 additional damage for each #yGun you have."
     ]
   },
   "DemoMod:Antichamber": {
@@ -279,6 +289,11 @@
       "(Potion)",
       "Combo Effect",
       "(Click anywhere to exit this screen.)"
+    ]
+  },
+  "DemoMod:GunFriendAction": {
+    "TEXT": [
+      "to play at the end of each turn."
     ]
   }
 }

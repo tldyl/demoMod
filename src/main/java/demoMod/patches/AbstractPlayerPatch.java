@@ -9,7 +9,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,6 +21,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import demoMod.DemoMod;
+import demoMod.cards.interfaces.TriggerInAnywhereOnOtherCardPlayed;
 import demoMod.interfaces.PreAttackDecreaseBlock;
 import demoMod.powers.PacManPower;
 import demoMod.relics.ResourcefulSack;
@@ -74,6 +74,18 @@ public class AbstractPlayerPatch {
             method = "damage"
     )
     public static class PatchDamage {
+        private static List<PostBeforePlayerDeath> subscribers = new ArrayList<>();
+
+        public static void subscribeRevive(PostBeforePlayerDeath subscriber) {
+            if (!subscribers.contains(subscriber)) {
+                subscribers.add(subscriber);
+            }
+        }
+
+        public static void unsubscribeRevive(PostBeforePlayerDeath subscriber) {
+            subscribers.remove(subscriber);
+        }
+
         @SpireInsertPatch(rloc = 127)
         public static SpireReturn Insert1(AbstractPlayer p, DamageInfo info) {
             for (AbstractRelic relic : AbstractDungeon.player.relics) {
@@ -82,6 +94,12 @@ public class AbstractPlayerPatch {
                         ((PostBeforePlayerDeath) relic).onNearDeath();
                         break;
                     }
+                }
+            }
+            for (PostBeforePlayerDeath subscriber : subscribers) {
+                if (!subscriber.isUsedUp()) {
+                    subscriber.onNearDeath();
+                    break;
                 }
             }
             if (p.currentHealth > 0) return SpireReturn.Return(null);
@@ -238,13 +256,28 @@ public class AbstractPlayerPatch {
         @SpireInsertPatch(rloc = 22)
         public static void Insert(AbstractPlayer p, AbstractCard c, AbstractMonster m, int energyOnUse) {
             for (AbstractCard card : p.drawPile.group) {
-                if (!(card instanceof Pain)) {
-                    card.triggerOnOtherCardPlayed(c);
+                if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
+                    ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
+                }
+            }
+            for (AbstractCard card : p.hand.group) {
+                if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
+                    ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
                 }
             }
             for (AbstractCard card : p.discardPile.group) {
-                if (!(card instanceof Pain)) {
-                    card.triggerOnOtherCardPlayed(c);
+                if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
+                    ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
+                }
+            }
+            for (AbstractCard card : p.exhaustPile.group) {
+                if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
+                    ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
+                }
+            }
+            for (AbstractCard card : p.limbo.group) {
+                if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
+                    ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
                 }
             }
         }

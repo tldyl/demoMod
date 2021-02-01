@@ -38,11 +38,17 @@ public class StrengthOfCursePower extends AbstractPower {
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        return AbstractDungeon.player.hasRelic(SilverBullets.ID) ? (float)(1.0 + 0.15 * HuntressCharacter.curse) * damage : damage;
+        return AbstractDungeon.player.hasRelic(SilverBullets.ID) && HuntressCharacter.curse > 0 ? (float)(1.0 + 0.15 * HuntressCharacter.curse) * damage : damage;
     }
 
+    @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + (int)(HuntressCharacter.curse * 5) + DESCRIPTIONS[1] + strengthToApply + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public void onRemove() {
+        addToBot(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.strengthToApply)));
     }
 
     static {

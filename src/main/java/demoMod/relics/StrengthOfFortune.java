@@ -2,13 +2,10 @@ package demoMod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import demoMod.DemoMod;
-import demoMod.relics.interfaces.PreDamageGive;
 
-public class StrengthOfFortune extends CustomRelic implements PreDamageGive {
+public class StrengthOfFortune extends CustomRelic {
     public static final String ID = DemoMod.makeID("StrengthOfFortune");
     public static final String IMG_PATH = "relics/strengthOfFortune.png";
 
@@ -23,11 +20,7 @@ public class StrengthOfFortune extends CustomRelic implements PreDamageGive {
     }
 
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && type == DamageInfo.DamageType.NORMAL) {
-            this.flash();
-            return 3.0F * damage;
-        }
-        return damage;
+    public float atDamageModify(float damage, AbstractCard card) {
+        return 3.0F * damage;
     }
 }

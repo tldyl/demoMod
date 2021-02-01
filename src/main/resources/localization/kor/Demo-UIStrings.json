@@ -1,4 +1,14 @@
 {
+  "DemoMod:GunCardTypeName": {
+    "TEXT": [
+      "총"
+    ]
+  },
+  "DemoMod:GunCardKeywordName": {
+    "TEXT": [
+      "총"
+    ]
+  },
   "DemoMod:ReloadAction": {
     "TEXT": [
       "수동 장전할 카드를 선택하세요."
@@ -279,6 +289,11 @@
       "( 포션 )",
       "콤보 효과",
       "( 아무 곳이나 클릭하여 이 화면에서 벗어납니다. )"
+    ]
+  },
+  "DemoMod:GunFriendAction": {
+    "TEXT": [
+      "to play at the end of each turn."
     ]
   }
 }

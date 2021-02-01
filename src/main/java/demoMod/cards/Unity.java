@@ -90,7 +90,7 @@ public class Unity extends CustomCard implements Combo, PostAddedToMasterDeckSub
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
         ComboManager.addCombo(DemoMod.makeID("WhatEngineDoYouUse"), Unity.class);
-        ComboManager.addCombo(DemoMod.makeID("CaptainPlantIt"), Unity.class);
+        ComboManager.addCombo("DemoExt:CaptainPlantIt", Unity.class);
         ComboManager.addCombo(DemoMod.makeID("GarbageCollecting"), Unity.class);
     }
 

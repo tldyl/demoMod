@@ -12,6 +12,7 @@ public class SelfExplodePower extends AbstractPower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
+    private boolean playSfx;
 
     public SelfExplodePower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -20,6 +21,12 @@ public class SelfExplodePower extends AbstractPower {
         this.amount = amount;
         updateDescription();
         loadRegion("explosive");
+        this.playSfx = true;
+    }
+
+    public SelfExplodePower(AbstractCreature owner, int amount, boolean playSfx) {
+        this(owner, amount);
+        this.playSfx = playSfx;
     }
 
     @Override
@@ -29,7 +36,7 @@ public class SelfExplodePower extends AbstractPower {
 
     @Override
     public void onDeath() {
-        DemoMod.actionsQueue.add(new SelfExplodeAction(this.owner, this.amount));
+        DemoMod.actionsQueue.add(new SelfExplodeAction(this.owner, this.amount, this.playSfx));
     }
 
     static {

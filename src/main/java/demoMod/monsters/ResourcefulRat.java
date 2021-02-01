@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -31,12 +32,14 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
+import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 import demoMod.DemoMod;
 import demoMod.cards.guns.Elimentaler;
 import demoMod.cards.tempCards.RatTrap;
 import demoMod.effects.BulletWaveEffect;
 import demoMod.effects.RatJumpIntoEntryEffect;
 import demoMod.effects.TextureAboveCreatureEffect;
+import demoMod.interfaces.PreAttackDecreaseBlock;
 import demoMod.patches.MonsterRoomPatch;
 import demoMod.powers.*;
 import demoMod.sounds.DemoSoundMaster;
@@ -283,7 +286,11 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     for (int i=0;i<6;i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         for (AbstractPower power : AbstractDungeon.player.powers) {
-                            dmg = power.onAttacked(this.damage.get(3), dmg);
+                            if (power instanceof PreAttackDecreaseBlock) {
+                                dmg = ((PreAttackDecreaseBlock) power).onAttackBeforeDecreaseBlock(this.damage.get(3), dmg);
+                            } else {
+                                dmg = power.onAttacked(this.damage.get(3), dmg);
+                            }
                         }
                         totalDamage += dmg;
                     }
@@ -310,7 +317,10 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                     break;
                 case 4:
                     int block = AbstractDungeon.player.currentBlock;
+                    boolean flippedEffect = false;
                     for (int i=0;i<4;i++) {
+                        this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+                        addToBot(new VFXAction(this, new SweepingBeamEffect(this.hb.cX, this.hb.cY + 66.0F * Settings.scale, flippedEffect), 0.25F));
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
                         block -= this.damage.get(0).output;
                         if (block < 0) {
@@ -323,6 +333,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
                                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
                             }
                         }
+                        flippedEffect = !flippedEffect;
                     }
                     break;
                 case 5:

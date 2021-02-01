@@ -1,6 +1,16 @@
 package demoMod.utils;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.PixmapIO;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.FileTextureData;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class Utils {
@@ -72,5 +82,86 @@ public class Utils {
             tier = AbstractRelic.RelicTier.RARE;
         }
         return AbstractDungeon.returnRandomRelic(tier);
+    }
+
+    public static void spawnMonsterWith4Slots(AbstractMonster owner, AbstractMonster monster, int index, boolean isMinion) {
+        switch (index) {
+            case 0:
+                monster.drawX = owner.drawX - 80.0F * Settings.scale;
+                monster.drawY = owner.drawY + 60.0F;
+                break;
+            case 1:
+                monster.drawX = owner.drawX + 80.0F * Settings.scale;
+                monster.drawY = owner.drawY + 60.0F;
+                break;
+            case 2:
+                monster.drawX = owner.drawX - 80.0F * Settings.scale;
+                monster.drawY = owner.drawY + 180.0F * Settings.scale;
+                break;
+            case 3:
+                monster.drawX = owner.drawX + 80.0F * Settings.scale;
+                monster.drawY = owner.drawY + 180.0F * Settings.scale;
+                break;
+            default:
+                return;
+        }
+        monster.hb.move(monster.drawX + monster.hb_x + monster.animX, monster.drawY + monster.hb_y + monster.hb_h / 2.0F);
+        monster.healthHb.move(monster.hb.cX, monster.hb.cY - monster.hb_h / 2.0F - monster.healthHb.height / 2.0F);
+        monster.refreshIntentHbLocation();
+        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(monster, isMinion));
+        monster.usePreBattleAction();
+    }
+
+    public static void drawTextureOnPixmap(Pixmap pixmap, Texture texture, int x, int y) {
+        if (texture == null || pixmap == null) return;
+        if (!texture.getTextureData().isPrepared()) texture.getTextureData().prepare();
+        Pixmap src = texture.getTextureData().consumePixmap();
+        pixmap.drawPixmap(src, x, y);
+        if (texture.getTextureData() instanceof FileTextureData) {
+            src.dispose();
+        }
+    }
+
+    public static void drawTextureOnPixmap(Pixmap pixmap, Texture texture, int x, int y, Color color) {
+        if (texture == null || pixmap == null || color == null) return;
+        if (!texture.getTextureData().isPrepared()) texture.getTextureData().prepare();
+        Pixmap src = texture.getTextureData().consumePixmap();
+        if (src.getFormat() != Pixmap.Format.RGBA8888) {
+            Pixmap tmp = new Pixmap(src.getWidth(), src.getHeight(), Pixmap.Format.RGBA8888);
+            tmp.drawPixmap(src, 0, 0);
+            if (texture.getTextureData() instanceof FileTextureData) {
+                src.dispose();
+            }
+            src = tmp;
+        }
+        for (int i=0;i<src.getWidth();i++) {
+            for (int j=0;j<src.getHeight();j++) {
+                Color pixel = new Color(src.getPixel(i, j));
+                pixel.r *= color.r;
+                pixel.g *= color.g;
+                pixel.b *= color.b;
+                pixel.a *= color.a;
+                Color originPixel = new Color(pixmap.getPixel(x + i, y + j));
+                float r = originPixel.r + pixel.r;
+                float g = originPixel.g + pixel.g;
+                float b = originPixel.b + pixel.b;
+                float a = originPixel.a + pixel.a;
+                if (r > 1) r = 1;
+                if (g > 1) g = 1;
+                if (b > 1) b = 1;
+                if (a > 1) a = 1;
+                int colorInt = Color.rgba8888(r, g, b, a);
+                pixmap.drawPixel(x + i, y + j, colorInt);
+            }
+        }
+        if (texture.getTextureData() instanceof FileTextureData) {
+            src.dispose();
+        }
+    }
+
+    public static void savePixmapToFile(Pixmap pixmap, String filePath) {
+        FileHandle fileHandle = Gdx.files.external(filePath);
+        PixmapIO.writePNG(fileHandle, pixmap);
+        System.out.println("Save success. File location:" + fileHandle.file().getAbsolutePath());
     }
 }

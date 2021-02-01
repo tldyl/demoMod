@@ -87,10 +87,15 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
 
     private void updateLevel() {
         if (AbstractDungeon.player == null) return;
-        if (AbstractDungeon.player.hasRelic(Junk.ID) && !AbstractDungeon.player.hasRelic(GoldJunk.ID)) {
-            LEVEL = AbstractDungeon.player.getRelic(Junk.ID).counter;
-        } else if (!AbstractDungeon.player.hasRelic(GoldJunk.ID)) {
-            LEVEL = 0;
+        if (AbstractDungeon.player.hasRelic(GoldJunk.ID)) return;
+        LEVEL = 0;
+        if (AbstractDungeon.player.hasRelic(Junk.ID) || AbstractDungeon.player.hasRelic("DemoExt:Lies")) {
+            if (AbstractDungeon.player.hasRelic(Junk.ID)) {
+                LEVEL = AbstractDungeon.player.getRelic(Junk.ID).counter;
+            }
+            if (AbstractDungeon.player.hasRelic("DemoExt:Lies")) {
+                LEVEL++;
+            }
         }
         if (LEVEL > 7) LEVEL = 7;
         this.img = imgs[LEVEL];
@@ -239,15 +244,6 @@ public class SerJunkan extends CustomRelic implements PostBeforePlayerDeath, Com
                         if (m.hasPower(StrengthOfCursePower.POWER_ID)) {
                             StrengthOfCursePower power = (StrengthOfCursePower) m.getPower(StrengthOfCursePower.POWER_ID);
                             this.addToBot(new RemoveSpecificPowerAction(m, p, power));
-                            if (m.hasPower(StrengthPower.POWER_ID)) {
-                                if (m.getPower(StrengthPower.POWER_ID).amount == power.strengthToApply) {
-                                    this.addToBot(new RemoveSpecificPowerAction(m, p, StrengthPower.POWER_ID));
-                                } else {
-                                    m.getPower(StrengthPower.POWER_ID).reducePower(power.strengthToApply);
-                                }
-                            } else {
-                                this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -power.strengthToApply)));
-                            }
                         }
                     }
                     this.counter++;

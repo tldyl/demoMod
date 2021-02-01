@@ -23,6 +23,7 @@ import demoMod.DemoMod;
 import demoMod.dungeons.Maze;
 import demoMod.effects.EnterTheMazeEffect;
 import demoMod.effects.PlayerJumpIntoEntryEffect;
+import demoMod.relics.GnawedKey;
 import demoMod.relics.PartiallyEatenCheese;
 import demoMod.relics.RatBoots;
 import demoMod.relics.ResourcefulSack;
@@ -43,11 +44,13 @@ public class TreasureRoomPatch {
     }
 
     public static void onEntryOpen() {
+        if (entry != null) entry.dispose();
         entry = new Texture(DemoMod.getResourcePath("effects/mazeEntry_opened.png"));
         isOpen = true;
     }
 
     public static void closeEntry() {
+        if (entry != null) entry.dispose();
         entry = new Texture(DemoMod.getResourcePath("effects/mazeEntry.png"));
         isOpen = false;
     }
@@ -79,9 +82,9 @@ public class TreasureRoomPatch {
                 hb.update();
                 if (hb.hovered && (InputHelper.justClickedLeft || CInputActionSet.select.isJustPressed()) && !AbstractDungeon.isScreenUp) {
                     InputHelper.justClickedLeft = false;
-                    if (AbstractDungeon.player.hasRelic(DemoMod.makeID("GnawedKey")) && !isOpen) {
-                        AbstractDungeon.player.loseRelic(DemoMod.makeID("GnawedKey"));
-                        AbstractDungeon.effectsQueue.add(new EnterTheMazeEffect());
+                    if ((AbstractDungeon.player.hasRelic(GnawedKey.ID) || AbstractDungeon.player.hasRelic("DemoExt:Drill")) && !isOpen) {
+                        AbstractDungeon.effectsQueue.add(new EnterTheMazeEffect(AbstractDungeon.player.hasRelic(GnawedKey.ID)));
+                        if (AbstractDungeon.player.hasRelic(GnawedKey.ID)) AbstractDungeon.player.loseRelic(GnawedKey.ID);
                         try {
                             Field field = AbstractChest.class.getDeclaredField("hb");
                             field.setAccessible(true);

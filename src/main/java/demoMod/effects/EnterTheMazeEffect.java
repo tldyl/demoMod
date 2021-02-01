@@ -17,17 +17,19 @@ public class EnterTheMazeEffect extends AbstractGameEffect {
     private float y;
     private float dst = 224.0F;
     private boolean sfxPlayed = false;
+    private boolean useGnawedKey;
 
-    public EnterTheMazeEffect() {
+    public EnterTheMazeEffect(boolean useGnawedKey) {
         this.duration = 1.5F;
         this.x = Settings.WIDTH * 0.5F - 64.0F;
         this.y = Settings.HEIGHT * 0.3F - 64.0F + this.dst;
+        this.useGnawedKey = useGnawedKey;
     }
 
     @Override
     public void update() {
         if (this.duration > 1.0F) {
-            this.a += Gdx.graphics.getDeltaTime() * 2;
+            if (this.useGnawedKey) this.a += Gdx.graphics.getDeltaTime() * 2;
             if (this.a > 1) {
                 this.a = 1;
             }

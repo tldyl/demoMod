@@ -63,10 +63,13 @@ public class LordOfTheJammed extends AbstractMonster implements PostOnMonsterDea
     public void takeTurn() {
         switch (this.nextMove) {
             case 1:
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                addToBot(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                if (!this.hasPower(JammedPower.POWER_ID)) {
+                    addToBot(new ApplyPowerAction(this, this, new JammedPower(this)));
+                }
                 break;
             case 2:
-                AbstractDungeon.actionManager.addToBottom(new SuicideAction(this, false));
+                addToBot(new SuicideAction(this, false));
                 return;
         }
         rollMove();
@@ -140,5 +143,10 @@ public class LordOfTheJammed extends AbstractMonster implements PostOnMonsterDea
     public void die(boolean triggerRelics) {
         MonsterPatch.DiePatch.unsubscribe(this);
         super.die(triggerRelics);
+    }
+
+    @Override
+    public void escape() {
+
     }
 }

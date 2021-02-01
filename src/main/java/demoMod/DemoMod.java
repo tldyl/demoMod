@@ -127,7 +127,7 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v2.0.0");
+        logger.info("Gungeon Mod - v2.0.1");
         logger.info("Loading...");
         try {
             Thread.sleep(1200);
@@ -491,8 +491,8 @@ public class DemoMod implements EditCardsSubscriber,
 
 
         logger.info(new String("=====枪牢mod:添加药水=====".getBytes(), StandardCharsets.UTF_8));
-        BaseMod.addPotion(BlankPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, BlankPotion.ID);
-        BaseMod.addPotion(LeadSkinPotion.class, Color.BLUE, Color.WHITE, Color.WHITE, LeadSkinPotion.ID);
+        BaseMod.addPotion(BlankPotion.class, Color.WHITE, Color.WHITE, Color.WHITE, BlankPotion.ID);
+        BaseMod.addPotion(LeadSkinPotion.class, Color.WHITE, Color.WHITE, Color.WHITE, LeadSkinPotion.ID);
         logger.info(new String("=====枪牢mod:初始化事件=====".getBytes(), StandardCharsets.UTF_8));
         BaseMod.addEvent(new AddEventParams.Builder(D20Statue.ID, D20Statue.class).playerClass(HuntressEnum.HUNTRESS).create());
         BaseMod.addEvent(new AddEventParams.Builder(FountainOfPurify.ID, FountainOfPurify.class).playerClass(HuntressEnum.HUNTRESS).spawnCondition(() -> HuntressCharacter.curse > 0).create());
@@ -710,6 +710,7 @@ public class DemoMod implements EditCardsSubscriber,
         double mul = MAX_FPS / (double)fpsInAnim;
         int output = (int)Math.floor(inputIndex / mul);
         if (output > maxIndex) output = maxIndex;
+        if (output < 0) output = 0;
         return output;
     }
 

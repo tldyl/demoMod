@@ -89,7 +89,7 @@ public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubs
     @Override
     public void useStaggerAnimation() { //受伤时触发
         super.useStaggerAnimation();
-        if (this.blessTarget != null) {
+        if (this.blessTarget != null && this.nextMove == 1) {
             this.setMove((byte) 2, Intent.UNKNOWN);
             this.createIntent();
             this.phase = 0;

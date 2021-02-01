@@ -25,15 +25,15 @@
   },
   "DemoMod:BSG": {
     "NAME": "BSG",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드의 피해가 적에게 막히지 않으면, 모든 적에게 !D! 피해를 줍니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드의 피해가 적에게 막히지 않으면, 모든 적에게 !D! 피해를 줍니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:BalloonGun": {
     "NAME": "풍선건",
-    "DESCRIPTION": "총. 피해를 !D! 만큼 3 번 줍니다. 이 카드를 뽑으면, 비행 을 부여합니다. 전투에서 체력을 잃으면, 이 카드는 자동으로 소멸됩니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 만큼 3 번 줍니다. 이 카드를 뽑으면, 비행 을 부여합니다. 전투에서 체력을 잃으면, 이 카드는 자동으로 소멸됩니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:RustySidearm": {
     "NAME": "녹슨 사이드암",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 반자동. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 반자동. 탄창 !DemoModCapacity!."
   },
  "DemoMod:ManualReload": {
     "NAME": "수동 재장전",
@@ -42,7 +42,7 @@
   },
   "DemoMod:CrossBow": {
     "NAME": "석궁",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 카드를 1 장 뽑습니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 카드를 1 장 뽑습니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:TableSutra": {
     "NAME": "테이블 수트라",
@@ -83,24 +83,24 @@
   },
  "DemoMod:TripleGun": {
     "NAME": "트리플 건",
-    "DESCRIPTION": "총. 탄창 3:피해를 !D! 줍니다. 탄창 2:피해를 !D! 만큼 2 번 줍니다. 탄창 1: 모든 적에게 !M! 의 피해를 입힙니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "탄창 3:피해를 !D! 줍니다. 탄창 2:피해를 !D! 만큼 2 번 줍니다. 탄창 1: 모든 적에게 !M! 의 피해를 입힙니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "총. 탄창 3:피해를 ",
+      "탄창 3:피해를 ",
       " 줍니다. 탄창 2:피해를 ",
       " 만큼 2 번 줍니다. 탄창 1: 모든 적에게 !M! 의 피해를 입힙니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:FinishedGun": {
     "NAME": "완성된 총",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창 1：피해량이 !DemoModExtraDamage! 만큼 증가하고 대상이 나에게 입히려는 피해만큼 추가로 피해량이 증가합니다. 반자동. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 탄창 1：피해량이 !DemoModExtraDamage! 만큼 증가하고 대상이 나에게 입히려는 피해만큼 추가로 피해량이 증가합니다. 반자동. 탄창 !DemoModCapacity!."
   },
   "DemoMod:HighKaliber": {
     "NAME": "하이 칼리버",
-    "DESCRIPTION": "총. 유체이탈 을 !M! 부여합니다. 피해를 !D! 줍니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "유체이탈 을 !M! 부여합니다. 피해를 !D! 줍니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:SAA": {
     "NAME": "SAA",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 카드를 !M! 장 뽑습니다. 반자동. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드를 재장전 하면, 카드를 !M! 장 뽑습니다. 반자동. NL 탄창 !DemoModCapacity!."
   },
  "DemoMod:Behold!": {
     "NAME": "주시!",
@@ -126,12 +126,12 @@
   },
   "DemoMod:StickyCrossBow": {
     "NAME": "끈적끈적 석궁",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 폭발 화살 을 !M! 부여합니다. 반자동. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 폭발 화살 을 !M! 부여합니다. 반자동. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:RadGun": {
     "NAME": "라드 건",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태일때 재장전 하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 꽉 찬 상태 또는 탄창이 2 발 남았을때 장전하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "피해를 !D! 줍니다. 탄창이 꽉 찬 상태일때 재장전 하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 탄창이 꽉 찬 상태 또는 탄창이 2 발 남았을때 장전하면, 기본 피해가 2 배 증가합니다, 아니면 피해량을 초기화합니다. NL 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
       "Gun. Deal !D! damage. If Reloaded on Capacity above 3, double its base damage, or reset its base damage. NL Capacity !DemoModCapacity!."
     ]
@@ -147,12 +147,12 @@
   },
   "DemoMod:FightSabre": {
     "NAME": "소드건",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Gungine": {
     "NAME": "건진",
-    "DESCRIPTION": "총. 피해를 !D! 만큼 2 번 줍니다. 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 소멸 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 만큼 2 번 줍니다. 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 소멸 모든 상태이상과 저주카드를 소멸 시킵니다. 이 카드를 재장전 하면, [E] [E] 를 얻습니다 。 NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:EasyReloadBullets": {
     "NAME": "간편 재장전 총탄",
@@ -216,11 +216,11 @@
   },
   "DemoMod:HuntsMan": {
     "NAME": "헌츠맨",
-    "DESCRIPTION": "총. 무작위 적에게 피해를 !D! 만큼 4 번 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "무작위 적에게 피해를 !D! 만큼 4 번 줍니다. 이 카드를 재장전 하면, 방어도 를 !B! 얻습니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:TeaPot": {
     "NAME": "주전자",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창 1:피해량이 !DemoModExtraDamage! 증가합니다. 이 카드를 재장전 하면, 오메가 !M! 를 부여합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 탄창 1:피해량이 !DemoModExtraDamage! 증가합니다. 이 카드를 재장전 하면, 오메가 !M! 를 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Charge": {
     "NAME": "충전",
@@ -232,7 +232,7 @@
   },
    "DemoMod:MegaHand": {
     "NAME": "메가핸드",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 충전: 피해를 !M! 줍니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "피해를 !D! 줍니다. 충전: 피해를 !M! 줍니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
       "에어 슈터",
       "거품 리드",
@@ -242,10 +242,10 @@
       "리프 실드",
       "메탈 블레이드",
       "빠른 부메랑",
-      "총. 피해를 !D! 만큼 3 번 줍니다. 탄창 !DemoModCapacity!.",
+      "피해를 !D! 만큼 3 번 줍니다. 탄창 !DemoModCapacity!.",
       "",
-      "총. 대상이 체력을 !D! 잃습니다. 다음 턴, 대상을 기절시키고 모든 적에게 피해를 !D! 줍니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!.",
-      "총. 모든 적에게 피해를 !D! 줍니다. 추가 턴을 가집니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!."
+      "대상이 체력을 !D! 잃습니다. 다음 턴, 대상을 기절시키고 모든 적에게 피해를 !D! 줍니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!.",
+      "모든 적에게 피해를 !D! 줍니다. 추가 턴을 가집니다. 다른 모드로 전환됩니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:PlatinumBullets": {
@@ -262,7 +262,7 @@
   },
   "DemoMod:JK47": {
     "NAME": "JK-47",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면,모든 적에게 약화를 !M! 부여합니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드를 재장전 하면,모든 적에게 약화를 !M! 부여합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:SniperShot": {
     "NAME": "저격",
@@ -270,7 +270,7 @@
   },
   "DemoMod:DirectionalPad": {
     "NAME": "방향 패드",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 직전에 사용한 카드가 공격카드일 경우, 방어도 를 !B! 얻습니다. 탄창이 비었을때 사용하면, 무작위 보상을 보상화면에 추가하고 덱에서 제거합니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 직전에 사용한 카드가 공격카드일 경우, 방어도 를 !B! 얻습니다. 탄창이 비었을때 사용하면, 무작위 보상을 보상화면에 추가하고 덱에서 제거합니다. 탄창 !DemoModCapacity!."
   },
    "DemoMod:Unmoved": {
     "NAME": "냉정함",
@@ -284,12 +284,12 @@
   },
   "DemoMod:DarkMarker": {
     "NAME": "암흑 표지",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "총. 모든 적에게 !D! * X 만큼의 피해를 주고 기절시킵니다. 소멸. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
-      "총. 모든 적에게 !D! * X 만큼의 피해를 주고 기절시킵니다. 소멸. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
-      "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 레드마크 를 부여합니다. 탄창 !DemoModCapacity!.",
-      "총. 피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 블루마크 를 부여합니다. 탄창 !DemoModCapacity!."
+      "모든 적에게 !D! * X 만큼의 피해를 주고 기절시킵니다. 소멸. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
+      "모든 적에게 !D! * X 만큼의 피해를 주고 기절시킵니다. 소멸. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
+      "피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 레드마크 를 부여합니다. 탄창 !DemoModCapacity!.",
+      "피해를 !D! 줍니다. 탄창이 가득찼을때 재장전 하면 모드를 전환합니다. 블루마크 를 부여합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:StrategicReserve": {
@@ -303,13 +303,13 @@
   },
   "DemoMod:Evolver": {
     "NAME": "이볼버",
-    "DESCRIPTION": "총. 강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "총. 강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
-      "총. 강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
-      "총. 강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
-      "총. 강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
-      "총. 강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!."
+      "강화할 수 없습니다. NL 피해를 !D! 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "강화할 수 없습니다. NL 피해를 !D! 만큼 3 번 줍니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 6회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!.",
+      "강화할 수 없습니다. NL 피해를 !D! 주고 포박을 !M! 부여합니다. NL 4회 사용하면, 자동으로 다음 단계로 진화합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:MozambiqueDrill": {
@@ -322,11 +322,11 @@
   },
   "DemoMod:AbyssalTentacle": {
     "NAME": "심해의 촉수",
-    "DESCRIPTION": "총. NL 피해를 !D! 줍니다. NL 포박을 !M! 부여합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "NL 피해를 !D! 줍니다. NL 포박을 !M! 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:LifeOrb": {
     "NAME": "라이프 오브",
-    "DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 이 카드로 적을 처치하면, 다음 재장전 때 모든 적에게 이 카드로 처치한 모든 적의 최대체력의 합 만큼 피해를 입힙니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 만큼 !DemoModMulti! 번 줍니다. NL 이 카드로 적을 처치하면, 다음 재장전 때 모든 적에게 이 카드로 처치한 모든 적의 최대체력의 합 만큼 피해를 입힙니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Replace": {
     "NAME": "전환",
@@ -340,7 +340,7 @@
   },
   "DemoMod:ThirdPartyController": {
     "NAME": "서드 파티 컨트롤러",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 대상이 보스가 아니면, 그 적을 조종 합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 대상이 보스가 아니면, 그 적을 조종 합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Flaw": {
     "NAME": "결함",
@@ -352,7 +352,7 @@
   },
   "DemoMod:AWP": {
     "NAME": "A.W.P.",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 손에 있는 유일한 총일 경우에, 피해가 2 배가 됩니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 손에 있는 유일한 총일 경우에, 피해가 2 배가 됩니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Purify": {
     "NAME": "정화",
@@ -373,7 +373,7 @@
   },
   "DemoMod:BulletBore": {
     "NAME": "불릿 보어",
-    "DESCRIPTION": "총. 대상이 체력을 !D! 잃습니다. 다음 턴에, 그 적을 기절시키고 모든 적에게 피해를 !D! 줍니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "대상이 체력을 !D! 잃습니다. 다음 턴에, 그 적을 기절시키고 모든 적에게 피해를 !D! 줍니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:GunslingerForm": {
     "NAME": "건슬링어의 형상",
@@ -382,7 +382,7 @@
   },
   "DemoMod:Elimentaler": {
     "NAME": "치즈 뿌리개",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 응고 !M! 을 부여합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 응고 !M! 을 부여합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:EatIt": {
     "NAME": "잡아 먹기!",
@@ -399,7 +399,7 @@
   },
   "DemoMod:AC15": {
     "NAME": "AC-15",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. NL 방어도 를 전부 잃습니다. 이 카드의 피해량은 이 카드의 효과로 잃은 방어도의 값과 같습니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도 를 전부 잃습니다. 이 카드의 피해량은 이 카드의 효과로 잃은 방어도의 값과 같습니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:OldTrick": {
     "NAME": "뻔한 수법",
@@ -412,7 +412,7 @@
   },
   "DemoMod:ZorGun": {
     "NAME": "조르건",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드를 재장전 하면, 뽑을 카드 더미에서 !M! 장을 사용하고 이 카드의 비용이 [E] 증가합니다. 이 카드가 버린 카드 더미로 들어가면 비용이 [E] 감소합니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드를 재장전 하면, 뽑을 카드 더미에서 !M! 장을 사용하고 이 카드의 비용이 [E] 증가합니다. 이 카드가 버린 카드 더미로 들어가면 비용이 [E] 감소합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:Desperate": {
     "NAME": "발악",
@@ -420,19 +420,19 @@
   },
   "DemoMod:Camera": {
     "NAME": "카메라",
-    "DESCRIPTION": "총. 모든 적에게 피해를 !D! 줍니다. 탄창 1:이번 턴 모든 적을 기절시킵니다. NL 탄창이 0 이 되면, 소멸 합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 탄창 1:이번 턴 모든 적을 기절시킵니다. NL 탄창이 0 이 되면, 소멸 합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:BlackHoleGun": {
     "NAME": "블랙홀 건",
-    "DESCRIPTION": "총. 모든 적에게 피해를 !D! 줍니다. 이번 턴 모든 캐릭터가 힘을 !M! 잃습니다. 모든 총의 탄창을 버립니다. NL 버린 카드 더미에 *공허 를 추가합니다. NL 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 이번 턴 모든 캐릭터가 힘을 !M! 잃습니다. 모든 총의 탄창을 버립니다. NL 버린 카드 더미에 *공허 를 추가합니다. NL 탄창 !DemoModCapacity!."
   },
   "DemoMod:Polaris": {
     "NAME": "폴라리스",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
-    "UPGRADE_DESCRIPTION": "총. 반자동. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1레벨 하락합니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
+    "UPGRADE_DESCRIPTION": "반자동. 피해를 !D! 줍니다. 게임 중 2 번 사용하면, 1레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1레벨 하락합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "총. 피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
-      "총. 반자동. 피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!."
+      "피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!.",
+      "반자동. 피해를 !D! 만큼 2 번 줍니다. 게임 중 2 번 사용하면, 1 레벨 (최대 3) 진급합니다. 전투 중에 체력을 잃으면, 1 레벨 하락합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:SuppressiveFire": {
@@ -446,7 +446,7 @@
   },
   "DemoMod:BoxingGlove": {
     "NAME": "권투 글러브",
-    "DESCRIPTION": "총. 피해를 !D! 줍니다. 이 카드로 적을 죽이면, 마크를 얻습니다(최대 3). NL 충전: 모든 마크를 잃습니다, 잃어버린 마크 하나당 피해량이 2 배 증가합니다. 탄창 !DemoModCapacity!."
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 카드로 적을 죽이면, 마크를 얻습니다(최대 3). NL 충전: 모든 마크를 잃습니다, 잃어버린 마크 하나당 피해량이 2 배 증가합니다. 탄창 !DemoModCapacity!."
   },
   "DemoMod:MachoBrace": {
     "NAME": "마초 브레이스",
@@ -454,9 +454,9 @@
   },
   "DemoMod:CombinedRifle": {
     "NAME": "합성 라이플",
-    "DESCRIPTION": "총. 피해를 !D! 만큼 !DemoModMulti! 번 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
+    "DESCRIPTION": "피해를 !D! 만큼 !DemoModMulti! 번 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!.",
     "EXTENDED_DESCRIPTION": [
-      "총. 피해를 !D! 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!."
+      "피해를 !D! 줍니다. 재장전 하면 모드를 전환합니다. 탄창 !DemoModCapacity!."
     ]
   },
   "DemoMod:HungryBullets": {

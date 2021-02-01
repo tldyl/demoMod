@@ -3,13 +3,19 @@ package demoMod.cards.guns;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -34,6 +40,9 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public abstract class AbstractGunCard extends CustomCard implements CustomSavable<GunCardSaveData> {
     public static final CardType type = CardType.ATTACK;
+    public static final UIStrings GUN_CARD_TYPE_NAME = CardCrawlGame.languagePack.getUIString(DemoMod.makeID("GunCardTypeName"));
+    public static final UIStrings GUN_CARD_KEYWORD_NAME = CardCrawlGame.languagePack.getUIString(DemoMod.makeID("GunCardKeywordName"));
+    public static final Color CARD_TYPE_COLOR = new Color(0.35F, 0.35F, 0.35F, 1.0F);
     public int capacity = 0;
     public int extraDamage = 0;
     public int maxCapacity = 0;
@@ -55,6 +64,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     public AbstractGunCard(String id, String name, String img, int cost, String rawDescription, CardColor color, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
         this.defaultTarget = target;
+
     }
 
     @Override
@@ -260,5 +270,29 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
         }
         super.render(sb, selected);
         sb.setShader(null);
+    }
+
+    @SpireOverride
+    protected void renderType(SpriteBatch sb) {
+        BitmapFont font = FontHelper.cardTypeFont;
+        font.getData().setScale(this.drawScale);
+        FontHelper.renderRotatedText(sb, font, GUN_CARD_TYPE_NAME.TEXT[0], this.current_x, this.current_y - 22.0F * this.drawScale * Settings.scale, 0.0F, -1.0F * this.drawScale * Settings.scale, this.angle, false, CARD_TYPE_COLOR);
+    }
+
+    @Override
+    public void initializeDescription() {
+        if (Settings.lineBreakViaCharacter) {
+            this.keywords.clear();
+            this.initializeDescriptionCN();
+        } else {
+            super.initializeDescription();
+            if (!this.keywords.contains(GUN_CARD_KEYWORD_NAME.TEXT[0])) this.keywords.add(GUN_CARD_KEYWORD_NAME.TEXT[0]);
+        }
+    }
+
+    @Override
+    public void initializeDescriptionCN() {
+        super.initializeDescriptionCN();
+        if (!this.keywords.contains(GUN_CARD_KEYWORD_NAME.TEXT[0])) this.keywords.add(GUN_CARD_KEYWORD_NAME.TEXT[0]);
     }
 }

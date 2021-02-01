@@ -79,6 +79,13 @@ public class MonsterRoomPatch {
             }
             if (AbstractDungeon.id.equals("DemoExt:Forge")) { //TODO 后面改成入场动画
                 room.phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                DemoMod.actionsQueue.add(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        AbstractDungeon.player.movePosition(Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.2F);
+                        isDone = true;
+                    }
+                });
                 DemoMod.actionsQueue.add(new PlaySoundAction("BOSS_DRAGUN_APPEAR", 16.59F, 0.0F));
                 DemoMod.actionsQueue.add(new AbstractGameAction() {
                     @Override

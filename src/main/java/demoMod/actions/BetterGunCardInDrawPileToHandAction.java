@@ -46,6 +46,7 @@ public class BetterGunCardInDrawPileToHandAction extends AbstractGameAction {
                     for (AbstractCard c : cardsToMove) {
                         if (this.player.hand.size() < 10) {
                             this.player.drawPile.moveToHand(c, this.player.drawPile);
+                            c.triggerWhenDrawn();
                         } else {
                             this.player.drawPile.moveToDiscardPile(c);
                             this.player.createHandIsFullDialog();
@@ -76,6 +77,7 @@ public class BetterGunCardInDrawPileToHandAction extends AbstractGameAction {
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                     if (this.player.hand.size() < 10) {
                         this.player.drawPile.moveToHand(c, this.player.drawPile);
+                        c.triggerWhenDrawn();
                     } else {
                         this.player.drawPile.moveToDiscardPile(c);
                         this.player.createHandIsFullDialog();

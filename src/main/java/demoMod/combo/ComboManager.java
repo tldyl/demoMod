@@ -185,9 +185,9 @@ public class ComboManager {
 
     public static boolean hasComboActivated(String comboId) {
         String comboName = comboId.split(":")[1];
-        for (String combos : hasComboActivated.keySet()) {
-            if (combos.split(":")[1].equals(comboName)) {
-                return hasComboActivated.get(combos);
+        for (Map.Entry<String, Boolean> e : hasComboActivated.entrySet()) {
+            if (e.getKey().split(":")[1].equals(comboName)) {
+                return hasComboActivated.get(e.getKey());
             }
         }
         return false;

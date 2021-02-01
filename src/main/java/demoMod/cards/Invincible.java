@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.InvinciblePower;
 import com.megacrit.cardcrawl.vfx.combat.HeartMegaDebuffEffect;
 import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
@@ -58,16 +57,7 @@ public class Invincible extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new VerticalAuraEffect(Color.CYAN, p.hb.cX, p.hb.cY), 0.0F));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new HeartMegaDebuffEffect()));
 
-        boolean powerExists = false;
-
-        for (AbstractPower power : p.powers) {
-            if (power.ID.equals("Invincible")) {
-                powerExists = true;
-                break;
-            }
-        }
-
-        if (!powerExists) {
+        if (!p.hasPower(InvinciblePower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new InvinciblePower(p, this.magicNumber), this.magicNumber));
         }
     }

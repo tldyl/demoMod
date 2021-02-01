@@ -101,6 +101,18 @@ public class AWP extends AbstractGunCard implements Combo, PostAddedToMasterDeck
         }
     }
 
+    @Override
+    public void initializeDescription() {
+        super.initializeDescription();
+        this.keywords.remove(AbstractGunCard.GUN_CARD_KEYWORD_NAME.TEXT[0]);
+    }
+
+    @Override
+    public void initializeDescriptionCN() {
+        super.initializeDescriptionCN();
+        this.keywords.remove(AbstractGunCard.GUN_CARD_KEYWORD_NAME.TEXT[0]);
+    }
+
     static {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;

@@ -10,8 +10,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.actions.UnmovedAction;
+import demoMod.cards.interfaces.TriggerInAnywhereOnOtherCardPlayed;
 
-public class Unmoved extends CustomCard {
+public class Unmoved extends CustomCard implements TriggerInAnywhereOnOtherCardPlayed {
     public static final String ID = DemoMod.makeID("Unmoved");
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -42,7 +43,7 @@ public class Unmoved extends CustomCard {
     }
 
     @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
+    public void triggerInAnywhereOnOtherCardPlayed(AbstractCard c) {
         if (c.type == CardType.ATTACK && !c.exhaust && !c.purgeOnUse) {
             UnmovedAction.findCards(this.baseMagicNumber, CardType.ATTACK);
             if (this.upgraded) {

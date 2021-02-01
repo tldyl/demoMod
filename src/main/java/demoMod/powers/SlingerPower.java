@@ -38,28 +38,33 @@ public class SlingerPower extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {
         if (c instanceof AbstractGunCard) {
-            for (int i = 0; i < Math.min(this.amount, Settings.MAX_HAND_SIZE); i++) {
-                List<AbstractCard> skillsInDraw = new ArrayList<>();
-                List<AbstractCard> skillsInDiscard = new ArrayList<>();
-                for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                    if (card.type == AbstractCard.CardType.SKILL) {
-                        skillsInDraw.add(card);
+            this.flash();
+            if (AbstractDungeon.player.hand.size() < Settings.MAX_HAND_SIZE) {
+                for (int i = 0; i < Math.min(this.amount, Settings.MAX_HAND_SIZE); i++) {
+                    List<AbstractCard> skillsInDraw = new ArrayList<>();
+                    List<AbstractCard> skillsInDiscard = new ArrayList<>();
+                    for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                        if (card.type == AbstractCard.CardType.SKILL) {
+                            skillsInDraw.add(card);
+                        }
+                    }
+                    for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+                        if (card.type == AbstractCard.CardType.SKILL) {
+                            skillsInDiscard.add(card);
+                        }
+                    }
+                    skillsInDiscard.addAll(skillsInDraw);
+                    if (skillsInDiscard.size() > 0) {
+                        AbstractCard card = getRandomCard(skillsInDiscard);
+                        if (AbstractDungeon.player.drawPile.contains(card)) {
+                            AbstractDungeon.player.drawPile.moveToHand(card);
+                        } else {
+                            AbstractDungeon.player.discardPile.moveToHand(card);
+                        }
                     }
                 }
-                for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
-                    if (card.type == AbstractCard.CardType.SKILL) {
-                        skillsInDiscard.add(card);
-                    }
-                }
-                skillsInDiscard.addAll(skillsInDraw);
-                if (skillsInDiscard.size() > 0) {
-                    AbstractCard card = getRandomCard(skillsInDiscard);
-                    if (AbstractDungeon.player.drawPile.contains(card)) {
-                        AbstractDungeon.player.drawPile.moveToHand(card);
-                    } else {
-                        AbstractDungeon.player.discardPile.moveToHand(card);
-                    }
-                }
+            } else {
+                AbstractDungeon.player.createHandIsFullDialog();
             }
         }
     }

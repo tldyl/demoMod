@@ -25,9 +25,10 @@ public class Junk extends CustomRelic {
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
         if (p instanceof Defect) {
-            int t = this.counter + (p.hasRelic(GoldJunk.ID) ? 1 : 0);
+            int t = this.counter + (p.hasRelic(GoldJunk.ID) ? 1 : 0) + (p.hasRelic("DemoExt:Lies") ? 1 : 0);
             t /= 2;
             if (t > 0) {
+                this.flash();
                 this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
                 this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, t)));
             }

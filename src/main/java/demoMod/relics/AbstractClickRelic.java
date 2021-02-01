@@ -39,6 +39,7 @@ public abstract class AbstractClickRelic extends CustomRelic {
         }
         if((this.Rclick)){
             this.Rclick=false;
+            logger.info(this.relicId + ": Right clicked.");
             this.onRightClick();
         }
     }

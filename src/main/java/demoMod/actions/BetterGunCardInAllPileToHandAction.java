@@ -73,6 +73,7 @@ public class BetterGunCardInAllPileToHandAction extends AbstractGameAction {
                                 this.player.discardPile.removeCard(c);
                             } else {
                                 this.player.drawPile.removeCard(c);
+                                c.triggerWhenDrawn();
                             }
                             if (needReload) {
                                 AbstractGunCard gunCard = (AbstractGunCard) c;
@@ -118,6 +119,7 @@ public class BetterGunCardInAllPileToHandAction extends AbstractGameAction {
                             this.player.discardPile.removeCard(c);
                         } else {
                             this.player.drawPile.removeCard(c);
+                            c.triggerWhenDrawn();
                         }
                         if (needReload) {
                             AbstractGunCard gunCard = (AbstractGunCard) c;

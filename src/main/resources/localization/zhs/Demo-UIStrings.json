@@ -1,4 +1,14 @@
 {
+  "DemoMod:GunCardTypeName": {
+    "TEXT": [
+      "枪"
+    ]
+  },
+  "DemoMod:GunCardKeywordName": {
+    "TEXT": [
+      "枪"
+    ]
+  },
   "DemoMod:ReloadAction": {
     "TEXT": [
       "进行手动装填"
@@ -117,7 +127,7 @@
   },
   "DemoMod:PrettyGood": {
     "TEXT": [
-      "美滋滋",
+      "你还不错啊",
       "击败敌人掉落的药水和遗物奖励变得更好。"
     ]
   },
@@ -283,7 +293,7 @@
   },
   "DemoMod:GunFriendAction": {
     "TEXT": [
-      "在每回合开始时将其打出"
+      "在每回合结束时将其打出"
     ]
   }
 }

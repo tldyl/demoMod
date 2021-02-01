@@ -158,7 +158,8 @@
     "NAME": "블루 구온석",
     "DESCRIPTIONS": [
       "내 다음 #g",
-      " 턴 동안, #y방어도 를 #b20 얻습니다."
+      " 턴 동안, #y방어도 를 #b",
+      " 얻습니다."
     ]
   },
   "DemoMod:MozambiqueDrillPower": {

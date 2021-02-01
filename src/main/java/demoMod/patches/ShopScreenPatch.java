@@ -1,7 +1,6 @@
 package demoMod.patches;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +13,6 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
-import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.shop.Merchant;
 import com.megacrit.cardcrawl.shop.ShopScreen;
@@ -22,15 +20,16 @@ import com.megacrit.cardcrawl.shop.StorePotion;
 import com.megacrit.cardcrawl.shop.StoreRelic;
 import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
 import demoMod.DemoMod;
+import demoMod.relics.interfaces.PostTheftSubscriber;
 import demoMod.characters.HuntressCharacter;
+import demoMod.interfaces.ConstantPrice;
 import demoMod.relics.GnawedKey;
 import demoMod.sounds.DemoSoundMaster;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class ShopScreenPatch {
@@ -215,6 +214,9 @@ public class ShopScreenPatch {
                             ((ShopScreen)shopScreenField.get(storeRelic)).applyUpgrades(AbstractCard.CardType.POWER);
                         }
                         storeRelic.isPurchased = true;
+                        if (storeRelic.relic instanceof PostTheftSubscriber) {
+                            ((PostTheftSubscriber) storeRelic.relic).onTheft();
+                        }
                         Field idleMessages = ShopScreen.class.getDeclaredField("idleMessages");
                         idleMessages.setAccessible(true);
                         Field storeRelicField = StoreRelic.class.getDeclaredField("shopScreen");
@@ -415,12 +417,40 @@ public class ShopScreenPatch {
                             }
                         }
                     };
-                    key.price = 115;
-                    if (AbstractDungeon.ascensionLevel >= 16) key.price = 104;
                     relics.add(key);
                     field.set(screen, relics);
                 } catch (NoSuchFieldException | IllegalAccessException e) {
                     e.printStackTrace();
+                }
+            }
+        }
+
+        @SpireInsertPatch(rloc = 19, localvars={"relic"})
+        public static void Insert(ShopScreen screen, @ByRef(type="shop.StoreRelic") Object[] _relic) {
+            StoreRelic relic = (StoreRelic) _relic[0];
+            if (relic.relic instanceof ConstantPrice) {
+                relic.price = relic.relic.getPrice();
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = ShopScreen.class,
+            method = "applyDiscount"
+    )
+    public static class PatchApplyDiscount {
+        public static void Postfix(ShopScreen screen, float multiplier, boolean affectPurge) {
+            List<StoreRelic> relics = new ArrayList<>();
+            try {
+                Field field = ShopScreen.class.getDeclaredField("relics");
+                field.setAccessible(true);
+                relics = (ArrayList<StoreRelic>) field.get(screen);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            for (StoreRelic relic : relics) {
+                if (relic.relic instanceof ConstantPrice) {
+                    relic.price = relic.relic.getPrice();
                 }
             }
         }

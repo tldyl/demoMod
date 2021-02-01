@@ -158,7 +158,8 @@
     "NAME": "Blue Guon Stone",
     "DESCRIPTIONS": [
       "At the start of the next #g",
-      " turn(s), gain #b20 #yBlock."
+      " turn(s), gain #b",
+      " #yBlock."
     ]
   },
   "DemoMod:MozambiqueDrillPower": {

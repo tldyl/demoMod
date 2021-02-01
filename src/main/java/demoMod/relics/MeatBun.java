@@ -3,14 +3,13 @@ package demoMod.relics;
 import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.DemoMod;
-import demoMod.relics.interfaces.PreDamageGive;
 import demoMod.sounds.DemoSoundMaster;
 
-public class MeatBun extends CustomRelic implements PreDamageGive, CustomSavable<Boolean> {
+public class MeatBun extends CustomRelic implements CustomSavable<Boolean> {
     public static final String ID = DemoMod.makeID("MeatBun");
     public static final String IMG_PATH = "relics/meatBun.png";
 
@@ -53,12 +52,8 @@ public class MeatBun extends CustomRelic implements PreDamageGive, CustomSavable
     }
 
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-                type == DamageInfo.DamageType.NORMAL && !this.usedUp) {
-            return 2.0F * damage;
-        }
-        return damage;
+    public float atDamageModify(float damage, AbstractCard c) {
+        return this.usedUp ? damage : 2.0F * damage;
     }
 
     @Override

@@ -27,6 +27,10 @@ public class BlueGuonStone extends CustomRelic implements Combo {
     public BlueGuonStone() {
         super(ID, new Texture(DemoMod.getResourcePath(IMG_PATH)),
                 RelicTier.UNCOMMON, LandingSound.CLINK);
+        this.description = this.getUpdatedDescription();
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        this.initializeTips();
     }
 
     @Override

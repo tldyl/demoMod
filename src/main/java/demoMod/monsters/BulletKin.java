@@ -100,7 +100,7 @@ public class BulletKin extends AbstractMonster {
 
     public void die() {
         super.die();
-        this.img.dispose();
+        if (this.img != null) this.img.dispose();
         this.img = new Texture(DemoMod.getResourcePath("monsters/bulletKin_die.png"));
         DemoSoundMaster.playV("MONSTER_BULLET_KIN_DEATH", 0.1F);
     }
