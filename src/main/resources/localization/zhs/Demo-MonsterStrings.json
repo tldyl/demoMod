@@ -88,5 +88,11 @@
     "MOVES": [
       "咏唱"
     ]
+  },
+  "DemoMod:ResourcefulRatThief": {
+    "NAME": "机智大鼠",
+    "DIALOG": [
+      "失去 "
+    ]
   }
 }

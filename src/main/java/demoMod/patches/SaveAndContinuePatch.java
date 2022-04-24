@@ -13,6 +13,7 @@ import demoMod.cards.Spice;
 import demoMod.characters.HuntressCharacter;
 import demoMod.monsters.ResourcefulRat;
 import demoMod.relics.VorpalBullet;
+import demoMod.utils.ResourcefulRatThiefHelper;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -34,7 +35,6 @@ public class SaveAndContinuePatch {
                 super.initialize(clz, fieldName);
             }
         };
-
     }
 
     @SpirePatch(
@@ -73,6 +73,7 @@ public class SaveAndContinuePatch {
             ResourcefulRat.phaseTwo = false;
             ResourcefulRat.isBeaten = false;
             ResourcefulRat.isTrueBeaten = false;
+            ResourcefulRatThiefHelper.reset();
             MonsterRoomPatch.PatchRender.isEntryOpen = false;
             MonsterRoomPatch.PatchRender.enabled = false;
             MonsterRoomPatch.PatchUpdate.hb_enabled = true;
@@ -100,46 +101,27 @@ public class SaveAndContinuePatch {
             if (AbstractDungeon.player instanceof HuntressCharacter) {
                 File file = new File("saves/HUNTRESS.curseValue");
                 if (file.exists()) {
-                    try {
-                        OutputStream os = new FileOutputStream(file);
-                        os.write(String.format("%.1f\n", HuntressCharacter.curse).getBytes());
-                        if (DemoMod.canSteal) {
-                            os.write("true\n".getBytes());
-                        } else {
-                            os.write("false\n".getBytes());
-                        }
-                        if (DemoMod.afterSteal) {
-                            os.write("true\n".getBytes());
-                        } else {
-                            os.write("false\n".getBytes());
-                        }
-                        os.write(Boolean.toString(DemoMod.isStolen).getBytes());
-                        os.write(String.format("\n%.1f\n", ShopScreenPatch.chance).getBytes());
-                        os.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    file.delete();
+                }
+                try {
+                    file.createNewFile();
+                    OutputStream os = new FileOutputStream(file);
+                    os.write(String.format("%.1f\n", HuntressCharacter.curse).getBytes());
+                    if (DemoMod.canSteal) {
+                        os.write("true\n".getBytes());
+                    } else {
+                        os.write("false\n".getBytes());
                     }
-                } else {
-                    try {
-                        file.createNewFile();
-                        OutputStream os = new FileOutputStream(file);
-                        os.write(String.format("%.1f\n", HuntressCharacter.curse).getBytes());
-                        if (DemoMod.canSteal) {
-                            os.write("true\n".getBytes());
-                        } else {
-                            os.write("false\n".getBytes());
-                        }
-                        if (DemoMod.afterSteal) {
-                            os.write("true\n".getBytes());
-                        } else {
-                            os.write("false\n".getBytes());
-                        }
-                        os.write(Boolean.toString(DemoMod.isStolen).getBytes());
-                        os.write(String.format("\n%.1f\n", ShopScreenPatch.chance).getBytes());
-                        os.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    if (DemoMod.afterSteal) {
+                        os.write("true\n".getBytes());
+                    } else {
+                        os.write("false\n".getBytes());
                     }
+                    os.write(Boolean.toString(DemoMod.isStolen).getBytes());
+                    os.write(String.format("\n%.1f\n", ShopScreenPatch.chance).getBytes());
+                    os.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
             HashMap<Object, Object> params = (HashMap<Object, Object>) _params[0];
@@ -172,6 +154,7 @@ public class SaveAndContinuePatch {
                     scan.close();
                     is.close();
                 } catch (IOException e) {
+                    file.delete();
                     e.printStackTrace();
                 }
             }

@@ -3,6 +3,7 @@ package demoMod.patches;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -22,7 +23,10 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import demoMod.DemoMod;
 import demoMod.cards.interfaces.TriggerInAnywhereOnOtherCardPlayed;
+import demoMod.combo.ComboManager;
 import demoMod.interfaces.PreAttackDecreaseBlock;
+import demoMod.monsters.ResourcefulRat;
+import demoMod.monsters.ResourcefulRatThief;
 import demoMod.powers.PacManPower;
 import demoMod.relics.ResourcefulSack;
 import demoMod.relics.interfaces.PostBeforePlayerDeath;
@@ -279,6 +283,42 @@ public class AbstractPlayerPatch {
                 if (card instanceof TriggerInAnywhereOnOtherCardPlayed) {
                     ((TriggerInAnywhereOnOtherCardPlayed) card).triggerInAnywhereOnOtherCardPlayed(c);
                 }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "applyStartOfTurnRelics"
+    )
+    public static class PatchApplyStartOfTurnRelics {
+        public static float chance = 0.0F;
+
+        public static void Prefix(AbstractPlayer p) {
+            if (AbstractDungeon.miscRng.random(1.0F) < chance) {
+                AbstractMonster m = new ResourcefulRatThief(MathUtils.random(-200.0F, 400.0F), MathUtils.random(-100.0F, 400.0F));
+                m.init();
+                AbstractDungeon.getCurrRoom().monsters.monsters.add(0, m);
+                m.showHealthBar();
+                m.usePreBattleAction();
+                m.createIntent();
+                chance = 0.0F;
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "applyStartOfCombatLogic"
+    )
+    public static class PatchApplyStartOfCombatLogic {
+        public static void Prefix(AbstractPlayer p) {
+            PatchApplyStartOfTurnRelics.chance = 0.3F;
+            if (ComboManager.hasComboActivated(DemoMod.makeID("ResourcefulIndeed")) ||
+                    AbstractDungeon.getCurrRoom().monsters.getMonster(ResourcefulRat.ID) != null ||
+                    ResourcefulRat.isTrueBeaten ||
+                    !DemoMod.enableResourcefulRatThief) {
+                PatchApplyStartOfTurnRelics.chance = 0.0F;
             }
         }
     }

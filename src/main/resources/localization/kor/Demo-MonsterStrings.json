@@ -88,5 +88,11 @@
     "MOVES": [
       "Bless"
     ]
+  },
+  "DemoMod:ResourcefulRatThief": {
+    "NAME": "쥐갈 공명",
+    "DIALOG": [
+      "잃습니다 "
+    ]
   }
 }

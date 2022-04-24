@@ -65,6 +65,7 @@ public class BulletSprayPower extends AbstractPower implements PostPotionUseSubs
             bulletSprayEffect.shrink();
             if (this.times <= 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+                BaseMod.unsubscribe(this);
                 bulletSprayEffect.fadeOut();
             }
         }
@@ -73,6 +74,7 @@ public class BulletSprayPower extends AbstractPower implements PostPotionUseSubs
 
     @Override
     public void onDeath() {
+        BaseMod.unsubscribe(this);
         bulletSprayEffect.fadeOut();
     }
 

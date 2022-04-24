@@ -42,7 +42,7 @@ public class PlayerJumpIntoEntryEffect extends AbstractGameEffect {
             this.x += Gdx.graphics.getDeltaTime() * this.dst;
         } else {
             this.x += Gdx.graphics.getDeltaTime() * 150;
-            this.vY -= 0.8F * 60.0F / DemoMod.MAX_FPS;
+            this.vY -= 48.0F * Gdx.graphics.getDeltaTime();
             this.y += vY;
         }
 

@@ -88,5 +88,11 @@
     "MOVES": [
       "Bless"
     ]
+  },
+  "DemoMod:ResourcefulRatThief": {
+    "NAME": "Resourceful Rat",
+    "DIALOG": [
+      "Lose "
+    ]
   }
 }

@@ -1,0 +1,22 @@
+{
+  "DemoMod:BlankPotion": {
+    "NAME": "ブランク",
+    "DESCRIPTIONS": [
+      "敵全体に #g",
+      " ダメージを与え、 #yスタン を与える。"
+    ]
+  },
+  "DemoMod:LeadSkinPotion": {
+    "NAME": "アイアンポーション",
+    "DESCRIPTIONS": [
+      "戦闘終了まで、ブロックできなかった #b",
+      " 以下のダメージを #b1 に軽減する。"
+    ]
+  },
+  "DemoMod:SmokeBomb": {
+    "NAME": "煙玉",
+    "DESCRIPTIONS": [
+      " NL ショップで使用すると #r泥棒 ができる。"
+    ]
+  }
+}

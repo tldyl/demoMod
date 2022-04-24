@@ -77,7 +77,7 @@ public class HoleyGrail extends CustomRelic implements Combo {
             }
             for (AbstractCard c : guns) {
                 AbstractGunCard gunCard = (AbstractGunCard) c;
-                if (gunCard.canFullReload || gunCard.capacity < gunCard.maxCapacity) {
+                if (gunCard.canFullReload() || gunCard.capacity < gunCard.maxCapacity) {
                     gunCard.target = gunCard.defaultTarget;
                     if (p.hasRelic(DemoMod.makeID("CrisisStone"))) {
                         if (gunCard.capacity <= 0) {

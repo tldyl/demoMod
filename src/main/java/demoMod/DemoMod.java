@@ -6,7 +6,6 @@ import basemod.ModPanel;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.devcommands.act.ActCommand;
 import basemod.eventUtil.AddEventParams;
-import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +13,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -38,6 +39,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DynamicVaribles.Capacity;
 import demoMod.DynamicVaribles.ExtraDamage;
 import demoMod.DynamicVaribles.MultiAttack;
+import demoMod.actions.CalculateActualFPSAction;
 import demoMod.cards.*;
 import demoMod.cards.guns.*;
 import demoMod.cards.tempCards.Flaw;
@@ -56,18 +58,19 @@ import demoMod.potions.BlankPotion;
 import demoMod.potions.LeadSkinPotion;
 import demoMod.powers.*;
 import demoMod.relics.*;
+import demoMod.relics.birthrightRelics.HuntressBirthright;
 import demoMod.rewards.GlassGuonStone;
 import demoMod.sounds.DemoSoundMaster;
 import demoMod.ui.screens.ComboManualScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings({"Duplicates", "ResultOfMethodCallIgnored", "unused", "ForLoopReplaceableByForEach"})
 @SpireInitializer
@@ -82,7 +85,7 @@ public class DemoMod implements EditCardsSubscriber,
                                 RelicGetSubscriber,
                                 PotionGetSubscriber,
                                 PostRenderSubscriber,
-                                PostUpdateSubscriber,
+                                PreUpdateSubscriber,
                                 SetUnlocksSubscriber,
                                 AddAudioSubscriber {
 
@@ -119,6 +122,13 @@ public class DemoMod implements EditCardsSubscriber,
     private static final Color HUNTRESS_COLOR = mainHuntressColor;
 
     public DemoMod() {
+        ModInfo info = null;
+        for (ModInfo info1 : Loader.MODINFOS) {
+            if (info1.getIDName().equals("GungeonMod")) {
+                info = info1;
+                break;
+            }
+        }
         logger.info("     #####     ");
         logger.info(" ############# ");
         logger.info("###############");
@@ -127,7 +137,8 @@ public class DemoMod implements EditCardsSubscriber,
         logger.info("###############");
         logger.info("               ");
         logger.info("###############");
-        logger.info("Gungeon Mod - v2.0.1");
+        assert info != null;
+        logger.info("Gungeon Mod - {}", info.ModVersion.toString());
         logger.info("Loading...");
         try {
             Thread.sleep(1200);
@@ -346,6 +357,9 @@ public class DemoMod implements EditCardsSubscriber,
             case KOR:
                 language = "kor";
                 break;
+            case JPN:
+                language = "jpn";
+                break;
             default:
                 language = "eng";
         }
@@ -447,6 +461,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addRelic(new Junk(), RelicType.SHARED);
         BaseMod.addRelic(new GoldJunk(), RelicType.SHARED);
         BaseMod.addRelic(new LamentConfigurum(), RelicType.SHARED);
+        BaseMod.addRelic(new RingOfTheResourcefulRat(), RelicType.SHARED);
         BaseMod.addRelicToCustomPool(new RedGuonStone(), characterColor);
         BaseMod.addRelicToCustomPool(new HipHolster(), characterColor);
         BaseMod.addRelicToCustomPool(new Dog(), characterColor);
@@ -584,6 +599,7 @@ public class DemoMod implements EditCardsSubscriber,
         BaseMod.addBoss(Maze.ID, ResourcefulRat.ID, DemoMod.getResourcePath("map/resourcefulRat.png"), DemoMod.getResourcePath("map/resourcefulRatOutline.png"));
         comboManualScreen = new ComboManualScreen();
         MAX_FPS = Settings.MAX_FPS;
+        actionsQueue.add(new CalculateActualFPSAction());
         loadSettings();
         UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("ModPanel"));
         ModPanel settingsPanel = new ModPanel();
@@ -597,20 +613,47 @@ public class DemoMod implements EditCardsSubscriber,
                     DemoMod.disableVFXForCamera = me.enabled;
                     DemoMod.saveSettings();
                 });
+        ModLabeledToggleButton enableStunImmune = new ModLabeledToggleButton(uiStrings.TEXT[2], 350.0F, 600.0F, Color.WHITE, FontHelper.buttonLabelFont, DemoMod.enableStunImmune, settingsPanel, (me) -> {},
+                (me) -> {
+                    DemoMod.enableStunImmune = me.enabled;
+                    DemoMod.saveSettings();
+                });
+        ModLabeledToggleButton enableResourcefulRatThief = new ModLabeledToggleButton(uiStrings.TEXT[3], 350.0F, 550.0F, Color.WHITE, FontHelper.buttonLabelFont, DemoMod.enableResourcefulRatThief, settingsPanel, (me) -> {},
+                (me) -> {
+                    DemoMod.enableResourcefulRatThief = me.enabled;
+                    DemoMod.saveSettings();
+                });
         settingsPanel.addUIElement(spawnMimicForOtherCharacters);
         settingsPanel.addUIElement(disableVFXForCamera);
+        settingsPanel.addUIElement(enableStunImmune);
+        settingsPanel.addUIElement(enableResourcefulRatThief);
         BaseMod.registerModBadge(ImageMaster.loadImage(DemoMod.getResourcePath("ui/badge.png")), "Gungeon Mod", "Everyone", "TODO", settingsPanel);
         AbstractDungeonPatch.instance = new AbstractDungeonPatch();
+
+        if (Loader.isModLoaded("IsaacModExtend")) {
+            try {
+                Class birthrightCls = Class.forName("isaacModExtend.relics.Birthright");
+                Field birthrightEffectsField = birthrightCls.getDeclaredField("birthrightEffects");
+                Map<Class<? extends AbstractPlayer>, AbstractRelic> birthrightEffects = (Map<Class<? extends AbstractPlayer>, AbstractRelic>) birthrightEffectsField.get(null);
+                birthrightEffects.put(HuntressCharacter.class, new HuntressBirthright());
+            } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static boolean spawnMimicForOtherCharacters = false;
     public static boolean disableVFXForCamera = false;
+    public static boolean enableStunImmune = true;
+    public static boolean enableResourcefulRatThief = true;
 
     private static void saveSettings() {
         try {
             SpireConfig config = new SpireConfig("demoMod", "settings");
             config.setBool("spawnMimicForOtherCharacters", spawnMimicForOtherCharacters);
             config.setBool("disableVFXForCamera", disableVFXForCamera);
+            config.setBool("enableStunImmune", enableStunImmune);
+            config.setBool("enableResourcefulRatThief", enableResourcefulRatThief);
             config.save();
         } catch (Exception e) {
             e.printStackTrace();
@@ -626,6 +669,12 @@ public class DemoMod implements EditCardsSubscriber,
             }
             if (config.has("disableVFXForCamera")) {
                 disableVFXForCamera = config.getBool("disableVFXForCamera");
+            }
+            if (config.has("enableStunImmune")) {
+                enableStunImmune = config.getBool("enableStunImmune");
+            }
+            if (config.has("enableResourcefulRatThief")) {
+                enableResourcefulRatThief = config.getBool("enableResourcefulRatThief");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -715,7 +764,7 @@ public class DemoMod implements EditCardsSubscriber,
     }
 
     @Override
-    public void receivePostUpdate() {
+    public void receivePreUpdate() {
         if (actionsQueue.size() > 0) {
             AbstractGameAction action = actionsQueue.get(0);
             action.update();

@@ -87,7 +87,7 @@ public class Polaris extends AbstractGunCard implements Combo, PostAddedToMaster
     public void fire(AbstractPlayer p, AbstractMonster m) {
         addToBot(new PlaySoundAction("GUN_FIRE_POLARIS"));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if (this.level >= 5) {
+        if (this.level >= 5 && isCombo) {
             addToBot(new PlaySoundAction("GUN_FIRE_POLARIS"));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }

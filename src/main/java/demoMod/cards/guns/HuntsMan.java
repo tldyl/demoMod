@@ -47,7 +47,7 @@ public class HuntsMan extends AbstractGunCard implements PostAddedToMasterDeckSu
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return;
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return;
         if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
             AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
             for (int i=0;i<4;i++) {

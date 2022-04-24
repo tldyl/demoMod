@@ -45,7 +45,7 @@ public class PinkGuonStone extends CustomRelic implements Combo {
                     && !info.owner.hasPower(ControlPower.POWER_ID)
                     && info.owner instanceof AbstractMonster) {
                 this.flash();
-                addToBot(new ApplyPowerAction(p, info.owner, new ControlPower((AbstractMonster) info.owner)));
+                addToBot(new ApplyPowerAction(info.owner, p, new ControlPower((AbstractMonster) info.owner)));
             }
         }
         return damageAmount;

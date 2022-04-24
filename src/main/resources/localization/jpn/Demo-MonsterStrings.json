@@ -1,0 +1,98 @@
+{
+  "DemoMod:LordOfTheJammed": {
+    "NAME": "亡銃王",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Decoy": {
+    "NAME": "デコイ",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Mimic": {
+    "NAME": "チェストミミック",
+    "DIALOG": [
+      "油断"
+    ],
+    "MOVES": [
+      "蓋を閉じる",
+      "狂気の擬態",
+      "刃の擬態",
+      "バアッ!"
+    ]
+  },
+  "DemoMod:BulletKin": {
+    "NAME": "ブレット族",
+    "DIALOG": [""],
+    "MOVES": ["テーブル返し"]
+  },
+  "DemoMod:VeteranBulletKin": {
+    "NAME": "ブレット族(ベテラン)",
+    "DIALOG": [""],
+    "MOVES": [
+      "予測",
+      "モザンビーク・ドリル"
+    ]
+  },
+  "DemoMod:RedShotgunKin": {
+    "NAME": "ショットガン族(赤)",
+    "DIALOG": [""],
+    "MOVES": ["リロード"]
+  },
+  "DemoMod:BlueShotgunKin": {
+    "NAME": "ショットガン族(青)",
+    "DIALOG": [""],
+    "MOVES": ["リロード"]
+  },
+  "DemoMod:VeteranShotgunKin": {
+    "NAME": "ショットガン族(ベテラン)",
+    "DIALOG": [""],
+    "MOVES": [
+      "予測",
+      "リロード"
+    ]
+  },
+  "DemoMod:ResourcefulRat": {
+    "NAME": "かしこいネズミ",
+    "DIALOG": [
+      "チーズみてェに、 #r@でろでろに溶かしてやる@ からナ！",
+      "どうやら何度も戦う運命らしいナ… #r@ブッ潰してやる！@",
+      "The most handsome king",
+      "Your arrogance",
+      "You don't have enough body skills",
+      "Someone stronger than you",
+      "You're a little aggressive",
+      "You're not in shape",
+      "You're not involved at all",
+      "Your arrogance",
+      "Dungeon Lord",
+      "The richest rat"
+    ],
+    "MOVES": [
+      "ダガースプレー",
+      "ボディスラム",
+      "セットアップ",
+      "ポイズントラップ",
+      "ロープスローイング",
+      "バレットウェーブ"
+    ]
+  },
+  "DemoMod:Mouser": {
+    "NAME": "マウサー",
+    "DIALOG": [""],
+    "MOVES": [""]
+  },
+  "DemoMod:Gunsinger": {
+    "NAME": "ガンシンガー",
+    "DIALOG": [""],
+    "MOVES": [
+      "祝福"
+    ]
+  },
+  "DemoMod:ResourcefulRatThief": {
+    "NAME": "かしこいネズミ",
+    "DIALOG": [
+      "紛失: "
+    ]
+  }
+}

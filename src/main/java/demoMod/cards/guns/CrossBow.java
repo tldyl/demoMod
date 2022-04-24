@@ -35,20 +35,6 @@ public class CrossBow extends AbstractGunCard {
     }
 
     @Override
-    public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
-        this.capacity = this.maxCapacity;
-        DemoSoundMaster.playA(this.reloadSoundKey, 0F);
-        if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
-            AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
-            AbstractMonster m = AbstractDungeon.getRandomMonster();
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.damage, this.damageTypeForTurn)));
-        }
-        afterReload();
-    }
-
-    @Override
     public void autoReload(AbstractPlayer p, AbstractMonster m) {
 
     }

@@ -1,0 +1,470 @@
+{
+  "DemoMod:Strike_Huntress": {
+    "NAME": "ストライク",
+    "DESCRIPTION": "!D! ダメージを与える。"
+  },
+  "DemoMod:Defend_Huntress": {
+    "NAME": "防御",
+    "DESCRIPTION": "!B! ブロック を得る。"
+  },
+  "DemoMod:Invincible": {
+    "NAME": "無敵",
+    "DESCRIPTION": "1ターンに !M! 以上のHPを失わない。"
+  },
+  "DemoMod:Spice": {
+    "NAME": "スパイス",
+    "DESCRIPTION": "最大HPを2失う。永続的に 筋力 !M! を得る。カードを1枚引く。このカードをプレイするたび、このカードが報酬に表示される確率が上昇する。 NL 廃棄"
+  },
+  "DemoMod:BlackBlade": {
+    "NAME": "ブラックブレード",
+    "DESCRIPTION": "!D! ダメージを与える。ブロックされなかったダメージに等しい ブラックブレード を与える。"
+  },
+  "DemoMod:WhiteBlade": {
+    "NAME": "ホワイトブレード",
+    "DESCRIPTION": "!D! ダメージを与える。ブロックされなかったダメージに等しい ホワイトブレード を与える。"
+  },
+  "DemoMod:BSG": {
+    "NAME": "ビッグガン",
+    "DESCRIPTION": "!D! ダメージを与える。このカードで与えるダメージが完全にブロックされていない場合、敵全体に !D! ダメージを与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:BalloonGun": {
+    "NAME": "バルーンガン",
+    "DESCRIPTION": "!D! ダメージを3回与える。このカードを引いたとき、 飛行 を得る。戦闘中にHPを失うと 廃棄 される。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:RustySidearm": {
+    "NAME": "さびたピストル",
+    "DESCRIPTION": "!D! ダメージを与える。 NL セミオート NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:ManualReload": {
+    "NAME": "マニュアルリロード",
+    "DESCRIPTION": "捨て札の 銃 を1枚 リロード して、手札に戻す。",
+    "UPGRADE_DESCRIPTION": "山札か捨て札の 銃 を1枚 リロード して、手札に戻す。"
+  },
+  "DemoMod:CrossBow": {
+    "NAME": "クロスボウ",
+    "DESCRIPTION": "!D! ダメージを与える。カードを 1枚引く。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:TableSutra": {
+    "NAME": "テーブラ・スートラ",
+    "DESCRIPTION": "ターン開始時、ランダムな テーブル殺法 を1枚手札に加える。"
+  },
+  "DemoMod:TableTechSight": {
+    "NAME": "テーブル殺法:増",
+    "DESCRIPTION": "!B! ブロック を得る。このターン、次の 銃 を2回プレイする。 NL エセリアル NL 廃棄",
+    "UPGRADE_DESCRIPTION": "!B! ブロック を得る。 このターン、次の2枚の 銃 を2回プレイする。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechMoney": {
+    "NAME": "テーブル殺法:富",
+    "DESCRIPTION": "!B! ブロック を得る。 !M! ゴールドを得る。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechRocket": {
+    "NAME": "テーブル殺法:飛",
+    "DESCRIPTION": "!D! ダメージを与える。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechShotgun": {
+    "NAME": "テーブル殺法:弾",
+    "DESCRIPTION": "!B! ブロック を得る。ランダムな敵に !D! ダメージを !M! 回与える。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechHeat": {
+    "NAME": "テーブル殺法:熱",
+    "DESCRIPTION": "!B! ブロック を得る。 ターン終了時、敵全体に !M! ダメージを与えるようになる。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechRage": {
+    "NAME": "テーブル殺法:怒",
+    "DESCRIPTION": "!B! ブロック を得る。 筋力 !M! を得る。このターン終了時に 筋力 !M! を失う。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechBlanks": {
+    "NAME": "テーブル殺法:空",
+    "DESCRIPTION": "!B! ブロック を得る。戦闘中の敵1体につき !M! ブロック を得る。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TableTechStun": {
+    "NAME": "テーブル殺法:止",
+    "DESCRIPTION": "!B! ブロック を得る。ボス以外の全ての敵に *スタン を与える。 NL エセリアル NL 廃棄"
+  },
+  "DemoMod:TripleGun": {
+    "NAME": "トリプルガン",
+    "DESCRIPTION": "装填数 3 : !D! ダメージを与える。 装填数 2: !D! ダメージを2回与える。 装填数 1: 敵全体に !M! ダメージを与える。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "装填数 3 : ",
+      " ダメージを与える。 装填数 2: ",
+      " ダメージを2回与える。 装填数 1: 敵全体に !M! ダメージを与える。 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:FinishedGun": {
+    "NAME": "造りおえた銃",
+    "DESCRIPTION": "!D! ダメージを与える。 装填数 1: ダメージが !DemoModExtraDamage! 増加し、敵が予定しているアタックと同じダメージを追加で与える。 NL セミオート NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:HighKaliber": {
+    "NAME": "ハイキャリバール",
+    "DESCRIPTION": "幽体離脱 !M! を与える。 !D! ダメージを与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:SAA": {
+    "NAME": "SAA",
+    "DESCRIPTION": "!D! ダメージを与える。このカードを リロード したとき、カードを !M! 枚引く。 NL セミオート NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Behold!": {
+    "NAME": "多腕の邪気ガン！",
+    "DESCRIPTION": "[E] を得る。山札と捨て札から 銃 を好きな枚数選び、手札に加える。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "[E] [E] を得る。山札と捨て札から 銃 を好きな枚数選び、手札に加える。 NL 廃棄"
+  },
+  "DemoMod:Roll": {
+    "NAME": "ロール",
+    "DESCRIPTION": "!B! ブロック を得る。手札の 銃 を1枚 リロード する。"
+  },
+  "DemoMod:Unity": {
+    "NAME": "ユニティリング",
+    "DESCRIPTION": "!D! ダメージを与える。持っている 銃 1枚につき、追加で !M! ダメージを与える。"
+  },
+  "DemoMod:FastSwitch": {
+    "NAME": "ファストスイッチ",
+    "DESCRIPTION": "カードを1枚引く。山札の一番上のカードを見る。それが 銃 の場合、手札に加えることができる。",
+    "UPGRADE_DESCRIPTION": "カードを1枚引く。 山札から 銃 を1枚選び、手札に加える。"
+  },
+  "DemoMod:DoubleSwitch": {
+    "NAME": "ダブルスイッチ",
+    "DESCRIPTION": "手札の 銃 を !M! 枚まで リロード する。"
+  },
+  "DemoMod:StickyCrossBow": {
+    "NAME": "ボムクロスボウ",
+    "DESCRIPTION": "!D! ダメージを与える。 爆弾矢 !M! を与える。 NL セミオート NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:RadGun": {
+    "NAME": "イケテルガン",
+    "DESCRIPTION": "!D! ダメージを与える。 装填数 が最大で リロード するたび、戦闘終了までダメージが2倍になる。それ以外での リロード でダメージがリセットされる。 NL 装填数 !DemoModCapacity!",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 装填数 が最大か、 装填数 2で リロード するたび、戦闘終了までダメージが2倍になる。それ以外での リロード でダメージがリセットされる。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "!D! ダメージを与える。 装填数 3以上で リロード するたび、戦闘終了までダメージが2倍になる。それ以外での リロード でダメージがリセットされる。 NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:Rummage": {
+    "NAME": "捜索",
+    "DESCRIPTION": "カードを4枚引く。この方法で引いた 銃 以外のカードを捨てる。",
+    "UPGRADE_DESCRIPTION": "カードを4枚引く。この方法で引いた 銃 以外のカードを捨てる。捨て札のカードを1枚手札に戻す。"
+  },
+  "DemoMod:Eureka": {
+    "NAME": "見つけた！",
+    "DESCRIPTION": "銃 を !M! 毎引くまでカードを引く。 NL 廃棄"
+  },
+  "DemoMod:FightSabre": {
+    "NAME": "ソードガン",
+    "DESCRIPTION": "!D! ダメージを与える。このカードを リロード したとき、 !B! ブロックを得る。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Gungine": {
+    "NAME": "ガンジン",
+    "DESCRIPTION": "!D! ダメージを2回与える。 NL 手札の 呪い と 状態異常 を NL すべて廃棄する。このカ NL ードを リロード したとき NL 、 [E] を得る。 NL 装填数 !DemoModCapacity!",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを !DemoModMulti! 回与える。 NL 手札の 呪い と 状態異常 を NL すべて廃棄する。このカ NL ードを リロード したとき NL 、 [E] [E] を得る。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:EasyReloadBullets": {
+    "NAME": "イージーリロード",
+    "DESCRIPTION": "スキルをプレイするたび、手札のランダムな 銃 の 装填数 を1回復する。 リロード で発動する効果は発生しない。",
+    "UPGRADE_DESCRIPTION": "天賦 NL スキルをプレイするたび、手札のランダムな 銃 の 装填数 を1回復する。 リロード で発動する効果は発生しない。"
+  },
+  "DemoMod:PotionOfGunFriendShip": {
+    "NAME": "ガンポーション",
+    "DESCRIPTION": "戦闘終了まで手札の 銃 すべてを アップグレード する。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "戦闘終了まですべての 銃 を アップグレード する。 NL 廃棄"
+  },
+  "DemoMod:DoubleVision": {
+    "NAME": "ダブルビジョン",
+    "DESCRIPTION": "このターン、次の 銃 を2回プレイする。",
+    "UPGRADE_DESCRIPTION": "このターン、次の2枚の 銃 を2回プレイする。"
+  },
+  "DemoMod:ChanceBullets": {
+    "NAME": "ランダム弾",
+    "DESCRIPTION": "銃 をプレイしたとき、 !M! %の確率で持っているランダムな 銃 の効果と置き換えられる。",
+    "UPGRADE_DESCRIPTION": "銃 をプレイしたとき、 !M! %の確率で持っているランダムな 銃 の効果が追加される。"
+  },
+  "DemoMod:SkilledReload": {
+    "NAME": "リロードスキル",
+    "DESCRIPTION": "リロード するたび、カードを1枚引く。"
+  },
+  "DemoMod:Slinger": {
+    "NAME": "スリンガー",
+    "DESCRIPTION": "銃 をプレイするたび、山札か捨て札からランダムなスキルを1枚手札に加える。",
+    "UPGRADE_DESCRIPTION": "天賦 NL 銃 をプレイするたび、山札か捨て札からランダムなスキルを1枚手札に加える。"
+  },
+  "DemoMod:SpreadAmmo": {
+    "NAME": "弾薬",
+    "DESCRIPTION": "すべての 銃 を リロード する。 NL 廃棄"
+  },
+  "DemoMod:CursedBullets": {
+    "NAME": "呪いの弾丸",
+    "DESCRIPTION": "呪いポイント の半分に等しい 筋力 を得る。",
+    "UPGRADE_DESCRIPTION": "天賦 NL 呪いポイント の半分に等しい 筋力 を得る。"
+  },
+  "DemoMod:ShadowBullets": {
+    "NAME": "シャドウ弾",
+    "DESCRIPTION": "!M! %の確率で 銃 を2回プレイする。"
+  },
+  "DemoMod:BattleInHaste": {
+    "NAME": "電撃戦",
+    "DESCRIPTION": "山札から1枚のランダムな 銃 を手札に加える。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "山札から !M! 枚のランダムな 銃 を手札に加える。 NL 廃棄"
+  },
+  "DemoMod:Casey": {
+    "NAME": "スズキ",
+    "DESCRIPTION": "!D! ダメージを与える。このカードで敵を倒したとき、超過したダメージの !M! 倍のダメージをランダムな敵に与える。"
+  },
+  "DemoMod:FullFirepower": {
+    "NAME": "最大火力",
+    "DESCRIPTION": "次の 銃 を 装填数 が0になるまでプレイする。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "次の 銃 を 装填数 が0になるまでプレイする。"
+  },
+  "DemoMod:BlankBullets": {
+    "NAME": "ブランク弾",
+    "DESCRIPTION": "銃 が !M! %の確率で *スタン を与える。"
+  },
+  "DemoMod:HuntsMan": {
+    "NAME": "ハントマン",
+    "DESCRIPTION": "ランダムな敵に !D! ダメージを4回与える。このカードを リロード したとき、 !B! ブロックを得る。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:TeaPot": {
+    "NAME": "ティーポット",
+    "DESCRIPTION": "!D! ダメージを与える。 装填数 1:戦闘終了までダメージが !DemoModExtraDamage! 増加する。このカードを リロード したとき、 オメガ !M! を得る。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Charge": {
+    "NAME": "チャージ",
+    "DESCRIPTION": "チャージ でプレイする（追加の [E] が必要）。"
+  },
+  "DemoMod:NonCharge": {
+    "NAME": "通常",
+    "DESCRIPTION": "通常の方法でプレイする。"
+  },
+  "DemoMod:MegaHand": {
+    "NAME": "ロックハンド",
+    "DESCRIPTION": "!D! ダメージを与える。 チャージ : !M! ダメージを与える。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "エアシューター",
+      "バブルリード",
+      "クラッシュボム",
+      "タイムストッパー",
+      "アトミックファイヤー",
+      "リーフシールド",
+      "メタルブレード",
+      "クイックブーメラン",
+      "!D! ダメージを3回与える。 NL 装填数 !DemoModCapacity!",
+      "",
+      "対象は !D! HPを失う。次のターン、この敵に *スタン を与え、敵全体に !D! ダメージを与える。通常モードに戻る。 NL 装填数 !DemoModCapacity!",
+      "敵全体に !D! ダメージを与える。このターンに続いて追加の1ターンを行う。通常モードに戻る。 NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:PlatinumBullets": {
+    "NAME": "プラチナ弾",
+    "DESCRIPTION": "銃 をプレイするたび、 筋力 か 敏捷性 のどちらかをランダムに1得る。"
+  },
+  "DemoMod:ChaosBullets": {
+    "NAME": "カオス弾",
+    "DESCRIPTION": "銃 が、 !M! %の確率でランダムなデバフを1つ与える。"
+  },
+  "DemoMod:ConditionalReflex": {
+    "NAME": "条件反射",
+    "DESCRIPTION": "カードを1枚引く。 NL リロード をしたとき、捨て札から手札に戻す."
+  },
+  "DemoMod:JK47": {
+    "NAME": "ジョークガン",
+    "DESCRIPTION": "!D! ダメージを与える。このカードを リロード したとき、敵全体に 脱力 !M! を与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:SniperShot": {
+    "NAME": "スナイパーショット",
+    "DESCRIPTION": "捨て札の 銃 を1枚プレイし、手札に戻す。 NL 廃棄"
+  },
+  "DemoMod:DirectionalPad": {
+    "NAME": "十字キー",
+    "DESCRIPTION": "!D! ダメージを与える。直前にプレイしたカードがアタックの場合、 !B! ブロック を得る。 装填数 が0のときにプレイすると、戦闘終了時に追加の報酬を獲得し、このカードがデッキから削除される。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Unmoved": {
+    "NAME": "止どまる",
+    "DESCRIPTION": "!B! ブロック を得る。この戦闘中、最後にプレイしたアタックを1枚手札に加える。",
+    "UPGRADE_DESCRIPTION": "!B! ブロック を得る。この戦闘中、最後にプレイしたアタックを2枚手札に加える。",
+    "EXTENDED_DESCRIPTION": [
+      "（最後にプレイした ",
+      " 枚のアタック:",
+      "）"
+    ]
+  },
+  "DemoMod:DarkMarker": {
+    "NAME": "ダークマーカー",
+    "DESCRIPTION": "!D! ダメージを与える。 装填数 が最大で リロード したとき、モードを変更する。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "敵全体に !D! ダメージをX回と *スタン を与える。 装填数 が最大で リロード したとき、モードを変更する。 NL 廃棄 NL 装填数 !DemoModCapacity!",
+      "!D! ダメージを与える。 ブルーマーク を与える。 装填数 が最大で リロード したとき、モードを変更する。 NL 装填数 !DemoModCapacity!",
+      "!D! ダメージを与える。 レッドマーク を与える。 装填数 が最大で リロード したとき、モードを変更する。 NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:StrategicReserve": {
+    "NAME": "備蓄",
+    "DESCRIPTION": "手札のカード2枚を山札の上に置く。次のターン、 [E] [E] を得る。",
+    "UPGRADE_DESCRIPTION": "手札のカードを好きな枚数山札の上に置く。次のターン、 [E] [E] を得る。"
+  },
+  "DemoMod:ProbeStrike": {
+    "NAME": "プローブストライク",
+    "DESCRIPTION": "!D! ダメージを与える。敵が攻撃を予定している場合、 !B! ブロック を得る。そうでない場合、 [E] を得て、カードを1枚引き、 弱体 !M! を与える。"
+  },
+  "DemoMod:Evolver": {
+    "NAME": "イボルバー",
+    "DESCRIPTION": "アップグレード できない。 !D! ダメージを与える。6回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "アップグレード できない。 !D! ダメージを与える。4回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!",
+      "アップグレード できない。 !D! ダメージを3回与える。6回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!",
+      "アップグレード できない。 !D! ダメージを3回与える。4回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!",
+      "アップグレード できない。 !D! ダメージを与える。締め付け !M! を与える。6回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!",
+      "アップグレード できない。 !D! ダメージを与える。締め付け !M! を与える。4回プレイするたび、このカードのレベルが永続的に1上昇する。 NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:MozambiqueDrill": {
+    "NAME": "モザンビーク・ドリル",
+    "DESCRIPTION": "1ターンの間に3枚の 銃 をプレイするたび、次にプレイするカードは2倍のダメージを与える。"
+  },
+  "DemoMod:GunstockTap": {
+    "NAME": "銃床打撃",
+    "DESCRIPTION": "!D! ダメージを与える。カードを1枚引く。手札の 銃 を !M! 枚まで リロード する。"
+  },
+  "DemoMod:AbyssalTentacle": {
+    "NAME": "不気味な触手",
+    "DESCRIPTION": "!D! ダメージを与える。 締め付け !M! を与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:LifeOrb": {
+    "NAME": "いのちのたま",
+    "DESCRIPTION": "!D! ダメージを !DemoModMulti! 回与える。この戦闘中、この効果で倒した敵の最大HPの合計に等しいダメージを、このカードを リロード したときに敵全体に与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Replace": {
+    "NAME": "置き換え",
+    "DESCRIPTION": "カードを1枚捨てる。捨て札のカードを1枚手札に戻す。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "カードを1枚捨てる。捨て札のカードを1枚手札に戻す。"
+  },
+  "DemoMod:FeignSurrender": {
+    "NAME": "降参したふり",
+    "DESCRIPTION": "手札のアタックを全て捨てる。この効果で捨てた枚数だけカードを引く。",
+    "UPGRADE_DESCRIPTION": "手札のアタックを全て捨てる。この効果で捨てた枚数だけカードを引く（最低2枚のカードを引く）。"
+  },
+  "DemoMod:ThirdPartyController": {
+    "NAME": "非正規コントローラー",
+    "DESCRIPTION": "!D! ダメージを与える。敵がボスでない場合、 コントロール を与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Flaw": {
+    "NAME": "やらかし",
+    "DESCRIPTION": "使用不可 NL このカードを引いたとき、 弱体 1を得る。 NL エセリアル"
+  },
+  "DemoMod:RatTrap": {
+    "NAME": "ネズミ捕り",
+    "DESCRIPTION": "使用不可 このターンにアタックをプレイしていた場合、ターン終了時に !M! ダメージを受け、山札に *めまい を加え、このカードを廃棄する。"
+  },
+  "DemoMod:AWP": {
+    "NAME": "AWP",
+    "DESCRIPTION": "!D! ダメージを与える。手札の 銃 がこのカードだけのとき、ダメージを2倍にする。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Purify": {
+    "NAME": "浄化",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 致命時、デッキからカードを1枚選び、このカードと共にデッキから削除する。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL 致命時、デッキからカードを1枚選び、このカードと共にデッキから削除する。"
+  },
+  "DemoMod:Deposit": {
+    "NAME": "保証金",
+    "DESCRIPTION": "1度の戦闘で、このカードを !M! 回引いたとき、30ゴールドを得て廃棄される。",
+    "EXTENDED_DESCRIPTION": [
+      "（このカードを ",
+      " 回引いた）"
+    ]
+  },
+  "DemoMod:PracticeMakesPerfect": {
+    "NAME": "継続は力なり",
+    "DESCRIPTION": "この戦闘中、 リロード した 銃 1枚につき、 [E] の消費が1減少する。カードを !M! 枚引く。"
+  },
+  "DemoMod:BulletBore": {
+    "NAME": "ドリルガン",
+    "DESCRIPTION": "対象は !D! HPを失う。次のターン、この敵に *スタン を与え、敵全体に !D! ダメージを与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:GunslingerForm": {
+    "NAME": "ガンスリンガー化",
+    "DESCRIPTION": "銃 を リロード したときに発動する効果が、 銃 を発砲したときにも発動する。 NL エセリアル",
+    "UPGRADE_DESCRIPTION": "銃 を リロード したときに発動する効果が、 銃 を発砲したときにも発動する。"
+  },
+  "DemoMod:Elimentaler": {
+    "NAME": "エメンテーラー",
+    "DESCRIPTION": "!D! ダメージを与える。 凝固 !M! を与える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:EatIt": {
+    "NAME": "食べる",
+    "DESCRIPTION": "対象がボス以外の場合、即死させる。ボスの場合、40ダメージを与える。"
+  },
+  "DemoMod:Ejector": {
+    "NAME": "イジェクター",
+    "DESCRIPTION": "手札の1枚の 銃 の 装填数 を空にする。",
+    "UPGRADE_DESCRIPTION": "手札の好きな枚数の 銃 の 装填数 を空にする。"
+  },
+  "DemoMod:GunShield": {
+    "NAME": "ガンシールド",
+    "DESCRIPTION": "!B! ブロック を得る。手札の 銃 1枚につき、追加で !B! ブロック を得る。"
+  },
+  "DemoMod:AC15": {
+    "NAME": "AC-15",
+    "DESCRIPTION": "!D! ダメージを与える。 ブロック をすべて失う。このカードのダメージは、この効果で失われる ブロック に等しい値になる。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:OldTrick": {
+    "NAME": "常とう手段",
+    "DESCRIPTION": "!D! ダメージを与える。この戦闘中、最後にプレイしたスキルを1枚手札に加える。",
+    "EXTENDED_DESCRIPTION": [
+      "（最後にプレイした ",
+      " 枚のスキル:",
+      "）"
+    ]
+  },
+  "DemoMod:ZorGun": {
+    "NAME": "ZF.01",
+    "DESCRIPTION": "!D! ダメージを与える。このカードを リロード したとき、山札の上から !M! 枚のカードをプレイし、このカードのコストが1増加する。このカードが捨て札に行くたび、このカードのコストが1減少する（下限は1）。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Desperate": {
+    "NAME": "やけくそ",
+    "DESCRIPTION": "カードを !M! 枚引く。この効果で 銃 を引くたび、 [E] を得る。"
+  },
+  "DemoMod:Camera": {
+    "NAME": "カメラ",
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。 装填数 1:敵全体に *スタン を与える。 装填数 が0になったとき、廃棄される。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:BlackHoleGun": {
+    "NAME": "ブラックホールガン",
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。ターン終了まで、全キャラクターが 筋力 !M! を失う。捨て札にあるすべての 銃 の 装填数 を空にする。 *空虚 を1枚捨て札に加える。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:Polaris": {
+    "NAME": "ポラリス",
+    "DESCRIPTION": "!D! ダメージを与える。このカードを2回プレイするたび、このカードのレベルが永続的に1上昇する（最大レベル3）。戦闘中ダメージを受けたとき、このカードのレベルが永続的に1減少する。 NL 装填数 !DemoModCapacity!",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。このカードを2回プレイするたび、このカードのレベルが永続的に1上昇する（最大レベル3）。戦闘中ダメージを受けたとき、このカードのレベルが永続的に1減少する。 NL セミオート NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "!D! ダメージを2回与える。このカードを2回プレイするたび、このカードのレベルが永続的に1上昇する（最大レベル3）。戦闘中ダメージを受けたとき、このカードのレベルが永続的に1減少する。 NL 装填数 !DemoModCapacity!",
+      "!D! ダメージを2回与える。このカードを2回プレイするたび、このカードのレベルが永続的に1上昇する（最大レベル3）。戦闘中ダメージを受けたとき、このカードのレベルが永続的に1減少する。 NL セミオート NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:SuppressiveFire": {
+    "NAME": "制圧射撃",
+    "DESCRIPTION": "このターン、手札の 銃 1枚を セミオート にする。",
+    "UPGRADE_DESCRIPTION": "このターン、手札の 銃 すべてを セミオート にする。"
+  },
+  "DemoMod:FortunesFavor": {
+    "NAME": "女神の祝福",
+    "DESCRIPTION": "敵が予定しているダメージの合計の半分に等しい ブロック を得る。"
+  },
+  "DemoMod:BoxingGlove": {
+    "NAME": "ボクシンググローブ",
+    "DESCRIPTION": "!D! ダメージを与える。このカードで敵を倒したとき、1点を得る（最大3点）。 チャージ :すべての点を失い、失った1点につきダメージを2倍にする。 NL 装填数 !DemoModCapacity!"
+  },
+  "DemoMod:MachoBrace": {
+    "NAME": "きょうせいギプス",
+    "DESCRIPTION": "!B! ブロック を得る。手札の 銃 を1枚リロードする。次のアタックは !M! の追加ダメージを与える。"
+  },
+  "DemoMod:CombinedRifle": {
+    "NAME": "コンバインライフル",
+    "DESCRIPTION": "!D! ダメージを !DemoModMulti! 回与える。このカードをプレイする以外の方法で リロード したとき、モードを変更する。 NL 装填数 !DemoModCapacity!",
+    "EXTENDED_DESCRIPTION": [
+      "!D! ダメージを与える。このカードをプレイする以外の方法で リロード したとき、モードを変更する。 NL 装填数 !DemoModCapacity!"
+    ]
+  },
+  "DemoMod:HungryBullets": {
+    "NAME": "ハングリー弾",
+    "DESCRIPTION": "!M! 枚目の 銃 をプレイするたび、ブロックされなかったダメージに等しい ブロック を得る。",
+    "UPGRADE_DESCRIPTION": "!M! 枚目の 銃 をプレイするたび、ブロックされなかったダメージに等しい ブロック を得る。"
+  },
+  "DemoMod:HardPowerCard": {
+    "NAME": "ハードパワー",
+    "DESCRIPTION": "!B! ブロック を得る。このターン、完全にブロックできるダメージを1にする。"
+  }
+}

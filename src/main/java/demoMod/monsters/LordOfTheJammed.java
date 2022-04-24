@@ -17,6 +17,7 @@ import demoMod.interfaces.PostOnMonsterDeathSubscriber;
 import demoMod.patches.MonsterPatch;
 import demoMod.powers.JammedPower;
 
+@SuppressWarnings("Duplicates")
 public class LordOfTheJammed extends AbstractMonster implements PostOnMonsterDeathSubscriber {
     public static final String ID = DemoMod.makeID("LordOfTheJammed");
     private static final MonsterStrings monsterStrings;

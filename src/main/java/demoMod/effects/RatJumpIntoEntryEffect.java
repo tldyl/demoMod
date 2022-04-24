@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import demoMod.DemoMod;
 import demoMod.monsters.ResourcefulRat;
 import demoMod.sounds.DemoSoundMaster;
 
@@ -32,7 +31,7 @@ public class RatJumpIntoEntryEffect extends AbstractGameEffect {
             this.x += Gdx.graphics.getDeltaTime() * this.dst;
         } else {
             this.x -= Gdx.graphics.getDeltaTime() * 150;
-            this.vY -= 0.8F * 60.0F / (float)DemoMod.MAX_FPS;
+            this.vY -= 48.0F * Gdx.graphics.getDeltaTime();
             this.y += vY;
         }
 

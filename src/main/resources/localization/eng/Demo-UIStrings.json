@@ -68,7 +68,9 @@
   "DemoMod:ModPanel": {
     "TEXT": [
       "Spawn mimics for non hunter characters.",
-      "Disable VFX of card \"Camera\"."
+      "Disable VFX of card \"Camera\".",
+      "Enable stun immune.",
+      "If you are in battle, Resourceful Rat will steal your items."
     ]
   },
   "DemoMod:TheRedHood": {
@@ -242,7 +244,7 @@
   "DemoMod:ResourcefulIndeed": {
     "TEXT": [
       "Resourceful Indeed",
-      "Change the player's appearance to Resourceful Rat."
+      "Change the player's appearance to Resourceful Rat. NL Resourceful Rat will no longer steal from you in this run."
     ]
   },
   "DemoMod:SteelSkin": {

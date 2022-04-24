@@ -37,7 +37,7 @@ public class DirectionalPad extends AbstractGunCard {
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         this.capacity = this.maxCapacity;
         this.exhaust = false;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);

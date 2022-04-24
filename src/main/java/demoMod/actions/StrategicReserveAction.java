@@ -23,7 +23,7 @@ public class StrategicReserveAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (AbstractDungeon.player.hand.size() == 0) {
+        if (AbstractDungeon.player.hand.size() == 0 && this.duration == 0.5F) {
             this.isDone = true;
             return;
         }

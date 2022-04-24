@@ -3,11 +3,13 @@ package demoMod.relics;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.DemoMod;
 import demoMod.actions.ObtainRelicAction;
 import demoMod.characters.HuntressCharacter;
@@ -88,13 +90,24 @@ public class LamentConfigurum extends AbstractClickRelic implements CustomSavabl
                     HuntressCharacter.curse++;
                 }
                 RelicTier tier = AbstractDungeon.relicRng.random(1) == 1 ? RelicTier.UNCOMMON : RelicTier.RARE;
-                this.addToBot(new ObtainRelicAction(AbstractDungeon.returnRandomRelic(tier)));
+                DemoMod.actionsQueue.add(new ObtainRelicAction(AbstractDungeon.returnRandomRelic(tier)));
+                DemoMod.actionsQueue.add(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMBAT;
+                        isDone = true;
+                    }
+                });
             }
         }
     }
 
     public static AbstractMonster getRandomMonster() {
-        return monsterFactory.get(AbstractDungeon.miscRng.random(4)).getMonster();
+        AbstractMonster monster = monsterFactory.get(AbstractDungeon.miscRng.random(4)).getMonster();
+        monster.init();
+        monster.createIntent();
+        monster.usePreBattleAction();
+        return monster;
     }
 
     static {

@@ -299,5 +299,11 @@
     "DESCRIPTIONS": [
       "In this turn, turn the damage that can be completely Blocked to #b1."
     ]
+  },
+  "DemoMod:PreparedPower": {
+    "NAME": "예비",
+    "DESCRIPTIONS": [
+      "When received a damage, counteract it. If it's an #yAttack damage, #yEscape ."
+    ]
   }
 }

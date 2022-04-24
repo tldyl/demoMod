@@ -39,7 +39,7 @@ public class JK47 extends AbstractGunCard {
     @Override
     public void reload() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (this.capacity == this.maxCapacity) return;
+        if (this.capacity == this.maxCapacity && !p.hasRelic("DemoExt:AncientHerosBandana")) return;
         if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
             AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
             AbstractMonster m = AbstractDungeon.getRandomMonster();

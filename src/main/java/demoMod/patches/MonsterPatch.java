@@ -23,8 +23,8 @@ import java.util.List;
 public class MonsterPatch {
 
     private static ShaderProgram redShader = new ShaderProgram(
-            Gdx.files.internal("DemoShader/cursedMonster/vertexShader.vs"),
-            Gdx.files.internal("DemoShader/cursedMonster/fragShader.fs")
+            Gdx.files.internal("DemoShader/cursedMonster/vertexShader.vsh"),
+            Gdx.files.internal("DemoShader/cursedMonster/fragShader.fsh")
     );
 
     private static Texture INTENT_CONGEALED = new Texture(DemoMod.getResourcePath("powers/Congealed32.png"));

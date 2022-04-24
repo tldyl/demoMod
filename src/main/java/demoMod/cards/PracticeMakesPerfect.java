@@ -2,6 +2,7 @@ package demoMod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
 import demoMod.interfaces.PostReloadSubscriber;
+import demoMod.patches.ActionManagerPatch;
 
 public class PracticeMakesPerfect extends CustomCard implements PostReloadSubscriber {
     public static final String ID = DemoMod.makeID("PracticeMakesPerfect");
@@ -44,6 +46,13 @@ public class PracticeMakesPerfect extends CustomCard implements PostReloadSubscr
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.baseMagicNumber));
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        AbstractCard card = new PracticeMakesPerfect();
+        card.updateCost(-ActionManagerPatch.AddFieldPatch.gunsReloadedThisCombat.get(AbstractDungeon.actionManager));
+        return card;
     }
 
     static {

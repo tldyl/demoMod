@@ -247,6 +247,9 @@ public class Evolver extends AbstractGunCard implements Combo,
                 combos[0] = false;
                 EXP_FOR_LEVEL_UP = 6;
                 break;
+            case "DemoMod:PowerhouseOfTheCell":
+                combos[1] = false;
+                break;
         }
     }
 

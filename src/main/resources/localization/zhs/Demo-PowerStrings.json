@@ -298,5 +298,11 @@
     "DESCRIPTIONS": [
       "在这个回合，能被你完全格挡的伤害将会变为 #b1 。"
     ]
+  },
+  "DemoMod:PreparedPower": {
+    "NAME": "早有准备",
+    "DESCRIPTIONS": [
+      "当受到未被 #y格挡 的伤害时，抵消此次伤害。 如果是 #y攻击 伤害，则 #y逃跑 。"
+    ]
   }
 }

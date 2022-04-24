@@ -188,6 +188,7 @@ public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubs
     public void die(boolean triggerRelics) {
         MonsterPatch.DiePatch.unsubscribe(this);
         super.die(triggerRelics);
+        useStaggerAnimation();
     }
 
     @Override

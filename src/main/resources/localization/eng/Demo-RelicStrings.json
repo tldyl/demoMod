@@ -433,5 +433,23 @@
     "DESCRIPTIONS": [
       "#yGuns deal #b1 additional damage."
     ]
+  },
+  "DemoMod:RingOfTheResourcefulRat": {
+    "NAME": "Ring Of The Resourceful Rat",
+    "FLAVOR": "A ring once worn by the Resourceful Rat. Represents a tenouos kinship with a one-time foe.",
+    "DESCRIPTIONS": [
+      "After defeating the Resourceful Rat for one stage, the stolen items will not be returned. NL According to the type of your items stolen by the Resourceful Rat, you can get the following rewards at the end of combat: NL ",
+      "#bCard ：Gain an #yUpgraded random card of the same rarity ( #b1 out of #b3 ). NL ",
+      "#gPotion ：Gain a random potion of the same rarity. NL ",
+      "#yRelic ：Gain a random #yRelic of the same rarity. NL ",
+      "#yGolds ：No rewards."
+    ]
+  },
+  "DemoMod:HuntressBirthright": {
+    "NAME": "",
+    "FLAVOR": "\"Rainbow chest!!!\"",
+    "DESCRIPTIONS": [
+      "Upon pickup, obtain #b8 random #yGuns (choose to obtain) or #yrelics."
+    ]
   }
 }

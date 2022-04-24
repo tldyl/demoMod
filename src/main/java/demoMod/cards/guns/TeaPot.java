@@ -45,7 +45,7 @@ public class TeaPot extends AbstractGunCard implements Combo, PostAddedToMasterD
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         if (this.capacity == 0) this.baseDamage = BASE_DMG;
         this.capacity = this.maxCapacity;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.DemoMod;
@@ -40,20 +41,19 @@ public class CombinedRifle extends AbstractGunCard implements MultiAttackCard {
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return;
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);
         this.defaultMode = !this.defaultMode;
         if (defaultMode) {
             this.maxCapacity = 7;
-            this.capacity = this.maxCapacity;
             this.baseDamage = 3;
             this.rawDescription = cardStrings.DESCRIPTION;
         } else {
             this.maxCapacity = 1;
-            this.capacity = this.maxCapacity;
             this.baseDamage = 26 + this.baseMagicNumber;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         }
+        this.capacity = this.maxCapacity;
         this.initializeDescription();
         afterReload();
     }

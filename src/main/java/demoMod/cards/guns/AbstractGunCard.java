@@ -25,11 +25,13 @@ import demoMod.dto.GeneralGunCardData;
 import demoMod.dto.GunCardSaveData;
 import demoMod.interfaces.PostReloadSubscriber;
 import demoMod.monsters.Decoy;
+import demoMod.patches.ActionManagerPatch;
 import demoMod.powers.ChanceBulletsPower;
 import demoMod.powers.GunslingerPower;
 import demoMod.powers.PlatinumBulletsPower;
 import demoMod.relics.CrisisStone;
 import demoMod.relics.ElasticCartridgeClip;
+import demoMod.relics.HipHolster;
 import demoMod.relics.SilverBullets;
 import demoMod.sounds.DemoSoundMaster;
 
@@ -47,7 +49,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     public int extraDamage = 0;
     public int maxCapacity = 0;
     public boolean isReload = false;
-    public boolean canFullReload = false;
+    protected boolean canFullReload = false;
     private static boolean redirected = false;
     public CardTarget defaultTarget;
     public String reloadSoundKey = "GUN_RELOAD";
@@ -57,8 +59,8 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
     public boolean isSemiAutomaticForTurn = false;
 
     private static ShaderProgram silverShader = new ShaderProgram(
-            Gdx.files.internal("DemoShader/silverGuns/vertexShader.vs"),
-            Gdx.files.internal("DemoShader/silverGuns/fragShader.fs")
+            Gdx.files.internal("DemoShader/silverGuns/vertexShader.vsh"),
+            Gdx.files.internal("DemoShader/silverGuns/fragShader.fsh")
     );
 
     public AbstractGunCard(String id, String name, String img, int cost, String rawDescription, CardColor color, CardRarity rarity, CardTarget target) {
@@ -115,19 +117,19 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
                 this.exhaust = true;
             }
         } else if (this.capacity == 0 && !redirected) {
-            if (!p.hasRelic("DemoMod:HipHolster")
+            if (!p.hasRelic(HipHolster.ID)
                     && !this.cardID.equals(DemoMod.makeID("DirectionalPad"))) {
                 this.target = CardTarget.NONE;
             }
         }
-        if (!isReload || p.hasRelic("DemoMod:HipHolster")) {
+        if (!isReload || p.hasRelic(HipHolster.ID)) {
             this.returnToHand = (this.isSemiAutomatic || this.isSemiAutomaticForTurn) && this.costForTurn > 0;
             if (!this.returnToHand) {
                 this.isSemiAutomaticForTurn = false;
             }
             fire(p, m);
-            if (isReload && p.hasRelic("DemoMod:HipHolster")) {
-                p.getRelic("DemoMod:HipHolster").flash();
+            if (isReload && p.hasRelic(HipHolster.ID)) {
+                p.getRelic(HipHolster.ID).flash();
                 autoReload(p, m);
                 afterReload();
             }
@@ -135,8 +137,8 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
             autoReload(p, m);
             afterReload();
             DemoSoundMaster.playA(this.reloadSoundKey, 0F);
-            isReload = false;
         }
+        isReload = false;
     }
 
     void afterReload() {
@@ -163,9 +165,12 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
                 reloadSubscriber.onReload();
             }
         }
+        int gunsReloadedThisCombat = ActionManagerPatch.AddFieldPatch.gunsReloadedThisCombat.get(AbstractDungeon.actionManager);
+        gunsReloadedThisCombat++;
+        ActionManagerPatch.AddFieldPatch.gunsReloadedThisCombat.set(AbstractDungeon.actionManager, gunsReloadedThisCombat);
         List<AbstractCard> reflexes = new ArrayList<>();
         for (AbstractCard card : p.discardPile.group) {
-            if (card instanceof ConditionalReflex) {
+            if (card instanceof ConditionalReflex && card.upgraded) {
                 reflexes.add(card);
             }
         }
@@ -184,11 +189,11 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
      * 这把枪被手动填装时触发此方法。
      */
     public void reload() {
-        if (this.capacity == this.maxCapacity) return;
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return;
         this.capacity = this.maxCapacity;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);
-        if (AbstractDungeon.player.hasRelic("DemoMod:HipHolster")) {
-            AbstractDungeon.player.getRelic("DemoMod:HipHolster").flash();
+        if (AbstractDungeon.player.hasRelic(HipHolster.ID)) {
+            AbstractDungeon.player.getRelic(HipHolster.ID).flash();
             AbstractMonster m = AbstractDungeon.getRandomMonster(AbstractDungeon.getCurrRoom().monsters.getMonster(Decoy.ID));
             fire(AbstractDungeon.player, m);
         }
@@ -214,7 +219,7 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
         gunCard.initializeDescription();
         gunCard.portrait = this.portrait;
         if (this.capacity <= 0) {
-            if (!AbstractDungeon.player.hasRelic("DemoMod:HipHolster")
+            if (!AbstractDungeon.player.hasRelic(HipHolster.ID)
                     && !AbstractDungeon.player.hasPower(DemoMod.makeID("SlingerPower"))) {
                 this.target = CardTarget.NONE;
             }
@@ -224,10 +229,14 @@ public abstract class AbstractGunCard extends CustomCard implements CustomSavabl
 
     public void clearAmmo() {
         this.capacity = 0;
-        if (!AbstractDungeon.player.hasRelic("DemoMod:HipHolster")
+        if (!AbstractDungeon.player.hasRelic(HipHolster.ID)
                 && !AbstractDungeon.player.hasPower(DemoMod.makeID("SlingerPower"))) {
             this.target = CardTarget.NONE;
         }
+    }
+
+    public boolean canFullReload() {
+        return AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana") || this.canFullReload;
     }
 
     public int getDisplayedCapacity() {

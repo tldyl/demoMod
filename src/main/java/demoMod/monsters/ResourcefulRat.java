@@ -22,8 +22,12 @@ import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.PotionHelper;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.SlaversCollar;
@@ -31,18 +35,25 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 import demoMod.DemoMod;
 import demoMod.cards.guns.Elimentaler;
 import demoMod.cards.tempCards.RatTrap;
+import demoMod.dto.ResourcefulRatThiefData;
 import demoMod.effects.BulletWaveEffect;
 import demoMod.effects.RatJumpIntoEntryEffect;
 import demoMod.effects.TextureAboveCreatureEffect;
 import demoMod.interfaces.PreAttackDecreaseBlock;
 import demoMod.patches.MonsterRoomPatch;
 import demoMod.powers.*;
+import demoMod.relics.RingOfTheResourcefulRat;
 import demoMod.sounds.DemoSoundMaster;
+import demoMod.utils.ResourcefulRatThiefHelper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -57,6 +68,9 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
     public static String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
+
+    private static final Logger log = LogManager.getLogger(ResourcefulRat.class);
+
     private static final int HP_MAX = 148;
     private static final float HB_X = 0.0F;
     private static final float HB_Y = 10.0F;
@@ -69,6 +83,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
     public static boolean phaseTwo = false;
     private static MovePackManager movePackManager;
     private boolean firstMove = true;
+    private ResourcefulRatThiefData data;
 
     private MovePack[] packs1;
     private MovePack[] packs2;
@@ -83,6 +98,7 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
         BaseMod.addSaveField("isBeaten", this);
         BaseMod.subscribe(this);
         initMovePack();
+        data = ResourcefulRatThiefHelper.getInstance().getData();
     }
 
     private void initMovePack() {
@@ -456,7 +472,13 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             MonsterRoomPatch.PatchUpdate.hb_enabled = true;
             BaseMod.unsubscribe(this);
         } else {
-            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                    isDone = true;
+                }
+            });
             MonsterRoomPatch.PatchRender.isEntryOpen = true;
             DemoSoundMaster.playA("ENTRY_OPEN", 0.0F);
             AbstractDungeon.effectList.add(new RatJumpIntoEntryEffect(this));
@@ -470,13 +492,45 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             for (AbstractPower power : AbstractDungeon.player.powers) {
                 power.onVictory();
             }
+            if (!AbstractDungeon.player.hasRelic(RingOfTheResourcefulRat.ID)) {
+                log.info("Returning stole cards...");
+                for (int i = 0; i < data.cards.size(); i++) {
+                    AbstractCard card = CardLibrary.getCard(data.cards.get(i)).makeCopy();
+                    card.misc = data.cardMisc.get(i);
+                    if (card instanceof CustomSavable) {
+                        ((CustomSavable) card).onLoadRaw(data.cardSaves.get(i));
+                    }
+                    AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F * MathUtils.random(0.8F, 1.2F), (float) Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F)));
+                    log.info("Card name: {}", card.name);
+                }
+                log.info("Returning stole gold...");
+                AbstractDungeon.player.gainGold(data.gold);
+                AbstractDungeon.effectList.add(new RainingGoldEffect(data.gold));
+                log.info("Gold amount:" + data.gold);
+                log.info("Returning stole potions...");
+                for (String potionId : data.potions) {
+                    AbstractPotion potion = PotionHelper.getPotion(potionId);
+                    AbstractDungeon.player.obtainPotion(potion);
+                    log.info("Potion name: {}", potion.name);
+                }
+                log.info("Returning stole relics...");
+                for (int i = 0; i < data.relics.size(); i++) {
+                    AbstractRelic relic = RelicLibrary.getRelic(data.relics.get(i)).makeCopy();
+                    relic.counter = data.relicCounters.get(i);
+                    if (relic instanceof CustomSavable) {
+                        ((CustomSavable) relic).onLoadRaw(data.relicSaves.get(i));
+                    }
+                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2 * MathUtils.random(0.8F, 1.2F), Settings.HEIGHT / 2 * MathUtils.random(0.8F, 1.2F), relic);
+                    log.info("Relic name: {}", relic.name);
+                }
+            }
         }
         isBeaten = true;
         movePackManager.clearRemainingMoves();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m != this && !m.isDeadOrEscaped()) {
                 m.powers.clear();
-                AbstractDungeon.actionManager.addToBottom(new SuicideAction(m, false));
+                addToTop(new SuicideAction(m, false));
             }
         }
         if (isTrueBeaten) StatsScreen.incrementBossSlain();

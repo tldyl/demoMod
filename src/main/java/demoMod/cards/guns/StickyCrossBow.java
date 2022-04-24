@@ -41,6 +41,7 @@ public class StickyCrossBow extends AbstractGunCard {
         this.baseMagicNumber = 12;
         this.reloadSoundKey = "GUN_RELOAD_CROSSBOW";
         this.isSemiAutomatic = true;
+        this.canFullReload = true;
     }
 
     @Override

@@ -55,12 +55,12 @@ public class SAA extends AbstractGunCard implements Combo, PostAddedToMasterDeck
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         this.capacity = this.maxCapacity;
         DemoSoundMaster.playA(this.reloadSoundKey, 0F);
         AbstractPlayer p = AbstractDungeon.player;
-        if (Settings.MAX_HAND_SIZE - p.hand.size() < this.magicNumber) {
-            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size();
+        if (Settings.MAX_HAND_SIZE - p.hand.size() <= this.magicNumber) {
+            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size() - 1;
             p.createHandIsFullDialog();
         }
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.magicNumber));
@@ -74,8 +74,8 @@ public class SAA extends AbstractGunCard implements Combo, PostAddedToMasterDeck
 
     @Override
     public void autoReload(AbstractPlayer p, AbstractMonster m) {
-        if (Settings.MAX_HAND_SIZE - p.hand.size() < this.magicNumber) {
-            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size();
+        if (Settings.MAX_HAND_SIZE - p.hand.size() <= this.magicNumber) {
+            this.magicNumber = Settings.MAX_HAND_SIZE - p.hand.size() - 1;
             p.createHandIsFullDialog();
         }
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.magicNumber));

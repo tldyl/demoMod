@@ -40,7 +40,7 @@ public class FightSabre extends AbstractGunCard implements PostAddedToMasterDeck
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         DemoSoundMaster.playV(this.reloadSoundKey, 0.1F);
         this.capacity = this.maxCapacity;
         this.applyPowersToBlock();

@@ -49,7 +49,7 @@ public class EasyReloadPower extends AbstractPower {
         }
         for (AbstractCard card : cardsToReload) {
             AbstractGunCard gunCard = (AbstractGunCard) card;
-            if (gunCard.capacity < gunCard.maxCapacity || (gunCard.canFullReload && EasyReloadBullets.combos[0])) {
+            if (gunCard.capacity < gunCard.maxCapacity || (gunCard.canFullReload() && EasyReloadBullets.combos[0])) {
                 cardsNeededToReload.add(gunCard);
             }
         }

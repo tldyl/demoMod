@@ -49,8 +49,8 @@ public class Gungine extends AbstractGunCard implements MultiAttackCard,
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
         AbstractPlayer p = AbstractDungeon.player;
+        if (this.capacity == this.maxCapacity && !p.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         this.capacity = this.maxCapacity;
         if (combos[0]) {
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.baseMagicNumber + 1));

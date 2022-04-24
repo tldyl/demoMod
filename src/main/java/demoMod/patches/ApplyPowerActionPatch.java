@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import demoMod.DemoMod;
 import demoMod.monsters.ResourcefulRat;
 import demoMod.powers.JammedPower;
 import demoMod.powers.StunImmunePower;
@@ -41,7 +42,9 @@ public class ApplyPowerActionPatch {
                         dur.set(action, duration);
                         return SpireReturn.Return(null);
                     } else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(action.target, AbstractDungeon.player, new StunImmunePower((AbstractMonster) action.target, 3)));
+                        if (DemoMod.enableStunImmune) {
+                            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(action.target, AbstractDungeon.player, new StunImmunePower((AbstractMonster) action.target, 3)));
+                        }
                     }
                 }
                 if (action.target.hasPower(JammedPower.POWER_ID) && !(action.source instanceof ResourcefulRat)) {

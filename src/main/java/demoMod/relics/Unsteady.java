@@ -2,10 +2,11 @@ package demoMod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.DemoMod;
 
@@ -42,7 +43,25 @@ public class Unsteady extends CustomRelic {
             this.flash();
             this.pulse = false;
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new ExhaustSpecificCardAction(AbstractDungeon.player.hand.getRandomCard(true), AbstractDungeon.player.hand, true));
+            final AbstractCard c = AbstractDungeon.player.hand.getRandomCard(true);
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    if (AbstractDungeon.player.hand.contains(c)) {
+                        AbstractDungeon.player.hand.moveToExhaustPile(c);
+                    }
+                    if (AbstractDungeon.player.limbo.contains(c)) {
+                        AbstractDungeon.player.limbo.moveToExhaustPile(c);
+                    }
+                    if (AbstractDungeon.player.discardPile.contains(c)) {
+                        AbstractDungeon.player.discardPile.moveToExhaustPile(c);
+                    }
+                    CardCrawlGame.dungeon.checkForPactAchievement();
+                    c.exhaustOnUseOnce = false;
+                    c.freeToPlayOnce = false;
+                    isDone = true;
+                }
+            });
         } else if (this.counter == 9) {
             this.beginPulse();
             this.pulse = true;

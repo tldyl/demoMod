@@ -30,7 +30,7 @@ public class TripleGun extends AbstractGunCard {
         this.capacity = 3;
         this.maxCapacity = 3;
         this.baseDamage = 7;
-        this.baseMagicNumber = 30;
+        this.baseMagicNumber = 40;
         BASE_DMG = this.baseDamage;
     }
 
@@ -56,7 +56,7 @@ public class TripleGun extends AbstractGunCard {
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return; //不允许满弹夹装弹
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return; //不允许满弹夹装弹
         this.capacity = this.maxCapacity;
         this.baseDamage = BASE_DMG;
         this.rawDescription = cardStrings.DESCRIPTION;

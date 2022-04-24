@@ -53,7 +53,7 @@ public class ZorGun extends AbstractGunCard implements Combo, PostAddedToMasterD
 
     @Override
     public void reload() {
-        if (this.capacity == this.maxCapacity) return;
+        if (this.capacity == this.maxCapacity && !AbstractDungeon.player.hasRelic("DemoExt:AncientHerosBandana")) return;
         super.reload();
         for (int i=0;i<this.baseMagicNumber;i++) {
             this.addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));

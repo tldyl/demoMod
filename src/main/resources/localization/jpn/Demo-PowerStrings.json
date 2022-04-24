@@ -1,0 +1,309 @@
+{
+  "DemoMod:BlackBladePower": {
+    "NAME": "ブラックブレード",
+    "DESCRIPTIONS": [
+      "#yホワイトブレード のカードのダメージが #g",
+      " 増加する。この敵に #yホワイトブレード のカードを使用し、 #yホワイトブレード のデバフを与えたとき、この効果を取り除く。ターン終了時、値が半分になる。"
+    ]
+  },
+  "DemoMod:WhiteBladePower": {
+    "NAME": "ホワイトブレード",
+    "DESCRIPTIONS": [
+      "このターン、 #yブラックブレード のカードのダメージが #g",
+      " 増加する。この敵に #yブラックブレード のカードを使用し、 #yブラックブレード のデバフを与えたとき、この効果を取り除く。"
+    ]
+  },
+  "DemoMod:LoseFlightPower": {
+    "NAME": "一時的な飛行",
+    "DESCRIPTIONS": [
+      "ターン開始時、 #y飛行 が #b1 減少する。"
+    ]
+  },
+  "DemoMod:TableSutraPower": {
+    "NAME": "テーブラ・スートラ",
+    "DESCRIPTIONS": [
+      "ターン開始時、ランダムな #yテーブル殺法 を #b",
+      " 枚手札に加える。"
+    ]
+  },
+  "DemoMod:DoubleShootPower": {
+    "NAME": "ダブルビジョン",
+    "DESCRIPTIONS": [
+      "このターン、次の #y銃 を2回プレイする。",
+      "このターン、次の #g",
+      " 枚の #y銃 を2回プレイする。"
+    ]
+  },
+  "DemoMod:OutOfBodyPower": {
+    "NAME": "幽体離脱",
+    "DESCRIPTIONS": [
+      "この敵がブロックされていない #yアタック のダメージを受けたとき、HPを #r",
+      " 失い、値が #b1 減少する。"
+    ]
+  },
+  "DemoMod:ExplosiveArrowheadsPower": {
+    "NAME": "爆弾矢",
+    "DESCRIPTIONS": [
+      "#yボムクロスボウ を #yリロード したとき、この敵に #r",
+      " ダメージを与え、 #y爆弾矢 を取り除く。"
+    ]
+  },
+  "DemoMod:EasyReloadPower": {
+    "NAME": "イージーリロード",
+    "DESCRIPTIONS": [
+      "#yスキル をプレイするたび、手札のランダムな #y銃 の #y装填数 を #g",
+      " 回復する。 #yリロード で発動する効果は発生しない。",
+      " NL #gCombo -Reload Roll: When this effect makes the #yCapacity full, it triggers the #yReload effect of this #yGun."
+    ]
+  },
+  "DemoMod:LeadSkinPower": {
+    "NAME": "アイアンスキン",
+    "DESCRIPTIONS": [
+      "ブロックできなかった #b",
+      " 以下のダメージを #b1 に軽減する。"
+    ]
+  },
+  "DemoMod:EurekaPower": {
+    "NAME": "見つけた！",
+    "DESCRIPTIONS": [
+      "#y銃 を #b",
+      " 枚引くまでカードを引く。"
+    ]
+  },
+  "DemoMod:ChanceBulletsPower": {
+    "NAME": "ランダム弾",
+    "DESCRIPTIONS": [
+      "#y銃 をプレイしたとき、 #g",
+      "% の確率で持っているランダムな #y銃 の効果と置き換えられる。",
+      "% の確率で持っているランダムな #y銃 の効果が追加される。"
+    ]
+  },
+  "DemoMod:SkilledReloadPower": {
+    "NAME": "リロードスキル",
+    "DESCRIPTIONS": [
+      "リロード するたび、カードを #g",
+      " 枚引く。"
+    ]
+  },
+  "DemoMod:StrengthOfCursePower": {
+    "NAME": "亡銃",
+    "DESCRIPTIONS": [
+      "最大HPが #g",
+      " %上昇する、 #y筋力 #g",
+      " を得る。"
+    ]
+  },
+  "DemoMod:SlingerPower": {
+    "NAME": "スリンガー",
+    "DESCRIPTIONS": [
+      "#y銃 をプレイするたび、山札か捨て札からランダムな #yスキル を #b", " 枚手札に加える。"
+    ]
+  },
+  "DemoMod:JammedPower": {
+    "NAME": "亡銃",
+    "DESCRIPTIONS": [
+      "すべてのダメージを無効化する。他に敵がいない場合、戦闘を終了する。"
+    ]
+  },
+  "DemoMod:ShadowBulletsPower": {
+    "NAME": "シャドウ弾",
+    "DESCRIPTIONS": [
+      "#g",
+      "% の確率で #y銃 を2回プレイする。"
+    ]
+  },
+  "DemoMod:FullFirePower": {
+    "NAME": "最大火力",
+    "DESCRIPTIONS": [
+      "次の #y銃 を 装填数 が0になるまでプレイする。",
+      "次の #g",
+      " 枚の #y銃 を 装填数 が0になるまでプレイする。"
+    ]
+  },
+  "DemoMod:BlankBulletsPower": {
+    "NAME": "ブランク弾",
+    "DESCRIPTIONS": [
+      "#y銃 が #g",
+      "% の確率で #yスタン を与えるようになる。"
+    ]
+  },
+  "DemoMod:PlatinumBulletsPower": {
+    "NAME": "プラチナ弾",
+    "DESCRIPTIONS": [
+      "#y銃 をプレイするたび、 #y筋力 #g",
+      " か #y敏捷性 #g",
+      " のどちらかをランダムに得る。."
+    ]
+  },
+  "DemoMod:ChaosBulletsPower": {
+    "NAME": "カオス弾",
+    "DESCRIPTIONS": [
+      "#y銃 が、 #g",
+      "% の確率でランダムなデバフを1つ与えるようになる。"
+    ]
+  },
+  "DemoMod:RedMarkPower": {
+    "NAME": "レッドマーク",
+    "DESCRIPTIONS": [
+      "#yブルーマーク と揃ったとき、この敵に #b6 ダメージとスタンを与え、すべてのマークを取り除く。"
+    ]
+  },
+  "DemoMod:BlueMarkPower": {
+    "NAME": "ブルーマーク",
+    "DESCRIPTIONS": [
+      "#yレッドマーク と揃ったとき、この敵に #b6 ダメージとスタンを与え、すべてのマークを取り除く。"
+    ]
+  },
+  "DemoMod:BlueGuonStonePower": {
+    "NAME": "ブルーガンストーン",
+    "DESCRIPTIONS": [
+      "次の #g",
+      " ターンの開始時、 #b",
+      " #yブロック を得る。"
+    ]
+  },
+  "DemoMod:MozambiqueDrillPower": {
+    "NAME": "モザンビーク・ドリル",
+    "DESCRIPTIONS": [
+      "1ターンの間に #g",
+      " 枚の #y銃 をプレイするたび、次にプレイするカードは #g",
+      " 倍のダメージを与える。",
+      "次にプレイするカードは #g",
+      " 倍のダメージを与える。"
+    ]
+  },
+  "DemoMod:ControlPower": {
+    "NAME": "コントロール",
+    "DESCRIPTIONS": [
+      "他の敵が #yアタック でダメージ受けた時、その場で行動する。 #yアタック を予定していた場合、その敵が対象になる。ターン終了時、HPを #r",
+      " 失いこの効果を取り除く。"
+    ]
+  },
+  "DemoMod:SelfExplodePower": {
+    "NAME": "自爆",
+    "DESCRIPTIONS": [
+      "死亡時、プレイヤーに #g",
+      " ダメージを与える。"
+    ]
+  },
+  "DemoMod:AlertModePower": {
+    "NAME": "アラートモード",
+    "DESCRIPTIONS": [
+      "死亡時、 #g",
+      " 体の #yマウサー を出現させこのバフの値を #b1 減らし、出現した他の #yマウサー すべてに同じバフを与える。"
+    ]
+  },
+  "DemoMod:BlessPower": {
+    "NAME": "祝福",
+    "DESCRIPTIONS": [
+      "このバフを得たとき、 #y筋力 #g",
+      " と #y再生 #g",
+      " を得る。"
+    ]
+  },
+  "DemoMod:HighPressurePower": {
+    "NAME": "威圧",
+    "DESCRIPTIONS": [
+      "このターン、次にプレイするカードが #y",
+      " 以外の場合、ターンを終了する。",
+      "威圧の効果を変更",
+      "アタック",
+      "スキル",
+      "パワー"
+    ]
+  },
+  "DemoMod:SniperWoofPower": {
+    "NAME": "スナイパー＆ウルフ",
+    "DESCRIPTIONS": [
+      "このターン、最初にプレイする #yアタック のダメージが #g1.5 倍になる。"
+    ]
+  },
+  "DemoMod:BulletSprayPower": {
+    "NAME": "バレットスプレー",
+    "DESCRIPTIONS": [
+      "カードを #b",
+      " 枚プレイするたび、プレイヤーに #r6 ダメージを与える。この効果はあと #b",
+      " 回発動した後に取り除かれる。"
+    ]
+  },
+  "DemoMod:HomingMissilePower": {
+    "NAME": "ホーミングミサイル",
+    "DESCRIPTIONS": [
+      "#b",
+      " ターン後、プレイヤーに #b",
+      " ダメージを与える。",
+      "敵のターン終了時、プレイヤーに #b"
+    ]
+  },
+  "DemoMod:BulletBorePower": {
+    "NAME": "思念奪取",
+    "DESCRIPTIONS": [
+      "次のターン、この敵に #yスタン を与え、敵全体に #b",
+      " ダメージを与える。"
+    ]
+  },
+  "DemoMod:GunslingerPower": {
+    "NAME": "ガンスリンガー化",
+    "DESCRIPTIONS": [
+      "#y銃 を #yリロード したときに発動する効果が、 #y銃 を発砲したときにも発動するようになる。"
+    ]
+  },
+  "DemoMod:CongealedPower": {
+    "NAME": "凝固",
+    "DESCRIPTIONS": [
+      "#y凝固 を #b10 与えるたび、この敵は行動不能になる。この敵が死んだ場合、 #y凝固 の値を他の敵に均等に振り分ける。 #y凝固 の上限は20。",
+      "凝固",
+      "このターン、この敵は #y凝固 して動けない。"
+    ]
+  },
+  "DemoMod:PacManPower": {
+    "NAME": "パックマン",
+    "DESCRIPTIONS": [
+      "あなたは無敵！"
+    ]
+  },
+  "DemoMod:SuppressiveFirePower": {
+    "NAME": "制圧射撃",
+    "DESCRIPTIONS": [
+      "このターン、手札の #y銃 すべてが #yセミオート になる。",
+      "このターン、手札の #y",
+      " が #yセミオート になる。"
+    ]
+  },
+  "DemoMod:StunImmunePower": {
+    "NAME": "スタン無効",
+    "DESCRIPTIONS": [
+      " #b",
+      " ターンの間、 #yスタン を無効にする。",
+      " ターンの間、 #yスタン を無効にする。"
+    ]
+  },
+  "DemoMod:HungryBulletsPower": {
+    "NAME": "ハングリー弾",
+    "DESCRIPTIONS": [
+      "次の #b",
+      " 枚目にプレイする #y銃 は、ブロックされなかったダメージに等しい #yブロック を得る。",
+      "次にプレイする #y銃 は、ブロックされなかったダメージに等しい #yブロック を得る。",
+      " 枚目にプレイする #y銃 は、ブロックされなかったダメージに等しい #yブロック を得る。（ #b", " 倍の #yブロック を得る）",
+      "次の #y銃 は、ブロックされなかったダメージに等しい #yブロック を得る。（ #b", " 倍の #yブロック を得る）"
+    ]
+  },
+  "DemoMod:GunFriendPower": {
+    "NAME": "銃も弾も友だち！",
+    "DESCRIPTIONS": [
+      "ターン終了時、 #y", " を #b", " 回プレイする。"
+    ]
+  },
+  "DemoMod:HardPower": {
+    "NAME": "ハードパワー",
+    "DESCRIPTIONS": [
+      "このターン、完全にブロックできるダメージを #b1 にする。"
+    ]
+  },
+  "DemoMod:PreparedPower": {
+    "NAME": "準備",
+    "DESCRIPTIONS": [
+      "ダメージを無効化する。 #yアタック を受けたとき #y逃走 する。"
+    ]
+  }
+}

@@ -66,7 +66,7 @@ public class SpreadAmmo extends CustomCard {
         }
         for (AbstractCard c : guns) {
             AbstractGunCard gunCard = (AbstractGunCard)c;
-            if (gunCard.canFullReload || gunCard.capacity < gunCard.maxCapacity) {
+            if (gunCard.canFullReload() || gunCard.capacity < gunCard.maxCapacity) {
                 gunCard.target = gunCard.defaultTarget;
                 if (gunCard.capacity <= 0 && p.hasRelic(CrisisStone.ID)) {
                     ((CrisisStone)p.getRelic(CrisisStone.ID)).onReload(1);

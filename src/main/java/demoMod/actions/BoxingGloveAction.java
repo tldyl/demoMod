@@ -34,9 +34,10 @@ public class BoxingGloveAction extends AbstractGameAction {
             if ((((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0) && this.card.stars < 3) {
                 this.card.stars += 1;
                 for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-                    if (card instanceof BoxingGlove) {
+                    if (card.uuid.equals(this.card.uuid)) {
                         BoxingGlove glove = (BoxingGlove) card;
                         glove.stars = this.card.stars;
+                        break;
                     }
                 }
             }

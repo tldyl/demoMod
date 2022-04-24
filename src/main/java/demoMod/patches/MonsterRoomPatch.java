@@ -78,11 +78,11 @@ public class MonsterRoomPatch {
                 AbstractDungeon.bossList.add(ResourcefulRat.ID);
             }
             if (AbstractDungeon.id.equals("DemoExt:Forge")) { //TODO 后面改成入场动画
-                room.phase = AbstractRoom.RoomPhase.INCOMPLETE;
                 DemoMod.actionsQueue.add(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        AbstractDungeon.player.movePosition(Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.2F);
+                        room.phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                        AbstractDungeon.player.movePosition(Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.3F);
                         isDone = true;
                     }
                 });
@@ -91,6 +91,8 @@ public class MonsterRoomPatch {
                     @Override
                     public void update() {
                         room.phase = AbstractRoom.RoomPhase.COMBAT;
+                        AbstractDungeon.actionManager.actions.addAll(ActionManagerPatch.PatchAddActions.cachedAction);
+                        ActionManagerPatch.PatchAddActions.cachedAction.clear();
                         isDone = true;
                     }
                 });

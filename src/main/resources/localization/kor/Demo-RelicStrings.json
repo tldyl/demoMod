@@ -433,5 +433,23 @@
     "DESCRIPTIONS": [
       "#yGuns deal #b1 additional damage."
     ]
+  },
+  "DemoMod:RingOfTheResourcefulRat": {
+    "NAME": "쥐갈 공명 의 반지",
+    "FLAVOR": "쥐갈 공명 가 이 반 지 를 낀 적 이 있다. 그것 은 당신 과 숙적 사이 의 약 한 유대 이다.",
+    "DESCRIPTIONS": [
+      "쥐갈 공명 1 단계 처치 하면 훔 친 물건 은 돌려 주지 않 습 니 다. NL 쥐갈 공명 가 당신 의 아 이 템 을 훔 치 는 유형 에 따라 전투 종료 후 아래 보상 을 획득 합 니 다: NL ",
+      "#b카드 : #y레벨 #y업 된 동일 희귀 도 랜 덤 카드 (3 중 1 개 선택) 를 획득 합 니 다. NL ",
+      "#g약수 :같은 희귀 도의 랜 덤 회복 제 를 얻 을 수 있다. NL ",
+      "#y유물 :같은 희귀 도의 랜 덤 #y유물 을 얻 었 다. NL ",
+      "#y금화 :보상 이 없습니다."
+    ]
+  },
+  "DemoMod:HuntressBirthright": {
+    "NAME": "",
+    "FLAVOR": "\"Rainbow chest!!!\"",
+    "DESCRIPTIONS": [
+      "Upon pickup, obtain #b8 random #yGuns (choose to obtain) or #yrelics."
+    ]
   }
 }
