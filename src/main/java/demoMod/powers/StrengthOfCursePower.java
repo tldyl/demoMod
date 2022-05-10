@@ -49,6 +49,7 @@ public class StrengthOfCursePower extends AbstractPower {
     @Override
     public void onRemove() {
         addToBot(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.strengthToApply)));
+        this.owner.decreaseMaxHealth((int) (0.05 * HuntressCharacter.curse));
     }
 
     static {

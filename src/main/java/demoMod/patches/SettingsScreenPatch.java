@@ -42,13 +42,13 @@ public class SettingsScreenPatch {
     static class ComboManualPopup {
         private Texture btn = new Texture(DemoMod.getResourcePath("ui/buttons/ComboManual_Settings.png"));
         private UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DemoMod.makeID("ComboManualScreen"));
-        private float x = 32.0F;
-        private float y = Settings.HEIGHT * 0.75F - 160;
+        private float x = 48.0F * Settings.scale;
+        private float y = Settings.HEIGHT * 0.75F - 240.0F * Settings.scale;
 
-        public Hitbox hb = new Hitbox(160, 60);
+        public Hitbox hb = new Hitbox(240.0F * Settings.scale, 90.0F * Settings.scale);
 
         ComboManualPopup() {
-            this.hb.move(x + 80, y + 30);
+            this.hb.move(x + 120.0F * Settings.scale, y + 45.0F * Settings.scale);
         }
 
         public void update() {
@@ -70,9 +70,9 @@ public class SettingsScreenPatch {
             } else {
                 sb.setColor(0.6F, 0.6F, 0.6F, 1.0F);
             }
-            sb.draw(this.btn, x, y);
+            sb.draw(this.btn, x, y, this.hb.width, this.hb.height);
             sb.setColor(1, 1, 1, 1);
-            FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, uiStrings.TEXT[1], this.x + 80.0F, this.y + 30.0F, Settings.CREAM_COLOR.cpy());
+            FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, uiStrings.TEXT[1], this.x + 120.0F * Settings.scale, this.y + 45.0F * Settings.scale, Settings.CREAM_COLOR.cpy());
             this.hb.render(sb);
         }
     }

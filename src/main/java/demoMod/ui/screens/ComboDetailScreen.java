@@ -65,9 +65,9 @@ public class ComboDetailScreen {
             this.startingX.clear();
             for (String cmbId : comboIds) {
                 combos.put(cmbId, ComboManager.getAllCombo(cmbId));
-                this.startingX.put(cmbId, Settings.WIDTH / 2.0F - (combos.get(cmbId).size() * 2 - 1) * 64 - 42.0F);
+                this.startingX.put(cmbId, Settings.WIDTH / 2.0F - (combos.get(cmbId).size() * 2 - 1) * 96.0F * Settings.scale);
             }
-            this.startingY = Settings.HEIGHT / 2.0F + combos.size() * 64 + (combos.size() - 1) * 20;
+            this.startingY = Settings.HEIGHT / 2.0F + combos.size() * 96.0F * Settings.scale + (combos.size() - 1) * 30.0F * Settings.scale;
         }
     }
 
@@ -107,29 +107,29 @@ public class ComboDetailScreen {
             float x = this.startingX.get(comboId);
             int ctr = 0;
             for (Combo combo : combos.get(comboId)) {
-                sb.draw(combo.getComboPortrait(), x, y);
+                sb.draw(combo.getComboPortrait(), x, y, 384.0F * Settings.scale, 384.0F * Settings.scale);
                 if (combo instanceof AbstractCard) {
                     AbstractCard card = (AbstractCard) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, card.name + CARD, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, card.name + CARD, x + 192.0F * Settings.scale, y + 48.0F * Settings.scale, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 } else if (combo instanceof AbstractRelic) {
                     AbstractRelic relic = (AbstractRelic) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, relic.name + RELIC, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, relic.name + RELIC, x + 192.0F * Settings.scale, y + 48.0F * Settings.scale, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 } else if (combo instanceof AbstractPotion) {
                     AbstractPotion potion = (AbstractPotion) combo;
-                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, potion.name + POTION, x + 128.0F, y + 32.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    FontHelper.renderFontCentered(sb, FontHelper.panelNameFont, potion.name + POTION, x + 192.0F * Settings.scale, y + 48.0F * Settings.scale, new Color(1.0F, 1.0F, 1.0F, 1.0F));
                 }
                 ctr++;
-                x += 160;
+                x += 240 * Settings.scale;
                 if (ctr < combos.get(comboId).size()) {
-                    FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, PLS, x + 74.0F, y + 128.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
-                    x += 60;
+                    FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, PLS, x + 111.0F * Settings.scale, y + 192.0F * Settings.scale, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                    x += 90 * Settings.scale;
                 }
             }
-            y -= 168;
+            y -= 252.0F * Settings.scale;
             lines++;
             if (lines < this.startingX.keySet().size()) {
-                FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, OR, Settings.WIDTH / 2.0F, y + 160.0F, new Color(1.0F, 1.0F, 1.0F, 1.0F));
-                y -= 40;
+                FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, OR, Settings.WIDTH / 2.0F, y + 240.0F * Settings.scale, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+                y -= 60 * Settings.scale;
             }
         }
         if (comboName != null && description != null) {

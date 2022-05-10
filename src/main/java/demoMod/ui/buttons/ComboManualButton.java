@@ -15,8 +15,9 @@ public class ComboManualButton extends MainMenuPanelButton {
 
     public ComboManualButton(PanelClickResult setResult, PanelColor setColor, float x, float y) {
         super(setResult, setColor, x, y);
-        this.hb.width = 160;
-        this.hb.height = 40;
+        this.hb.width = 240.0F * Settings.scale;
+        this.hb.height = 60.0F * Settings.scale;
+        this.hb.translate(Settings.WIDTH - this.hb.width, Settings.HEIGHT - this.hb.height);
         String language = DemoMod.getLanguageString();
         portraitImg = new Texture(DemoMod.getResourcePath("ui/buttons/ComboManual.png")); //背景图
         panelImg = new Texture(DemoMod.getResourcePath("ui/buttons/ComboManualText_" + language + ".png")); //文字层
@@ -30,7 +31,7 @@ public class ComboManualButton extends MainMenuPanelButton {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        this.hb.move(Settings.WIDTH - 80.0F, Settings.HEIGHT - 20.0F);
+        this.hb.move(Settings.WIDTH - 120.0F * Settings.scale, Settings.HEIGHT - 30.0F * Settings.scale);
     }
 
     @SpireOverride
@@ -41,8 +42,8 @@ public class ComboManualButton extends MainMenuPanelButton {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        sb.draw(this.portraitImg, Settings.WIDTH - 160.0F, Settings.HEIGHT - 40.0F, 160.0F, 40.0F, 160.0F, 40.0F, 1.0F, 1.0F, 0.0F, 0, 0, 160, 40, false, false);
-        sb.draw(this.panelImg, Settings.WIDTH - 160.0F, Settings.HEIGHT - 40.0F, 160.0F, 40.0F, 160.0F, 40.0F, 1.0F, 1.0F, 0.0F, 0, 0, 160, 40, false, false);
+        sb.draw(this.portraitImg, Settings.WIDTH - this.hb.width, Settings.HEIGHT - this.hb.height, 0.0F, 0.0F, 240.0F * Settings.scale, 60.0F * Settings.scale, 1.0F, 1.0F, 0.0F, 0, 0, 160, 40, false, false);
+        sb.draw(this.panelImg, Settings.WIDTH - this.hb.width, Settings.HEIGHT - this.hb.height, 0.0F, 0.0F, 240.0F * Settings.scale, 60.0F * Settings.scale, 1.0F, 1.0F, 0.0F, 0, 0, 160, 40, false, false);
         this.hb.render(sb);
     }
 }

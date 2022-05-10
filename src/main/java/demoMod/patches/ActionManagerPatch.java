@@ -61,9 +61,7 @@ public class ActionManagerPatch {
         public static List<AbstractGameAction> cachedAction = new ArrayList<>();
 
         public static void Postfix(GameActionManager actionManager, AbstractGameAction action) {
-            if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
-                cachedAction.add(action);
-            }
+            cachedAction.add(action);
         }
     }
 

@@ -20,8 +20,8 @@ public class RatJumpIntoEntryEffect extends AbstractGameEffect {
         this.duration = 2.0F;
         this.x = rat.drawX;
         this.y = rat.drawY;
-        this.dst = Settings.WIDTH * 0.5F - this.x + 150;
-        this.vY = 18;
+        this.dst = Settings.WIDTH * 0.5F - this.x + 225.0F * Settings.scale;
+        this.vY = 27 * Settings.scale;
 
     }
 
@@ -30,8 +30,8 @@ public class RatJumpIntoEntryEffect extends AbstractGameEffect {
         if (this.duration > 1.0F) {
             this.x += Gdx.graphics.getDeltaTime() * this.dst;
         } else {
-            this.x -= Gdx.graphics.getDeltaTime() * 150;
-            this.vY -= 48.0F * Gdx.graphics.getDeltaTime();
+            this.x -= Gdx.graphics.getDeltaTime() * 225.0F * Settings.scale;
+            this.vY -= 72.0F * Settings.scale * Gdx.graphics.getDeltaTime();
             this.y += vY;
         }
 

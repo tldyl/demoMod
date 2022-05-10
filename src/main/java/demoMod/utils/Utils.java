@@ -110,6 +110,7 @@ public class Utils {
         monster.refreshIntentHbLocation();
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(monster, isMinion));
         monster.usePreBattleAction();
+        monster.createIntent();
     }
 
     public static void drawTextureOnPixmap(Pixmap pixmap, Texture texture, int x, int y) {

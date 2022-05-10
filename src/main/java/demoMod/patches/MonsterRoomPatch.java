@@ -77,26 +77,6 @@ public class MonsterRoomPatch {
                 AbstractDungeon.effectList.add(new ResourcefulRatPhaseTwoIntro(AbstractDungeon.getCurrRoom().monsters.getMonster(ResourcefulRat.ID)));
                 AbstractDungeon.bossList.add(ResourcefulRat.ID);
             }
-            if (AbstractDungeon.id.equals("DemoExt:Forge")) { //TODO 后面改成入场动画
-                DemoMod.actionsQueue.add(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        room.phase = AbstractRoom.RoomPhase.INCOMPLETE;
-                        AbstractDungeon.player.movePosition(Settings.WIDTH / 2.0F, Settings.HEIGHT * 0.3F);
-                        isDone = true;
-                    }
-                });
-                DemoMod.actionsQueue.add(new PlaySoundAction("BOSS_DRAGUN_APPEAR", 16.59F, 0.0F));
-                DemoMod.actionsQueue.add(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        room.phase = AbstractRoom.RoomPhase.COMBAT;
-                        AbstractDungeon.actionManager.actions.addAll(ActionManagerPatch.PatchAddActions.cachedAction);
-                        ActionManagerPatch.PatchAddActions.cachedAction.clear();
-                        isDone = true;
-                    }
-                });
-            }
         }
     }
 
@@ -135,7 +115,7 @@ public class MonsterRoomPatch {
         }
 
         static {
-            hb = new Hitbox(300, 100);
+            hb = new Hitbox(450.0F * Settings.scale, 150.0F * Settings.scale);
             hb.move(Settings.WIDTH * 0.5F, Settings.HEIGHT * 0.3F);
         }
     }
@@ -154,10 +134,13 @@ public class MonsterRoomPatch {
             if (enabled) {
                 sb.setColor(1, 1, 1, 1);
                 if (isEntryOpen) {
-                    sb.draw(entry_open, Settings.WIDTH * 0.5F - 150, Settings.HEIGHT * 0.3F - 50);
+                    sb.draw(entry_open, Settings.WIDTH * 0.5F - 225.0F * Settings.scale, Settings.HEIGHT * 0.3F - 75.0F * Settings.scale,
+                            450.0F * Settings.scale, 150.0F * Settings.scale);
                 } else {
-                    sb.draw(entry_close, Settings.WIDTH * 0.5F - 150, Settings.HEIGHT * 0.3F - 50);
+                    sb.draw(entry_close, Settings.WIDTH * 0.5F - 225.0F * Settings.scale, Settings.HEIGHT * 0.3F - 75.0F * Settings.scale,
+                            450.0F * Settings.scale, 150.0F * Settings.scale);
                 }
+                PatchUpdate.hb.render(sb);
             }
         }
     }

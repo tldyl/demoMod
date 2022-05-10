@@ -39,7 +39,7 @@ public class TreasureRoomPatch {
 
     static {
         entry = new Texture(DemoMod.getResourcePath("effects/mazeEntry.png"));
-        hb = new Hitbox(300, 100);
+        hb = new Hitbox(450.0F * Settings.scale, 150.0F * Settings.scale);
         hb.move(Settings.WIDTH * 0.5F, Settings.HEIGHT * 0.3F);
     }
 
@@ -68,7 +68,9 @@ public class TreasureRoomPatch {
 
         private static void render(SpriteBatch sb) {
             sb.setColor(1, 1, 1, 1);
-            sb.draw(entry, Settings.WIDTH * 0.5F - 150, Settings.HEIGHT * 0.3F - 50);
+            sb.draw(entry, Settings.WIDTH * 0.5F - 225.0F * Settings.scale, Settings.HEIGHT * 0.3F - 75.0F * Settings.scale,
+            450.0F * Settings.scale, 150.0F * Settings.scale);
+            hb.render(sb);
         }
     }
 
@@ -85,18 +87,6 @@ public class TreasureRoomPatch {
                     if ((AbstractDungeon.player.hasRelic(GnawedKey.ID) || AbstractDungeon.player.hasRelic("DemoExt:Drill")) && !isOpen) {
                         AbstractDungeon.effectsQueue.add(new EnterTheMazeEffect(AbstractDungeon.player.hasRelic(GnawedKey.ID)));
                         if (AbstractDungeon.player.hasRelic(GnawedKey.ID)) AbstractDungeon.player.loseRelic(GnawedKey.ID);
-                        try {
-                            Field field = AbstractChest.class.getDeclaredField("hb");
-                            field.setAccessible(true);
-                            Hitbox hb = (Hitbox) field.get(room.chest);
-                            field.set(room.chest, new Hitbox(hb.x, hb.y, hb.width, hb.height) {
-                                @Override
-                                public void update() {
-                                }
-                            });
-                        } catch (NoSuchFieldException | IllegalAccessException e) {
-                            e.printStackTrace();
-                        }
                     }
                     if (isOpen) {
                         AbstractDungeon.effectsQueue.add(new PlayerJumpIntoEntryEffect(true));

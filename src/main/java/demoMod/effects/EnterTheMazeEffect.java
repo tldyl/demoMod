@@ -15,14 +15,14 @@ public class EnterTheMazeEffect extends AbstractGameEffect {
     private float a = 0.0F;
     private float x;
     private float y;
-    private float dst = 224.0F;
+    private float dst = 336.0F * Settings.scale;
     private boolean sfxPlayed = false;
     private boolean useGnawedKey;
 
     public EnterTheMazeEffect(boolean useGnawedKey) {
         this.duration = 1.5F;
-        this.x = Settings.WIDTH * 0.5F - 64.0F;
-        this.y = Settings.HEIGHT * 0.3F - 64.0F + this.dst;
+        this.x = Settings.WIDTH * 0.5F - 96.0F * Settings.scale;
+        this.y = Settings.HEIGHT * 0.3F - 96.0F * Settings.scale + this.dst;
         this.useGnawedKey = useGnawedKey;
     }
 
@@ -50,17 +50,22 @@ public class EnterTheMazeEffect extends AbstractGameEffect {
             this.isDone = true;
             DemoSoundMaster.playA("ENTRY_OPEN", 0.0F);
             TreasureRoomPatch.onEntryOpen();
+            if (this.key != null) {
+                this.dispose();
+            }
         }
     }
 
     @Override
     public void render(SpriteBatch sb) {
+        if (isDone) return;
         sb.setColor(1, 1, 1, this.a);
-        sb.draw(this.key, this.x, this.y);
+        sb.draw(this.key, this.x, this.y, 192.0F * Settings.scale, 192.0F * Settings.scale);
     }
 
     @Override
     public void dispose() {
-
+        this.key.dispose();
+        this.key = null;
     }
 }

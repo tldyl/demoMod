@@ -83,9 +83,9 @@ public class ComboManualScreen implements ScrollBarListener {
         for (String s : comboNames) {
             ComboItemButton button = new ComboItemButton(Settings.WIDTH * 0.2F, y, new Texture(DemoMod.getResourcePath("ui/buttons/comboItemButton.png")), s, namesAndIds.get(s));
             combos.add(button);
-            y -= 80.0F;
+            y -= 120.0F * Settings.scale;
         }
-        scrollUpperBound = combos.size() * 60 + (combos.size() - 1) * 20 - Settings.HEIGHT * 0.7F;
+        scrollUpperBound = combos.size() * 90 * Settings.scale + (combos.size() - 1) * 30.0F * Settings.scale - Settings.HEIGHT * 0.7F;
 
         Pixmap bg = new Pixmap(Settings.SAVED_WIDTH, Settings.SAVED_HEIGHT, Pixmap.Format.RGBA8888);
         bg.setColor(0, 0, 0, 1);

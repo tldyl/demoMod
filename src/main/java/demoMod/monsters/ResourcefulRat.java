@@ -194,9 +194,9 @@ public class ResourcefulRat extends AbstractMonster implements CustomSavable<Boo
             phaseTwo = true;
             this.img = new Texture(DemoMod.getResourcePath("monsters/resourcefulRat/idle/idle_scale_1.3.png"));
             if (AbstractDungeon.ascensionLevel >= 19) {
-                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 50)));
+                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 70)));
             } else {
-                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 60)));
+                this.addToBot(new ApplyPowerAction(this, this, new InvinciblePower(this, 80)));
             }
         } else {
             AbstractDungeon.getCurrRoom().rewardAllowed = false;

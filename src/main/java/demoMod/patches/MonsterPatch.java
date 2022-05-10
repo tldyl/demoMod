@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import demoMod.DemoMod;
 import demoMod.interfaces.PostOnMonsterDeathSubscriber;
 import demoMod.powers.CongealedPower;
+import demoMod.powers.StrengthOfCursePower;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class MonsterPatch {
         public RenderMonsterPatch() { }
 
         public static void Prefix(AbstractMonster m, SpriteBatch sb) {
-            if (!m.isDead && !m.escaped && m.hasPower(DemoMod.makeID("StrengthOfCursePower"))) {
+            if (!m.isDead && !m.escaped && m.hasPower(StrengthOfCursePower.POWER_ID)) {
                 CardCrawlGame.psb.setShader(redShader);
                 sb.setShader(redShader);
             }

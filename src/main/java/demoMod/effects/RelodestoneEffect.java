@@ -3,6 +3,7 @@ package demoMod.effects;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
@@ -37,12 +38,12 @@ public class RelodestoneEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        sb.draw(frames[this.index - DemoMod.frameRateRemap(ctr, 60, index)], AbstractDungeon.player.hb.cX - 96,
-                AbstractDungeon.player.hb.cY - 96,
+        sb.draw(frames[this.index - DemoMod.frameRateRemap(ctr, 60, index)], AbstractDungeon.player.hb.cX - 144.0F * Settings.scale,
+                AbstractDungeon.player.hb.cY - 144.0F * Settings.scale,
                 96,
                 96,
-                192,
-                192,
+                288.0F * Settings.scale,
+                288.0F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
     }
 
