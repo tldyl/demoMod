@@ -2,6 +2,7 @@ package demoMod.effects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
 
@@ -46,8 +47,8 @@ public class BlessEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        sb.draw(frames[DemoMod.frameRateRemap(idx, 60, frames.length - 1)], this.x - 96,
-                this.y - 48);
+        sb.draw(frames[DemoMod.frameRateRemap(idx, 60, frames.length - 1)], this.x - 144.0F * Settings.scale,
+                this.y - 72.0F * Settings.scale, 288.0F * Settings.scale, 144.0F * Settings.scale);
     }
 
     @Override

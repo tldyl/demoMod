@@ -24,11 +24,11 @@ public class ChaffGrenadeEffect extends AbstractGameEffect {
         this.duration = 0.5F;
         this.startingDuration = this.duration;
         this.img = new Texture("DemoImages/effects/chaffGrenade.png");
-        Point startPoint = new Point((double)(AbstractDungeon.player.hb.x), (double)(AbstractDungeon.player.hb_y + 220.0F));
+        Point startPoint = new Point((double)(AbstractDungeon.player.hb.x), (double)(AbstractDungeon.player.hb_y + 330.0F * Settings.scale));
         this.x = (float)startPoint.x;
         this.y = (float)startPoint.y;
         this.vX = (float)(Settings.WIDTH * 1.0);
-        this.vY = 1000.0F;
+        this.vY = 1500.0F * Settings.scale;
         this.renderBehind = false;
     }
 
@@ -40,14 +40,14 @@ public class ChaffGrenadeEffect extends AbstractGameEffect {
                 this.img.getHeight() / 2.0F,
                 this.img.getWidth(),
                 this.img.getHeight(),
-                2.0F, 2.0F, this.rotation);
+                3.0F * Settings.scale, 3.0F * Settings.scale, this.rotation);
     }
 
     @Override
     public void update() {
         this.y += this.vY * Gdx.graphics.getDeltaTime();
         this.x += this.vX * Gdx.graphics.getDeltaTime();
-        this.vY -= 4000 * Gdx.graphics.getDeltaTime();
+        this.vY -= 6000 * Gdx.graphics.getDeltaTime() * Settings.scale;
         this.duration -= Gdx.graphics.getDeltaTime();
         this.rotation += 1.5F;
         if (this.duration < 0.0F) {

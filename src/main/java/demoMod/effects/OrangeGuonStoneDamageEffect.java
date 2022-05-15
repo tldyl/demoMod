@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -47,12 +48,12 @@ public class OrangeGuonStoneDamageEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        sb.draw(img[frame], this.x,
-                this.y,
+        sb.draw(img[frame], this.x - 96.0F * Settings.scale,
+                this.y - 96.0F * Settings.scale,
                 64,
                 64,
-                128,
-                128,
+                192.0F * Settings.scale,
+                192.0F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
     }
 

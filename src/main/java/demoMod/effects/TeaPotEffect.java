@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class TeaPotEffect extends AbstractGameEffect {
@@ -42,12 +43,12 @@ public class TeaPotEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1.0F,1.0F,1.0F, this.a);
-        sb.draw(this.img, this.x - 32,
-                this.y + 32,
+        sb.draw(this.img, this.x - 48.0F * Settings.scale,
+                this.y + 48.0F * Settings.scale,
                 32,
                 32,
-                this.img.getRegionWidth(),
-                this.img.getRegionHeight(),
+                this.img.getRegionWidth() * 1.5F * Settings.scale,
+                this.img.getRegionHeight() * 1.5F * Settings.scale,
                 this.scale, this.scale, this.rotation);
     }
 

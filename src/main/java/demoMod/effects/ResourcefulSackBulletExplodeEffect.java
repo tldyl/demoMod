@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
@@ -16,8 +17,8 @@ public class ResourcefulSackBulletExplodeEffect extends AbstractGameEffect {
     private int idx = -1;
     private AbstractCreature target;
 
-    private int XRan = MathUtils.random(64) - 32;
-    private int YRan = MathUtils.random(64) - 32;
+    private float XRan = (MathUtils.random(96.0F) - 48.0F) * Settings.scale;
+    private float YRan = (MathUtils.random(96.0F) - 48.0F) * Settings.scale;
 
     public ResourcefulSackBulletExplodeEffect(AbstractCreature target) {
         this.duration = 1.57F;
@@ -42,12 +43,12 @@ public class ResourcefulSackBulletExplodeEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
-        sb.draw(frames[DemoMod.frameRateRemap(idx, 30, frames.length - 1)], target.hb.cX + XRan - 256,
-                target.hb.cY + YRan - 256,
+        sb.draw(frames[DemoMod.frameRateRemap(idx, 30, frames.length - 1)], target.hb.cX + XRan - 384.0F * Settings.scale,
+                target.hb.cY + YRan - 384.0F * Settings.scale,
                 256,
                 256,
-                512,
-                512,
+                768.0F * Settings.scale,
+                768.0F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
     }
 

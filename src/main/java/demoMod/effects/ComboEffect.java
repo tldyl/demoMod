@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.core.DisplayConfig;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import demoMod.DemoMod;
@@ -105,28 +106,28 @@ public class ComboEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(1.0F,1.0F,1.0F,arrowAlpha);
-        sb.draw(this.comboArrow, this.arrowX - this.comboArrow.getTexture().getWidth() / 2,
-                this.arrowY - this.comboArrow.getTexture().getHeight() / 2,
-                this.comboArrow.getTexture().getWidth() / 2,
-                this.comboArrow.getTexture().getHeight() / 2,
-                this.comboArrow.getRegionWidth(),
-                this.comboArrow.getRegionHeight(),
+        sb.draw(this.comboArrow, this.arrowX - (this.comboArrow.getTexture().getWidth() * 1.5F * Settings.scale) / 2,
+                this.arrowY - (this.comboArrow.getTexture().getHeight() * 1.5F * Settings.scale) / 2,
+                this.comboArrow.getTexture().getWidth() * 1.5F * Settings.scale / 2,
+                this.comboArrow.getTexture().getHeight() * 1.5F * Settings.scale / 2,
+                this.comboArrow.getRegionWidth() * 1.5F * Settings.scale,
+                this.comboArrow.getRegionHeight() * 1.5F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
         sb.setColor(1.0F,1.0F,1.0F, a1);
-        sb.draw(this.item1, this.x1 - this.item1.getTexture().getWidth() / 2,
-                this.y1 - this.item1.getTexture().getHeight() / 2,
+        sb.draw(this.item1, this.x1 - this.item1.getTexture().getWidth() * 1.5F * Settings.scale / 2,
+                this.y1 - this.item1.getTexture().getHeight() * 1.5F * Settings.scale / 2,
                 this.item1.getTexture().getWidth() / 2,
                 this.item1.getTexture().getHeight() / 2,
-                this.item1.getRegionWidth(),
-                this.item1.getRegionHeight(),
+                this.item1.getRegionWidth() * 1.5F * Settings.scale,
+                this.item1.getRegionHeight() * 1.5F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
         sb.setColor(1.0F,1.0F,1.0F, a2);
-        sb.draw(this.item2, this.x2 - this.item2.getTexture().getWidth() / 2,
-                this.y2 - this.item2.getTexture().getHeight() / 2,
-                this.item2.getTexture().getWidth() / 2,
-                this.item2.getTexture().getHeight() / 2,
-                this.item2.getRegionWidth(),
-                this.item2.getRegionHeight(),
+        sb.draw(this.item2, this.x2 - this.item2.getTexture().getWidth() * 1.5F * Settings.scale / 2,
+                this.y2 - this.item2.getTexture().getHeight() * 1.5F * Settings.scale / 2,
+                this.item2.getTexture().getWidth() * 1.5F * Settings.scale / 2,
+                this.item2.getTexture().getHeight() * 1.5F * Settings.scale / 2,
+                this.item2.getRegionWidth() * 1.5F * Settings.scale,
+                this.item2.getRegionHeight() * 1.5F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
         FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, this.description, this.descX, this.descY, new Color(1.0F, 1.0F, 1.0F, descAlpha));
     }

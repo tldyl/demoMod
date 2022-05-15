@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -77,7 +78,7 @@ public class Gunsinger extends AbstractMonster implements PostOnMonsterDeathSubs
             setHp(13 * (int)calcMaxHpMultiplier(), 17 * (int)calcMaxHpMultiplier());
         }
         this.damage.add(new DamageInfo(this, ATTACK_DMG));
-        this.effect = new BlessEffect(this.drawX, this.drawY + 16);
+        this.effect = new BlessEffect(this.drawX, this.drawY + 24.0F * Settings.scale);
     }
 
     @Override

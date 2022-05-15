@@ -28,8 +28,8 @@ public class BigBoyBlastEffect extends AbstractGameEffect {
                 AbstractDungeon.player.hb.cY / 2,
                 frames[t].getRegionWidth() / 2,
                 frames[t].getRegionHeight() / 2,
-                frames[t].getRegionWidth(),
-                frames[t].getRegionHeight(),
+                frames[t].getRegionWidth() * 1.5F * Settings.scale,
+                frames[t].getRegionHeight() * 1.5F * Settings.scale,
                 1.0F, 1.0F, this.rotation);
     }
 

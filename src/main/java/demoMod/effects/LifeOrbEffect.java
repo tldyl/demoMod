@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -70,8 +71,8 @@ public class LifeOrbEffect extends AbstractGameEffect {
     public void render(SpriteBatch sb) {
         sb.setColor(1, 1, 1, 1);
         sb.draw(this.frame, this.x, this.y,
-                this.frameWidth / 2, 27.5F,
-                frameWidth, imgHeight,
+                this.frameWidth * 1.5F * Settings.scale / 2, 27.5F * 1.5F * Settings.scale,
+                frameWidth * 1.5F * Settings.scale, imgHeight * 1.5F * Settings.scale,
                 this.scaleX, this.scaleY * this.scaleYControl,
                 this.rotation);
     }

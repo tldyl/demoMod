@@ -65,15 +65,14 @@ public class BulletKin extends AbstractMonster {
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                if (ctr <= 6) {
-                    setMove((byte) 2, Intent.UNKNOWN);
-                }
+                setMove(MOVES[0], (byte)3, Intent.DEFEND);
                 break;
             case 2:
                 AbstractMonster kin = new BulletKin(MathUtils.random(-300.0F, 180.0F), MathUtils.random(0.0F, 380.0F));
-                ((BulletKin) kin).wantSpawn = ctr < 8 && AbstractDungeon.monsterRng.randomBoolean();
+                ((BulletKin) kin).wantSpawn = ctr < 6 && AbstractDungeon.monsterRng.randomBoolean();
                 AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(kin, false));
                 setMove(MOVES[0], (byte)3, Intent.DEFEND);
+                this.wantSpawn = false;
                 break;
             case 3:
                 addToBot(new GainBlockAction(this, 6 * (int)calcMaxHpMultiplier()));
